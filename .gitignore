@@ -11,3 +11,6 @@ buildNumber.properties
 
 # idea project files
 *.iml
+/.idea/libraries/
+/.idea/artifacts/
+/.idea/misc.xml
