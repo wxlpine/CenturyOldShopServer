@@ -5,13 +5,14 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class DiscountInfo
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @pdOid 26a388c6-ca24-4539-b787-6b2684dfe7b6
  */
-public class DiscountInfo {
+public class DiscountInfo implements Serializable {
     /**
      * @pdOid 9e8e6653-77bd-4295-b558-cb3b4882be34
      */
@@ -72,5 +73,6 @@ public class DiscountInfo {
      */
     private Commodity commodity;
 
-
+    public DiscountInfo() {
+    }
 }

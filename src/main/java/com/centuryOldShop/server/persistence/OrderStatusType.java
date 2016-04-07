@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class OrderStatusType
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @pdOid c223fab8-1304-4fb2-a6db-0a747e430b64
  */
-public class OrderStatusType {
+public class OrderStatusType implements Serializable {
     /**
      * @pdOid be285f03-5d31-4529-9d09-c2aefbfe8732
      */
@@ -21,5 +22,6 @@ public class OrderStatusType {
      */
     private List<OrderForm> orderForm;
 
-
+    public OrderStatusType() {
+    }
 }

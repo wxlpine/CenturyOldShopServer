@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class DiscountType
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @pdOid e05f0e50-7c25-4589-8c85-84b079b0ec3f
  */
-public class DiscountType {
+public class DiscountType implements Serializable {
     /**
      * @pdOid ddc4f80e-5fca-4c58-8331-424d5d947921
      */
@@ -25,5 +26,6 @@ public class DiscountType {
      */
     private List<DiscountInfo> discountInfo;
 
-
+    public DiscountType() {
+    }
 }

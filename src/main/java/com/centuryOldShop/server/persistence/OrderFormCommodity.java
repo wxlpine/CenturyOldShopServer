@@ -5,10 +5,12 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class OrderFormCommodity
  ***********************************************************************/
 
+import java.io.Serializable;
+
 /**
  * @pdOid cec92b6e-ddf8-4503-86ff-64de391c4f56
  */
-public class OrderFormCommodity {
+public class OrderFormCommodity implements Serializable {
     /**
      * @pdOid c4c50301-b1e9-4772-b371-c073aec64eb6
      */
@@ -21,4 +23,6 @@ public class OrderFormCommodity {
     private OrderForm orderForm;
     private Commodity commodity;
 
+    public OrderFormCommodity() {
+    }
 }

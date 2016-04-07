@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class Message
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @pdOid 6edd8efd-82b8-4499-927c-e37fdc09ecd2
  */
-public class Message {
+public class Message implements Serializable {
     /**
      * @pdOid 759a28f1-f797-4fad-a6ce-6656e5faf663
      */
@@ -33,5 +34,6 @@ public class Message {
      */
     private AppUser receiveUser;
 
-
+    public Message() {
+    }
 }

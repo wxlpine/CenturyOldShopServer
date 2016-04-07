@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class CommodityType
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @pdOid 21155406-14eb-422a-9588-b971854d9418
  */
-public class CommodityType {
+public class CommodityType implements Serializable {
     /**
      * @pdOid c9f763bc-c6b9-4c2d-afaf-3078b4972d36
      */
@@ -21,5 +22,6 @@ public class CommodityType {
      */
     private List<Commodity> commodity;
 
-
+    public CommodityType() {
+    }
 }

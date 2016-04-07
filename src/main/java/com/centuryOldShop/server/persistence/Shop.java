@@ -5,13 +5,14 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class Shop
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @pdOid 5d8df738-d9e6-4e47-a310-86e2e6813989
  */
-public class Shop {
+public class Shop implements Serializable {
     /**
      * @pdOid c0eb1155-b2b4-43b6-815b-7a86a8979721
      */
@@ -100,5 +101,6 @@ public class Shop {
      */
     private ShopArea shopArea;
 
-
+    public Shop() {
+    }
 }

@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class ShoppingCart
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @pdOid 6a429811-307d-4c04-95e4-acb6075acaaf
  */
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
     /**
      * @pdOid 4148baff-de2c-4670-84ec-3fb2a7910b4a
      */
@@ -23,4 +24,6 @@ public class ShoppingCart {
     private AppUser shoppingCartUser;
     private Commodity shoppingCartCommodity;
 
+    public ShoppingCart() {
+    }
 }

@@ -6,13 +6,14 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class AppUser
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @pdOid d6608c5e-a7d5-4fd5-9f06-ad123e7d64f0
  */
-public class AppUser {
+public class AppUser implements Serializable {
     /**
      * @pdOid 87d24e90-68de-4eeb-9741-b4fea56854cc
      */
@@ -69,4 +70,6 @@ public class AppUser {
     private Shop managedShop;
     private List<Favorite> favorite;
 
+    public AppUser() {
+    }
 }

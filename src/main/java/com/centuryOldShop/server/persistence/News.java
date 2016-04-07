@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class News
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @pdOid eb9bbe91-3175-42d7-be1a-c8223415eb2b
  */
-public class News {
+public class News implements Serializable {
     /**
      * @pdOid fa01b9e9-e7e8-4d9e-95be-0af55b94886a
      */
@@ -41,5 +42,6 @@ public class News {
      */
     private Shop shop;
 
-
+    public News() {
+    }
 }

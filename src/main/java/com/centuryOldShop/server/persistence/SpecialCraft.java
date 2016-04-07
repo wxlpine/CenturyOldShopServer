@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class SpecialCraft
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @pdOid 219a3ee8-f77a-4798-b702-3b3c24114fae
  */
-public class SpecialCraft {
+public class SpecialCraft implements Serializable {
     /**
      * @pdOid 2d9ac220-7ce8-4374-b747-b7555ff5b6b8
      */
@@ -37,5 +38,6 @@ public class SpecialCraft {
      */
     private Shop shop;
 
-
+    public SpecialCraft() {
+    }
 }

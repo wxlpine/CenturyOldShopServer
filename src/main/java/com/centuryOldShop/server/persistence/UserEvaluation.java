@@ -5,12 +5,13 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class UserEvaluation
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @pdOid 173aa411-6a07-49b5-9b29-68b8b60c2468
  */
-public class UserEvaluation {
+public class UserEvaluation implements Serializable {
     /**
      * @pdOid bf274b33-04f8-4d16-a953-db82c2f36fa0
      */
@@ -37,5 +38,6 @@ public class UserEvaluation {
      */
     private AppUser appUser;
 
-
+    public UserEvaluation() {
+    }
 }

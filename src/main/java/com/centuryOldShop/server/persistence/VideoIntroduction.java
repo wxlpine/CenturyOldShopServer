@@ -5,13 +5,14 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class VideoIntroduction
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @pdOid a802b270-652e-4a7e-b30b-af41441343d1
  */
-public class VideoIntroduction {
+public class VideoIntroduction implements Serializable {
     /**
      * @pdOid d17a2bc8-d181-49f8-a9ea-b3d5a428903e
      */
@@ -50,5 +51,6 @@ public class VideoIntroduction {
      */
     private Shop shop;
 
-
+    public VideoIntroduction() {
+    }
 }

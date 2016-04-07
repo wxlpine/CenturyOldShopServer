@@ -5,13 +5,14 @@ package com.centuryOldShop.server.persistence;
  * Purpose: Defines the Class OrderForm
  ***********************************************************************/
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * @pdOid 0698fce8-4586-41a2-840e-dadcff225b06
  */
-public class OrderForm {
+public class OrderForm implements Serializable {
     /**
      * @pdOid a7deefd7-bb5a-41f2-aeb6-aa6ecc6affd2
      */
@@ -63,5 +64,6 @@ public class OrderForm {
      */
     private DisputeStatusType disputeStatusType;
 
-
+    public OrderForm() {
+    }
 }
