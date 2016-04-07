@@ -70,6 +70,186 @@ public class AppUser implements Serializable {
     private Shop managedShop;
     private List<Favorite> favorite;
 
+    //<editor-fold desc="constructor">
+
     public AppUser() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public AppUser setUserId(long userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public AppUser setUserName(String userName) {
+        this.userName = userName;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public AppUser setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public AppUser setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public AppUser setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public short getUserType() {
+        return userType;
+    }
+
+    public AppUser setUserType(short userType) {
+        this.userType = userType;
+        return this;
+    }
+
+    public String getHeadPortraitUrl() {
+        return headPortraitUrl;
+    }
+
+    public AppUser setHeadPortraitUrl(String headPortraitUrl) {
+        this.headPortraitUrl = headPortraitUrl;
+        return this;
+    }
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public AppUser setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+        return this;
+    }
+
+    public List<OrderForm> getOrderForm() {
+        return orderForm;
+    }
+
+    public AppUser setOrderForm(List<OrderForm> orderForm) {
+        this.orderForm = orderForm;
+        return this;
+    }
+
+    public List<UserEvaluation> getUserEvaluation() {
+        return userEvaluation;
+    }
+
+    public AppUser setUserEvaluation(List<UserEvaluation> userEvaluation) {
+        this.userEvaluation = userEvaluation;
+        return this;
+    }
+
+    public List<Message> getSendMessage() {
+        return sendMessage;
+    }
+
+    public AppUser setSendMessage(List<Message> sendMessage) {
+        this.sendMessage = sendMessage;
+        return this;
+    }
+
+    public List<Message> getReceiveMessage() {
+        return receiveMessage;
+    }
+
+    public AppUser setReceiveMessage(List<Message> receiveMessage) {
+        this.receiveMessage = receiveMessage;
+        return this;
+    }
+
+    public List<ShoppingCart> getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public AppUser setShoppingCart(List<ShoppingCart> shoppingCart) {
+        this.shoppingCart = shoppingCart;
+        return this;
+    }
+
+    public Shop getManagedShop() {
+        return managedShop;
+    }
+
+    public AppUser setManagedShop(Shop managedShop) {
+        this.managedShop = managedShop;
+        return this;
+    }
+
+    public List<Favorite> getFavorite() {
+        return favorite;
+    }
+
+    public AppUser setFavorite(List<Favorite> favorite) {
+        this.favorite = favorite;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AppUser appUser = (AppUser) o;
+
+        return userId == appUser.userId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (userId ^ (userId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", userType=" + userType +
+                ", headPortraitUrl='" + headPortraitUrl + '\'' +
+                ", registerTime=" + registerTime +
+                '}';
+    }
+
+    //</editor-fold>
+
 }

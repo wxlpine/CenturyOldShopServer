@@ -34,6 +34,89 @@ public class Message implements Serializable {
      */
     private AppUser receiveUser;
 
+    //<editor-fold desc="constructor">
     public Message() {
     }
+    //</editor-fold>
+
+    //<editor-fold desc="accessor">
+
+    public long getMessageId() {
+        return messageId;
+    }
+
+    public Message setMessageId(long messageId) {
+        this.messageId = messageId;
+        return this;
+    }
+
+    public Date getSendTime() {
+        return sendTime;
+    }
+
+    public Message setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
+        return this;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Message setContent(String content) {
+        this.content = content;
+        return this;
+    }
+
+    public AppUser getSendUser() {
+        return sendUser;
+    }
+
+    public Message setSendUser(AppUser sendUser) {
+        this.sendUser = sendUser;
+        return this;
+    }
+
+    public AppUser getReceiveUser() {
+        return receiveUser;
+    }
+
+    public Message setReceiveUser(AppUser receiveUser) {
+        this.receiveUser = receiveUser;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Message message = (Message) o;
+
+        return messageId == message.messageId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (messageId ^ (messageId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageId=" + messageId +
+                ", sendTime=" + sendTime +
+                ", content='" + content + '\'' +
+                ", sendUser=" + sendUser +
+                ", receiveUser=" + receiveUser +
+                '}';
+    }
+
+    //</editor-fold>
 }

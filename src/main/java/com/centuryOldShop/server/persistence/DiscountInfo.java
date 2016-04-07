@@ -71,8 +71,158 @@ public class DiscountInfo implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Commodity assc=commodityDiscountInfo mult=0..1 side=A
      */
-    private Commodity commodity;
+    private List<Commodity> commodity;
 
+    //<editor-fold desc="constructor">
     public DiscountInfo() {
     }
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+    public long getDiscountInfoId() {
+        return discountInfoId;
+    }
+
+    public DiscountInfo setDiscountInfoId(long discountInfoId) {
+        this.discountInfoId = discountInfoId;
+        return this;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public DiscountInfo setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public Date getDiscountStartTime() {
+        return discountStartTime;
+    }
+
+    public DiscountInfo setDiscountStartTime(Date discountStartTime) {
+        this.discountStartTime = discountStartTime;
+        return this;
+    }
+
+    public Date getDiscountEndTime() {
+        return discountEndTime;
+    }
+
+    public DiscountInfo setDiscountEndTime(Date discountEndTime) {
+        this.discountEndTime = discountEndTime;
+        return this;
+    }
+
+    public double getPriceReduceMinPrice() {
+        return priceReduceMinPrice;
+    }
+
+    public DiscountInfo setPriceReduceMinPrice(double priceReduceMinPrice) {
+        this.priceReduceMinPrice = priceReduceMinPrice;
+        return this;
+    }
+
+    public double getPriceReduceAmount() {
+        return priceReduceAmount;
+    }
+
+    public DiscountInfo setPriceReduceAmount(double priceReduceAmount) {
+        this.priceReduceAmount = priceReduceAmount;
+        return this;
+    }
+
+    public double getDiscountMinPrice() {
+        return discountMinPrice;
+    }
+
+    public DiscountInfo setDiscountMinPrice(double discountMinPrice) {
+        this.discountMinPrice = discountMinPrice;
+        return this;
+    }
+
+    public double getDiscountRatio() {
+        return discountRatio;
+    }
+
+    public DiscountInfo setDiscountRatio(double discountRatio) {
+        this.discountRatio = discountRatio;
+        return this;
+    }
+
+    public List<OrderForm> getOrderForm() {
+        return orderForm;
+    }
+
+    public DiscountInfo setOrderForm(List<OrderForm> orderForm) {
+        this.orderForm = orderForm;
+        return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public DiscountInfo setShop(Shop shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    public DiscountType getDiscountType() {
+        return discountType;
+    }
+
+    public DiscountInfo setDiscountType(DiscountType discountType) {
+        this.discountType = discountType;
+        return this;
+    }
+
+    public List<Commodity> getCommodity() {
+        return commodity;
+    }
+
+    public DiscountInfo setCommodity(List<Commodity> commodity) {
+        this.commodity = commodity;
+        return this;
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DiscountInfo that = (DiscountInfo) o;
+
+        return discountInfoId == that.discountInfoId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (discountInfoId ^ (discountInfoId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "DiscountInfo{" +
+                "discountInfoId=" + discountInfoId +
+                ", title='" + title + '\'' +
+                ", discountStartTime=" + discountStartTime +
+                ", discountEndTime=" + discountEndTime +
+                ", priceReduceMinPrice=" + priceReduceMinPrice +
+                ", priceReduceAmount=" + priceReduceAmount +
+                ", discountMinPrice=" + discountMinPrice +
+                ", discountRatio=" + discountRatio +
+                ", shop=" + shop +
+                ", discountType=" + discountType +
+                ", commodity=" + commodity +
+                '}';
+    }
+    //</editor-fold>
 }

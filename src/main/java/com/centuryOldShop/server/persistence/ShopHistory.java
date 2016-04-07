@@ -46,6 +46,123 @@ public class ShopHistory implements Serializable {
      */
     private Shop shop;
 
+
+    //<editor-fold desc="constructor">
+
     public ShopHistory() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getShopHistoryId() {
+        return shopHistoryId;
+    }
+
+    public ShopHistory setShopHistoryId(long shopHistoryId) {
+        this.shopHistoryId = shopHistoryId;
+        return this;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public ShopHistory setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public String getSmallPhotoUrl() {
+        return smallPhotoUrl;
+    }
+
+    public ShopHistory setSmallPhotoUrl(String smallPhotoUrl) {
+        this.smallPhotoUrl = smallPhotoUrl;
+        return this;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public ShopHistory setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+        return this;
+    }
+
+    public Date getPublishTime() {
+        return publishTime;
+    }
+
+    public ShopHistory setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
+        return this;
+    }
+
+    public int getVisitCount() {
+        return visitCount;
+    }
+
+    public ShopHistory setVisitCount(int visitCount) {
+        this.visitCount = visitCount;
+        return this;
+    }
+
+    public String getDetailedIntroductionPageUrl() {
+        return detailedIntroductionPageUrl;
+    }
+
+    public ShopHistory setDetailedIntroductionPageUrl(String detailedIntroductionPageUrl) {
+        this.detailedIntroductionPageUrl = detailedIntroductionPageUrl;
+        return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public ShopHistory setShop(Shop shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShopHistory that = (ShopHistory) o;
+
+        return shopHistoryId == that.shopHistoryId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (shopHistoryId ^ (shopHistoryId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "ShopHistory{" +
+                "shopHistoryId=" + shopHistoryId +
+                ", title='" + title + '\'' +
+                ", smallPhotoUrl='" + smallPhotoUrl + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", publishTime=" + publishTime +
+                ", visitCount=" + visitCount +
+                ", detailedIntroductionPageUrl='" + detailedIntroductionPageUrl + '\'' +
+                ", shop=" + shop +
+                '}';
+    }
+
+    //</editor-fold>
 }

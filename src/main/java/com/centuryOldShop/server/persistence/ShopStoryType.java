@@ -20,8 +20,65 @@ public class ShopStoryType implements Serializable {
     /**
      * @pdRoleInfo migr=no name=ShopStory assc=shopStoryShopStoryType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<ShopStory> shopStoryType;
+    private List<ShopStory> shopStory;
+
+
+    //<editor-fold desc="constructor">
 
     public ShopStoryType() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public String getStoryTypeName() {
+        return storyTypeName;
+    }
+
+    public ShopStoryType setStoryTypeName(String storyTypeName) {
+        this.storyTypeName = storyTypeName;
+        return this;
+    }
+
+    public List<ShopStory> getShopStory() {
+        return shopStory;
+    }
+
+    public ShopStoryType setShopStory(List<ShopStory> shopStory) {
+        this.shopStory = shopStory;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShopStoryType that = (ShopStoryType) o;
+
+        return storyTypeName != null ? storyTypeName.equals(that.storyTypeName) : that.storyTypeName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return storyTypeName != null ? storyTypeName.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ShopStoryType{" +
+                "storyTypeName='" + storyTypeName + '\'' +
+                '}';
+    }
+
+    //</editor-fold>
+
 }

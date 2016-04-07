@@ -74,6 +74,205 @@ public class Commodity implements Serializable {
     private CommodityType commodityType;
     private List<ShoppingCart> shoppingCart;
 
+    //<editor-fold desc="constructor">
     public Commodity() {
     }
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getCommodityId() {
+        return commodityId;
+    }
+
+    public Commodity setCommodityId(long commodityId) {
+        this.commodityId = commodityId;
+        return this;
+    }
+
+    public String getCommodityName() {
+        return commodityName;
+    }
+
+    public Commodity setCommodityName(String commodityName) {
+        this.commodityName = commodityName;
+        return this;
+    }
+
+    public String getSmallPhotoUrl() {
+        return smallPhotoUrl;
+    }
+
+    public Commodity setSmallPhotoUrl(String smallPhotoUrl) {
+        this.smallPhotoUrl = smallPhotoUrl;
+        return this;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public Commodity setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+        return this;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Commodity setPrice(double price) {
+        this.price = price;
+        return this;
+    }
+
+    public int getSalesVolume() {
+        return salesVolume;
+    }
+
+    public Commodity setSalesVolume(int salesVolume) {
+        this.salesVolume = salesVolume;
+        return this;
+    }
+
+    public boolean isExemptionFromPostage() {
+        return exemptionFromPostage;
+    }
+
+    public Commodity setExemptionFromPostage(boolean exemptionFromPostage) {
+        this.exemptionFromPostage = exemptionFromPostage;
+        return this;
+    }
+
+    public Date getAddedTime() {
+        return addedTime;
+    }
+
+    public Commodity setAddedTime(Date addedTime) {
+        this.addedTime = addedTime;
+        return this;
+    }
+
+    public String getPhoneTopBigPhotoUrl() {
+        return phoneTopBigPhotoUrl;
+    }
+
+    public Commodity setPhoneTopBigPhotoUrl(String phoneTopBigPhotoUrl) {
+        this.phoneTopBigPhotoUrl = phoneTopBigPhotoUrl;
+        return this;
+    }
+
+    public boolean isOffShelf() {
+        return offShelf;
+    }
+
+    public Commodity setOffShelf(boolean offShelf) {
+        this.offShelf = offShelf;
+        return this;
+    }
+
+    public int getRemainingQuantity() {
+        return remainingQuantity;
+    }
+
+    public Commodity setRemainingQuantity(int remainingQuantity) {
+        this.remainingQuantity = remainingQuantity;
+        return this;
+    }
+
+    public List<DiscountInfo> getDiscountInfo() {
+        return discountInfo;
+    }
+
+    public Commodity setDiscountInfo(List<DiscountInfo> discountInfo) {
+        this.discountInfo = discountInfo;
+        return this;
+    }
+
+    public List<UserEvaluation> getUserEvaluation() {
+        return userEvaluation;
+    }
+
+    public Commodity setUserEvaluation(List<UserEvaluation> userEvaluation) {
+        this.userEvaluation = userEvaluation;
+        return this;
+    }
+
+    public List<Favorite> getFavorite() {
+        return favorite;
+    }
+
+    public Commodity setFavorite(List<Favorite> favorite) {
+        this.favorite = favorite;
+        return this;
+    }
+
+    public List<OrderFormCommodity> getOrderFormCommodity() {
+        return orderFormCommodity;
+    }
+
+    public Commodity setOrderFormCommodity(List<OrderFormCommodity> orderFormCommodity) {
+        this.orderFormCommodity = orderFormCommodity;
+        return this;
+    }
+
+    public CommodityType getCommodityType() {
+        return commodityType;
+    }
+
+    public Commodity setCommodityType(CommodityType commodityType) {
+        this.commodityType = commodityType;
+        return this;
+    }
+
+    public List<ShoppingCart> getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public Commodity setShoppingCart(List<ShoppingCart> shoppingCart) {
+        this.shoppingCart = shoppingCart;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Commodity commodity = (Commodity) o;
+
+        return commodityId == commodity.commodityId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (commodityId ^ (commodityId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "Commodity{" +
+                "commodityId=" + commodityId +
+                ", commodityName='" + commodityName + '\'' +
+                ", smallPhotoUrl='" + smallPhotoUrl + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", price=" + price +
+                ", salesVolume=" + salesVolume +
+                ", exemptionFromPostage=" + exemptionFromPostage +
+                ", addedTime=" + addedTime +
+                ", phoneTopBigPhotoUrl='" + phoneTopBigPhotoUrl + '\'' +
+                ", offShelf=" + offShelf +
+                ", remainingQuantity=" + remainingQuantity +
+                ", commodityType=" + commodityType +
+                '}';
+    }
+    //</editor-fold>
 }

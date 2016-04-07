@@ -36,8 +36,106 @@ public class ShopStory implements Serializable {
     /**
      * @pdRoleInfo migr=no name=ShopStoryType assc=shopStoryShopStoryType mult=1..1 side=A
      */
-    private ShopStoryType shopStory;
+    private ShopStoryType shopStoryType;
+
+    //<editor-fold desc="constructor">
 
     public ShopStory() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getStoryId() {
+        return storyId;
+    }
+
+    public ShopStory setStoryId(long storyId) {
+        this.storyId = storyId;
+        return this;
+    }
+
+    public String getStoryName() {
+        return storyName;
+    }
+
+    public ShopStory setStoryName(String storyName) {
+        this.storyName = storyName;
+        return this;
+    }
+
+    public String getStoryContentUrl() {
+        return storyContentUrl;
+    }
+
+    public ShopStory setStoryContentUrl(String storyContentUrl) {
+        this.storyContentUrl = storyContentUrl;
+        return this;
+    }
+
+    public Date getAddedTime() {
+        return addedTime;
+    }
+
+    public ShopStory setAddedTime(Date addedTime) {
+        this.addedTime = addedTime;
+        return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public ShopStory setShop(Shop shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    public ShopStoryType getShopStoryType() {
+        return shopStoryType;
+    }
+
+    public ShopStory setShopStoryType(ShopStoryType shopStoryType) {
+        this.shopStoryType = shopStoryType;
+        return this;
+    }
+
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShopStory shopStory = (ShopStory) o;
+
+        return storyId == shopStory.storyId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (storyId ^ (storyId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "ShopStory{" +
+                "storyId=" + storyId +
+                ", storyName='" + storyName + '\'' +
+                ", storyContentUrl='" + storyContentUrl + '\'' +
+                ", addedTime=" + addedTime +
+                ", shop=" + shop +
+                ", shopStoryType=" + shopStoryType +
+                '}';
+    }
+
+    //</editor-fold>
+
 }

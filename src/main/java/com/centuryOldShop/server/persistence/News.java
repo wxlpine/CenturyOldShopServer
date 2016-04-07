@@ -42,6 +42,108 @@ public class News implements Serializable {
      */
     private Shop shop;
 
+    //<editor-fold desc="constructor">
     public News() {
     }
+    //</editor-fold>
+
+    //<editor-fold desc="accessor">
+
+    public long getNewsId() {
+        return newsId;
+    }
+
+    public News setNewsId(long newsId) {
+        this.newsId = newsId;
+        return this;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public News setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public String getContentUrl() {
+        return contentUrl;
+    }
+
+    public News setContentUrl(String contentUrl) {
+        this.contentUrl = contentUrl;
+        return this;
+    }
+
+    public Date getPublishTime() {
+        return publishTime;
+    }
+
+    public News setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
+        return this;
+    }
+
+    public int getReadCount() {
+        return readCount;
+    }
+
+    public News setReadCount(int readCount) {
+        this.readCount = readCount;
+        return this;
+    }
+
+    public String getSpotScene() {
+        return spotScene;
+    }
+
+    public News setSpotScene(String spotScene) {
+        this.spotScene = spotScene;
+        return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public News setShop(Shop shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        News news = (News) o;
+
+        return newsId == news.newsId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (newsId ^ (newsId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "newsId=" + newsId +
+                ", title='" + title + '\'' +
+                ", contentUrl='" + contentUrl + '\'' +
+                ", publishTime=" + publishTime +
+                ", readCount=" + readCount +
+                ", spotScene='" + spotScene + '\'' +
+                ", shop=" + shop +
+                '}';
+    }
+    //</editor-fold>
 }

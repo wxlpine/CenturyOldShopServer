@@ -22,6 +22,56 @@ public class DisputeStatusType implements Serializable {
      */
     private List<OrderForm> orderForm;
 
+    //<editor-fold desc="constructor">
     public DisputeStatusType() {
     }
+    //</editor-fold>
+
+    //<editor-fold desc="accessor">
+
+    public String getDisputeStatusType() {
+        return disputeStatusType;
+    }
+
+    public DisputeStatusType setDisputeStatusType(String disputeStatusType) {
+        this.disputeStatusType = disputeStatusType;
+        return this;
+    }
+
+    public List<OrderForm> getOrderForm() {
+        return orderForm;
+    }
+
+    public DisputeStatusType setOrderForm(List<OrderForm> orderForm) {
+        this.orderForm = orderForm;
+        return this;
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DisputeStatusType that = (DisputeStatusType) o;
+
+        return disputeStatusType != null ? disputeStatusType.equals(that.disputeStatusType) : that.disputeStatusType == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return disputeStatusType != null ? disputeStatusType.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "DisputeStatusType{" +
+                "disputeStatusType='" + disputeStatusType + '\'' +
+                '}';
+    }
+    //</editor-fold>
 }

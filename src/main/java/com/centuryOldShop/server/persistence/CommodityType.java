@@ -22,6 +22,60 @@ public class CommodityType implements Serializable {
      */
     private List<Commodity> commodity;
 
+    //<editor-fold desc="constructor">
     public CommodityType() {
     }
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public String getCommodityType() {
+        return commodityType;
+    }
+
+    public CommodityType setCommodityType(String commodityType) {
+        this.commodityType = commodityType;
+        return this;
+    }
+
+    public List<Commodity> getCommodity() {
+        return commodity;
+    }
+
+    public CommodityType setCommodity(List<Commodity> commodity) {
+        this.commodity = commodity;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CommodityType that = (CommodityType) o;
+
+        return commodityType != null ? commodityType.equals(that.commodityType) : that.commodityType == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return commodityType != null ? commodityType.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "CommodityType{" +
+                "commodityType='" + commodityType + '\'' +
+                '}';
+    }
+    //</editor-fold>
+
+
 }

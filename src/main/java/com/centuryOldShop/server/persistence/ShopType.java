@@ -22,6 +22,60 @@ public class ShopType implements Serializable {
      */
     private List<Shop> shop;
 
+    //<editor-fold desc="constructor">
+
     public ShopType() {
     }
+
+    //</editor-fold>
+
+    //<editor-fold desc="accessor">
+
+    public String getShopTypeName() {
+        return shopTypeName;
+    }
+
+    public ShopType setShopTypeName(String shopTypeName) {
+        this.shopTypeName = shopTypeName;
+        return this;
+    }
+
+    public List<Shop> getShop() {
+        return shop;
+    }
+
+    public ShopType setShop(List<Shop> shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShopType shopType = (ShopType) o;
+
+        return shopTypeName != null ? shopTypeName.equals(shopType.shopTypeName) : shopType.shopTypeName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return shopTypeName != null ? shopTypeName.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ShopType{" +
+                "shopTypeName='" + shopTypeName + '\'' +
+                '}';
+    }
+
+    //</editor-fold>
+
 }

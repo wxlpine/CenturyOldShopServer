@@ -22,6 +22,59 @@ public class OrderStatusType implements Serializable {
      */
     private List<OrderForm> orderForm;
 
+    //<editor-fold desc="constructor">
     public OrderStatusType() {
     }
+    //</editor-fold>
+
+    //<editor-fold desc="accessor">
+
+    public String getOrderStatusType() {
+        return orderStatusType;
+    }
+
+    public OrderStatusType setOrderStatusType(String orderStatusType) {
+        this.orderStatusType = orderStatusType;
+        return this;
+    }
+
+    public List<OrderForm> getOrderForm() {
+        return orderForm;
+    }
+
+    public OrderStatusType setOrderForm(List<OrderForm> orderForm) {
+        this.orderForm = orderForm;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OrderStatusType that = (OrderStatusType) o;
+
+        return orderStatusType != null ? orderStatusType.equals(that.orderStatusType) : that.orderStatusType == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return orderStatusType != null ? orderStatusType.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderStatusType{" +
+                "orderStatusType='" + orderStatusType + '\'' +
+                '}';
+    }
+
+    //</editor-fold>
+
 }

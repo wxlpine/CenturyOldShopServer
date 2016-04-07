@@ -26,6 +26,71 @@ public class ShopArea implements Serializable {
      */
     private List<Shop> shop;
 
+    //<editor-fold desc="constructor">
+
     public ShopArea() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getShopAreaId() {
+        return shopAreaId;
+    }
+
+    public ShopArea setShopAreaId(long shopAreaId) {
+        this.shopAreaId = shopAreaId;
+        return this;
+    }
+
+    public String getShopAreaName() {
+        return shopAreaName;
+    }
+
+    public ShopArea setShopAreaName(String shopAreaName) {
+        this.shopAreaName = shopAreaName;
+        return this;
+    }
+
+    public List<Shop> getShop() {
+        return shop;
+    }
+
+    public ShopArea setShop(List<Shop> shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShopArea shopArea = (ShopArea) o;
+
+        return shopAreaId == shopArea.shopAreaId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (shopAreaId ^ (shopAreaId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "ShopArea{" +
+                "shopAreaId=" + shopAreaId +
+                ", shopAreaName='" + shopAreaName + '\'' +
+                '}';
+    }
+
+    //</editor-fold>
 }

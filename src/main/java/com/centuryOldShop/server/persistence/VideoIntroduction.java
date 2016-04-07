@@ -45,12 +45,141 @@ public class VideoIntroduction implements Serializable {
     /**
      * @pdRoleInfo migr=no name=RateKeyword assc=videoIntroductionKeyword coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<RateKeyword> videoIntroduction;
+    private List<RateKeyword> rateKeywords;
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopVideoIntroduction mult=1..1 side=A
      */
     private Shop shop;
 
+
+    //<editor-fold desc="constructor">
+
     public VideoIntroduction() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getVideoIntroductionId() {
+        return videoIntroductionId;
+    }
+
+    public VideoIntroduction setVideoIntroductionId(long videoIntroductionId) {
+        this.videoIntroductionId = videoIntroductionId;
+        return this;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public VideoIntroduction setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+        return this;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public VideoIntroduction setDuration(int duration) {
+        this.duration = duration;
+        return this;
+    }
+
+    public String getScreenshotUrl() {
+        return screenshotUrl;
+    }
+
+    public VideoIntroduction setScreenshotUrl(String screenshotUrl) {
+        this.screenshotUrl = screenshotUrl;
+        return this;
+    }
+
+    public int getPlayedTimes() {
+        return playedTimes;
+    }
+
+    public VideoIntroduction setPlayedTimes(int playedTimes) {
+        this.playedTimes = playedTimes;
+        return this;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public VideoIntroduction setRate(double rate) {
+        this.rate = rate;
+        return this;
+    }
+
+    public Date getAddedTime() {
+        return addedTime;
+    }
+
+    public VideoIntroduction setAddedTime(Date addedTime) {
+        this.addedTime = addedTime;
+        return this;
+    }
+
+    public List<RateKeyword> getRateKeywords() {
+        return rateKeywords;
+    }
+
+    public VideoIntroduction setRateKeywords(List<RateKeyword> rateKeywords) {
+        this.rateKeywords = rateKeywords;
+        return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public VideoIntroduction setShop(Shop shop) {
+        this.shop = shop;
+        return this;
+    }
+
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        VideoIntroduction that = (VideoIntroduction) o;
+
+        return videoIntroductionId == that.videoIntroductionId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (videoIntroductionId ^ (videoIntroductionId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "VideoIntroduction{" +
+                "videoIntroductionId=" + videoIntroductionId +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", duration=" + duration +
+                ", screenshotUrl='" + screenshotUrl + '\'' +
+                ", playedTimes=" + playedTimes +
+                ", rate=" + rate +
+                ", addedTime=" + addedTime +
+                ", rateKeywords=" + rateKeywords +
+                ", shop=" + shop +
+                '}';
+    }
+
+    //</editor-fold>
+
 }

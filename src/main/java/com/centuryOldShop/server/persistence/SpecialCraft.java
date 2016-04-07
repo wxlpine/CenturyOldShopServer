@@ -38,6 +38,103 @@ public class SpecialCraft implements Serializable {
      */
     private Shop shop;
 
+
+    //<editor-fold desc="constructor">
+
     public SpecialCraft() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="accessor">
+
+    public long getSpecialCraftId() {
+        return specialCraftId;
+    }
+
+    public SpecialCraft setSpecialCraftId(long specialCraftId) {
+        this.specialCraftId = specialCraftId;
+        return this;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public SpecialCraft setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public String getSmallPhotoUrl() {
+        return smallPhotoUrl;
+    }
+
+    public SpecialCraft setSmallPhotoUrl(String smallPhotoUrl) {
+        this.smallPhotoUrl = smallPhotoUrl;
+        return this;
+    }
+
+    public String getIntroductionUrl() {
+        return introductionUrl;
+    }
+
+    public SpecialCraft setIntroductionUrl(String introductionUrl) {
+        this.introductionUrl = introductionUrl;
+        return this;
+    }
+
+    public Date getAddedTime() {
+        return addedTime;
+    }
+
+    public SpecialCraft setAddedTime(Date addedTime) {
+        this.addedTime = addedTime;
+        return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public SpecialCraft setShop(Shop shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SpecialCraft that = (SpecialCraft) o;
+
+        return specialCraftId == that.specialCraftId;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (specialCraftId ^ (specialCraftId >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "SpecialCraft{" +
+                "specialCraftId=" + specialCraftId +
+                ", title='" + title + '\'' +
+                ", smallPhotoUrl='" + smallPhotoUrl + '\'' +
+                ", introductionUrl='" + introductionUrl + '\'' +
+                ", addedTime=" + addedTime +
+                ", shop=" + shop +
+                '}';
+    }
+
+    //</editor-fold>
+
 }
