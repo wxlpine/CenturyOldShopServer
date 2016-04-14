@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  DisputeStatusType.java
+ * Module:  DisputeStatusTypeEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class DisputeStatusType
+ * Purpose: Defines the Class DisputeStatusTypeEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @pdOid 3c96e63c-c8e9-4ce0-8f10-3f04e0998b97
  */
-public class DisputeStatusType implements Serializable {
+public class DisputeStatusTypeEntity implements Serializable {
     /**
      * @pdOid 11b9d363-56b4-4b13-ae5e-7337d88a17d1
      */
@@ -20,10 +20,10 @@ public class DisputeStatusType implements Serializable {
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=disputeStatusTypeOrderForm coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<OrderForm> orderForm;
+    private List<OrderFormEntity> orderForm;
 
     //<editor-fold desc="constructor">
-    public DisputeStatusType() {
+    public DisputeStatusTypeEntity() {
     }
     //</editor-fold>
 
@@ -33,16 +33,16 @@ public class DisputeStatusType implements Serializable {
         return disputeStatusType;
     }
 
-    public DisputeStatusType setDisputeStatusType(String disputeStatusType) {
+    public DisputeStatusTypeEntity setDisputeStatusType(String disputeStatusType) {
         this.disputeStatusType = disputeStatusType;
         return this;
     }
 
-    public List<OrderForm> getOrderForm() {
+    public List<OrderFormEntity> getOrderForm() {
         return orderForm;
     }
 
-    public DisputeStatusType setOrderForm(List<OrderForm> orderForm) {
+    public DisputeStatusTypeEntity setOrderForm(List<OrderFormEntity> orderForm) {
         this.orderForm = orderForm;
         return this;
     }
@@ -56,7 +56,7 @@ public class DisputeStatusType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DisputeStatusType that = (DisputeStatusType) o;
+        DisputeStatusTypeEntity that = (DisputeStatusTypeEntity) o;
 
         return disputeStatusType != null ? disputeStatusType.equals(that.disputeStatusType) : that.disputeStatusType == null;
 
@@ -69,7 +69,7 @@ public class DisputeStatusType implements Serializable {
 
     @Override
     public String toString() {
-        return "DisputeStatusType{" +
+        return "DisputeStatusTypeEntity{" +
                 "disputeStatusType='" + disputeStatusType + '\'' +
                 '}';
     }

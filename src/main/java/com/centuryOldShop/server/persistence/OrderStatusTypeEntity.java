@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  OrderStatusType.java
+ * Module:  OrderStatusTypeEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class OrderStatusType
+ * Purpose: Defines the Class OrderStatusTypeEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @pdOid c223fab8-1304-4fb2-a6db-0a747e430b64
  */
-public class OrderStatusType implements Serializable {
+public class OrderStatusTypeEntity implements Serializable {
     /**
      * @pdOid be285f03-5d31-4529-9d09-c2aefbfe8732
      */
@@ -20,10 +20,10 @@ public class OrderStatusType implements Serializable {
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=orderFormOrderStatusType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<OrderForm> orderForm;
+    private List<OrderFormEntity> orderForm;
 
     //<editor-fold desc="constructor">
-    public OrderStatusType() {
+    public OrderStatusTypeEntity() {
     }
     //</editor-fold>
 
@@ -33,16 +33,16 @@ public class OrderStatusType implements Serializable {
         return orderStatusType;
     }
 
-    public OrderStatusType setOrderStatusType(String orderStatusType) {
+    public OrderStatusTypeEntity setOrderStatusType(String orderStatusType) {
         this.orderStatusType = orderStatusType;
         return this;
     }
 
-    public List<OrderForm> getOrderForm() {
+    public List<OrderFormEntity> getOrderForm() {
         return orderForm;
     }
 
-    public OrderStatusType setOrderForm(List<OrderForm> orderForm) {
+    public OrderStatusTypeEntity setOrderForm(List<OrderFormEntity> orderForm) {
         this.orderForm = orderForm;
         return this;
     }
@@ -57,7 +57,7 @@ public class OrderStatusType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderStatusType that = (OrderStatusType) o;
+        OrderStatusTypeEntity that = (OrderStatusTypeEntity) o;
 
         return orderStatusType != null ? orderStatusType.equals(that.orderStatusType) : that.orderStatusType == null;
 
@@ -70,7 +70,7 @@ public class OrderStatusType implements Serializable {
 
     @Override
     public String toString() {
-        return "OrderStatusType{" +
+        return "OrderStatusTypeEntity{" +
                 "orderStatusType='" + orderStatusType + '\'' +
                 '}';
     }

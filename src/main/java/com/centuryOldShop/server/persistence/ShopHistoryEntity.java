@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  ShopHistory.java
+ * Module:  ShopHistoryEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class ShopHistory
+ * Purpose: Defines the Class ShopHistoryEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid b2259b3b-c98e-4318-8de0-bdca11d8c607
  */
-public class ShopHistory implements Serializable {
+public class ShopHistoryEntity implements Serializable {
     /**
      * @pdOid 66cc8df8-53ab-4b83-85f0-aeed394f39b2
      */
@@ -44,12 +44,12 @@ public class ShopHistory implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopShopHistory mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
 
 
     //<editor-fold desc="constructor">
 
-    public ShopHistory() {
+    public ShopHistoryEntity() {
     }
 
     //</editor-fold>
@@ -61,7 +61,7 @@ public class ShopHistory implements Serializable {
         return shopHistoryId;
     }
 
-    public ShopHistory setShopHistoryId(long shopHistoryId) {
+    public ShopHistoryEntity setShopHistoryId(long shopHistoryId) {
         this.shopHistoryId = shopHistoryId;
         return this;
     }
@@ -70,7 +70,7 @@ public class ShopHistory implements Serializable {
         return title;
     }
 
-    public ShopHistory setTitle(String title) {
+    public ShopHistoryEntity setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -79,7 +79,7 @@ public class ShopHistory implements Serializable {
         return smallPhotoUrl;
     }
 
-    public ShopHistory setSmallPhotoUrl(String smallPhotoUrl) {
+    public ShopHistoryEntity setSmallPhotoUrl(String smallPhotoUrl) {
         this.smallPhotoUrl = smallPhotoUrl;
         return this;
     }
@@ -88,7 +88,7 @@ public class ShopHistory implements Serializable {
         return shortDescription;
     }
 
-    public ShopHistory setShortDescription(String shortDescription) {
+    public ShopHistoryEntity setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
         return this;
     }
@@ -97,7 +97,7 @@ public class ShopHistory implements Serializable {
         return publishTime;
     }
 
-    public ShopHistory setPublishTime(Date publishTime) {
+    public ShopHistoryEntity setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
         return this;
     }
@@ -106,7 +106,7 @@ public class ShopHistory implements Serializable {
         return visitCount;
     }
 
-    public ShopHistory setVisitCount(int visitCount) {
+    public ShopHistoryEntity setVisitCount(int visitCount) {
         this.visitCount = visitCount;
         return this;
     }
@@ -115,16 +115,16 @@ public class ShopHistory implements Serializable {
         return detailedIntroductionPageUrl;
     }
 
-    public ShopHistory setDetailedIntroductionPageUrl(String detailedIntroductionPageUrl) {
+    public ShopHistoryEntity setDetailedIntroductionPageUrl(String detailedIntroductionPageUrl) {
         this.detailedIntroductionPageUrl = detailedIntroductionPageUrl;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public ShopHistory setShop(Shop shop) {
+    public ShopHistoryEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
@@ -139,7 +139,7 @@ public class ShopHistory implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShopHistory that = (ShopHistory) o;
+        ShopHistoryEntity that = (ShopHistoryEntity) o;
 
         return shopHistoryId == that.shopHistoryId;
 
@@ -152,7 +152,7 @@ public class ShopHistory implements Serializable {
 
     @Override
     public String toString() {
-        return "ShopHistory{" +
+        return "ShopHistoryEntity{" +
                 "shopHistoryId=" + shopHistoryId +
                 ", title='" + title + '\'' +
                 ", smallPhotoUrl='" + smallPhotoUrl + '\'' +

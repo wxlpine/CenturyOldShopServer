@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  SpecialCraft.java
+ * Module:  SpecialCraftEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class SpecialCraft
+ * Purpose: Defines the Class SpecialCraftEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid 219a3ee8-f77a-4798-b702-3b3c24114fae
  */
-public class SpecialCraft implements Serializable {
+public class SpecialCraftEntity implements Serializable {
     /**
      * @pdOid 2d9ac220-7ce8-4374-b747-b7555ff5b6b8
      */
@@ -36,12 +36,12 @@ public class SpecialCraft implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Shop assc=specialCraftShop mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
 
 
     //<editor-fold desc="constructor">
 
-    public SpecialCraft() {
+    public SpecialCraftEntity() {
     }
 
     //</editor-fold>
@@ -53,7 +53,7 @@ public class SpecialCraft implements Serializable {
         return specialCraftId;
     }
 
-    public SpecialCraft setSpecialCraftId(long specialCraftId) {
+    public SpecialCraftEntity setSpecialCraftId(long specialCraftId) {
         this.specialCraftId = specialCraftId;
         return this;
     }
@@ -62,7 +62,7 @@ public class SpecialCraft implements Serializable {
         return title;
     }
 
-    public SpecialCraft setTitle(String title) {
+    public SpecialCraftEntity setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -71,7 +71,7 @@ public class SpecialCraft implements Serializable {
         return smallPhotoUrl;
     }
 
-    public SpecialCraft setSmallPhotoUrl(String smallPhotoUrl) {
+    public SpecialCraftEntity setSmallPhotoUrl(String smallPhotoUrl) {
         this.smallPhotoUrl = smallPhotoUrl;
         return this;
     }
@@ -80,7 +80,7 @@ public class SpecialCraft implements Serializable {
         return introductionUrl;
     }
 
-    public SpecialCraft setIntroductionUrl(String introductionUrl) {
+    public SpecialCraftEntity setIntroductionUrl(String introductionUrl) {
         this.introductionUrl = introductionUrl;
         return this;
     }
@@ -89,16 +89,16 @@ public class SpecialCraft implements Serializable {
         return addedTime;
     }
 
-    public SpecialCraft setAddedTime(Date addedTime) {
+    public SpecialCraftEntity setAddedTime(Date addedTime) {
         this.addedTime = addedTime;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public SpecialCraft setShop(Shop shop) {
+    public SpecialCraftEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
@@ -112,7 +112,7 @@ public class SpecialCraft implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        SpecialCraft that = (SpecialCraft) o;
+        SpecialCraftEntity that = (SpecialCraftEntity) o;
 
         return specialCraftId == that.specialCraftId;
 
@@ -125,7 +125,7 @@ public class SpecialCraft implements Serializable {
 
     @Override
     public String toString() {
-        return "SpecialCraft{" +
+        return "SpecialCraftEntity{" +
                 "specialCraftId=" + specialCraftId +
                 ", title='" + title + '\'' +
                 ", smallPhotoUrl='" + smallPhotoUrl + '\'' +

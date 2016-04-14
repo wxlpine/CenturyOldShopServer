@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  ShoppingCart.java
+ * Module:  ShoppingCartEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class ShoppingCart
+ * Purpose: Defines the Class ShoppingCartEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid 6a429811-307d-4c04-95e4-acb6075acaaf
  */
-public class ShoppingCart implements Serializable {
+public class ShoppingCartEntity implements Serializable {
     /**
      * @pdOid 4148baff-de2c-4670-84ec-3fb2a7910b4a
      */
@@ -21,13 +21,13 @@ public class ShoppingCart implements Serializable {
      */
     private Date addedTime;
 
-    private AppUser user;
-    private Commodity commodity;
+    private AppUserEntity user;
+    private CommodityEntity commodity;
 
 
     //<editor-fold desc="constructor">
 
-    public ShoppingCart() {
+    public ShoppingCartEntity() {
     }
 
     //</editor-fold>
@@ -39,7 +39,7 @@ public class ShoppingCart implements Serializable {
         return amount;
     }
 
-    public ShoppingCart setAmount(int amount) {
+    public ShoppingCartEntity setAmount(int amount) {
         this.amount = amount;
         return this;
     }
@@ -48,25 +48,25 @@ public class ShoppingCart implements Serializable {
         return addedTime;
     }
 
-    public ShoppingCart setAddedTime(Date addedTime) {
+    public ShoppingCartEntity setAddedTime(Date addedTime) {
         this.addedTime = addedTime;
         return this;
     }
 
-    public AppUser getUser() {
+    public AppUserEntity getUser() {
         return user;
     }
 
-    public ShoppingCart setUser(AppUser user) {
+    public ShoppingCartEntity setUser(AppUserEntity user) {
         this.user = user;
         return this;
     }
 
-    public Commodity getCommodity() {
+    public CommodityEntity getCommodity() {
         return commodity;
     }
 
-    public ShoppingCart setCommodity(Commodity commodity) {
+    public ShoppingCartEntity setCommodity(CommodityEntity commodity) {
         this.commodity = commodity;
         return this;
     }
@@ -81,7 +81,7 @@ public class ShoppingCart implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShoppingCart that = (ShoppingCart) o;
+        ShoppingCartEntity that = (ShoppingCartEntity) o;
 
         if (user != null ? !user.equals(that.user) : that.user != null) return false;
         return commodity != null ? commodity.equals(that.commodity) : that.commodity == null;
@@ -97,7 +97,7 @@ public class ShoppingCart implements Serializable {
 
     @Override
     public String toString() {
-        return "ShoppingCart{" +
+        return "ShoppingCartEntity{" +
                 "amount=" + amount +
                 ", addedTime=" + addedTime +
                 ", user=" + user +

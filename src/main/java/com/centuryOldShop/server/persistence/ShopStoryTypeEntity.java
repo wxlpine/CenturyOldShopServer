@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  ShopStoryType.java
+ * Module:  ShopStoryTypeEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class ShopStoryType
+ * Purpose: Defines the Class ShopStoryTypeEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @pdOid bfa242ee-a3ea-4742-a0f2-e54cc95c059c
  */
-public class ShopStoryType implements Serializable {
+public class ShopStoryTypeEntity implements Serializable {
     /**
      * @pdOid fffbae71-21e1-4cd3-ba81-1b63e7270826
      */
@@ -20,12 +20,12 @@ public class ShopStoryType implements Serializable {
     /**
      * @pdRoleInfo migr=no name=ShopStory assc=shopStoryShopStoryType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<ShopStory> shopStory;
+    private List<ShopStoryEntity> shopStory;
 
 
     //<editor-fold desc="constructor">
 
-    public ShopStoryType() {
+    public ShopStoryTypeEntity() {
     }
 
     //</editor-fold>
@@ -37,16 +37,16 @@ public class ShopStoryType implements Serializable {
         return storyTypeName;
     }
 
-    public ShopStoryType setStoryTypeName(String storyTypeName) {
+    public ShopStoryTypeEntity setStoryTypeName(String storyTypeName) {
         this.storyTypeName = storyTypeName;
         return this;
     }
 
-    public List<ShopStory> getShopStory() {
+    public List<ShopStoryEntity> getShopStory() {
         return shopStory;
     }
 
-    public ShopStoryType setShopStory(List<ShopStory> shopStory) {
+    public ShopStoryTypeEntity setShopStory(List<ShopStoryEntity> shopStory) {
         this.shopStory = shopStory;
         return this;
     }
@@ -61,7 +61,7 @@ public class ShopStoryType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShopStoryType that = (ShopStoryType) o;
+        ShopStoryTypeEntity that = (ShopStoryTypeEntity) o;
 
         return storyTypeName != null ? storyTypeName.equals(that.storyTypeName) : that.storyTypeName == null;
 
@@ -74,7 +74,7 @@ public class ShopStoryType implements Serializable {
 
     @Override
     public String toString() {
-        return "ShopStoryType{" +
+        return "ShopStoryTypeEntity{" +
                 "storyTypeName='" + storyTypeName + '\'' +
                 '}';
     }

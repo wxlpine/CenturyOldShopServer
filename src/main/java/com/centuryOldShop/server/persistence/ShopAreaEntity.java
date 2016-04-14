@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  ShopArea.java
+ * Module:  ShopAreaEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class ShopArea
+ * Purpose: Defines the Class ShopAreaEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @pdOid bcc6769a-149d-421c-8d75-c1edf781f305
  */
-public class ShopArea implements Serializable {
+public class ShopAreaEntity implements Serializable {
     /**
      * @pdOid 372b6d82-6795-43ff-8d4e-582418602ce8
      */
@@ -24,11 +24,11 @@ public class ShopArea implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopShopArea coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<Shop> shop;
+    private List<ShopEntity> shop;
 
     //<editor-fold desc="constructor">
 
-    public ShopArea() {
+    public ShopAreaEntity() {
     }
 
     //</editor-fold>
@@ -40,7 +40,7 @@ public class ShopArea implements Serializable {
         return shopAreaId;
     }
 
-    public ShopArea setShopAreaId(long shopAreaId) {
+    public ShopAreaEntity setShopAreaId(long shopAreaId) {
         this.shopAreaId = shopAreaId;
         return this;
     }
@@ -49,16 +49,16 @@ public class ShopArea implements Serializable {
         return shopAreaName;
     }
 
-    public ShopArea setShopAreaName(String shopAreaName) {
+    public ShopAreaEntity setShopAreaName(String shopAreaName) {
         this.shopAreaName = shopAreaName;
         return this;
     }
 
-    public List<Shop> getShop() {
+    public List<ShopEntity> getShop() {
         return shop;
     }
 
-    public ShopArea setShop(List<Shop> shop) {
+    public ShopAreaEntity setShop(List<ShopEntity> shop) {
         this.shop = shop;
         return this;
     }
@@ -73,7 +73,7 @@ public class ShopArea implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShopArea shopArea = (ShopArea) o;
+        ShopAreaEntity shopArea = (ShopAreaEntity) o;
 
         return shopAreaId == shopArea.shopAreaId;
 
@@ -86,7 +86,7 @@ public class ShopArea implements Serializable {
 
     @Override
     public String toString() {
-        return "ShopArea{" +
+        return "ShopAreaEntity{" +
                 "shopAreaId=" + shopAreaId +
                 ", shopAreaName='" + shopAreaName + '\'' +
                 '}';

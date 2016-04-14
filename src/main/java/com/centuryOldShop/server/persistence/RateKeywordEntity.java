@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  RateKeyword.java
+ * Module:  RateKeywordEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class RateKeyword
+ * Purpose: Defines the Class RateKeywordEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @pdOid aa27b33e-a3a9-46c1-bbe3-e9a3e394de7b
  */
-public class RateKeyword implements Serializable {
+public class RateKeywordEntity implements Serializable {
     /**
      * @pdOid 910fe6e5-cb51-465a-9417-5d2b23f4b9c9
      */
@@ -20,10 +20,10 @@ public class RateKeyword implements Serializable {
     /**
      * @pdRoleInfo migr=no name=VideoIntroduction assc=videoIntroductionKeyword coll=java.util.List impl=java.util.ArrayList mult=0..* side=A
      */
-    private List<VideoIntroduction> videoIntroductions;
+    private List<VideoIntroductionEntity> videoIntroductions;
 
     //<editor-fold desc="constructor">
-    public RateKeyword() {
+    public RateKeywordEntity() {
     }
     //</editor-fold>
 
@@ -34,16 +34,16 @@ public class RateKeyword implements Serializable {
         return rateKeyword;
     }
 
-    public RateKeyword setRateKeyword(String rateKeyword) {
+    public RateKeywordEntity setRateKeyword(String rateKeyword) {
         this.rateKeyword = rateKeyword;
         return this;
     }
 
-    public List<VideoIntroduction> getVideoIntroductions() {
+    public List<VideoIntroductionEntity> getVideoIntroductions() {
         return videoIntroductions;
     }
 
-    public RateKeyword setVideoIntroductions(List<VideoIntroduction> videoIntroductions) {
+    public RateKeywordEntity setVideoIntroductions(List<VideoIntroductionEntity> videoIntroductions) {
         this.videoIntroductions = videoIntroductions;
         return this;
     }
@@ -58,7 +58,7 @@ public class RateKeyword implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RateKeyword that = (RateKeyword) o;
+        RateKeywordEntity that = (RateKeywordEntity) o;
 
         return rateKeyword != null ? rateKeyword.equals(that.rateKeyword) : that.rateKeyword == null;
 
@@ -71,7 +71,7 @@ public class RateKeyword implements Serializable {
 
     @Override
     public String toString() {
-        return "RateKeyword{" +
+        return "RateKeywordEntity{" +
                 "rateKeyword='" + rateKeyword + '\'' +
                 '}';
     }

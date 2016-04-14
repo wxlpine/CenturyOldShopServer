@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  VideoIntroduction.java
+ * Module:  VideoIntroductionEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class VideoIntroduction
+ * Purpose: Defines the Class VideoIntroductionEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @pdOid a802b270-652e-4a7e-b30b-af41441343d1
  */
-public class VideoIntroduction implements Serializable {
+public class VideoIntroductionEntity implements Serializable {
     /**
      * @pdOid d17a2bc8-d181-49f8-a9ea-b3d5a428903e
      */
@@ -45,16 +45,16 @@ public class VideoIntroduction implements Serializable {
     /**
      * @pdRoleInfo migr=no name=RateKeyword assc=videoIntroductionKeyword coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<RateKeyword> rateKeywords;
+    private List<RateKeywordEntity> rateKeywords;
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopVideoIntroduction mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
 
 
     //<editor-fold desc="constructor">
 
-    public VideoIntroduction() {
+    public VideoIntroductionEntity() {
     }
 
     //</editor-fold>
@@ -66,7 +66,7 @@ public class VideoIntroduction implements Serializable {
         return videoIntroductionId;
     }
 
-    public VideoIntroduction setVideoIntroductionId(long videoIntroductionId) {
+    public VideoIntroductionEntity setVideoIntroductionId(long videoIntroductionId) {
         this.videoIntroductionId = videoIntroductionId;
         return this;
     }
@@ -75,7 +75,7 @@ public class VideoIntroduction implements Serializable {
         return videoUrl;
     }
 
-    public VideoIntroduction setVideoUrl(String videoUrl) {
+    public VideoIntroductionEntity setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
         return this;
     }
@@ -84,7 +84,7 @@ public class VideoIntroduction implements Serializable {
         return duration;
     }
 
-    public VideoIntroduction setDuration(int duration) {
+    public VideoIntroductionEntity setDuration(int duration) {
         this.duration = duration;
         return this;
     }
@@ -93,7 +93,7 @@ public class VideoIntroduction implements Serializable {
         return screenshotUrl;
     }
 
-    public VideoIntroduction setScreenshotUrl(String screenshotUrl) {
+    public VideoIntroductionEntity setScreenshotUrl(String screenshotUrl) {
         this.screenshotUrl = screenshotUrl;
         return this;
     }
@@ -102,7 +102,7 @@ public class VideoIntroduction implements Serializable {
         return playedTimes;
     }
 
-    public VideoIntroduction setPlayedTimes(int playedTimes) {
+    public VideoIntroductionEntity setPlayedTimes(int playedTimes) {
         this.playedTimes = playedTimes;
         return this;
     }
@@ -111,7 +111,7 @@ public class VideoIntroduction implements Serializable {
         return rate;
     }
 
-    public VideoIntroduction setRate(double rate) {
+    public VideoIntroductionEntity setRate(double rate) {
         this.rate = rate;
         return this;
     }
@@ -120,25 +120,25 @@ public class VideoIntroduction implements Serializable {
         return addedTime;
     }
 
-    public VideoIntroduction setAddedTime(Date addedTime) {
+    public VideoIntroductionEntity setAddedTime(Date addedTime) {
         this.addedTime = addedTime;
         return this;
     }
 
-    public List<RateKeyword> getRateKeywords() {
+    public List<RateKeywordEntity> getRateKeywords() {
         return rateKeywords;
     }
 
-    public VideoIntroduction setRateKeywords(List<RateKeyword> rateKeywords) {
+    public VideoIntroductionEntity setRateKeywords(List<RateKeywordEntity> rateKeywords) {
         this.rateKeywords = rateKeywords;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public VideoIntroduction setShop(Shop shop) {
+    public VideoIntroductionEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
@@ -154,7 +154,7 @@ public class VideoIntroduction implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        VideoIntroduction that = (VideoIntroduction) o;
+        VideoIntroductionEntity that = (VideoIntroductionEntity) o;
 
         return videoIntroductionId == that.videoIntroductionId;
 
@@ -167,7 +167,7 @@ public class VideoIntroduction implements Serializable {
 
     @Override
     public String toString() {
-        return "VideoIntroduction{" +
+        return "VideoIntroductionEntity{" +
                 "videoIntroductionId=" + videoIntroductionId +
                 ", videoUrl='" + videoUrl + '\'' +
                 ", duration=" + duration +

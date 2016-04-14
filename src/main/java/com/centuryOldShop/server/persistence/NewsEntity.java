@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  News.java
+ * Module:  NewsEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class News
+ * Purpose: Defines the Class NewsEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid eb9bbe91-3175-42d7-be1a-c8223415eb2b
  */
-public class News implements Serializable {
+public class NewsEntity implements Serializable {
     /**
      * @pdOid fa01b9e9-e7e8-4d9e-95be-0af55b94886a
      */
@@ -40,10 +40,10 @@ public class News implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopNews mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
 
     //<editor-fold desc="constructor">
-    public News() {
+    public NewsEntity() {
     }
     //</editor-fold>
 
@@ -53,7 +53,7 @@ public class News implements Serializable {
         return newsId;
     }
 
-    public News setNewsId(long newsId) {
+    public NewsEntity setNewsId(long newsId) {
         this.newsId = newsId;
         return this;
     }
@@ -62,7 +62,7 @@ public class News implements Serializable {
         return title;
     }
 
-    public News setTitle(String title) {
+    public NewsEntity setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -71,7 +71,7 @@ public class News implements Serializable {
         return contentUrl;
     }
 
-    public News setContentUrl(String contentUrl) {
+    public NewsEntity setContentUrl(String contentUrl) {
         this.contentUrl = contentUrl;
         return this;
     }
@@ -80,7 +80,7 @@ public class News implements Serializable {
         return publishTime;
     }
 
-    public News setPublishTime(Date publishTime) {
+    public NewsEntity setPublishTime(Date publishTime) {
         this.publishTime = publishTime;
         return this;
     }
@@ -89,7 +89,7 @@ public class News implements Serializable {
         return readCount;
     }
 
-    public News setReadCount(int readCount) {
+    public NewsEntity setReadCount(int readCount) {
         this.readCount = readCount;
         return this;
     }
@@ -98,16 +98,16 @@ public class News implements Serializable {
         return spotScene;
     }
 
-    public News setSpotScene(String spotScene) {
+    public NewsEntity setSpotScene(String spotScene) {
         this.spotScene = spotScene;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public News setShop(Shop shop) {
+    public NewsEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
@@ -122,7 +122,7 @@ public class News implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        News news = (News) o;
+        NewsEntity news = (NewsEntity) o;
 
         return newsId == news.newsId;
 
@@ -135,7 +135,7 @@ public class News implements Serializable {
 
     @Override
     public String toString() {
-        return "News{" +
+        return "NewsEntity{" +
                 "newsId=" + newsId +
                 ", title='" + title + '\'' +
                 ", contentUrl='" + contentUrl + '\'' +

@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  UserEvaluation.java
+ * Module:  UserEvaluationEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class UserEvaluation
+ * Purpose: Defines the Class UserEvaluationEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid 173aa411-6a07-49b5-9b29-68b8b60c2468
  */
-public class UserEvaluation implements Serializable {
+public class UserEvaluationEntity implements Serializable {
     /**
      * @pdOid bf274b33-04f8-4d16-a953-db82c2f36fa0
      */
@@ -28,19 +28,19 @@ public class UserEvaluation implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Commodity assc=userEvaluation mult=1..1 side=A
      */
-    private Commodity commodity;
+    private CommodityEntity commodity;
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=userEvaluation mult=1..1 side=A
      */
-    private OrderForm orderForm;
+    private OrderFormEntity orderForm;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=userEvaluation mult=1..1 side=A
      */
-    private AppUser appUser;
+    private AppUserEntity appUser;
 
     //<editor-fold desc="constructor">
 
-    public UserEvaluation() {
+    public UserEvaluationEntity() {
     }
 
     //</editor-fold>
@@ -52,7 +52,7 @@ public class UserEvaluation implements Serializable {
         return grade;
     }
 
-    public UserEvaluation setGrade(double grade) {
+    public UserEvaluationEntity setGrade(double grade) {
         this.grade = grade;
         return this;
     }
@@ -61,7 +61,7 @@ public class UserEvaluation implements Serializable {
         return comment;
     }
 
-    public UserEvaluation setComment(String comment) {
+    public UserEvaluationEntity setComment(String comment) {
         this.comment = comment;
         return this;
     }
@@ -70,34 +70,34 @@ public class UserEvaluation implements Serializable {
         return time;
     }
 
-    public UserEvaluation setTime(Date time) {
+    public UserEvaluationEntity setTime(Date time) {
         this.time = time;
         return this;
     }
 
-    public Commodity getCommodity() {
+    public CommodityEntity getCommodity() {
         return commodity;
     }
 
-    public UserEvaluation setCommodity(Commodity commodity) {
+    public UserEvaluationEntity setCommodity(CommodityEntity commodity) {
         this.commodity = commodity;
         return this;
     }
 
-    public OrderForm getOrderForm() {
+    public OrderFormEntity getOrderForm() {
         return orderForm;
     }
 
-    public UserEvaluation setOrderForm(OrderForm orderForm) {
+    public UserEvaluationEntity setOrderForm(OrderFormEntity orderForm) {
         this.orderForm = orderForm;
         return this;
     }
 
-    public AppUser getAppUser() {
+    public AppUserEntity getAppUser() {
         return appUser;
     }
 
-    public UserEvaluation setAppUser(AppUser appUser) {
+    public UserEvaluationEntity setAppUser(AppUserEntity appUser) {
         this.appUser = appUser;
         return this;
     }
@@ -111,7 +111,7 @@ public class UserEvaluation implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UserEvaluation that = (UserEvaluation) o;
+        UserEvaluationEntity that = (UserEvaluationEntity) o;
 
         if (commodity != null ? !commodity.equals(that.commodity) : that.commodity != null) return false;
         if (orderForm != null ? !orderForm.equals(that.orderForm) : that.orderForm != null) return false;
@@ -129,7 +129,7 @@ public class UserEvaluation implements Serializable {
 
     @Override
     public String toString() {
-        return "UserEvaluation{" +
+        return "UserEvaluationEntity{" +
                 "grade=" + grade +
                 ", comment='" + comment + '\'' +
                 ", time=" + time +

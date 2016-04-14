@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @pdOid 5d8df738-d9e6-4e47-a310-86e2e6813989
  */
-public class Shop implements Serializable {
+public class ShopEntity implements Serializable {
     /**
      * @pdOid c0eb1155-b2b4-43b6-815b-7a86a8979721
      */
@@ -63,46 +63,46 @@ public class Shop implements Serializable {
     /**
      * @pdRoleInfo migr=no name=News assc=shopNews coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<News> news;
+    private List<NewsEntity> news;
     /**
      * @pdRoleInfo migr=no name=ShopStory assc=shopShopStory coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<ShopStory> shopStory;
+    private List<ShopStoryEntity> shopStory;
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=shopDiscountInfo coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<DiscountInfo> discountInfo;
+    private List<DiscountInfoEntity> discountInfo;
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=shopOrderForm coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<OrderForm> orderForm;
+    private List<OrderFormEntity> orderForm;
     /**
      * @pdRoleInfo migr=no name=ShopHistory assc=shopShopHistory coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<ShopHistory> shopHistory;
+    private List<ShopHistoryEntity> shopHistory;
     /**
      * @pdRoleInfo migr=no name=SpecialCraft assc=specialCraftShop coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<SpecialCraft> specialCraft;
+    private List<SpecialCraftEntity> specialCraft;
     /**
      * @pdRoleInfo migr=no name=VideoIntroduction assc=shopVideoIntroduction coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<VideoIntroduction> videoIntroduction;
+    private List<VideoIntroductionEntity> videoIntroduction;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=manage coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<AppUser> shopManager;
+    private List<AppUserEntity> shopManager;
     /**
      * @pdRoleInfo migr=no name=ShopType assc=shopShopType mult=1..1 side=A
      */
-    private ShopType shopType;
+    private ShopTypeEntity shopType;
     /**
      * @pdRoleInfo migr=no name=ShopArea assc=shopShopArea mult=1..1 side=A
      */
-    private ShopArea shopArea;
+    private ShopAreaEntity shopArea;
 
     //<editor-fold desc="constructor">
-    public Shop() {
+    public ShopEntity() {
     }
     //</editor-fold>
 
@@ -113,7 +113,7 @@ public class Shop implements Serializable {
         return shopId;
     }
 
-    public Shop setShopId(long shopId) {
+    public ShopEntity setShopId(long shopId) {
         this.shopId = shopId;
         return this;
     }
@@ -122,7 +122,7 @@ public class Shop implements Serializable {
         return shopName;
     }
 
-    public Shop setShopName(String shopName) {
+    public ShopEntity setShopName(String shopName) {
         this.shopName = shopName;
         return this;
     }
@@ -131,7 +131,7 @@ public class Shop implements Serializable {
         return shortDescription;
     }
 
-    public Shop setShortDescription(String shortDescription) {
+    public ShopEntity setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
         return this;
     }
@@ -140,7 +140,7 @@ public class Shop implements Serializable {
         return openABusinessTime;
     }
 
-    public Shop setOpenABusinessTime(Date openABusinessTime) {
+    public ShopEntity setOpenABusinessTime(Date openABusinessTime) {
         this.openABusinessTime = openABusinessTime;
         return this;
     }
@@ -149,7 +149,7 @@ public class Shop implements Serializable {
         return visitCount;
     }
 
-    public Shop setVisitCount(int visitCount) {
+    public ShopEntity setVisitCount(int visitCount) {
         this.visitCount = visitCount;
         return this;
     }
@@ -158,7 +158,7 @@ public class Shop implements Serializable {
         return detailedAddress;
     }
 
-    public Shop setDetailedAddress(String detailedAddress) {
+    public ShopEntity setDetailedAddress(String detailedAddress) {
         this.detailedAddress = detailedAddress;
         return this;
     }
@@ -167,7 +167,7 @@ public class Shop implements Serializable {
         return trademark;
     }
 
-    public Shop setTrademark(String trademark) {
+    public ShopEntity setTrademark(String trademark) {
         this.trademark = trademark;
         return this;
     }
@@ -176,7 +176,7 @@ public class Shop implements Serializable {
         return enterTime;
     }
 
-    public Shop setEnterTime(Date enterTime) {
+    public ShopEntity setEnterTime(Date enterTime) {
         this.enterTime = enterTime;
         return this;
     }
@@ -185,7 +185,7 @@ public class Shop implements Serializable {
         return phoneNumber;
     }
 
-    public Shop setPhoneNumber(String phoneNumber) {
+    public ShopEntity setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }
@@ -194,7 +194,7 @@ public class Shop implements Serializable {
         return fax;
     }
 
-    public Shop setFax(String fax) {
+    public ShopEntity setFax(String fax) {
         this.fax = fax;
         return this;
     }
@@ -203,97 +203,97 @@ public class Shop implements Serializable {
         return longDescription;
     }
 
-    public Shop setLongDescription(String longDescription) {
+    public ShopEntity setLongDescription(String longDescription) {
         this.longDescription = longDescription;
         return this;
     }
 
-    public List<News> getNews() {
+    public List<NewsEntity> getNews() {
         return news;
     }
 
-    public Shop setNews(List<News> news) {
+    public ShopEntity setNews(List<NewsEntity> news) {
         this.news = news;
         return this;
     }
 
-    public List<ShopStory> getShopStory() {
+    public List<ShopStoryEntity> getShopStory() {
         return shopStory;
     }
 
-    public Shop setShopStory(List<ShopStory> shopStory) {
+    public ShopEntity setShopStory(List<ShopStoryEntity> shopStory) {
         this.shopStory = shopStory;
         return this;
     }
 
-    public List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfoEntity> getDiscountInfo() {
         return discountInfo;
     }
 
-    public Shop setDiscountInfo(List<DiscountInfo> discountInfo) {
+    public ShopEntity setDiscountInfo(List<DiscountInfoEntity> discountInfo) {
         this.discountInfo = discountInfo;
         return this;
     }
 
-    public List<OrderForm> getOrderForm() {
+    public List<OrderFormEntity> getOrderForm() {
         return orderForm;
     }
 
-    public Shop setOrderForm(List<OrderForm> orderForm) {
+    public ShopEntity setOrderForm(List<OrderFormEntity> orderForm) {
         this.orderForm = orderForm;
         return this;
     }
 
-    public List<ShopHistory> getShopHistory() {
+    public List<ShopHistoryEntity> getShopHistory() {
         return shopHistory;
     }
 
-    public Shop setShopHistory(List<ShopHistory> shopHistory) {
+    public ShopEntity setShopHistory(List<ShopHistoryEntity> shopHistory) {
         this.shopHistory = shopHistory;
         return this;
     }
 
-    public List<SpecialCraft> getSpecialCraft() {
+    public List<SpecialCraftEntity> getSpecialCraft() {
         return specialCraft;
     }
 
-    public Shop setSpecialCraft(List<SpecialCraft> specialCraft) {
+    public ShopEntity setSpecialCraft(List<SpecialCraftEntity> specialCraft) {
         this.specialCraft = specialCraft;
         return this;
     }
 
-    public List<VideoIntroduction> getVideoIntroduction() {
+    public List<VideoIntroductionEntity> getVideoIntroduction() {
         return videoIntroduction;
     }
 
-    public Shop setVideoIntroduction(List<VideoIntroduction> videoIntroduction) {
+    public ShopEntity setVideoIntroduction(List<VideoIntroductionEntity> videoIntroduction) {
         this.videoIntroduction = videoIntroduction;
         return this;
     }
 
-    public List<AppUser> getShopManager() {
+    public List<AppUserEntity> getShopManager() {
         return shopManager;
     }
 
-    public Shop setShopManager(List<AppUser> shopManager) {
+    public ShopEntity setShopManager(List<AppUserEntity> shopManager) {
         this.shopManager = shopManager;
         return this;
     }
 
-    public ShopType getShopType() {
+    public ShopTypeEntity getShopType() {
         return shopType;
     }
 
-    public Shop setShopType(ShopType shopType) {
+    public ShopEntity setShopType(ShopTypeEntity shopType) {
         this.shopType = shopType;
         return this;
     }
 
-    public ShopArea getShopArea() {
+    public ShopAreaEntity getShopArea() {
         return shopArea;
     }
 
-    public Shop setShopArea(ShopArea shopArea) {
+    public ShopEntity setShopArea(ShopAreaEntity shopArea) {
         this.shopArea = shopArea;
         return this;
     }
@@ -308,7 +308,7 @@ public class Shop implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Shop shop = (Shop) o;
+        ShopEntity shop = (ShopEntity) o;
 
         return shopId == shop.shopId;
 
@@ -321,7 +321,7 @@ public class Shop implements Serializable {
 
     @Override
     public String toString() {
-        return "Shop{" +
+        return "ShopEntity{" +
                 "shopId=" + shopId +
                 ", shopName='" + shopName + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +

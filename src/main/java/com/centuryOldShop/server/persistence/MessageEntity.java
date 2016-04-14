@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  Message.java
+ * Module:  MessageEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class Message
+ * Purpose: Defines the Class MessageEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid 6edd8efd-82b8-4499-927c-e37fdc09ecd2
  */
-public class Message implements Serializable {
+public class MessageEntity implements Serializable {
     /**
      * @pdOid 759a28f1-f797-4fad-a6ce-6656e5faf663
      */
@@ -28,14 +28,14 @@ public class Message implements Serializable {
     /**
      * @pdRoleInfo migr=no name=AppUser assc=sendUser mult=1..1 side=A
      */
-    private AppUser sendUser;
+    private AppUserEntity sendUser;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=receiveUser mult=1..1 side=A
      */
-    private AppUser receiveUser;
+    private AppUserEntity receiveUser;
 
     //<editor-fold desc="constructor">
-    public Message() {
+    public MessageEntity() {
     }
     //</editor-fold>
 
@@ -45,7 +45,7 @@ public class Message implements Serializable {
         return messageId;
     }
 
-    public Message setMessageId(long messageId) {
+    public MessageEntity setMessageId(long messageId) {
         this.messageId = messageId;
         return this;
     }
@@ -54,7 +54,7 @@ public class Message implements Serializable {
         return sendTime;
     }
 
-    public Message setSendTime(Date sendTime) {
+    public MessageEntity setSendTime(Date sendTime) {
         this.sendTime = sendTime;
         return this;
     }
@@ -63,25 +63,25 @@ public class Message implements Serializable {
         return content;
     }
 
-    public Message setContent(String content) {
+    public MessageEntity setContent(String content) {
         this.content = content;
         return this;
     }
 
-    public AppUser getSendUser() {
+    public AppUserEntity getSendUser() {
         return sendUser;
     }
 
-    public Message setSendUser(AppUser sendUser) {
+    public MessageEntity setSendUser(AppUserEntity sendUser) {
         this.sendUser = sendUser;
         return this;
     }
 
-    public AppUser getReceiveUser() {
+    public AppUserEntity getReceiveUser() {
         return receiveUser;
     }
 
-    public Message setReceiveUser(AppUser receiveUser) {
+    public MessageEntity setReceiveUser(AppUserEntity receiveUser) {
         this.receiveUser = receiveUser;
         return this;
     }
@@ -96,7 +96,7 @@ public class Message implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Message message = (Message) o;
+        MessageEntity message = (MessageEntity) o;
 
         return messageId == message.messageId;
 
@@ -109,7 +109,7 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return "Message{" +
+        return "MessageEntity{" +
                 "messageId=" + messageId +
                 ", sendTime=" + sendTime +
                 ", content='" + content + '\'' +

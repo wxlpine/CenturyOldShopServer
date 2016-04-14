@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  DiscountType.java
+ * Module:  DiscountTypeEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class DiscountType
+ * Purpose: Defines the Class DiscountTypeEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @pdOid e05f0e50-7c25-4589-8c85-84b079b0ec3f
  */
-public class DiscountType implements Serializable {
+public class DiscountTypeEntity implements Serializable {
     /**
      * @pdOid ddc4f80e-5fca-4c58-8331-424d5d947921
      */
@@ -24,10 +24,10 @@ public class DiscountType implements Serializable {
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=discountInfoDiscountType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<DiscountInfo> discountInfo;
+    private List<DiscountInfoEntity> discountInfo;
 
     //<editor-fold desc="constructor">
-    public DiscountType() {
+    public DiscountTypeEntity() {
     }
     //</editor-fold>
 
@@ -37,7 +37,7 @@ public class DiscountType implements Serializable {
         return discountTypeId;
     }
 
-    public DiscountType setDiscountTypeId(long discountTypeId) {
+    public DiscountTypeEntity setDiscountTypeId(long discountTypeId) {
         this.discountTypeId = discountTypeId;
         return this;
     }
@@ -46,16 +46,16 @@ public class DiscountType implements Serializable {
         return discountTypeName;
     }
 
-    public DiscountType setDiscountTypeName(String discountTypeName) {
+    public DiscountTypeEntity setDiscountTypeName(String discountTypeName) {
         this.discountTypeName = discountTypeName;
         return this;
     }
 
-    public List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfoEntity> getDiscountInfo() {
         return discountInfo;
     }
 
-    public DiscountType setDiscountInfo(List<DiscountInfo> discountInfo) {
+    public DiscountTypeEntity setDiscountInfo(List<DiscountInfoEntity> discountInfo) {
         this.discountInfo = discountInfo;
         return this;
     }
@@ -69,7 +69,7 @@ public class DiscountType implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DiscountType that = (DiscountType) o;
+        DiscountTypeEntity that = (DiscountTypeEntity) o;
 
         return discountTypeId == that.discountTypeId;
 
@@ -82,7 +82,7 @@ public class DiscountType implements Serializable {
 
     @Override
     public String toString() {
-        return "DiscountType{" +
+        return "DiscountTypeEntity{" +
                 "discountTypeId=" + discountTypeId +
                 ", discountTypeName='" + discountTypeName + '\'' +
                 '}';

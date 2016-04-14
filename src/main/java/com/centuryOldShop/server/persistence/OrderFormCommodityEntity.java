@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  OrderFormCommodity.java
+ * Module:  OrderFormCommodityEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class OrderFormCommodity
+ * Purpose: Defines the Class OrderFormCommodityEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * @pdOid cec92b6e-ddf8-4503-86ff-64de391c4f56
  */
-public class OrderFormCommodity implements Serializable {
+public class OrderFormCommodityEntity implements Serializable {
     /**
      * @pdOid c4c50301-b1e9-4772-b371-c073aec64eb6
      */
@@ -20,11 +20,11 @@ public class OrderFormCommodity implements Serializable {
      */
     private int buyAmount;
 
-    private OrderForm orderForm;
-    private Commodity commodity;
+    private OrderFormEntity orderForm;
+    private CommodityEntity commodity;
 
     //<editor-fold desc="constructor">
-    public OrderFormCommodity() {
+    public OrderFormCommodityEntity() {
     }
     //</editor-fold>
 
@@ -34,7 +34,7 @@ public class OrderFormCommodity implements Serializable {
         return buyPrice;
     }
 
-    public OrderFormCommodity setBuyPrice(double buyPrice) {
+    public OrderFormCommodityEntity setBuyPrice(double buyPrice) {
         this.buyPrice = buyPrice;
         return this;
     }
@@ -43,25 +43,25 @@ public class OrderFormCommodity implements Serializable {
         return buyAmount;
     }
 
-    public OrderFormCommodity setBuyAmount(int buyAmount) {
+    public OrderFormCommodityEntity setBuyAmount(int buyAmount) {
         this.buyAmount = buyAmount;
         return this;
     }
 
-    public OrderForm getOrderForm() {
+    public OrderFormEntity getOrderForm() {
         return orderForm;
     }
 
-    public OrderFormCommodity setOrderForm(OrderForm orderForm) {
+    public OrderFormCommodityEntity setOrderForm(OrderFormEntity orderForm) {
         this.orderForm = orderForm;
         return this;
     }
 
-    public Commodity getCommodity() {
+    public CommodityEntity getCommodity() {
         return commodity;
     }
 
-    public OrderFormCommodity setCommodity(Commodity commodity) {
+    public OrderFormCommodityEntity setCommodity(CommodityEntity commodity) {
         this.commodity = commodity;
         return this;
     }
@@ -76,7 +76,7 @@ public class OrderFormCommodity implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderFormCommodity that = (OrderFormCommodity) o;
+        OrderFormCommodityEntity that = (OrderFormCommodityEntity) o;
 
         if (orderForm != null ? !orderForm.equals(that.orderForm) : that.orderForm != null) return false;
         return commodity != null ? commodity.equals(that.commodity) : that.commodity == null;
@@ -92,7 +92,7 @@ public class OrderFormCommodity implements Serializable {
 
     @Override
     public String toString() {
-        return "OrderFormCommodity{" +
+        return "OrderFormCommodityEntity{" +
                 "buyPrice=" + buyPrice +
                 ", buyAmount=" + buyAmount +
                 ", orderForm=" + orderForm +

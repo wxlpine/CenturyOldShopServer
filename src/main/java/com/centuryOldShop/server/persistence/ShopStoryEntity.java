@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  ShopStory.java
+ * Module:  ShopStoryEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class ShopStory
+ * Purpose: Defines the Class ShopStoryEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @pdOid 5095ee84-fa98-470d-8301-54a7f1706147
  */
-public class ShopStory implements Serializable {
+public class ShopStoryEntity implements Serializable {
     /**
      * @pdOid 59ec9e40-37d1-4ea3-8aa0-ae635490e5ce
      */
@@ -32,15 +32,15 @@ public class ShopStory implements Serializable {
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopShopStory mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
     /**
      * @pdRoleInfo migr=no name=ShopStoryType assc=shopStoryShopStoryType mult=1..1 side=A
      */
-    private ShopStoryType shopStoryType;
+    private ShopStoryTypeEntity shopStoryType;
 
     //<editor-fold desc="constructor">
 
-    public ShopStory() {
+    public ShopStoryEntity() {
     }
 
     //</editor-fold>
@@ -52,7 +52,7 @@ public class ShopStory implements Serializable {
         return storyId;
     }
 
-    public ShopStory setStoryId(long storyId) {
+    public ShopStoryEntity setStoryId(long storyId) {
         this.storyId = storyId;
         return this;
     }
@@ -61,7 +61,7 @@ public class ShopStory implements Serializable {
         return storyName;
     }
 
-    public ShopStory setStoryName(String storyName) {
+    public ShopStoryEntity setStoryName(String storyName) {
         this.storyName = storyName;
         return this;
     }
@@ -70,7 +70,7 @@ public class ShopStory implements Serializable {
         return storyContentUrl;
     }
 
-    public ShopStory setStoryContentUrl(String storyContentUrl) {
+    public ShopStoryEntity setStoryContentUrl(String storyContentUrl) {
         this.storyContentUrl = storyContentUrl;
         return this;
     }
@@ -79,25 +79,25 @@ public class ShopStory implements Serializable {
         return addedTime;
     }
 
-    public ShopStory setAddedTime(Date addedTime) {
+    public ShopStoryEntity setAddedTime(Date addedTime) {
         this.addedTime = addedTime;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public ShopStory setShop(Shop shop) {
+    public ShopStoryEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
 
-    public ShopStoryType getShopStoryType() {
+    public ShopStoryTypeEntity getShopStoryType() {
         return shopStoryType;
     }
 
-    public ShopStory setShopStoryType(ShopStoryType shopStoryType) {
+    public ShopStoryEntity setShopStoryType(ShopStoryTypeEntity shopStoryType) {
         this.shopStoryType = shopStoryType;
         return this;
     }
@@ -113,7 +113,7 @@ public class ShopStory implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShopStory shopStory = (ShopStory) o;
+        ShopStoryEntity shopStory = (ShopStoryEntity) o;
 
         return storyId == shopStory.storyId;
 
@@ -126,7 +126,7 @@ public class ShopStory implements Serializable {
 
     @Override
     public String toString() {
-        return "ShopStory{" +
+        return "ShopStoryEntity{" +
                 "storyId=" + storyId +
                 ", storyName='" + storyName + '\'' +
                 ", storyContentUrl='" + storyContentUrl + '\'' +

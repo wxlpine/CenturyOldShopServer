@@ -1,12 +1,12 @@
 package com.centuryOldShop.server.domain;
 /***********************************************************************
- * Module:  Shop.java
+ * Module:  ShopEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class Shop
+ * Purpose: Defines the Class ShopEntity
  ***********************************************************************/
 
-import com.centuryOldShop.server.persistence.ShopArea;
-import com.centuryOldShop.server.persistence.ShopType;
+import com.centuryOldShop.server.persistence.ShopAreaEntity;
+import com.centuryOldShop.server.persistence.ShopTypeEntity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,8 +24,8 @@ public class Shop implements Serializable {
     private String phoneNumber;
     private String fax;
     private String longDescription;
-    private ShopType shopType;
-    private ShopArea shopArea;
+    private ShopTypeEntity shopType;
+    private ShopAreaEntity shopArea;
 
     //<editor-fold desc="constructor">
     public Shop() {
@@ -134,20 +134,20 @@ public class Shop implements Serializable {
         return this;
     }
 
-    public ShopType getShopType() {
+    public ShopTypeEntity getShopType() {
         return shopType;
     }
 
-    public Shop setShopType(ShopType shopType) {
+    public Shop setShopType(ShopTypeEntity shopType) {
         this.shopType = shopType;
         return this;
     }
 
-    public ShopArea getShopArea() {
+    public ShopAreaEntity getShopArea() {
         return shopArea;
     }
 
-    public Shop setShopArea(ShopArea shopArea) {
+    public Shop setShopArea(ShopAreaEntity shopArea) {
         this.shopArea = shopArea;
         return this;
     }

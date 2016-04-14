@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  DiscountInfo.java
+ * Module:  DiscountInfoEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class DiscountInfo
+ * Purpose: Defines the Class DiscountInfoEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @pdOid 26a388c6-ca24-4539-b787-6b2684dfe7b6
  */
-public class DiscountInfo implements Serializable {
+public class DiscountInfoEntity implements Serializable {
     /**
      * @pdOid 9e8e6653-77bd-4295-b558-cb3b4882be34
      */
@@ -59,22 +59,22 @@ public class DiscountInfo implements Serializable {
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=orderFormDiscountInfo coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<OrderForm> orderForm;
+    private List<OrderFormEntity> orderForm;
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopDiscountInfo mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
     /**
      * @pdRoleInfo migr=no name=DiscountType assc=discountInfoDiscountType mult=1..1 side=A
      */
-    private DiscountType discountType;
+    private DiscountTypeEntity discountType;
     /**
      * @pdRoleInfo migr=no name=Commodity assc=commodityDiscountInfo mult=0..1 side=A
      */
-    private List<Commodity> commodity;
+    private List<CommodityEntity> commodity;
 
     //<editor-fold desc="constructor">
-    public DiscountInfo() {
+    public DiscountInfoEntity() {
     }
     //</editor-fold>
 
@@ -84,7 +84,7 @@ public class DiscountInfo implements Serializable {
         return discountInfoId;
     }
 
-    public DiscountInfo setDiscountInfoId(long discountInfoId) {
+    public DiscountInfoEntity setDiscountInfoId(long discountInfoId) {
         this.discountInfoId = discountInfoId;
         return this;
     }
@@ -93,7 +93,7 @@ public class DiscountInfo implements Serializable {
         return title;
     }
 
-    public DiscountInfo setTitle(String title) {
+    public DiscountInfoEntity setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -102,7 +102,7 @@ public class DiscountInfo implements Serializable {
         return discountStartTime;
     }
 
-    public DiscountInfo setDiscountStartTime(Date discountStartTime) {
+    public DiscountInfoEntity setDiscountStartTime(Date discountStartTime) {
         this.discountStartTime = discountStartTime;
         return this;
     }
@@ -111,7 +111,7 @@ public class DiscountInfo implements Serializable {
         return discountEndTime;
     }
 
-    public DiscountInfo setDiscountEndTime(Date discountEndTime) {
+    public DiscountInfoEntity setDiscountEndTime(Date discountEndTime) {
         this.discountEndTime = discountEndTime;
         return this;
     }
@@ -120,7 +120,7 @@ public class DiscountInfo implements Serializable {
         return priceReduceMinPrice;
     }
 
-    public DiscountInfo setPriceReduceMinPrice(double priceReduceMinPrice) {
+    public DiscountInfoEntity setPriceReduceMinPrice(double priceReduceMinPrice) {
         this.priceReduceMinPrice = priceReduceMinPrice;
         return this;
     }
@@ -129,7 +129,7 @@ public class DiscountInfo implements Serializable {
         return priceReduceAmount;
     }
 
-    public DiscountInfo setPriceReduceAmount(double priceReduceAmount) {
+    public DiscountInfoEntity setPriceReduceAmount(double priceReduceAmount) {
         this.priceReduceAmount = priceReduceAmount;
         return this;
     }
@@ -138,7 +138,7 @@ public class DiscountInfo implements Serializable {
         return discountMinPrice;
     }
 
-    public DiscountInfo setDiscountMinPrice(double discountMinPrice) {
+    public DiscountInfoEntity setDiscountMinPrice(double discountMinPrice) {
         this.discountMinPrice = discountMinPrice;
         return this;
     }
@@ -147,43 +147,43 @@ public class DiscountInfo implements Serializable {
         return discountRatio;
     }
 
-    public DiscountInfo setDiscountRatio(double discountRatio) {
+    public DiscountInfoEntity setDiscountRatio(double discountRatio) {
         this.discountRatio = discountRatio;
         return this;
     }
 
-    public List<OrderForm> getOrderForm() {
+    public List<OrderFormEntity> getOrderForm() {
         return orderForm;
     }
 
-    public DiscountInfo setOrderForm(List<OrderForm> orderForm) {
+    public DiscountInfoEntity setOrderForm(List<OrderFormEntity> orderForm) {
         this.orderForm = orderForm;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public DiscountInfo setShop(Shop shop) {
+    public DiscountInfoEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
 
-    public DiscountType getDiscountType() {
+    public DiscountTypeEntity getDiscountType() {
         return discountType;
     }
 
-    public DiscountInfo setDiscountType(DiscountType discountType) {
+    public DiscountInfoEntity setDiscountType(DiscountTypeEntity discountType) {
         this.discountType = discountType;
         return this;
     }
 
-    public List<Commodity> getCommodity() {
+    public List<CommodityEntity> getCommodity() {
         return commodity;
     }
 
-    public DiscountInfo setCommodity(List<Commodity> commodity) {
+    public DiscountInfoEntity setCommodity(List<CommodityEntity> commodity) {
         this.commodity = commodity;
         return this;
     }
@@ -197,7 +197,7 @@ public class DiscountInfo implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DiscountInfo that = (DiscountInfo) o;
+        DiscountInfoEntity that = (DiscountInfoEntity) o;
 
         return discountInfoId == that.discountInfoId;
 
@@ -210,7 +210,7 @@ public class DiscountInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "DiscountInfo{" +
+        return "DiscountInfoEntity{" +
                 "discountInfoId=" + discountInfoId +
                 ", title='" + title + '\'' +
                 ", discountStartTime=" + discountStartTime +

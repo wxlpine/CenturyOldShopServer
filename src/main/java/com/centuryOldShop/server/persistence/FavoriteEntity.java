@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  Favorite.java
+ * Module:  FavoriteEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class Favorite
+ * Purpose: Defines the Class FavoriteEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -11,17 +11,17 @@ import java.util.Date;
 /**
  * @pdOid 280525cd-3eeb-4022-93f3-9155b0fed88d
  */
-public class Favorite implements Serializable {
+public class FavoriteEntity implements Serializable {
     /**
      * @pdOid 58cb0624-df23-4f54-9682-9bd70d8b14a9
      */
     private Date addTime;
 
-    private Commodity commodity;
-    private AppUser appUser;
+    private CommodityEntity commodity;
+    private AppUserEntity appUser;
 
     //<editor-fold desc="constructor">
-    public Favorite() {
+    public FavoriteEntity() {
     }
     //</editor-fold>
 
@@ -31,25 +31,25 @@ public class Favorite implements Serializable {
         return addTime;
     }
 
-    public Favorite setAddTime(Date addTime) {
+    public FavoriteEntity setAddTime(Date addTime) {
         this.addTime = addTime;
         return this;
     }
 
-    public Commodity getCommodity() {
+    public CommodityEntity getCommodity() {
         return commodity;
     }
 
-    public Favorite setCommodity(Commodity commodity) {
+    public FavoriteEntity setCommodity(CommodityEntity commodity) {
         this.commodity = commodity;
         return this;
     }
 
-    public AppUser getAppUser() {
+    public AppUserEntity getAppUser() {
         return appUser;
     }
 
-    public Favorite setAppUser(AppUser appUser) {
+    public FavoriteEntity setAppUser(AppUserEntity appUser) {
         this.appUser = appUser;
         return this;
     }
@@ -63,7 +63,7 @@ public class Favorite implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Favorite favorite = (Favorite) o;
+        FavoriteEntity favorite = (FavoriteEntity) o;
 
         return commodity != null ? commodity.equals(favorite.commodity) : favorite.commodity == null;
 
@@ -76,7 +76,7 @@ public class Favorite implements Serializable {
 
     @Override
     public String toString() {
-        return "Favorite{" +
+        return "FavoriteEntity{" +
                 "addTime=" + addTime +
                 ", commodity=" + commodity +
                 ", appUser=" + appUser +

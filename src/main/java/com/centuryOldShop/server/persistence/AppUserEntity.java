@@ -1,9 +1,9 @@
 package com.centuryOldShop.server.persistence;
 
 /***********************************************************************
- * Module:  AppUser.java
+ * Module:  AppUserEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class AppUser
+ * Purpose: Defines the Class AppUserEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @pdOid d6608c5e-a7d5-4fd5-9f06-ad123e7d64f0
  */
-public class AppUser implements Serializable {
+public class AppUserEntity implements Serializable {
     /**
      * @pdOid 87d24e90-68de-4eeb-9741-b4fea56854cc
      */
@@ -50,29 +50,29 @@ public class AppUser implements Serializable {
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=userOrderForm coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<OrderForm> orderForm;
+    private List<OrderFormEntity> orderForm;
     /**
      * @pdRoleInfo migr=no name=UserEvaluation assc=userEvaluation coll=java.util.List impl=java.util.ArrayList mult=0..* type=Composition
      */
-    private List<UserEvaluation> userEvaluation;
+    private List<UserEvaluationEntity> userEvaluation;
     /**
      * @pdRoleInfo migr=no name=Message assc=sendUser coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<Message> sendMessage;
+    private List<MessageEntity> sendMessage;
     /**
      * @pdRoleInfo migr=no name=Message assc=receiveUser coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<Message> receiveMessage;
-    private List<ShoppingCart> shoppingCart;
+    private List<MessageEntity> receiveMessage;
+    private List<ShoppingCartEntity> shoppingCart;
     /**
      * @pdRoleInfo migr=no name=Shop assc=manage mult=0..1 side=A
      */
-    private Shop managedShop;
-    private List<Favorite> favorite;
+    private ShopEntity managedShop;
+    private List<FavoriteEntity> favorite;
 
     //<editor-fold desc="constructor">
 
-    public AppUser() {
+    public AppUserEntity() {
     }
 
     //</editor-fold>
@@ -84,7 +84,7 @@ public class AppUser implements Serializable {
         return userId;
     }
 
-    public AppUser setUserId(long userId) {
+    public AppUserEntity setUserId(long userId) {
         this.userId = userId;
         return this;
     }
@@ -93,7 +93,7 @@ public class AppUser implements Serializable {
         return userName;
     }
 
-    public AppUser setUserName(String userName) {
+    public AppUserEntity setUserName(String userName) {
         this.userName = userName;
         return this;
     }
@@ -102,7 +102,7 @@ public class AppUser implements Serializable {
         return password;
     }
 
-    public AppUser setPassword(String password) {
+    public AppUserEntity setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -111,7 +111,7 @@ public class AppUser implements Serializable {
         return email;
     }
 
-    public AppUser setEmail(String email) {
+    public AppUserEntity setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -120,7 +120,7 @@ public class AppUser implements Serializable {
         return phoneNumber;
     }
 
-    public AppUser setPhoneNumber(String phoneNumber) {
+    public AppUserEntity setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }
@@ -129,7 +129,7 @@ public class AppUser implements Serializable {
         return userType;
     }
 
-    public AppUser setUserType(short userType) {
+    public AppUserEntity setUserType(short userType) {
         this.userType = userType;
         return this;
     }
@@ -138,7 +138,7 @@ public class AppUser implements Serializable {
         return headPortraitUrl;
     }
 
-    public AppUser setHeadPortraitUrl(String headPortraitUrl) {
+    public AppUserEntity setHeadPortraitUrl(String headPortraitUrl) {
         this.headPortraitUrl = headPortraitUrl;
         return this;
     }
@@ -147,70 +147,70 @@ public class AppUser implements Serializable {
         return registerTime;
     }
 
-    public AppUser setRegisterTime(Date registerTime) {
+    public AppUserEntity setRegisterTime(Date registerTime) {
         this.registerTime = registerTime;
         return this;
     }
 
-    public List<OrderForm> getOrderForm() {
+    public List<OrderFormEntity> getOrderForm() {
         return orderForm;
     }
 
-    public AppUser setOrderForm(List<OrderForm> orderForm) {
+    public AppUserEntity setOrderForm(List<OrderFormEntity> orderForm) {
         this.orderForm = orderForm;
         return this;
     }
 
-    public List<UserEvaluation> getUserEvaluation() {
+    public List<UserEvaluationEntity> getUserEvaluation() {
         return userEvaluation;
     }
 
-    public AppUser setUserEvaluation(List<UserEvaluation> userEvaluation) {
+    public AppUserEntity setUserEvaluation(List<UserEvaluationEntity> userEvaluation) {
         this.userEvaluation = userEvaluation;
         return this;
     }
 
-    public List<Message> getSendMessage() {
+    public List<MessageEntity> getSendMessage() {
         return sendMessage;
     }
 
-    public AppUser setSendMessage(List<Message> sendMessage) {
+    public AppUserEntity setSendMessage(List<MessageEntity> sendMessage) {
         this.sendMessage = sendMessage;
         return this;
     }
 
-    public List<Message> getReceiveMessage() {
+    public List<MessageEntity> getReceiveMessage() {
         return receiveMessage;
     }
 
-    public AppUser setReceiveMessage(List<Message> receiveMessage) {
+    public AppUserEntity setReceiveMessage(List<MessageEntity> receiveMessage) {
         this.receiveMessage = receiveMessage;
         return this;
     }
 
-    public List<ShoppingCart> getShoppingCart() {
+    public List<ShoppingCartEntity> getShoppingCart() {
         return shoppingCart;
     }
 
-    public AppUser setShoppingCart(List<ShoppingCart> shoppingCart) {
+    public AppUserEntity setShoppingCart(List<ShoppingCartEntity> shoppingCart) {
         this.shoppingCart = shoppingCart;
         return this;
     }
 
-    public Shop getManagedShop() {
+    public ShopEntity getManagedShop() {
         return managedShop;
     }
 
-    public AppUser setManagedShop(Shop managedShop) {
+    public AppUserEntity setManagedShop(ShopEntity managedShop) {
         this.managedShop = managedShop;
         return this;
     }
 
-    public List<Favorite> getFavorite() {
+    public List<FavoriteEntity> getFavorite() {
         return favorite;
     }
 
-    public AppUser setFavorite(List<Favorite> favorite) {
+    public AppUserEntity setFavorite(List<FavoriteEntity> favorite) {
         this.favorite = favorite;
         return this;
     }
@@ -225,7 +225,7 @@ public class AppUser implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AppUser appUser = (AppUser) o;
+        AppUserEntity appUser = (AppUserEntity) o;
 
         return userId == appUser.userId;
 
@@ -238,7 +238,7 @@ public class AppUser implements Serializable {
 
     @Override
     public String toString() {
-        return "AppUser{" +
+        return "AppUserEntity{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +

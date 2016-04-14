@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  Commodity.java
+ * Module:  CommodityEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class Commodity
+ * Purpose: Defines the Class CommodityEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @pdOid 471ca747-75ab-4384-994e-a56f8972497f
  */
-public class Commodity implements Serializable {
+public class CommodityEntity implements Serializable {
     /**
      * @pdOid dc077716-c898-47eb-a3a4-6ea5ecec5394
      */
@@ -61,21 +61,21 @@ public class Commodity implements Serializable {
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=commodityDiscountInfo coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private List<DiscountInfo> discountInfo;
+    private List<DiscountInfoEntity> discountInfo;
     /**
      * @pdRoleInfo migr=no name=UserEvaluation assc=userEvaluation coll=java.util.List impl=java.util.ArrayList mult=0..* type=Composition
      */
-    private List<UserEvaluation> userEvaluation;
-    private List<Favorite> favorite;
-    private List<OrderFormCommodity> orderFormCommodity;
+    private List<UserEvaluationEntity> userEvaluation;
+    private List<FavoriteEntity> favorite;
+    private List<OrderFormCommodityEntity> orderFormCommodity;
     /**
      * @pdRoleInfo migr=no name=CommodityType assc=commodityCommodityType mult=1..1 side=A
      */
-    private CommodityType commodityType;
-    private List<ShoppingCart> shoppingCart;
+    private CommodityTypeEntity commodityType;
+    private List<ShoppingCartEntity> shoppingCart;
 
     //<editor-fold desc="constructor">
-    public Commodity() {
+    public CommodityEntity() {
     }
     //</editor-fold>
 
@@ -86,7 +86,7 @@ public class Commodity implements Serializable {
         return commodityId;
     }
 
-    public Commodity setCommodityId(long commodityId) {
+    public CommodityEntity setCommodityId(long commodityId) {
         this.commodityId = commodityId;
         return this;
     }
@@ -95,7 +95,7 @@ public class Commodity implements Serializable {
         return commodityName;
     }
 
-    public Commodity setCommodityName(String commodityName) {
+    public CommodityEntity setCommodityName(String commodityName) {
         this.commodityName = commodityName;
         return this;
     }
@@ -104,7 +104,7 @@ public class Commodity implements Serializable {
         return smallPhotoUrl;
     }
 
-    public Commodity setSmallPhotoUrl(String smallPhotoUrl) {
+    public CommodityEntity setSmallPhotoUrl(String smallPhotoUrl) {
         this.smallPhotoUrl = smallPhotoUrl;
         return this;
     }
@@ -113,7 +113,7 @@ public class Commodity implements Serializable {
         return shortDescription;
     }
 
-    public Commodity setShortDescription(String shortDescription) {
+    public CommodityEntity setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
         return this;
     }
@@ -122,7 +122,7 @@ public class Commodity implements Serializable {
         return price;
     }
 
-    public Commodity setPrice(double price) {
+    public CommodityEntity setPrice(double price) {
         this.price = price;
         return this;
     }
@@ -131,7 +131,7 @@ public class Commodity implements Serializable {
         return salesVolume;
     }
 
-    public Commodity setSalesVolume(int salesVolume) {
+    public CommodityEntity setSalesVolume(int salesVolume) {
         this.salesVolume = salesVolume;
         return this;
     }
@@ -140,7 +140,7 @@ public class Commodity implements Serializable {
         return exemptionFromPostage;
     }
 
-    public Commodity setExemptionFromPostage(boolean exemptionFromPostage) {
+    public CommodityEntity setExemptionFromPostage(boolean exemptionFromPostage) {
         this.exemptionFromPostage = exemptionFromPostage;
         return this;
     }
@@ -149,7 +149,7 @@ public class Commodity implements Serializable {
         return addedTime;
     }
 
-    public Commodity setAddedTime(Date addedTime) {
+    public CommodityEntity setAddedTime(Date addedTime) {
         this.addedTime = addedTime;
         return this;
     }
@@ -158,7 +158,7 @@ public class Commodity implements Serializable {
         return phoneTopBigPhotoUrl;
     }
 
-    public Commodity setPhoneTopBigPhotoUrl(String phoneTopBigPhotoUrl) {
+    public CommodityEntity setPhoneTopBigPhotoUrl(String phoneTopBigPhotoUrl) {
         this.phoneTopBigPhotoUrl = phoneTopBigPhotoUrl;
         return this;
     }
@@ -167,7 +167,7 @@ public class Commodity implements Serializable {
         return offShelf;
     }
 
-    public Commodity setOffShelf(boolean offShelf) {
+    public CommodityEntity setOffShelf(boolean offShelf) {
         this.offShelf = offShelf;
         return this;
     }
@@ -176,61 +176,61 @@ public class Commodity implements Serializable {
         return remainingQuantity;
     }
 
-    public Commodity setRemainingQuantity(int remainingQuantity) {
+    public CommodityEntity setRemainingQuantity(int remainingQuantity) {
         this.remainingQuantity = remainingQuantity;
         return this;
     }
 
-    public List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfoEntity> getDiscountInfo() {
         return discountInfo;
     }
 
-    public Commodity setDiscountInfo(List<DiscountInfo> discountInfo) {
+    public CommodityEntity setDiscountInfo(List<DiscountInfoEntity> discountInfo) {
         this.discountInfo = discountInfo;
         return this;
     }
 
-    public List<UserEvaluation> getUserEvaluation() {
+    public List<UserEvaluationEntity> getUserEvaluation() {
         return userEvaluation;
     }
 
-    public Commodity setUserEvaluation(List<UserEvaluation> userEvaluation) {
+    public CommodityEntity setUserEvaluation(List<UserEvaluationEntity> userEvaluation) {
         this.userEvaluation = userEvaluation;
         return this;
     }
 
-    public List<Favorite> getFavorite() {
+    public List<FavoriteEntity> getFavorite() {
         return favorite;
     }
 
-    public Commodity setFavorite(List<Favorite> favorite) {
+    public CommodityEntity setFavorite(List<FavoriteEntity> favorite) {
         this.favorite = favorite;
         return this;
     }
 
-    public List<OrderFormCommodity> getOrderFormCommodity() {
+    public List<OrderFormCommodityEntity> getOrderFormCommodity() {
         return orderFormCommodity;
     }
 
-    public Commodity setOrderFormCommodity(List<OrderFormCommodity> orderFormCommodity) {
+    public CommodityEntity setOrderFormCommodity(List<OrderFormCommodityEntity> orderFormCommodity) {
         this.orderFormCommodity = orderFormCommodity;
         return this;
     }
 
-    public CommodityType getCommodityType() {
+    public CommodityTypeEntity getCommodityType() {
         return commodityType;
     }
 
-    public Commodity setCommodityType(CommodityType commodityType) {
+    public CommodityEntity setCommodityType(CommodityTypeEntity commodityType) {
         this.commodityType = commodityType;
         return this;
     }
 
-    public List<ShoppingCart> getShoppingCart() {
+    public List<ShoppingCartEntity> getShoppingCart() {
         return shoppingCart;
     }
 
-    public Commodity setShoppingCart(List<ShoppingCart> shoppingCart) {
+    public CommodityEntity setShoppingCart(List<ShoppingCartEntity> shoppingCart) {
         this.shoppingCart = shoppingCart;
         return this;
     }
@@ -246,7 +246,7 @@ public class Commodity implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Commodity commodity = (Commodity) o;
+        CommodityEntity commodity = (CommodityEntity) o;
 
         return commodityId == commodity.commodityId;
 
@@ -259,7 +259,7 @@ public class Commodity implements Serializable {
 
     @Override
     public String toString() {
-        return "Commodity{" +
+        return "CommodityEntity{" +
                 "commodityId=" + commodityId +
                 ", commodityName='" + commodityName + '\'' +
                 ", smallPhotoUrl='" + smallPhotoUrl + '\'' +

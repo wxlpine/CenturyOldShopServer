@@ -1,8 +1,8 @@
 package com.centuryOldShop.server.persistence;
 /***********************************************************************
- * Module:  OrderForm.java
+ * Module:  OrderFormEntity.java
  * Author:  cmicat
- * Purpose: Defines the Class OrderForm
+ * Purpose: Defines the Class OrderFormEntity
  ***********************************************************************/
 
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @pdOid 0698fce8-4586-41a2-840e-dadcff225b06
  */
-public class OrderForm implements Serializable {
+public class OrderFormEntity implements Serializable {
     /**
      * @pdOid a7deefd7-bb5a-41f2-aeb6-aa6ecc6affd2
      */
@@ -38,34 +38,34 @@ public class OrderForm implements Serializable {
      */
     private String expressNumber;
 
-    private List<OrderFormCommodity> orderFormCommodity;
+    private List<OrderFormCommodityEntity> orderFormCommodity;
     /**
      * @pdRoleInfo migr=no name=UserEvaluation assc=userEvaluation coll=java.util.List impl=java.util.ArrayList mult=0..* type=Composition
      */
-    private List<UserEvaluation> userEvaluation;
+    private List<UserEvaluationEntity> userEvaluation;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=userOrderForm mult=1..1 side=A
      */
-    private AppUser appUser;
+    private AppUserEntity appUser;
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopOrderForm mult=1..1 side=A
      */
-    private Shop shop;
+    private ShopEntity shop;
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=orderFormDiscountInfo mult=0..1 side=A
      */
-    private DiscountInfo discountInfo;
+    private DiscountInfoEntity discountInfo;
     /**
      * @pdRoleInfo migr=no name=OrderStatusType assc=orderFormOrderStatusType mult=1..1 side=A
      */
-    private OrderStatusType orderStatusType;
+    private OrderStatusTypeEntity orderStatusType;
     /**
      * @pdRoleInfo migr=no name=DisputeStatusType assc=disputeStatusTypeOrderForm mult=1..1 side=A
      */
-    private DisputeStatusType disputeStatusType;
+    private DisputeStatusTypeEntity disputeStatusType;
 
     //<editor-fold desc="constructor">
-    public OrderForm() {
+    public OrderFormEntity() {
     }
     //</editor-fold>
 
@@ -75,7 +75,7 @@ public class OrderForm implements Serializable {
         return orderFormId;
     }
 
-    public OrderForm setOrderFormId(long orderFormId) {
+    public OrderFormEntity setOrderFormId(long orderFormId) {
         this.orderFormId = orderFormId;
         return this;
     }
@@ -84,7 +84,7 @@ public class OrderForm implements Serializable {
         return orderedTime;
     }
 
-    public OrderForm setOrderedTime(Date orderedTime) {
+    public OrderFormEntity setOrderedTime(Date orderedTime) {
         this.orderedTime = orderedTime;
         return this;
     }
@@ -93,7 +93,7 @@ public class OrderForm implements Serializable {
         return payedTime;
     }
 
-    public OrderForm setPayedTime(Date payedTime) {
+    public OrderFormEntity setPayedTime(Date payedTime) {
         this.payedTime = payedTime;
         return this;
     }
@@ -102,7 +102,7 @@ public class OrderForm implements Serializable {
         return sendTime;
     }
 
-    public OrderForm setSendTime(Date sendTime) {
+    public OrderFormEntity setSendTime(Date sendTime) {
         this.sendTime = sendTime;
         return this;
     }
@@ -111,7 +111,7 @@ public class OrderForm implements Serializable {
         return receiptedTime;
     }
 
-    public OrderForm setReceiptedTime(Date receiptedTime) {
+    public OrderFormEntity setReceiptedTime(Date receiptedTime) {
         this.receiptedTime = receiptedTime;
         return this;
     }
@@ -120,70 +120,70 @@ public class OrderForm implements Serializable {
         return expressNumber;
     }
 
-    public OrderForm setExpressNumber(String expressNumber) {
+    public OrderFormEntity setExpressNumber(String expressNumber) {
         this.expressNumber = expressNumber;
         return this;
     }
 
-    public List<OrderFormCommodity> getOrderFormCommodity() {
+    public List<OrderFormCommodityEntity> getOrderFormCommodity() {
         return orderFormCommodity;
     }
 
-    public OrderForm setOrderFormCommodity(List<OrderFormCommodity> orderFormCommodity) {
+    public OrderFormEntity setOrderFormCommodity(List<OrderFormCommodityEntity> orderFormCommodity) {
         this.orderFormCommodity = orderFormCommodity;
         return this;
     }
 
-    public List<UserEvaluation> getUserEvaluation() {
+    public List<UserEvaluationEntity> getUserEvaluation() {
         return userEvaluation;
     }
 
-    public OrderForm setUserEvaluation(List<UserEvaluation> userEvaluation) {
+    public OrderFormEntity setUserEvaluation(List<UserEvaluationEntity> userEvaluation) {
         this.userEvaluation = userEvaluation;
         return this;
     }
 
-    public AppUser getAppUser() {
+    public AppUserEntity getAppUser() {
         return appUser;
     }
 
-    public OrderForm setAppUser(AppUser appUser) {
+    public OrderFormEntity setAppUser(AppUserEntity appUser) {
         this.appUser = appUser;
         return this;
     }
 
-    public Shop getShop() {
+    public ShopEntity getShop() {
         return shop;
     }
 
-    public OrderForm setShop(Shop shop) {
+    public OrderFormEntity setShop(ShopEntity shop) {
         this.shop = shop;
         return this;
     }
 
-    public DiscountInfo getDiscountInfo() {
+    public DiscountInfoEntity getDiscountInfo() {
         return discountInfo;
     }
 
-    public OrderForm setDiscountInfo(DiscountInfo discountInfo) {
+    public OrderFormEntity setDiscountInfo(DiscountInfoEntity discountInfo) {
         this.discountInfo = discountInfo;
         return this;
     }
 
-    public OrderStatusType getOrderStatusType() {
+    public OrderStatusTypeEntity getOrderStatusType() {
         return orderStatusType;
     }
 
-    public OrderForm setOrderStatusType(OrderStatusType orderStatusType) {
+    public OrderFormEntity setOrderStatusType(OrderStatusTypeEntity orderStatusType) {
         this.orderStatusType = orderStatusType;
         return this;
     }
 
-    public DisputeStatusType getDisputeStatusType() {
+    public DisputeStatusTypeEntity getDisputeStatusType() {
         return disputeStatusType;
     }
 
-    public OrderForm setDisputeStatusType(DisputeStatusType disputeStatusType) {
+    public OrderFormEntity setDisputeStatusType(DisputeStatusTypeEntity disputeStatusType) {
         this.disputeStatusType = disputeStatusType;
         return this;
     }
@@ -198,7 +198,7 @@ public class OrderForm implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderForm orderForm = (OrderForm) o;
+        OrderFormEntity orderForm = (OrderFormEntity) o;
 
         return orderFormId == orderForm.orderFormId;
 
@@ -211,7 +211,7 @@ public class OrderForm implements Serializable {
 
     @Override
     public String toString() {
-        return "OrderForm{" +
+        return "OrderFormEntity{" +
                 "orderFormId=" + orderFormId +
                 ", orderedTime=" + orderedTime +
                 ", payedTime=" + payedTime +
