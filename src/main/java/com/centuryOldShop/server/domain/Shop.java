@@ -5,15 +5,11 @@ package com.centuryOldShop.server.domain;
  * Purpose: Defines the Class ShopEntity
  ***********************************************************************/
 
-import com.centuryOldShop.server.persistence.ShopAreaEntity;
-import com.centuryOldShop.server.persistence.ShopTypeEntity;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class Shop implements Serializable {
 
-    private long shopId;
     private String shopName;
     private String shortDescription;
     private Date openABusinessTime;
@@ -24,25 +20,16 @@ public class Shop implements Serializable {
     private String phoneNumber;
     private String fax;
     private String longDescription;
-    private ShopTypeEntity shopType;
-    private ShopAreaEntity shopArea;
+
+    private String shopType;
+    private String shopArea;
 
     //<editor-fold desc="constructor">
     public Shop() {
     }
     //</editor-fold>
 
-
     //<editor-fold desc="accessor">
-
-    public long getShopId() {
-        return shopId;
-    }
-
-    public Shop setShopId(long shopId) {
-        this.shopId = shopId;
-        return this;
-    }
 
     public String getShopName() {
         return shopName;
@@ -134,20 +121,20 @@ public class Shop implements Serializable {
         return this;
     }
 
-    public ShopTypeEntity getShopType() {
+    public String getShopType() {
         return shopType;
     }
 
-    public Shop setShopType(ShopTypeEntity shopType) {
+    public Shop setShopType(String shopType) {
         this.shopType = shopType;
         return this;
     }
 
-    public ShopAreaEntity getShopArea() {
+    public String getShopArea() {
         return shopArea;
     }
 
-    public Shop setShopArea(ShopAreaEntity shopArea) {
+    public Shop setShopArea(String shopArea) {
         this.shopArea = shopArea;
         return this;
     }
@@ -165,20 +152,46 @@ public class Shop implements Serializable {
 
         Shop shop = (Shop) o;
 
-        return shopId == shop.shopId;
+        if (visitCount != shop.visitCount) return false;
+        if (shopName != null ? !shopName.equals(shop.shopName) : shop.shopName != null) return false;
+        if (shortDescription != null ? !shortDescription.equals(shop.shortDescription) : shop.shortDescription != null)
+            return false;
+        if (openABusinessTime != null ? !openABusinessTime.equals(shop.openABusinessTime) : shop.openABusinessTime != null)
+            return false;
+        if (detailedAddress != null ? !detailedAddress.equals(shop.detailedAddress) : shop.detailedAddress != null)
+            return false;
+        if (trademark != null ? !trademark.equals(shop.trademark) : shop.trademark != null) return false;
+        if (enterTime != null ? !enterTime.equals(shop.enterTime) : shop.enterTime != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(shop.phoneNumber) : shop.phoneNumber != null) return false;
+        if (fax != null ? !fax.equals(shop.fax) : shop.fax != null) return false;
+        if (longDescription != null ? !longDescription.equals(shop.longDescription) : shop.longDescription != null)
+            return false;
+        if (shopType != null ? !shopType.equals(shop.shopType) : shop.shopType != null) return false;
+        return shopArea != null ? shopArea.equals(shop.shopArea) : shop.shopArea == null;
 
     }
 
     @Override
     public int hashCode() {
-        return (int) (shopId ^ (shopId >>> 32));
+        int result = shopName != null ? shopName.hashCode() : 0;
+        result = 31 * result + (shortDescription != null ? shortDescription.hashCode() : 0);
+        result = 31 * result + (openABusinessTime != null ? openABusinessTime.hashCode() : 0);
+        result = 31 * result + visitCount;
+        result = 31 * result + (detailedAddress != null ? detailedAddress.hashCode() : 0);
+        result = 31 * result + (trademark != null ? trademark.hashCode() : 0);
+        result = 31 * result + (enterTime != null ? enterTime.hashCode() : 0);
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (fax != null ? fax.hashCode() : 0);
+        result = 31 * result + (longDescription != null ? longDescription.hashCode() : 0);
+        result = 31 * result + (shopType != null ? shopType.hashCode() : 0);
+        result = 31 * result + (shopArea != null ? shopArea.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Shop{" +
-                "shopId=" + shopId +
-                ", shopName='" + shopName + '\'' +
+                "shopName='" + shopName + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +
                 ", openABusinessTime=" + openABusinessTime +
                 ", visitCount=" + visitCount +
@@ -188,9 +201,10 @@ public class Shop implements Serializable {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", fax='" + fax + '\'' +
                 ", longDescription='" + longDescription + '\'' +
-                ", shopType=" + shopType +
-                ", shopArea=" + shopArea +
+                ", shopType='" + shopType + '\'' +
+                ", shopArea='" + shopArea + '\'' +
                 '}';
     }
-//</editor-fold>
+
+    //</editor-fold>
 }
