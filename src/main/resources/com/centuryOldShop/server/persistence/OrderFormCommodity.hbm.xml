@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: cmicat -->
+<!-- Modified: 2016年4月5日 19:23:35 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
+    <class name="OrderFormCommodity" table="OrderForm_Commodity" mutable="true" dynamic-update="false"
+           dynamic-insert="false" select-before-update="false" lazy="true" abstract="false">
+        <!-- You have to define primary identifier -->
+        <id name="id"/>
+        <property name="buyPrice" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="buyPrice" sql-type="money" not-null="true"/>
+        </property>
+        <property name="buyAmount" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="buyAmount" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

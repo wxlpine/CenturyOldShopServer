@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: cmicat -->
+<!-- Modified: 2016年4月15日 19:45:47 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
+    <class name="RateKeyword" mutable="true" dynamic-update="false" dynamic-insert="false" select-before-update="false"
+           lazy="true" abstract="false">
+        <id name="rateKeyword">
+            <column name="rateKeyword" sql-type="nvarchar(255)" not-null="true" length="255"/>
+        </id>
+        <list name="videoIntroduction" table="VideoIntroduction_Keyword" outer-join="false" lazy="true"
+              optimistic-lock="true">
+            <!--Warning: an indexed collection (or even arrays) of class VideoIntroduction cannot be set to inverse="true". -->
+            <key>
+                <column name="rateKeyword" sql-type="nvarchar(255)" not-null="true" length="255"/>
+            </key>
+            <list-index column="IndexColumnA"/>
+            <many-to-many class="com.centuryOldShop.server.persistence.VideoIntroduction" outer-join="false">
+                <column name="videoIntroductionId" sql-type="int" not-null="true" length="0"/>
+            </many-to-many>
+        </list>
+    </class>
+</hibernate-mapping>

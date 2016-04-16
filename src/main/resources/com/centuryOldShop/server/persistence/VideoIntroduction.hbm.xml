@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: cmicat -->
+<!-- Modified: 2016年4月15日 19:45:47 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
+    <class name="VideoIntroduction" mutable="true" dynamic-update="false" dynamic-insert="false"
+           select-before-update="false" lazy="true" abstract="false">
+        <id name="videoIntroductionId">
+            <column name="videoIntroductionId" sql-type="int" not-null="true"/>
+        </id>
+        <property name="videoUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="videoUrl" sql-type="nvarchar(2000)" not-null="true" length="2000"/>
+        </property>
+        <property name="duration" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="duration" sql-type="int" not-null="true"/>
+        </property>
+        <property name="screenshotUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="screenshotUrl" sql-type="nvarchar(2000)" not-null="true" length="2000"/>
+        </property>
+        <property name="playedTimes" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="playedTimes" sql-type="int" not-null="true"/>
+        </property>
+        <property name="rate" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="rate" sql-type="decimal(4,2)" not-null="true" length="4" precision="2"/>
+        </property>
+        <property name="addedTime" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="addedTime" sql-type="datetime2(0)" not-null="true"/>
+        </property>
+        <many-to-one name="shop" class="com.centuryOldShop.server.persistence.Shop" outer-join="false" update="true"
+                     insert="true">
+            <column name="shopId" sql-type="int" not-null="true" length="0"/>
+        </many-to-one>
+        <list name="rateKeyword" table="VideoIntroduction_Keyword" outer-join="false" lazy="true"
+              optimistic-lock="true">
+            <key on-delete="noaction" unique="false">
+                <column name="videoIntroductionId" sql-type="int" not-null="true" length="0"/>
+            </key>
+            <list-index column="IndexColumnB"/>
+            <many-to-many class="com.centuryOldShop.server.persistence.RateKeyword" outer-join="false">
+                <column name="rateKeyword" sql-type="nvarchar(255)" not-null="true" length="255"/>
+            </many-to-many>
+        </list>
+    </class>
+</hibernate-mapping>

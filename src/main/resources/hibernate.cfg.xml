@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate Configuration File -->
+<!-- Author: cmicat -->
+<!-- Modified: 2016年4月15日 19:45:45 -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Do not specify your JDBC driver Jar! -->
+
+        <!-- Settings for a remote MS SQL Server database. -->
+        <property name="hibernate.dialect">com.centuryOldShop.server.persistence.SQLServerNativeDialect</property>
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.url">
+            jdbc:sqlserver://localhost:1433;databaseName=CenturyOldShop;sendTimeAsDatetime=false
+        </property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password">3P6H6DzQxP5CruH1fCdN</property>
+
+        <!-- Use the C3P0 connection pool.
+        <property name="c3p0.min_size">3</property>
+        <property name="c3p0.max_size">5</property>
+        <property name="c3p0.timeout">1800</property>
+          -->
+
+        <!-- Use the Hibernate built-in pool for tests. -->
+        <property name="hibernate.connection.pool_size">1</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Use EHCache but not the query cache. -->
+        <!--
+        <property name="cache.provider_class">net.sf.ehcache.hibernate.Provider</property>
+        <property name="cache.use_query_cache">false</property>
+        <property name="cache.use_minimal_puts">false</property>
+        -->
+
+        <!-- Print SQL to stdout. -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Mapping files -->
+        <mapping resource="com/centuryOldShop/server/persistence/News.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/ShopStory.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/Shop.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/ShopType.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/ShopArea.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/ShoppingCart.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/DiscountInfo.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/DiscountType.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/Commodity.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/CommodityType.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/OrderForm.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/UserEvaluation.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/ShopHistory.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/OrderFormCommodity.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/Favorite.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/Message.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/SpecialCraft.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/VideoIntroduction.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/RateKeyword.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/ShopStoryType.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/OrderStatusType.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/DisputeStatusType.hbm.xml"/>
+        <mapping resource="com/centuryOldShop/server/persistence/AppUser.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

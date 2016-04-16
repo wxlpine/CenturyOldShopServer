@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hibernate XML Mapping File -->
+<!-- Author: cmicat -->
+<!-- Modified: 2016年4月15日 19:45:47 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
+    <class name="Commodity" mutable="true" dynamic-update="false" dynamic-insert="false" select-before-update="false"
+           lazy="true" abstract="false">
+        <id name="commodityId">
+            <column name="commodityId" sql-type="int" not-null="true"/>
+        </id>
+        <property name="commodityName" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="commodityName" sql-type="nvarchar(255)" not-null="true" length="255"/>
+        </property>
+        <property name="smallPhotoUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="smallPhotoUrl" sql-type="nvarchar(2000)" not-null="true" length="2000"/>
+        </property>
+        <property name="shortDescription" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="shortDescription" sql-type="nvarchar(4000)" not-null="true" length="4000"/>
+        </property>
+        <property name="price" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="price" sql-type="money" not-null="true"/>
+        </property>
+        <property name="salesVolume" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="salesVolume" sql-type="int" not-null="true"/>
+        </property>
+        <property name="exemptionFromPostage" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="exemptionFromPostage" sql-type="bit" not-null="true"/>
+        </property>
+        <property name="addedTime" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="addedTime" sql-type="datetime2(0)" not-null="true"/>
+        </property>
+        <property name="phoneTopBigPhotoUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="phoneTopBigPhotoUrl" sql-type="nvarchar(2000)" not-null="true" length="2000"/>
+        </property>
+        <property name="offShelf" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="offShelf" sql-type="bit" not-null="true"/>
+        </property>
+        <property name="remainingQuantity" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="remainingQuantity" sql-type="int" not-null="true"/>
+        </property>
+        <many-to-one name="commodityType" class="com.centuryOldShop.server.persistence.CommodityType" outer-join="false"
+                     update="true" insert="true">
+            <column name="commodityType" sql-type="nvarchar(255)" not-null="true" length="255"/>
+        </many-to-one>
+        <list name="userEvaluation" outer-join="false" lazy="true" optimistic-lock="true">
+            <key on-delete="noaction" unique="false">
+                <column name="commodityId" sql-type="int" not-null="true" length="0"/>
+            </key>
+            <list-index column="IndexColumnB"/>
+            <one-to-many class="com.centuryOldShop.server.persistence.UserEvaluation"/>
+        </list>
+        <list name="orderForm" table="OrderForm_Commodity" outer-join="false" lazy="true" optimistic-lock="true">
+            <!--Warning: an indexed collection (or even arrays) of class OrderForm cannot be set to inverse="true". -->
+            <key on-delete="noaction" unique="false">
+                <column name="commodityId" sql-type="int" not-null="true" length="0"/>
+            </key>
+            <list-index column="IndexColumnA"/>
+            <many-to-many class="com.centuryOldShop.server.persistence.OrderForm" outer-join="false">
+                <column name="orderFormId" sql-type="int" not-null="true" length="0"/>
+            </many-to-many>
+        </list>
+        <list name="shoppingCartUser" table="ShoppingCart" outer-join="false" lazy="true" optimistic-lock="true">
+            <!--Warning: an indexed collection (or even arrays) of class AppUser cannot be set to inverse="true". -->
+            <key on-delete="noaction" unique="false">
+                <column name="commodityId" sql-type="int" not-null="true" length="0"/>
+            </key>
+            <list-index column="IndexColumnA"/>
+            <many-to-many class="com.centuryOldShop.server.persistence.AppUser" outer-join="false">
+                <column name="userId" sql-type="int" not-null="true" length="0"/>
+            </many-to-many>
+        </list>
+        <list name="discountInfo" table="Commodity_DiscountInfo" outer-join="false" lazy="true" optimistic-lock="true">
+            <!--Warning: an indexed collection (or even arrays) of class DiscountInfo cannot be set to inverse="true". -->
+            <key on-delete="noaction" unique="false">
+                <column name="commodityId" sql-type="int" not-null="true" length="0"/>
+            </key>
+            <list-index column="IndexColumnA"/>
+            <many-to-many class="com.centuryOldShop.server.persistence.DiscountInfo" outer-join="false">
+                <column name="discountInfoId" sql-type="int" not-null="true" length="0"/>
+            </many-to-many>
+        </list>
+        <list name="favoriteUser" table="Favorite" outer-join="false" lazy="true" optimistic-lock="true">
+            <key on-delete="noaction" unique="false">
+                <column name="commodityId" sql-type="int" not-null="true" length="0"/>
+            </key>
+            <list-index column="IndexColumnB"/>
+            <many-to-many class="com.centuryOldShop.server.persistence.AppUser" outer-join="false">
+                <column name="userId" sql-type="int" not-null="true" length="0"/>
+            </many-to-many>
+        </list>
+    </class>
+</hibernate-mapping>
