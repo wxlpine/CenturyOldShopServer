@@ -14,12 +14,12 @@
         <property name="discountTypeName" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="discountTypeName" sql-type="nvarchar(255)" not-null="true" length="255"/>
         </property>
-        <list name="discountInfo" outer-join="false" lazy="true" optimistic-lock="true">
+        <bag name="discountInfo" outer-join="false" lazy="true" optimistic-lock="true">
             <key>
                 <column name="discountTypeId" sql-type="int" not-null="true" length="0"/>
             </key>
-            <list-index column="IndexColumnB"/>
+
             <one-to-many class="com.centuryOldShop.server.persistence.DiscountInfo"/>
-        </list>
+        </bag>
     </class>
 </hibernate-mapping>

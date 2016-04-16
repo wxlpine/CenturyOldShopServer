@@ -45,51 +45,51 @@
                      update="true" insert="true">
             <column name="commodityType" sql-type="nvarchar(255)" not-null="true" length="255"/>
         </many-to-one>
-        <list name="userEvaluation" outer-join="false" lazy="true" optimistic-lock="true">
+        <bag name="userEvaluation" outer-join="false" lazy="true" optimistic-lock="true">
             <key on-delete="noaction" unique="false">
                 <column name="commodityId" sql-type="int" not-null="true" length="0"/>
             </key>
-            <list-index column="IndexColumnB"/>
+
             <one-to-many class="com.centuryOldShop.server.persistence.UserEvaluation"/>
-        </list>
-        <list name="orderForm" table="OrderForm_Commodity" outer-join="false" lazy="true" optimistic-lock="true">
+        </bag>
+        <bag name="orderForm" table="OrderForm_Commodity" outer-join="false" lazy="true" optimistic-lock="true">
             <!--Warning: an indexed collection (or even arrays) of class OrderForm cannot be set to inverse="true". -->
             <key on-delete="noaction" unique="false">
                 <column name="commodityId" sql-type="int" not-null="true" length="0"/>
             </key>
-            <list-index column="IndexColumnA"/>
+
             <many-to-many class="com.centuryOldShop.server.persistence.OrderForm" outer-join="false">
                 <column name="orderFormId" sql-type="int" not-null="true" length="0"/>
             </many-to-many>
-        </list>
-        <list name="shoppingCartUser" table="ShoppingCart" outer-join="false" lazy="true" optimistic-lock="true">
+        </bag>
+        <bag name="shoppingCartUser" table="ShoppingCart" outer-join="false" lazy="true" optimistic-lock="true">
             <!--Warning: an indexed collection (or even arrays) of class AppUser cannot be set to inverse="true". -->
             <key on-delete="noaction" unique="false">
                 <column name="commodityId" sql-type="int" not-null="true" length="0"/>
             </key>
-            <list-index column="IndexColumnA"/>
+
             <many-to-many class="com.centuryOldShop.server.persistence.AppUser" outer-join="false">
                 <column name="userId" sql-type="int" not-null="true" length="0"/>
             </many-to-many>
-        </list>
-        <list name="discountInfo" table="Commodity_DiscountInfo" outer-join="false" lazy="true" optimistic-lock="true">
+        </bag>
+        <bag name="discountInfo" table="Commodity_DiscountInfo" outer-join="false" lazy="true" optimistic-lock="true">
             <!--Warning: an indexed collection (or even arrays) of class DiscountInfo cannot be set to inverse="true". -->
             <key on-delete="noaction" unique="false">
                 <column name="commodityId" sql-type="int" not-null="true" length="0"/>
             </key>
-            <list-index column="IndexColumnA"/>
+
             <many-to-many class="com.centuryOldShop.server.persistence.DiscountInfo" outer-join="false">
                 <column name="discountInfoId" sql-type="int" not-null="true" length="0"/>
             </many-to-many>
-        </list>
-        <list name="favoriteUser" table="Favorite" outer-join="false" lazy="true" optimistic-lock="true">
+        </bag>
+        <bag name="favoriteUser" table="Favorite" outer-join="false" lazy="true" optimistic-lock="true">
             <key on-delete="noaction" unique="false">
                 <column name="commodityId" sql-type="int" not-null="true" length="0"/>
             </key>
-            <list-index column="IndexColumnB"/>
+
             <many-to-many class="com.centuryOldShop.server.persistence.AppUser" outer-join="false">
                 <column name="userId" sql-type="int" not-null="true" length="0"/>
             </many-to-many>
-        </list>
+        </bag>
     </class>
 </hibernate-mapping>

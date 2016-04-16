@@ -11,12 +11,11 @@
         <id name="disputeStatusType">
             <column name="disputeStatusType" sql-type="nvarchar(255)" not-null="true" length="255"/>
         </id>
-        <list name="orderForm" outer-join="false" lazy="true" optimistic-lock="true">
+        <bag name="orderForm" outer-join="false" lazy="true" optimistic-lock="true">
             <key>
                 <column name="disputeStatusType" sql-type="nvarchar(255)" not-null="true" length="255"/>
             </key>
-            <list-index column="IndexColumnB"/>
             <one-to-many class="com.centuryOldShop.server.persistence.OrderForm"/>
-        </list>
+        </bag>
     </class>
 </hibernate-mapping>

@@ -11,16 +11,16 @@
         <id name="rateKeyword">
             <column name="rateKeyword" sql-type="nvarchar(255)" not-null="true" length="255"/>
         </id>
-        <list name="videoIntroduction" table="VideoIntroduction_Keyword" outer-join="false" lazy="true"
-              optimistic-lock="true">
+        <bag name="videoIntroduction" table="VideoIntroduction_Keyword" outer-join="false" lazy="true"
+             optimistic-lock="true">
             <!--Warning: an indexed collection (or even arrays) of class VideoIntroduction cannot be set to inverse="true". -->
             <key>
                 <column name="rateKeyword" sql-type="nvarchar(255)" not-null="true" length="255"/>
             </key>
-            <list-index column="IndexColumnA"/>
+
             <many-to-many class="com.centuryOldShop.server.persistence.VideoIntroduction" outer-join="false">
                 <column name="videoIntroductionId" sql-type="int" not-null="true" length="0"/>
             </many-to-many>
-        </list>
+        </bag>
     </class>
 </hibernate-mapping>
