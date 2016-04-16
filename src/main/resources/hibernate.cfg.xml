@@ -13,9 +13,7 @@
         <!-- Settings for a remote MS SQL Server database. -->
         <property name="hibernate.dialect">com.centuryOldShop.server.persistence.SQLServerNativeDialect</property>
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="hibernate.connection.url">
-            jdbc:sqlserver://localhost:1433;databaseName=CenturyOldShop;sendTimeAsDatetime=false
-        </property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=CenturyOldShop;sendTimeAsDatetime=false</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password">3P6H6DzQxP5CruH1fCdN</property>
 
