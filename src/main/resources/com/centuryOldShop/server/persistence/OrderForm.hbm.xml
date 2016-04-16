@@ -10,6 +10,7 @@
            lazy="true" abstract="false">
         <id name="orderFormId">
             <column name="orderFormId" sql-type="int" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="orderedTime" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="orderedTime" sql-type="datetime2(0)" not-null="true"/>

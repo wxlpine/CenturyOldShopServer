@@ -6,55 +6,74 @@
 
 package com.centuryOldShop.server.persistence;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 /**
  * Generated primary key class for OrderFormCommodity. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
  */
+@Embeddable
 public class OrderFormCommodityPK implements java.io.Serializable {
 
+    @Column(name="orderFormId")
+    private long orderFormId;
+
+    @Column(name="commodityId")
+    private long commodityId;
     /**
      * Empty constructor
      */
     public OrderFormCommodityPK() {
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null) {
-            return false;
-        }
-
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        OrderFormCommodityPK cast = (OrderFormCommodityPK) other;
-
-        return true;
+    public OrderFormCommodityPK(long orderFormId, long commodityId) {
+        this.orderFormId = orderFormId;
+        this.commodityId = commodityId;
     }
 
+    public long getOrderFormId() {
+        return orderFormId;
+    }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    public OrderFormCommodityPK setOrderFormId(long orderFormId) {
+        this.orderFormId = orderFormId;
+        return this;
+    }
+
+    public long getCommodityId() {
+        return commodityId;
+    }
+
+    public OrderFormCommodityPK setCommodityId(long commodityId) {
+        this.commodityId = commodityId;
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OrderFormCommodityPK that = (OrderFormCommodityPK) o;
+
+        if (orderFormId != that.orderFormId) return false;
+        return commodityId == that.commodityId;
+
+    }
+
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        return _hashCode;
+        int result = (int) (orderFormId ^ (orderFormId >>> 32));
+        result = 31 * result + (int) (commodityId ^ (commodityId >>> 32));
+        return result;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.OrderFormCommodityPK: ");
-        return ret.toString();
+        return "OrderFormCommodityPK{" +
+                "orderFormId=" + orderFormId +
+                ", commodityId=" + commodityId +
+                '}';
     }
 }

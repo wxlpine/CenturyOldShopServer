@@ -9,7 +9,8 @@
     <class name="ShopArea" mutable="true" dynamic-update="false" dynamic-insert="false" select-before-update="false"
            lazy="true" abstract="false">
         <id name="shopAreaId">
-            <column name="shopAreaId" sql-type="int" not-null="true"/>
+            <column name="shopAreaId" sql-type="int" not-null="true" />
+            <generator class="identity"/>
         </id>
         <property name="shopAreaName" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="shopAreaName" sql-type="nvarchar(255)" not-null="true" length="255"/>

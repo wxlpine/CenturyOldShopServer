@@ -45,7 +45,7 @@ public class MessageTestHelper {
         if (persistentObject == null)
             persistentObject = new Message();
 
-        persistentObject.setMessageId((long) random.nextInt());
+//        persistentObject.setMessageId((long) random.nextInt());
         persistentObject.setSendTime(new java.util.Date(random.nextInt(10000)));
         persistentObject.setContent(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("F65FB421-7546-45B4-B69C-3902DECB6B59")) {

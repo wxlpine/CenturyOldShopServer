@@ -45,7 +45,8 @@ public class ShopAreaTestHelper {
         if (persistentObject == null)
             persistentObject = new ShopArea();
 
-        persistentObject.setShopAreaId((long) random.nextInt());
+        // don't set identity explicitly
+//        persistentObject.setShopAreaId((long) random.nextInt());
         persistentObject.setShopAreaName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("9909044A-4853-4C2D-981B-724F9C29695C")) {
             persistentObject.addShop((Shop) precedingObject);
@@ -56,7 +57,7 @@ public class ShopAreaTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param shopAreaObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(ShopArea persistentObject) {

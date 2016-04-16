@@ -45,7 +45,7 @@ public class OrderFormTestHelper {
         if (persistentObject == null)
             persistentObject = new OrderForm();
 
-        persistentObject.setOrderFormId((long) random.nextInt());
+//        persistentObject.setOrderFormId((long) random.nextInt());
         persistentObject.setOrderedTime(new java.util.Date(random.nextInt(10000)));
         persistentObject.setPayedTime(new java.util.Date(random.nextInt(10000)));
         persistentObject.setSendTime(new java.util.Date(random.nextInt(10000)));
@@ -79,7 +79,7 @@ public class OrderFormTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param orderFormObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(OrderForm persistentObject) {
@@ -107,7 +107,7 @@ public class OrderFormTestHelper {
         orderFormObject.setAppUser(appUser);
         Shop shop = orderFormObject.getShop();
         if (shop == null) {
-            shop = com.centuryOldShop.server.persistence.ShopTestHelper.newInstance(null, null, "C95F23C3-C062-43F0-80C9-B18BF56A4C58", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "C95F23C3-C062-43F0-80C9-B18BF56A4C58", 1, false);
         }
         shop.setOrderForm(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

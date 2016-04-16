@@ -10,6 +10,9 @@ package com.centuryOldShop.server.persistence;
  * @pdOid fd7231df-0466-4d8b-b0c7-c500e6dc55a9
  */
 public class Favorite implements java.io.Serializable {
+
+    private FavoritePK id;
+
     /**
      * @pdOid 98df48f9-793e-454b-bd8c-e62c8a0e4eb4
      */
@@ -17,6 +20,33 @@ public class Favorite implements java.io.Serializable {
 
     private Commodity favoriteCommodity;
     private AppUser favoriteUser;
+
+    public FavoritePK getId() {
+        return id;
+    }
+
+    public Favorite setId(FavoritePK id) {
+        this.id = id;
+        return this;
+    }
+
+    public Commodity getFavoriteCommodity() {
+        return favoriteCommodity;
+    }
+
+    public Favorite setFavoriteCommodity(Commodity favoriteCommodity) {
+        this.favoriteCommodity = favoriteCommodity;
+        return this;
+    }
+
+    public AppUser getFavoriteUser() {
+        return favoriteUser;
+    }
+
+    public Favorite setFavoriteUser(AppUser favoriteUser) {
+        this.favoriteUser = favoriteUser;
+        return this;
+    }
 
     /**
      * Get value of addTime

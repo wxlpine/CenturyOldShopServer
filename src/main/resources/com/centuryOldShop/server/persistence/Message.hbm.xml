@@ -10,6 +10,7 @@
            lazy="true" abstract="false">
         <id name="messageId">
             <column name="messageId" sql-type="int" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="sendTime" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="sendTime" sql-type="datetime2(0)" not-null="true"/>

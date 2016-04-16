@@ -10,6 +10,7 @@
            select-before-update="false" lazy="true" abstract="false">
         <id name="videoIntroductionId">
             <column name="videoIntroductionId" sql-type="int" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="videoUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="videoUrl" sql-type="nvarchar(2000)" not-null="true" length="2000"/>

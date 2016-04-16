@@ -45,7 +45,7 @@ public class ShopTestHelper {
         if (persistentObject == null)
             persistentObject = new Shop();
 
-        persistentObject.setShopId((long) random.nextInt());
+//        persistentObject.setShopId((long) random.nextInt());
         persistentObject.setShopName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setOpenABusinessTime(new java.util.Date(random.nextInt(10000)));
@@ -56,6 +56,12 @@ public class ShopTestHelper {
         persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setFax(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setLongDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+
+        if (associationInitialized) {
+            ShopType shopType = ShopTypeTestHelper.newInstance(null, null, "", 0, false);
+            persistentObject.setShopType(shopType);
+        }
+
         if (precedingObject != null && associationId.equals("C1F60A6B-07B2-48C6-A409-C5E308C44B5B")) {
             persistentObject.addNews((News) precedingObject);
         }
@@ -96,17 +102,17 @@ public class ShopTestHelper {
      * @param shopObject saved persistent object
      */
 
-    public static void modifyObject(Shop persistentObject) {
-        persistentObject.setShopName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setOpenABusinessTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setVisitCount(random.nextInt());
-        persistentObject.setDetailedAddress(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setTrademark(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setEnterTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setFax(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setLongDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+    public static void modifyObject(Shop shopObject) {
+        shopObject.setShopName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        shopObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        shopObject.setOpenABusinessTime(new java.util.Date(random.nextInt(10000)));
+        shopObject.setVisitCount(random.nextInt());
+        shopObject.setDetailedAddress(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        shopObject.setTrademark(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        shopObject.setEnterTime(new java.util.Date(random.nextInt(10000)));
+        shopObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        shopObject.setFax(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        shopObject.setLongDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
 
     /**

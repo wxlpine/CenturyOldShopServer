@@ -45,7 +45,7 @@ public class AppUserTestHelper {
         if (persistentObject == null)
             persistentObject = new AppUser();
 
-        persistentObject.setUserId((long) random.nextInt());
+//        persistentObject.setUserId((long) random.nextInt());
         persistentObject.setUserName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPassword(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setEmail(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));

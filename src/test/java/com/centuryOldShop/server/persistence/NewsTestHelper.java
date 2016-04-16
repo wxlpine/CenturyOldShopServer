@@ -45,7 +45,7 @@ public class NewsTestHelper {
         if (persistentObject == null)
             persistentObject = new News();
 
-        persistentObject.setNewsId((long) random.nextInt());
+//        persistentObject.setNewsId((long) random.nextInt());
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setContentUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPublishTime(new java.util.Date(random.nextInt(10000)));
@@ -81,7 +81,7 @@ public class NewsTestHelper {
 
         Shop shop = newsObject.getShop();
         if (shop == null) {
-            shop = com.centuryOldShop.server.persistence.ShopTestHelper.newInstance(null, null, "C1F60A6B-07B2-48C6-A409-C5E308C44B5B", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "C1F60A6B-07B2-48C6-A409-C5E308C44B5B", 1, false);
         }
         shop.setNews(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

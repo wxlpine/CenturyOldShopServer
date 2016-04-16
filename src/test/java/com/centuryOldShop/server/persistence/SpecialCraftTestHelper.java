@@ -45,7 +45,7 @@ public class SpecialCraftTestHelper {
         if (persistentObject == null)
             persistentObject = new SpecialCraft();
 
-        persistentObject.setSpecialCraftId((long) random.nextInt());
+//        persistentObject.setSpecialCraftId((long) random.nextInt());
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setIntroductionUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
@@ -81,7 +81,7 @@ public class SpecialCraftTestHelper {
 
         Shop shop = specialCraftObject.getShop();
         if (shop == null) {
-            shop = com.centuryOldShop.server.persistence.ShopTestHelper.newInstance(null, null, "36845EDD-5004-47D9-ADC6-9C1787C42BF4", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "36845EDD-5004-47D9-ADC6-9C1787C42BF4", 1, false);
         }
         shop.setSpecialCraft(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

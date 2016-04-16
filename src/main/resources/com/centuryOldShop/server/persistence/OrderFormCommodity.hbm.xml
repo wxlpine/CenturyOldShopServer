@@ -8,13 +8,22 @@
 <hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
     <class name="OrderFormCommodity" table="OrderForm_Commodity" mutable="true" dynamic-update="false"
            dynamic-insert="false" select-before-update="false" lazy="true" abstract="false">
-        <!-- You have to define primary identifier -->
-        <id name="id"/>
+        <composite-id name="id" class="OrderFormCommodityPK">
+            <key-property name="orderFormId" column="orderFormId" />
+            <key-property name="commodityId" column="commodityId" />
+        </composite-id>
+
         <property name="buyPrice" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="buyPrice" sql-type="money" not-null="true"/>
         </property>
         <property name="buyAmount" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="buyAmount" sql-type="int" not-null="true"/>
         </property>
+
+        <!--<one-to-one name="orderForm" class="OrderForm" cascade="none" outer-join="false"-->
+                    <!--foreign-key="orderFormId"/>-->
+
+        <!--<one-to-one name="commodity" class="Commodity" cascade="none" outer-join="false"-->
+                    <!--foreign-key="commodityId"/>-->
     </class>
 </hibernate-mapping>

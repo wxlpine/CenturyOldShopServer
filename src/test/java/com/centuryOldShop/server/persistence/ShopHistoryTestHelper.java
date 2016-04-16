@@ -45,7 +45,7 @@ public class ShopHistoryTestHelper {
         if (persistentObject == null)
             persistentObject = new ShopHistory();
 
-        persistentObject.setShopHistoryId((long) random.nextInt());
+//        persistentObject.setShopHistoryId((long) random.nextInt());
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
@@ -83,7 +83,7 @@ public class ShopHistoryTestHelper {
 
         Shop shop = shopHistoryObject.getShop();
         if (shop == null) {
-            shop = com.centuryOldShop.server.persistence.ShopTestHelper.newInstance(null, null, "DD1553D4-C90B-4F1B-AE75-28AF72FCD46E", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "DD1553D4-C90B-4F1B-AE75-28AF72FCD46E", 1, false);
         }
         shop.setShopHistory(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

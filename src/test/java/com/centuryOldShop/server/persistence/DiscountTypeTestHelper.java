@@ -45,7 +45,7 @@ public class DiscountTypeTestHelper {
         if (persistentObject == null)
             persistentObject = new DiscountType();
 
-        persistentObject.setDiscountTypeId((long) random.nextInt());
+//        persistentObject.setDiscountTypeId((long) random.nextInt());
         persistentObject.setDiscountTypeName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("B5712C03-1F87-4CFD-8EDD-0D2B3F21A63F")) {
             persistentObject.addDiscountInfo((DiscountInfo) precedingObject);

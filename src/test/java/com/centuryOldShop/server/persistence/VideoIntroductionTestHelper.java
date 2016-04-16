@@ -45,7 +45,7 @@ public class VideoIntroductionTestHelper {
         if (persistentObject == null)
             persistentObject = new VideoIntroduction();
 
-        persistentObject.setVideoIntroductionId((long) random.nextInt());
+//        persistentObject.setVideoIntroductionId((long) random.nextInt());
         persistentObject.setVideoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setDuration(random.nextInt());
         persistentObject.setScreenshotUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
@@ -86,7 +86,7 @@ public class VideoIntroductionTestHelper {
 
         Shop shop = videoIntroductionObject.getShop();
         if (shop == null) {
-            shop = com.centuryOldShop.server.persistence.ShopTestHelper.newInstance(null, null, "598D0883-33B3-4CA0-AB56-33CDC1E3B094", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "598D0883-33B3-4CA0-AB56-33CDC1E3B094", 1, false);
         }
         shop.setVideoIntroduction(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

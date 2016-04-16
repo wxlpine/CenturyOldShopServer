@@ -8,10 +8,18 @@
 <hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
     <class name="Favorite" mutable="true" dynamic-update="false" dynamic-insert="false" select-before-update="false"
            lazy="true" abstract="false">
-        <!-- You have to define primary identifier -->
-        <id name="id"/>
+        <composite-id name="id" class="FavoritePK">
+            <key-property name="userId" column="userId" />
+            <key-property name="commodityId" column="commodityId" />
+        </composite-id>
         <property name="addTime" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="addTime" sql-type="datetime2(0)" not-null="true"/>
         </property>
+
+        <!--<one-to-one name="favoriteCommodity" class="Commodity" cascade="none" outer-join="false"-->
+                    <!--foreign-key="commodityId"/>-->
+
+        <!--<one-to-one name="favoriteUser" class="AppUser" cascade="save-update" outer-join="false"-->
+                    <!--foreign-key="userId"/>-->
     </class>
 </hibernate-mapping>

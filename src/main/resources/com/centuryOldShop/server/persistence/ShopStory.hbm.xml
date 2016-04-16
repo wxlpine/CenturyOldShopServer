@@ -10,6 +10,7 @@
            lazy="true" abstract="false">
         <id name="storyId">
             <column name="storyId" sql-type="int" not-null="true"/>
+            <generator class="identity"/>
         </id>
         <property name="storyName" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="storyName" sql-type="nvarchar(255)" not-null="true" length="255"/>

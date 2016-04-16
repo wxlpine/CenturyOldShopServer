@@ -10,6 +10,9 @@ package com.centuryOldShop.server.persistence;
  * @pdOid e18de110-7a98-4066-9c32-219fe303a587
  */
 public class OrderFormCommodity implements java.io.Serializable {
+
+    private OrderFormCommodityPK id;
+
     /**
      * @pdOid fac1d3cd-eb22-4eb8-a381-65413c344b01
      */
@@ -21,6 +24,33 @@ public class OrderFormCommodity implements java.io.Serializable {
 
     private OrderForm orderForm;
     private Commodity commodity;
+
+    public OrderFormCommodityPK getId() {
+        return id;
+    }
+
+    public OrderFormCommodity setId(OrderFormCommodityPK id) {
+        this.id = id;
+        return this;
+    }
+
+    public OrderForm getOrderForm() {
+        return orderForm;
+    }
+
+    public OrderFormCommodity setOrderForm(OrderForm orderForm) {
+        this.orderForm = orderForm;
+        return this;
+    }
+
+    public Commodity getCommodity() {
+        return commodity;
+    }
+
+    public OrderFormCommodity setCommodity(Commodity commodity) {
+        this.commodity = commodity;
+        return this;
+    }
 
     /**
      * Get value of buyPrice

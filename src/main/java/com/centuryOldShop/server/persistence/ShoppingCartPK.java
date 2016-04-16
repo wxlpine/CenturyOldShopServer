@@ -6,11 +6,22 @@
 
 package com.centuryOldShop.server.persistence;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import java.io.Serializable;
+
 /**
  * Generated primary key class for ShoppingCart. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
  */
-public class ShoppingCartPK implements java.io.Serializable {
+@Embeddable
+public class ShoppingCartPK implements Serializable {
+
+    @Column(name="userId")
+    private long userId;
+
+    @Column(name="commodityId")
+    private long commodityId;
 
     /**
      * Empty constructor
@@ -19,43 +30,53 @@ public class ShoppingCartPK implements java.io.Serializable {
 
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null) {
-            return false;
-        }
-
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        ShoppingCartPK cast = (ShoppingCartPK) other;
-
-        return true;
+    public ShoppingCartPK(long userId, long commodityId) {
+        this.userId = userId;
+        this.commodityId = commodityId;
     }
 
+    public long getUserId() {
+        return userId;
+    }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    public ShoppingCartPK setUserId(long userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public long getCommodityId() {
+        return commodityId;
+    }
+
+    public ShoppingCartPK setCommodityId(long commodityId) {
+        this.commodityId = commodityId;
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShoppingCartPK that = (ShoppingCartPK) o;
+
+        if (userId != that.userId) return false;
+        return commodityId == that.commodityId;
+
+    }
+
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        return _hashCode;
+        int result = (int) (userId ^ (userId >>> 32));
+        result = 31 * result + (int) (commodityId ^ (commodityId >>> 32));
+        return result;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShoppingCartPK: ");
-        return ret.toString();
+        return "ShoppingCartPK{" +
+                "userId=" + userId +
+                ", commodityId=" + commodityId +
+                '}';
     }
 }

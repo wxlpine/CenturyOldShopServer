@@ -45,7 +45,7 @@ public class CommodityTestHelper {
         if (persistentObject == null)
             persistentObject = new Commodity();
 
-        persistentObject.setCommodityId((long) random.nextInt());
+//        persistentObject.setCommodityId((long) random.nextInt());
         persistentObject.setCommodityName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
