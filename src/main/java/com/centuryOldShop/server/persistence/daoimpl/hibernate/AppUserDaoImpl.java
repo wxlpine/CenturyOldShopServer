@@ -105,24 +105,6 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     }
 
     /* (non-Javadoc)
-     * @see com.centuryOldShop.server.persistence.dao.AppUserDao#findByPassword(java.lang.String)
-     */
-    public List findByPassword(java.lang.String password) throws DaoException {
-        List cs = new ArrayList();
-        cs.add(Restrictions.eq("password", password));
-        return super.findByCriterions(AppUser.class, cs);
-    }
-
-    /* (non-Javadoc)
-     * @see com.centuryOldShop.server.persistence.dao.AppUserDao#findByPassword(java.lang.String, int, int)
-     */
-    public List findByPassword(java.lang.String password, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
-        cs.add(Restrictions.eq("password", password));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
-    }
-
-    /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.AppUserDao#findByEmail(java.lang.String)
      */
     public List findByEmail(java.lang.String email) throws DaoException {

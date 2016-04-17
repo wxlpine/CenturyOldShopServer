@@ -53,7 +53,7 @@ public class OrderFormCommodityTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param orderFormCommodityObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(OrderFormCommodity persistentObject) {

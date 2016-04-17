@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class AppUser implements java.io.Serializable {
     /**
      * @pdOid 68945393-eb5c-4a7d-9602-b2339cb37efa
      */
-    private String password;
+    private byte[] password;
     /**
      * @pdOid f7fc3600-750c-4f1c-b863-08feb53c1a42
      */
@@ -75,6 +76,15 @@ public class AppUser implements java.io.Serializable {
     private Shop managedShop;
 
     /**
+     * Empty constructor which is required by Hibernate
+     */
+    public AppUser() {
+    }
+
+    //<editor-fold name="accessor">
+
+
+    /**
      * Get value of userId
      *
      * @return userId
@@ -111,7 +121,7 @@ public class AppUser implements java.io.Serializable {
      *
      * @return password
      */
-    public String getPassword() {
+    public byte[] getPassword() {
         return password;
     }
 
@@ -120,7 +130,7 @@ public class AppUser implements java.io.Serializable {
      *
      * @param newPassword
      */
-    public void setPassword(String newPassword) {
+    public void setPassword(byte[] newPassword) {
         this.password = newPassword;
     }
 
@@ -232,88 +242,6 @@ public class AppUser implements java.io.Serializable {
         if (pk != null) {
             this.userId = pk.getUserId();
         }
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof AppUser))
-            return false;
-
-        AppUser cast = (AppUser) other;
-
-        if (this.userId != cast.getUserId())
-            return false;
-
-        if (this.userName == null ? cast.getUserName() != this.userName : !this.userName.equals(cast.getUserName()))
-            return false;
-
-        if (this.password == null ? cast.getPassword() != this.password : !this.password.equals(cast.getPassword()))
-            return false;
-
-        if (this.email == null ? cast.getEmail() != this.email : !this.email.equals(cast.getEmail()))
-            return false;
-
-        if (this.phoneNumber == null ? cast.getPhoneNumber() != this.phoneNumber : !this.phoneNumber.equals(cast.getPhoneNumber()))
-            return false;
-
-        if (this.userType != cast.getUserType())
-            return false;
-
-        if (this.headPortraitUrl == null ? cast.getHeadPortraitUrl() != this.headPortraitUrl : !this.headPortraitUrl.equals(cast.getHeadPortraitUrl()))
-            return false;
-
-        if (this.registerTime == null ? cast.getRegisterTime() != this.registerTime : !(com.sybase.orm.util.Util.compareDate(this.registerTime, cast.getRegisterTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(userId)).hashCode();
-        if (this.userName != null)
-            hashCode = 29 * hashCode + userName.hashCode();
-        if (this.password != null)
-            hashCode = 29 * hashCode + password.hashCode();
-        if (this.email != null)
-            hashCode = 29 * hashCode + email.hashCode();
-        if (this.phoneNumber != null)
-            hashCode = 29 * hashCode + phoneNumber.hashCode();
-        hashCode = 29 * hashCode + (new Short(userType)).hashCode();
-        if (this.headPortraitUrl != null)
-            hashCode = 29 * hashCode + headPortraitUrl.hashCode();
-        if (this.registerTime != null)
-            hashCode = 29 * hashCode + registerTime.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.AppUser: ");
-        ret.append("userId='" + userId + "'");
-        ret.append("userName='" + userName + "'");
-        ret.append("password='" + password + "'");
-        ret.append("email='" + email + "'");
-        ret.append("phoneNumber='" + phoneNumber + "'");
-        ret.append("userType='" + userType + "'");
-        ret.append("headPortraitUrl='" + headPortraitUrl + "'");
-        ret.append("registerTime='" + registerTime + "'");
-        return ret.toString();
     }
 
 
@@ -762,10 +690,61 @@ public class AppUser implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public AppUser() {
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AppUser)) return false;
+
+        AppUser appUser = (AppUser) o;
+
+        if (userId != appUser.userId) return false;
+        if (userType != appUser.userType) return false;
+        if (userName != null ? !userName.equals(appUser.userName) : appUser.userName != null) return false;
+        if (!Arrays.equals(password, appUser.password)) return false;
+        if (email != null ? !email.equals(appUser.email) : appUser.email != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(appUser.phoneNumber) : appUser.phoneNumber != null) return false;
+        if (headPortraitUrl != null ? !headPortraitUrl.equals(appUser.headPortraitUrl) : appUser.headPortraitUrl != null)
+            return false;
+        if (registerTime != null ? !registerTime.equals(appUser.registerTime) : appUser.registerTime != null)
+            return false;
+        return managedShop != null ? managedShop.equals(appUser.managedShop) : appUser.managedShop == null;
+
     }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (userId ^ (userId >>> 32));
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(password);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (int) userType;
+        result = 31 * result + (headPortraitUrl != null ? headPortraitUrl.hashCode() : 0);
+        result = 31 * result + (registerTime != null ? registerTime.hashCode() : 0);
+        result = 31 * result + (managedShop != null ? managedShop.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password=" + Arrays.toString(password) +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", userType=" + userType +
+                ", headPortraitUrl='" + headPortraitUrl + '\'' +
+                ", registerTime=" + registerTime +
+                ", managedShop=" + managedShop +
+                '}';
+    }
+
+    //</editor-fold>
+
 
 }

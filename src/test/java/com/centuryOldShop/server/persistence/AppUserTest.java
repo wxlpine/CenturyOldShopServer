@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.AppUserTestHelper.*;
+
 /**
  * Test case class to test AppUser's persistence
  */
@@ -130,29 +132,6 @@ public class AppUserTest extends TestCase {
 
     }
 
-    /**
-     * Test query function </tt>findByPassword</tt>. First create multiple
-     * <Code>AppUser</Code> instances and save them by <tt>preFindByPassword</tt>.
-     * Then delegate the query operation to method <tt>doFindByPassword</tt>.
-     * In the end do some asserts in <tt>afterFindByPassword</tt> method.
-     * User can modify these methods to customize the test procedure.
-     *
-     * @throws Exception
-     */
-    public void testFindByPassword() throws Exception {
-
-        logger.debug("Test find-by-password begins!");
-        java.lang.String password = String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8))));
-        List appUsers = new ArrayList();
-        // Create and insert password instances
-        appUsers = preFindByPassword(password);
-        // Perform query
-        List result = doFindByPassword(password);
-        // Do asserts
-        afterFindByPassword(appUsers, result);
-        logger.debug("Test find-by-password ends!");
-
-    }
 
     /**
      * Test query function </tt>findByEmail</tt>. First create multiple
@@ -214,7 +193,7 @@ public class AppUserTest extends TestCase {
     public void testFindByUserType() throws Exception {
 
         logger.debug("Test find-by-userType begins!");
-        short userType = (short) random.nextInt(65535);
+        short userType = getRandomUserType();
         List appUsers = new ArrayList();
         // Create and insert userType instances
         appUsers = preFindByUserType(userType);
@@ -303,10 +282,10 @@ public class AppUserTest extends TestCase {
      * @throws Exception
      */
     private AppUser preInsert() throws Exception {
-        AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+        AppUser appUser = newInstance(null, null, "", 0, false);
         AppUser old = dao.load(appUser.getAppUserPK());
         if (old != null)
-            AppUserTestHelper.delete(old);
+            delete(old);
         return appUser;
     }
 
@@ -318,7 +297,7 @@ public class AppUserTest extends TestCase {
      * @throws Exception
      */
     private void doInsert(AppUser appUser) {
-        AppUserTestHelper.save(appUser);
+        save(appUser);
         dao.clearSession();
     }
 
@@ -332,7 +311,7 @@ public class AppUserTest extends TestCase {
         AppUser anotherAppUser = dao.load(appUser.getAppUserPK());
         assertEquals("Queried result does not equal to inserted instance",
                 appUser, anotherAppUser);
-        AppUserTestHelper.delete(anotherAppUser);
+        delete(anotherAppUser);
     }
 
     /**
@@ -353,7 +332,7 @@ public class AppUserTest extends TestCase {
      * @throws Exception
      */
     private void doUpdate(AppUser appUser) throws Exception {
-        AppUserTestHelper.modifyObject(appUser);
+        modifyObject(appUser);
         dao.update(appUser);
         dao.clearSession();
     }
@@ -367,7 +346,7 @@ public class AppUserTest extends TestCase {
     private void afterUpdate(AppUser appUser) throws Exception {
         AppUser another = dao.load(appUser.getAppUserPK());
         assertEquals("Queried result does not equal to updated instance", appUser, another);
-        AppUserTestHelper.delete(another);
+        delete(another);
     }
 
     /**
@@ -388,7 +367,7 @@ public class AppUserTest extends TestCase {
      * @throws Exception
      */
     private void doDelete(AppUser appUser) throws Exception {
-        AppUserTestHelper.delete(appUser);
+        delete(appUser);
     }
 
     /**
@@ -421,14 +400,14 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         // Create instances of random count, set their userName value to userName
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = newInstance(null, null, "", 0, false);
             appUser.setUserName(userName);
             deleteBeforeSave(appUser);
             dao.commitTransaction();
@@ -464,78 +443,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by find-by-userName does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
-            }
-        }
-
-    }
-
-    /**
-     * Do function <tt>FindByPassword</tt> test preparation. Delete <Code>AppUser</Code>
-     * instances whose property password's value is password from persistent store. Then Create
-     * multiple <Code>AppUser</Code> instances and save them into persistence store.
-     *
-     * @return newly created object list
-     * @throws Exception
-     */
-    private List preFindByPassword(java.lang.String password) throws Exception {
-        List appUsers = new ArrayList();
-        dao.setAutoCommit(false);
-
-        // Delete old objects if already exist
-        List oldAppUsers = dao.findByPassword(password);
-
-        if (oldAppUsers != null) {
-            Iterator it = oldAppUsers.iterator();
-            while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
-        }
-
-        // Create instances of random count, set their password value to password
-        // and save them
-        int randomsize = 5 + Math.abs((random).nextInt(7));
-        for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
-            appUser.setPassword(password);
-            deleteBeforeSave(appUser);
-            dao.commitTransaction();
-            appUsers.add(i, appUser);
-        }
-        dao.setAutoCommit(true);
-        dao.clearSession();
-        return appUsers;
-    }
-
-    /**
-     * Perform <tt>FindByPassword</tt> operation.
-     *
-     * @return result object list
-     * @throws Exception
-     */
-    private List doFindByPassword(java.lang.String password) {
-        return dao.findByPassword(password);
-    }
-
-    /**
-     * Do some assert to testify the correctness of function <tt>findByPasswordt</tt>.
-     *
-     * @param appUsers    inserted instance list
-     * @param resultFound result instance list
-     * @throws Exception
-     */
-    private void afterFindByPassword(List appUsers, List resultFound) {
-        if (appUsers != null && appUsers.size() > 0) {
-            assertNotNull("Result returned by find-by-password is null.", resultFound);
-            assertEquals("Result count returned by find-by-password is incorrect.", appUsers.size(), resultFound.size());
-
-            Iterator it = appUsers.iterator();
-            while (it.hasNext()) {
-                AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-password does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
 
@@ -559,14 +469,14 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         // Create instances of random count, set their email value to email
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = newInstance(null, null, "", 0, false);
             appUser.setEmail(email);
             deleteBeforeSave(appUser);
             dao.commitTransaction();
@@ -602,9 +512,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by find-by-email does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
 
@@ -628,14 +538,14 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         // Create instances of random count, set their phoneNumber value to phoneNumber
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = newInstance(null, null, "", 0, false);
             appUser.setPhoneNumber(phoneNumber);
             deleteBeforeSave(appUser);
             dao.commitTransaction();
@@ -671,9 +581,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by find-by-phoneNumber does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
 
@@ -697,14 +607,14 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         // Create instances of random count, set their userType value to userType
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = newInstance(null, null, "", 0, false);
             appUser.setUserType(userType);
             deleteBeforeSave(appUser);
             dao.commitTransaction();
@@ -740,9 +650,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by find-by-userType does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
 
@@ -766,14 +676,14 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         // Create instances of random count, set their headPortraitUrl value to headPortraitUrl
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = newInstance(null, null, "", 0, false);
             appUser.setHeadPortraitUrl(headPortraitUrl);
             deleteBeforeSave(appUser);
             dao.commitTransaction();
@@ -809,9 +719,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by find-by-headPortraitUrl does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
 
@@ -835,14 +745,14 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         // Create instances of random count, set their registerTime value to registerTime
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = newInstance(null, null, "", 0, false);
             appUser.setRegisterTime(registerTime);
             deleteBeforeSave(appUser);
             dao.commitTransaction();
@@ -878,9 +788,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by find-by-registerTime does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
 
@@ -903,7 +813,7 @@ public class AppUserTest extends TestCase {
         if (oldAppUsers != null) {
             Iterator it = oldAppUsers.iterator();
             while (it.hasNext())
-                AppUserTestHelper.delete((AppUser) it.next());
+                delete((AppUser) it.next());
         }
 
         int size = 5 + Math.abs((random).nextInt(7));
@@ -943,9 +853,9 @@ public class AppUserTest extends TestCase {
             Iterator it = appUsers.iterator();
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
-                AppUser another = AppUserTestHelper.getAppUserByPk(resultFound, appUser.getAppUserPK());
+                AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
                 assertEquals("Result returned by get-appUser-list does not equal to inserted appUser object.", appUser, another);
-                AppUserTestHelper.delete(another);
+                delete(another);
             }
         }
     }
@@ -959,7 +869,7 @@ public class AppUserTest extends TestCase {
      * @throws Exception
      */
     private AppUser prepare() {
-        AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+        AppUser appUser = newInstance(null, null, "", 0, false);
         return deleteBeforeSave(appUser);
     }
 
@@ -975,8 +885,8 @@ public class AppUserTest extends TestCase {
         // Delete instance from data store if already exists
         AppUser old = dao.load(appUser.getAppUserPK());
         if (old != null)
-            AppUserTestHelper.delete(old);
-        AppUserTestHelper.save(appUser);
+            delete(old);
+        save(appUser);
         return appUser;
     }
 

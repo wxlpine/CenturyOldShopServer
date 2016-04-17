@@ -22,7 +22,7 @@
             <column name="email" sql-type="nvarchar(255)" not-null="true" length="255"/>
         </property>
         <property name="phoneNumber" insert="true" update="true" lazy="false" optimistic-lock="true">
-            <column name="phoneNumber" sql-type="char(15)" length="15"/>
+            <column name="phoneNumber" sql-type="char(15)" length="15" read="RTRIM(phoneNumber)"/>
         </property>
         <property name="userType" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="userType" sql-type="smallint" not-null="true"/>

@@ -55,7 +55,7 @@ public class OrderStatusTypeTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param orderStatusTypeObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(OrderStatusType persistentObject) {

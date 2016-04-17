@@ -51,6 +51,7 @@ public class OrderFormTestHelper {
         persistentObject.setSendTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setReceiptedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setExpressNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+
         if (precedingObject != null && associationId.equals("9E9548A2-5886-4037-95A7-DB8C763BB115")) {
             persistentObject.addCommodity((Commodity) precedingObject);
         }
@@ -73,6 +74,7 @@ public class OrderFormTestHelper {
         if (precedingObject != null && associationId.equals("A664EEEB-8B32-4E0D-83F2-50E4B99E51B2")) {
             persistentObject.setDisputeStatusType((DisputeStatusType) precedingObject);
         }
+
         return persistentObject;
     }
 

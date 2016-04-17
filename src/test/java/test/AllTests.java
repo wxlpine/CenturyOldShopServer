@@ -6,7 +6,6 @@
 
 package test;
 
-import com.centuryOldShop.server.persistence.CommodityTest;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -38,18 +37,18 @@ public class AllTests {
 //        suite.addTest(OrderStatusTypeTest.suite());
 //        suite.addTest(DisputeStatusTypeTest.suite());
 //        suite.addTest(DiscountInfoTest.suite());
+//        suite.addTest(CommodityTest.suite());
+//        suite.addTest(ShopHistoryTest.suite());
+//        suite.addTest(SpecialCraftTest.suite());
+//        suite.addTest(RateKeywordTest.suite());
+//        suite.addTest(AppUserTest.suite());
 
 //        suite.addTest(ShoppingCartTest.suite());
-        suite.addTest(CommodityTest.suite());
 //        suite.addTest(OrderFormTest.suite());
-//        suite.addTest(ShopHistoryTest.suite());
 //        suite.addTest(OrderFormCommodityTest.suite());
 //        suite.addTest(FavoriteTest.suite());
 //        suite.addTest(MessageTest.suite());
-//        suite.addTest(SpecialCraftTest.suite());
 //        suite.addTest(VideoIntroductionTest.suite());
-//        suite.addTest(RateKeywordTest.suite());
-//        suite.addTest(AppUserTest.suite());
 
         return suite;
     }

@@ -110,27 +110,6 @@ public interface AppUserDao extends Dao {
     public List findByUserName(java.lang.String userName, int firstResult, int maxResult) throws DaoException;
 
     /**
-     * Find <Code>AppUser</Code> instances from persistence store by password
-     *
-     * @param password
-     * @return <Code>AppUser</Code> instance list
-     * @throws DaoException
-     */
-    public List findByPassword(java.lang.String password) throws DaoException;
-
-    /**
-     * Find <Code>AppUser</Code> instances in range firstResult, maxResult
-     * from persistence store by field password
-     *
-     * @param password
-     * @param firstResult first result to return
-     * @param maxResult   max result to return
-     * @return <Code>AppUser</Code> instance list
-     * @throws DaoException
-     */
-    public List findByPassword(java.lang.String password, int firstResult, int maxResult) throws DaoException;
-
-    /**
      * Find <Code>AppUser</Code> instances from persistence store by email
      *
      * @param email

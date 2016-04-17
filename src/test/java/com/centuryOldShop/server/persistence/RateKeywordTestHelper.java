@@ -46,16 +46,18 @@ public class RateKeywordTestHelper {
             persistentObject = new RateKeyword();
 
         persistentObject.setRateKeyword(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+
         if (precedingObject != null && associationId.equals("6036329C-64BF-410A-A06D-B499ADA7670B")) {
             persistentObject.addVideoIntroduction((VideoIntroduction) precedingObject);
         }
+
         return persistentObject;
     }
 
     /**
      * Modify persistent object.
      *
-     * @param rateKeywordObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(RateKeyword persistentObject) {

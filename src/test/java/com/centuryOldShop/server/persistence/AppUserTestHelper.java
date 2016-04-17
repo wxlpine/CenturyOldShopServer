@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Test helper class for AppUser. It provides some utility methods, such as methods to
@@ -47,12 +48,14 @@ public class AppUserTestHelper {
 
 //        persistentObject.setUserId((long) random.nextInt());
         persistentObject.setUserName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPassword(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        persistentObject.setPassword(getRandomPassword());
         persistentObject.setEmail(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setUserType((short) random.nextInt(65535));
+        persistentObject.setUserType(getRandomUserType());
         persistentObject.setHeadPortraitUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setRegisterTime(com.centuryOldShop.server.Util.getRandomDate());
+
+
         if (precedingObject != null && associationId.equals("808054D0-E089-4DEE-98D2-B9E936672141")) {
             persistentObject.addCommodity((Commodity) precedingObject);
         }
@@ -78,15 +81,15 @@ public class AppUserTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param appUserObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(AppUser persistentObject) {
         persistentObject.setUserName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPassword(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        persistentObject.setPassword(getRandomPassword());
         persistentObject.setEmail(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setUserType((short) random.nextInt(65535));
+        persistentObject.setUserType(getRandomUserType());
         persistentObject.setHeadPortraitUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setRegisterTime(com.centuryOldShop.server.Util.getRandomDate());
     }
@@ -189,5 +192,17 @@ public class AppUserTestHelper {
      */
     public static AppUser getAppUserByPk(AppUser[] appUserArray, AppUserPK pk) {
         return appUserArray == null ? null : getAppUserByPk(Arrays.asList(appUserArray), pk);
+    }
+
+    static byte[] getRandomPassword() {
+        byte[] password = new byte[160];
+
+        ThreadLocalRandom.current().nextBytes(password);
+
+        return password;
+    }
+
+    static short getRandomUserType() {
+        return (short) ThreadLocalRandom.current().nextInt(0, 3);
     }
 }
