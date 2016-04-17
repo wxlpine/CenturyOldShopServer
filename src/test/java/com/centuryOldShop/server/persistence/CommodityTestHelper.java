@@ -108,7 +108,7 @@ public class CommodityTestHelper {
 
         CommodityType commodityType = commodityObject.getCommodityType();
         if (commodityType == null) {
-            commodityType = com.centuryOldShop.server.persistence.CommodityTypeTestHelper.newInstance(null, null, "4B9C53CD-21E8-4307-AA63-FF411B6B8339", 1, false);
+            commodityType = CommodityTypeTestHelper.newInstance(null, null, "4B9C53CD-21E8-4307-AA63-FF411B6B8339", 1, false);
         }
         commodityType.setCommodity(null);
         DaoFactory.getDaoFactory().getCommodityTypeDao().save(commodityType);

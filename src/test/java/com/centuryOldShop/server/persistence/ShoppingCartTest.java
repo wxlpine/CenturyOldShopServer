@@ -119,7 +119,7 @@ public class ShoppingCartTest extends TestCase {
 
         logger.debug("Test find-by-amount begins!");
         int amount = random.nextInt();
-        List shoppingCarts = new ArrayList();
+        List shoppingCarts;
         // Create and insert amount instances
         shoppingCarts = preFindByAmount(amount);
         // Perform query
@@ -183,7 +183,7 @@ public class ShoppingCartTest extends TestCase {
      * @throws Exception
      */
     private ShoppingCart preInsert() throws Exception {
-        ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, false);
+        ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, true);
         return shoppingCart;
     }
 
@@ -305,7 +305,7 @@ public class ShoppingCartTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, false);
+            ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, true);
             shoppingCart.setAmount(amount);
             deleteBeforeSave(shoppingCart);
             dao.commitTransaction();
@@ -374,7 +374,7 @@ public class ShoppingCartTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, false);
+            ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, true);
             shoppingCart.setAddedTime(addedTime);
             deleteBeforeSave(shoppingCart);
             dao.commitTransaction();
@@ -491,7 +491,7 @@ public class ShoppingCartTest extends TestCase {
      * @throws Exception
      */
     private ShoppingCart prepare() {
-        ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, false);
+        ShoppingCart shoppingCart = ShoppingCartTestHelper.newInstance(null, null, "", 0, true);
         return deleteBeforeSave(shoppingCart);
     }
 

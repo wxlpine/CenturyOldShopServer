@@ -8,7 +8,7 @@ package com.centuryOldShop.server.persistence;
 
 public class ShoppingCart implements java.io.Serializable {
 
-    private ShoppingCartPK id;
+    private ShoppingCartPK shoppingCartPK;
 
     private int amount;
 
@@ -17,18 +17,17 @@ public class ShoppingCart implements java.io.Serializable {
      */
     private java.util.Date addedTime;
 
-//    private AppUser shoppingCartUser;
-//    private Commodity commodity;
+    private AppUser shoppingCartUser;
+    private Commodity commodity;
 
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public ShoppingCart() {
 
-    public ShoppingCartPK getId() {
-        return id;
     }
 
-    public ShoppingCart setId(ShoppingCartPK id) {
-        this.id = id;
-        return this;
-    }
+    //<editor-fold name="accessor">
 
     /**
      * Get value of amount
@@ -68,90 +67,72 @@ public class ShoppingCart implements java.io.Serializable {
      * @return shoppingCartPK object
      */
     public ShoppingCartPK getShoppingCartPK() {
-        return new ShoppingCartPK();
+        return shoppingCartPK;
     }
 
     /**
      * Set value of shoppingCartPK.
      */
     public void setShoppingCartPK(ShoppingCartPK pk) {
-        this.id = pk;
+        this.shoppingCartPK = pk;
     }
 
-//    public AppUser getShoppingCartUser() {
-//        return shoppingCartUser;
-//    }
-//
-//    public ShoppingCart setShoppingCartUser(AppUser shoppingCartUser) {
-//        this.shoppingCartUser = shoppingCartUser;
-//        return this;
-//    }
-//
-//    public Commodity getCommodity() {
-//        return commodity;
-//    }
-//
-//    public ShoppingCart setCommodity(Commodity commodity) {
-//        this.commodity = commodity;
-//        return this;
-//    }
-
-    /* (non-Javadoc)
-         * @see java.lang.Object#equals(java.lang.Object)
-         */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof ShoppingCart))
-            return false;
-
-        ShoppingCart cast = (ShoppingCart) other;
-
-        if (this.amount != cast.getAmount())
-            return false;
-
-        if (this.addedTime == null ? cast.getAddedTime() != this.addedTime : !(com.sybase.orm.util.Util.compareDate(this.addedTime, cast.getAddedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        return true;
+    public AppUser getShoppingCartUser() {
+        return shoppingCartUser;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    public ShoppingCart setShoppingCartUser(AppUser shoppingCartUser) {
+        this.shoppingCartUser = shoppingCartUser;
+        return this;
+    }
+
+    public Commodity getCommodity() {
+        return commodity;
+    }
+
+    public ShoppingCart setCommodity(Commodity commodity) {
+        this.commodity = commodity;
+        return this;
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShoppingCart)) return false;
+
+        ShoppingCart that = (ShoppingCart) o;
+
+        if (amount != that.amount) return false;
+        if (shoppingCartPK != null ? !shoppingCartPK.equals(that.shoppingCartPK) : that.shoppingCartPK != null)
+            return false;
+        return addedTime != null ? addedTime.equals(that.addedTime) : that.addedTime == null;
+
+    }
+
+    @Override
     public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Integer(amount)).hashCode();
-        if (this.addedTime != null)
-            hashCode = 29 * hashCode + addedTime.hashCode();
-        return hashCode;
+        int result = shoppingCartPK != null ? shoppingCartPK.hashCode() : 0;
+        result = 31 * result + amount;
+        result = 31 * result + (addedTime != null ? addedTime.hashCode() : 0);
+        return result;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShoppingCart: ")
-                .append("amount='")
-                .append(amount)
-                .append("'")
-                .append("addedTime='")
-                .append(addedTime)
-                .append("'");
-        return ret.toString();
+        return "ShoppingCart{" +
+                "shoppingCartPK=" + shoppingCartPK +
+                ", amount=" + amount +
+                ", addedTime=" + addedTime +
+                ", shoppingCartUser=" + shoppingCartUser +
+                ", commodity=" + commodity +
+                '}';
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public ShoppingCart() {
-
-    }
+    //</editor-fold>
 
 }

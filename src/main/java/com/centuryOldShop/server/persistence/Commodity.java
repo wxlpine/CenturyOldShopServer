@@ -92,7 +92,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of commodityId
      *
-     * @param newCommodityId
+
      */
     public void setCommodityId(long newCommodityId) {
         this.commodityId = newCommodityId;
@@ -110,7 +110,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of commodityName
      *
-     * @param newCommodityName
      */
     public void setCommodityName(java.lang.String newCommodityName) {
         this.commodityName = newCommodityName;
@@ -128,7 +127,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of smallPhotoUrl
      *
-     * @param newSmallPhotoUrl
      */
     public void setSmallPhotoUrl(java.lang.String newSmallPhotoUrl) {
         this.smallPhotoUrl = newSmallPhotoUrl;
@@ -146,7 +144,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of shortDescription
      *
-     * @param newShortDescription
      */
     public void setShortDescription(java.lang.String newShortDescription) {
         this.shortDescription = newShortDescription;
@@ -164,7 +161,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of price
      *
-     * @param newPrice
      */
     public void setPrice(double newPrice) {
         this.price = newPrice;
@@ -182,7 +178,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of salesVolume
      *
-     * @param newSalesVolume
      */
     public void setSalesVolume(int newSalesVolume) {
         this.salesVolume = newSalesVolume;
@@ -200,7 +195,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of exemptionFromPostage
      *
-     * @param newExemptionFromPostage
      */
     public void setExemptionFromPostage(boolean newExemptionFromPostage) {
         this.exemptionFromPostage = newExemptionFromPostage;
@@ -218,7 +212,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of addedTime
      *
-     * @param newAddedTime
      */
     public void setAddedTime(java.util.Date newAddedTime) {
         this.addedTime = newAddedTime;
@@ -236,7 +229,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of phoneTopBigPhotoUrl
      *
-     * @param newPhoneTopBigPhotoUrl
      */
     public void setPhoneTopBigPhotoUrl(java.lang.String newPhoneTopBigPhotoUrl) {
         this.phoneTopBigPhotoUrl = newPhoneTopBigPhotoUrl;
@@ -254,7 +246,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of offShelf
      *
-     * @param newOffShelf
      */
     public void setOffShelf(boolean newOffShelf) {
         this.offShelf = newOffShelf;
@@ -272,7 +263,6 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of remainingQuantity
      *
-     * @param newRemainingQuantity
      */
     public void setRemainingQuantity(int newRemainingQuantity) {
         this.remainingQuantity = newRemainingQuantity;
@@ -290,7 +280,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * Set value of commodityPK.
      *
-     * @param pk
+
      */
     public void setCommodityPK(CommodityPK pk) {
         if (pk != null) {
@@ -414,7 +404,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newFavoriteUser
+
      * @pdGenerated default setter
      */
     public void setFavoriteUser(java.util.List<AppUser> newFavoriteUser) {
@@ -423,7 +413,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newAppUser
+
      * @pdGenerated default add
      */
     public void addFavoriteUser(AppUser newAppUser) {
@@ -438,7 +428,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param oldAppUser
+
      * @pdGenerated default remove
      */
     public void removeFavoriteUser(AppUser oldAppUser) {
@@ -484,7 +474,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newUserEvaluation
+
      * @pdGenerated default setter
      */
     public void setUserEvaluation(java.util.List<UserEvaluation> newUserEvaluation) {
@@ -493,7 +483,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newUserEvaluation
+
      * @pdGenerated default add
      */
     public void addUserEvaluation(UserEvaluation newUserEvaluation) {
@@ -508,7 +498,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param oldUserEvaluation
+
      * @pdGenerated default remove
      */
     public void removeUserEvaluation(UserEvaluation oldUserEvaluation) {
@@ -554,7 +544,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newOrderForm
+
      * @pdGenerated default setter
      */
     public void setOrderForm(java.util.List<OrderForm> newOrderForm) {
@@ -563,7 +553,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newOrderForm
+
      * @pdGenerated default add
      */
     public void addOrderForm(OrderForm newOrderForm) {
@@ -578,7 +568,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param oldOrderForm
+
      * @pdGenerated default remove
      */
     public void removeOrderForm(OrderForm oldOrderForm) {
@@ -624,7 +614,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newShoppingCartUser
+
      * @pdGenerated default setter
      */
     public void setShoppingCartUser(java.util.List<AppUser> newShoppingCartUser) {
@@ -633,7 +623,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newAppUser
+
      * @pdGenerated default add
      */
     public void addShoppingCartUser(AppUser newAppUser) {
@@ -648,7 +638,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param oldAppUser
+
      * @pdGenerated default remove
      */
     public void removeShoppingCartUser(AppUser oldAppUser) {
@@ -694,7 +684,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newDiscountInfo
+
      * @pdGenerated default setter
      */
     public void setDiscountInfo(java.util.List<DiscountInfo> newDiscountInfo) {
@@ -703,7 +693,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newDiscountInfo
+
      * @pdGenerated default add
      */
     public void addDiscountInfo(DiscountInfo newDiscountInfo) {
@@ -718,7 +708,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param oldDiscountInfo
+
      * @pdGenerated default remove
      */
     public void removeDiscountInfo(DiscountInfo oldDiscountInfo) {
@@ -753,7 +743,7 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * @param newCommodityType
+
      * @pdGenerated default parent setter
      */
     public void setCommodityType(CommodityType newCommodityType) {

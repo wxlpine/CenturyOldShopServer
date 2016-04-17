@@ -6,11 +6,14 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.centuryOldShop.server.persistence" auto-import="true">
+
     <class name="ShoppingCart" mutable="true" dynamic-update="false" dynamic-insert="false" select-before-update="false"
            lazy="true" abstract="false">
-        <composite-id name="id" class="ShoppingCartPK">
+        <composite-id name="shoppingCartPK" class="ShoppingCartPK">
             <key-property name="userId" column="userId"/>
             <key-property name="commodityId" column="commodityId"/>
+            <!--<key-many-to-one name="userId"/>-->
+            <!--<key-many-to-one name="commodityId" column="commodityId"/>-->
         </composite-id>
         <property name="amount" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="amount" sql-type="int" not-null="true"/>
@@ -18,12 +21,6 @@
         <property name="addedTime" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="addedTime" sql-type="datetime2(0)" not-null="true"/>
         </property>
-
-        <!--<one-to-one name="shoppingCartUser" class="AppUser" cascade="save-update" outer-join="false"-->
-                    <!--foreign-key="userId"/>-->
-
-        <!--<one-to-one name="commodity" class="Commodity" cascade="none" outer-join="false"-->
-        <!--foreign-key="commodityId"/>-->
 
     </class>
 </hibernate-mapping>

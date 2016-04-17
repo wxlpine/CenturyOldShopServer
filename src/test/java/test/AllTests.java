@@ -6,6 +6,7 @@
 
 package test;
 
+import com.centuryOldShop.server.persistence.ShoppingCartTest;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -46,7 +47,7 @@ public class AllTests {
 //        suite.addTest(OrderFormTest.suite());
 //        suite.addTest(MessageTest.suite());
 
-//        suite.addTest(ShoppingCartTest.suite());
+        suite.addTest(ShoppingCartTest.suite());
 //        suite.addTest(OrderFormCommodityTest.suite());
 //        suite.addTest(FavoriteTest.suite());
 

@@ -14,14 +14,13 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Test helper class for ShoppingCart. It provides some utility methods, such as methods to
  * create new instance, modify instance and save object ect.
  */
 public class ShoppingCartTestHelper {
-
-    public static java.util.Random random = com.sybase.orm.util.Util.getRandom();
 
     private Log log = LogFactory.getLog(ShoppingCartTestHelper.class);
 
@@ -45,19 +44,33 @@ public class ShoppingCartTestHelper {
         if (persistentObject == null)
             persistentObject = new ShoppingCart();
 
-        persistentObject.setAmount(random.nextInt());
+        if (associationInitialized) {
+            DaoFactory daoFactory = DaoFactory.getDaoFactory();
+
+            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, true);
+            AppUserTestHelper.save(appUser);
+
+            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, true);
+            CommodityTestHelper.save(commodity);
+
+            ShoppingCartPK pk = new ShoppingCartPK(appUser.getUserId(), commodity.getCommodityId());
+            persistentObject.setShoppingCartPK(pk);
+        }
+
+        persistentObject.setAmount(ThreadLocalRandom.current().nextInt());
         persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
+
         return persistentObject;
     }
 
     /**
      * Modify persistent object.
      *
-     * @param shoppingCartObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(ShoppingCart persistentObject) {
-        persistentObject.setAmount(random.nextInt());
+        persistentObject.setAmount(ThreadLocalRandom.current().nextInt());
         persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
