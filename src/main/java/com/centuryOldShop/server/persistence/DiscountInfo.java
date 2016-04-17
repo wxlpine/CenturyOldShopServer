@@ -71,6 +71,12 @@ public class DiscountInfo implements java.io.Serializable {
     private DiscountType discountType;
 
     /**
+     * Empty constructor which is required by Hibernate
+     */
+    public DiscountInfo() {
+    }
+
+    /**
      * Get value of discountInfoId
      *
      * @return discountInfoId
@@ -296,23 +302,20 @@ public class DiscountInfo implements java.io.Serializable {
         return hashCode;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.DiscountInfo: ");
-        ret.append("discountInfoId='" + discountInfoId + "'");
-        ret.append("title='" + title + "'");
-        ret.append("discountStartTime='" + discountStartTime + "'");
-        ret.append("discountEndTime='" + discountEndTime + "'");
-        ret.append("priceReduceMinPrice='" + priceReduceMinPrice + "'");
-        ret.append("priceReduceAmount='" + priceReduceAmount + "'");
-        ret.append("discountMinPrice='" + discountMinPrice + "'");
-        ret.append("discountRatio='" + discountRatio + "'");
-        return ret.toString();
+        return "DiscountInfo{" +
+                "discountInfoId=" + discountInfoId +
+                ", title='" + title + '\'' +
+                ", discountStartTime=" + discountStartTime +
+                ", discountEndTime=" + discountEndTime +
+                ", priceReduceMinPrice=" + priceReduceMinPrice +
+                ", priceReduceAmount=" + priceReduceAmount +
+                ", discountMinPrice=" + discountMinPrice +
+                ", discountRatio=" + discountRatio +
+                ", discountType=" + discountType +
+                '}';
     }
-
 
     /**
      * @pdGenerated default getter
@@ -494,10 +497,6 @@ public class DiscountInfo implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public DiscountInfo() {
-    }
+
 
 }

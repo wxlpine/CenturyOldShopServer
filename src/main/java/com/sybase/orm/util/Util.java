@@ -6,7 +6,6 @@
 
 package com.sybase.orm.util;
 
-import java.security.SecureRandom;
 import java.util.*;
 
 /**
@@ -15,7 +14,8 @@ import java.util.*;
 @SuppressWarnings("ALL")
 public class Util {
     //    private static final Random random = new Random(10000000);
-    private static final Random random = new SecureRandom();
+    private static final Random random = new Random(System.currentTimeMillis());
+//    private static final Random random = new SecureRandom();
 
     /**
      *
@@ -70,6 +70,7 @@ public class Util {
      * @return Random
      */
     public static Random getRandom() {
+//        return ThreadLocalRandom.current();
         return random;
     }
 

@@ -2,6 +2,7 @@ package com.centuryOldShop.server;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cmicat on 2016/4/16.
@@ -28,7 +29,7 @@ public class Util {
      */
     private static long getRandomMillisecondsBetweenTwoDates() {
         long diff = endTime - beginTime + 1;
-        return beginTime + (long) (com.sybase.orm.util.Util.getRandom().nextDouble() * diff);
+        return beginTime + (long) (ThreadLocalRandom.current().nextDouble() * diff);
     }
 
     /**
@@ -45,4 +46,11 @@ public class Util {
     public static Date getRandomDate() {
         return new Date(getRandomMillisecondsRoundToSecondsBetweenTwoDates());
     }
+
+    public static double getRandomDecimal(int precision) {
+        double value = ThreadLocalRandom.current().nextDouble();
+        double d = Math.pow(10, precision);
+        return (double)Math.round(value * d) / d;
+    }
+
 }

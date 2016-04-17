@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence;
 
+import com.centuryOldShop.server.Util;
 import com.centuryOldShop.server.persistence.dao.DiscountInfoDao;
 import factory.DaoFactory;
 import junit.framework.Test;
@@ -142,7 +143,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByDiscountStartTime() throws Exception {
 
         logger.debug("Test find-by-discountStartTime begins!");
-        java.util.Date discountStartTime = com.centuryOldShop.server.Util.getRandomDate();
+        java.util.Date discountStartTime = Util.getRandomDate();
         List discountInfos = new ArrayList();
         // Create and insert discountStartTime instances
         discountInfos = preFindByDiscountStartTime(discountStartTime);
@@ -166,7 +167,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByDiscountEndTime() throws Exception {
 
         logger.debug("Test find-by-discountEndTime begins!");
-        java.util.Date discountEndTime = com.centuryOldShop.server.Util.getRandomDate();
+        java.util.Date discountEndTime = Util.getRandomDate();
         List discountInfos = new ArrayList();
         // Create and insert discountEndTime instances
         discountInfos = preFindByDiscountEndTime(discountEndTime);
@@ -190,7 +191,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByPriceReduceMinPrice() throws Exception {
 
         logger.debug("Test find-by-priceReduceMinPrice begins!");
-        double priceReduceMinPrice = random.nextDouble();
+        double priceReduceMinPrice = DiscountInfoTestHelper.getRandomPriceReduceMinPrice();
         List discountInfos = new ArrayList();
         // Create and insert priceReduceMinPrice instances
         discountInfos = preFindByPriceReduceMinPrice(priceReduceMinPrice);
@@ -214,7 +215,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByPriceReduceAmount() throws Exception {
 
         logger.debug("Test find-by-priceReduceAmount begins!");
-        double priceReduceAmount = random.nextDouble();
+        double priceReduceAmount = DiscountInfoTestHelper.getRandomPriceReduceAmount();
         List discountInfos = new ArrayList();
         // Create and insert priceReduceAmount instances
         discountInfos = preFindByPriceReduceAmount(priceReduceAmount);
@@ -238,7 +239,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByDiscountMinPrice() throws Exception {
 
         logger.debug("Test find-by-discountMinPrice begins!");
-        double discountMinPrice = random.nextDouble();
+        double discountMinPrice = DiscountInfoTestHelper.getRandomDiscountMinPrice();
         List discountInfos = new ArrayList();
         // Create and insert discountMinPrice instances
         discountInfos = preFindByDiscountMinPrice(discountMinPrice);
@@ -262,7 +263,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByDiscountRatio() throws Exception {
 
         logger.debug("Test find-by-discountRatio begins!");
-        double discountRatio = random.nextDouble();
+        double discountRatio = DiscountInfoTestHelper.getRandomDiscountRatio();
         List discountInfos = new ArrayList();
         // Create and insert discountRatio instances
         discountInfos = preFindByDiscountRatio(discountRatio);

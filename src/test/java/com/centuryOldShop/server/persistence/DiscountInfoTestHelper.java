@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence;
 
+import com.centuryOldShop.server.Util;
 import com.centuryOldShop.server.persistence.dao.DiscountInfoDao;
 import factory.DaoFactory;
 import org.apache.commons.logging.Log;
@@ -47,12 +48,13 @@ public class DiscountInfoTestHelper {
 
 //        persistentObject.setDiscountInfoId((long) random.nextInt());
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setDiscountStartTime(com.centuryOldShop.server.Util.getRandomDate());
-        persistentObject.setDiscountEndTime(com.centuryOldShop.server.Util.getRandomDate());
-        persistentObject.setPriceReduceMinPrice(random.nextDouble());
-        persistentObject.setPriceReduceAmount(random.nextDouble());
-        persistentObject.setDiscountMinPrice(random.nextDouble());
-        persistentObject.setDiscountRatio(random.nextDouble());
+        persistentObject.setDiscountStartTime(Util.getRandomDate());
+        persistentObject.setDiscountEndTime(Util.getRandomDate());
+        persistentObject.setPriceReduceMinPrice(getRandomPriceReduceMinPrice());
+        persistentObject.setPriceReduceAmount(getRandomPriceReduceAmount());
+        persistentObject.setDiscountMinPrice(getRandomDiscountMinPrice());
+        persistentObject.setDiscountRatio(getRandomDiscountRatio());
+
         if (precedingObject != null && associationId.equals("B6E5A157-FAE4-4F78-983D-CEACC224518C")) {
             persistentObject.addCommodity((Commodity) precedingObject);
         }
@@ -77,12 +79,12 @@ public class DiscountInfoTestHelper {
 
     public static void modifyObject(DiscountInfo persistentObject) {
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setDiscountStartTime(com.centuryOldShop.server.Util.getRandomDate());
-        persistentObject.setDiscountEndTime(com.centuryOldShop.server.Util.getRandomDate());
-        persistentObject.setPriceReduceMinPrice(random.nextDouble());
-        persistentObject.setPriceReduceAmount(random.nextDouble());
-        persistentObject.setDiscountMinPrice(random.nextDouble());
-        persistentObject.setDiscountRatio(random.nextDouble());
+        persistentObject.setDiscountStartTime(Util.getRandomDate());
+        persistentObject.setDiscountEndTime(Util.getRandomDate());
+        persistentObject.setPriceReduceMinPrice(getRandomPriceReduceMinPrice());
+        persistentObject.setPriceReduceAmount(getRandomPriceReduceAmount());
+        persistentObject.setDiscountMinPrice(getRandomDiscountMinPrice());
+        persistentObject.setDiscountRatio(getRandomDiscountRatio());
     }
 
     /**
@@ -170,5 +172,21 @@ public class DiscountInfoTestHelper {
      */
     public static DiscountInfo getDiscountInfoByPk(DiscountInfo[] discountInfoArray, DiscountInfoPK pk) {
         return discountInfoArray == null ? null : getDiscountInfoByPk(Arrays.asList(discountInfoArray), pk);
+    }
+
+    static double getRandomDiscountRatio() {
+        return Util.getRandomDecimal(3);
+    }
+
+    static double getRandomDiscountMinPrice() {
+        return Util.getRandomDecimal(4);
+    }
+
+    static double getRandomPriceReduceAmount() {
+        return Util.getRandomDecimal(4);
+    }
+
+    static double getRandomPriceReduceMinPrice() {
+        return Util.getRandomDecimal(4);
     }
 }
