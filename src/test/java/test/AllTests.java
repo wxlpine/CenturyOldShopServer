@@ -42,13 +42,13 @@ public class AllTests {
 //        suite.addTest(SpecialCraftTest.suite());
 //        suite.addTest(RateKeywordTest.suite());
 //        suite.addTest(AppUserTest.suite());
+//        suite.addTest(VideoIntroductionTest.suite());
+//        suite.addTest(OrderFormTest.suite());
+//        suite.addTest(MessageTest.suite());
 
 //        suite.addTest(ShoppingCartTest.suite());
-//        suite.addTest(OrderFormTest.suite());
 //        suite.addTest(OrderFormCommodityTest.suite());
 //        suite.addTest(FavoriteTest.suite());
-//        suite.addTest(MessageTest.suite());
-//        suite.addTest(VideoIntroductionTest.suite());
 
         return suite;
     }

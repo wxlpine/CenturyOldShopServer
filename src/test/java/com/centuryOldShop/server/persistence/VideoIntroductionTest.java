@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.VideoIntroductionTestHelper.getRandomRate;
+
 /**
  * Test case class to test VideoIntroduction's persistence
  */
@@ -214,7 +216,7 @@ public class VideoIntroductionTest extends TestCase {
     public void testFindByRate() throws Exception {
 
         logger.debug("Test find-by-rate begins!");
-        double rate = random.nextDouble();
+        double rate = getRandomRate();
         List videoIntroductions = new ArrayList();
         // Create and insert rate instances
         videoIntroductions = preFindByRate(rate);

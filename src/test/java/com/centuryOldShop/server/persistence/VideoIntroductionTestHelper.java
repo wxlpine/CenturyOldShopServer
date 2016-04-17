@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence;
 
+import com.centuryOldShop.server.Util;
 import com.centuryOldShop.server.persistence.dao.VideoIntroductionDao;
 import factory.DaoFactory;
 import org.apache.commons.logging.Log;
@@ -50,7 +51,7 @@ public class VideoIntroductionTestHelper {
         persistentObject.setDuration(random.nextInt());
         persistentObject.setScreenshotUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPlayedTimes(random.nextInt());
-        persistentObject.setRate(random.nextDouble());
+        persistentObject.setRate(getRandomRate());
         persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         if (precedingObject != null && associationId.equals("6036329C-64BF-410A-A06D-B499ADA7670B")) {
             persistentObject.addRateKeyword((RateKeyword) precedingObject);
@@ -72,7 +73,7 @@ public class VideoIntroductionTestHelper {
         persistentObject.setDuration(random.nextInt());
         persistentObject.setScreenshotUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPlayedTimes(random.nextInt());
-        persistentObject.setRate(random.nextDouble());
+        persistentObject.setRate(getRandomRate());
         persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
@@ -146,5 +147,9 @@ public class VideoIntroductionTestHelper {
      */
     public static VideoIntroduction getVideoIntroductionByPk(VideoIntroduction[] videoIntroductionArray, VideoIntroductionPK pk) {
         return videoIntroductionArray == null ? null : getVideoIntroductionByPk(Arrays.asList(videoIntroductionArray), pk);
+    }
+
+    static double getRandomRate() {
+        return Util.getRandomDecimal(2);
     }
 }
