@@ -48,7 +48,7 @@ public class ShopStoryTestHelper {
 //        persistentObject.setStoryId((long) random.nextInt());
         persistentObject.setStoryName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setStoryContentUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         if (precedingObject != null && associationId.equals("E042F58F-0AA6-4E67-A95A-5C2CBFA9A71E")) {
             persistentObject.setShop((Shop) precedingObject);
         }
@@ -68,7 +68,7 @@ public class ShopStoryTestHelper {
     public static void modifyObject(ShopStory persistentObject) {
         persistentObject.setStoryName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setStoryContentUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
     /**
@@ -81,7 +81,7 @@ public class ShopStoryTestHelper {
 
         Shop shop = shopStoryObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "E042F58F-0AA6-4E67-A95A-5C2CBFA9A71E", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "E042F58F-0AA6-4E67-A95A-5C2CBFA9A71E", 1, true);
         }
         shop.setShopStory(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

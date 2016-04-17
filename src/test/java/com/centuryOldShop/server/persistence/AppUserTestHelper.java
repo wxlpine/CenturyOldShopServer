@@ -52,7 +52,7 @@ public class AppUserTestHelper {
         persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setUserType((short) random.nextInt(65535));
         persistentObject.setHeadPortraitUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setRegisterTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setRegisterTime(com.centuryOldShop.server.Util.getRandomDate());
         if (precedingObject != null && associationId.equals("808054D0-E089-4DEE-98D2-B9E936672141")) {
             persistentObject.addCommodity((Commodity) precedingObject);
         }
@@ -88,7 +88,7 @@ public class AppUserTestHelper {
         persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setUserType((short) random.nextInt(65535));
         persistentObject.setHeadPortraitUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setRegisterTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setRegisterTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
     /**

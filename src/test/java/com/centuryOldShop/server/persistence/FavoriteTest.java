@@ -118,7 +118,7 @@ public class FavoriteTest extends TestCase {
     public void testFindByAddTime() throws Exception {
 
         logger.debug("Test find-by-addTime begins!");
-        java.util.Date addTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date addTime = com.centuryOldShop.server.Util.getRandomDate();
         List favorites = new ArrayList();
         // Create and insert addTime instances
         favorites = preFindByAddTime(addTime);

@@ -52,7 +52,7 @@ public class CommodityTestHelper {
         persistentObject.setPrice(random.nextDouble());
         persistentObject.setSalesVolume(random.nextInt());
         persistentObject.setExemptionFromPostage(random.nextBoolean());
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setPhoneTopBigPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setOffShelf(random.nextBoolean());
         persistentObject.setRemainingQuantity(random.nextInt());
@@ -90,7 +90,7 @@ public class CommodityTestHelper {
         persistentObject.setPrice(random.nextDouble());
         persistentObject.setSalesVolume(random.nextInt());
         persistentObject.setExemptionFromPostage(random.nextBoolean());
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setPhoneTopBigPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setOffShelf(random.nextBoolean());
         persistentObject.setRemainingQuantity(random.nextInt());

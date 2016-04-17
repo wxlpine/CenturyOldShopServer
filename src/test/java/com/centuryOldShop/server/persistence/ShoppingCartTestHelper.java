@@ -46,7 +46,7 @@ public class ShoppingCartTestHelper {
             persistentObject = new ShoppingCart();
 
         persistentObject.setAmount(random.nextInt());
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         return persistentObject;
     }
 
@@ -58,7 +58,7 @@ public class ShoppingCartTestHelper {
 
     public static void modifyObject(ShoppingCart persistentObject) {
         persistentObject.setAmount(random.nextInt());
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
     /**

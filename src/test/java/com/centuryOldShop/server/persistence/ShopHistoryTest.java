@@ -190,7 +190,7 @@ public class ShopHistoryTest extends TestCase {
     public void testFindByPublishTime() throws Exception {
 
         logger.debug("Test find-by-publishTime begins!");
-        java.util.Date publishTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date publishTime = com.centuryOldShop.server.Util.getRandomDate();
         List shopHistorys = new ArrayList();
         // Create and insert publishTime instances
         shopHistorys = preFindByPublishTime(publishTime);

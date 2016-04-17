@@ -51,7 +51,7 @@ public class VideoIntroductionTestHelper {
         persistentObject.setScreenshotUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPlayedTimes(random.nextInt());
         persistentObject.setRate(random.nextDouble());
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         if (precedingObject != null && associationId.equals("6036329C-64BF-410A-A06D-B499ADA7670B")) {
             persistentObject.addRateKeyword((RateKeyword) precedingObject);
         }
@@ -73,7 +73,7 @@ public class VideoIntroductionTestHelper {
         persistentObject.setScreenshotUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setPlayedTimes(random.nextInt());
         persistentObject.setRate(random.nextDouble());
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
     /**
@@ -86,7 +86,7 @@ public class VideoIntroductionTestHelper {
 
         Shop shop = videoIntroductionObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "598D0883-33B3-4CA0-AB56-33CDC1E3B094", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "598D0883-33B3-4CA0-AB56-33CDC1E3B094", 1, true);
         }
         shop.setVideoIntroduction(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

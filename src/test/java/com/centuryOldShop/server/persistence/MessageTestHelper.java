@@ -46,7 +46,7 @@ public class MessageTestHelper {
             persistentObject = new Message();
 
 //        persistentObject.setMessageId((long) random.nextInt());
-        persistentObject.setSendTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setSendTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setContent(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("F65FB421-7546-45B4-B69C-3902DECB6B59")) {
             persistentObject.setSendUser((AppUser) precedingObject);
@@ -65,7 +65,7 @@ public class MessageTestHelper {
      */
 
     public static void modifyObject(Message persistentObject) {
-        persistentObject.setSendTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setSendTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setContent(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
 

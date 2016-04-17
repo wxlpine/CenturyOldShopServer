@@ -6,6 +6,7 @@
 
 package com.sybase.orm.util;
 
+import java.security.SecureRandom;
 import java.util.*;
 
 /**
@@ -13,7 +14,8 @@ import java.util.*;
  */
 @SuppressWarnings("ALL")
 public class Util {
-    private static final Random random = new Random(10000000);
+    //    private static final Random random = new Random(10000000);
+    private static final Random random = new SecureRandom();
 
     /**
      *

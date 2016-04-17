@@ -48,11 +48,11 @@ public class ShopTestHelper {
 //        persistentObject.setShopId((long) random.nextInt());
         persistentObject.setShopName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setOpenABusinessTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setOpenABusinessTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setVisitCount(random.nextInt());
         persistentObject.setDetailedAddress(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setTrademark(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setEnterTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setEnterTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setFax(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setLongDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
@@ -60,6 +60,11 @@ public class ShopTestHelper {
         if (associationInitialized) {
             ShopType shopType = ShopTypeTestHelper.newInstance(null, null, "", 0, false);
             persistentObject.setShopType(shopType);
+            DaoFactory.getDaoFactory().getShopTypeDao().save(shopType);
+
+            ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, true);
+            persistentObject.setShopArea(shopArea);
+            DaoFactory.getDaoFactory().getShopAreaDao().save(shopArea);
         }
 
         if (precedingObject != null && associationId.equals("C1F60A6B-07B2-48C6-A409-C5E308C44B5B")) {
@@ -105,11 +110,11 @@ public class ShopTestHelper {
     public static void modifyObject(Shop shopObject) {
         shopObject.setShopName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         shopObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        shopObject.setOpenABusinessTime(new java.util.Date(random.nextInt(10000)));
+        shopObject.setOpenABusinessTime(com.centuryOldShop.server.Util.getRandomDate());
         shopObject.setVisitCount(random.nextInt());
         shopObject.setDetailedAddress(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         shopObject.setTrademark(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        shopObject.setEnterTime(new java.util.Date(random.nextInt(10000)));
+        shopObject.setEnterTime(com.centuryOldShop.server.Util.getRandomDate());
         shopObject.setPhoneNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         shopObject.setFax(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         shopObject.setLongDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
@@ -132,7 +137,7 @@ public class ShopTestHelper {
         shopObject.setShopType(shopType);
         ShopArea shopArea = shopObject.getShopArea();
         if (shopArea == null) {
-            shopArea = com.centuryOldShop.server.persistence.ShopAreaTestHelper.newInstance(null, null, "9909044A-4853-4C2D-981B-724F9C29695C", 1, false);
+            shopArea = ShopAreaTestHelper.newInstance(null, null, "9909044A-4853-4C2D-981B-724F9C29695C", 1, true);
         }
         shopArea.setShop(null);
         DaoFactory.getDaoFactory().getShopAreaDao().save(shopArea);

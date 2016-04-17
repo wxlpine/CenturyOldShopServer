@@ -48,7 +48,7 @@ public class NewsTestHelper {
 //        persistentObject.setNewsId((long) random.nextInt());
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setContentUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPublishTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setPublishTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setReadCount(random.nextInt());
         persistentObject.setSpotScene(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("C1F60A6B-07B2-48C6-A409-C5E308C44B5B")) {
@@ -63,12 +63,12 @@ public class NewsTestHelper {
      * @param newsObject saved persistent object
      */
 
-    public static void modifyObject(News persistentObject) {
-        persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setContentUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPublishTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setReadCount(random.nextInt());
-        persistentObject.setSpotScene(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+    public static void modifyObject(News newsObject) {
+        newsObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        newsObject.setContentUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+        newsObject.setPublishTime(com.centuryOldShop.server.Util.getRandomDate());
+        newsObject.setReadCount(random.nextInt());
+        newsObject.setSpotScene(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
 
     /**
@@ -81,7 +81,7 @@ public class NewsTestHelper {
 
         Shop shop = newsObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "C1F60A6B-07B2-48C6-A409-C5E308C44B5B", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "C1F60A6B-07B2-48C6-A409-C5E308C44B5B", 1, true);
         }
         shop.setNews(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

@@ -159,7 +159,7 @@ public class ShopAreaTest extends TestCase {
      * @throws Exception
      */
     private ShopArea preInsert() throws Exception {
-        ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, false);
+        ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, true);
         ShopArea old = dao.load(shopArea.getShopAreaPK());
         if (old != null)
             ShopAreaTestHelper.delete(old);
@@ -284,7 +284,7 @@ public class ShopAreaTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, false);
+            ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, true);
             shopArea.setShopAreaName(shopAreaName);
             deleteBeforeSave(shopArea);
             dao.commitTransaction();
@@ -401,7 +401,7 @@ public class ShopAreaTest extends TestCase {
      * @throws Exception
      */
     private ShopArea prepare() {
-        ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, false);
+        ShopArea shopArea = ShopAreaTestHelper.newInstance(null, null, "", 0, true);
         return deleteBeforeSave(shopArea);
     }
 

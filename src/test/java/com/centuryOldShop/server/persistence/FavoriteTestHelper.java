@@ -45,7 +45,7 @@ public class FavoriteTestHelper {
         if (persistentObject == null)
             persistentObject = new Favorite();
 
-        persistentObject.setAddTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddTime(com.centuryOldShop.server.Util.getRandomDate());
         return persistentObject;
     }
 
@@ -56,7 +56,7 @@ public class FavoriteTestHelper {
      */
 
     public static void modifyObject(Favorite persistentObject) {
-        persistentObject.setAddTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddTime(com.centuryOldShop.server.Util.getRandomDate());
     }
 
     /**

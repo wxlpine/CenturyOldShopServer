@@ -238,7 +238,7 @@ public class VideoIntroductionTest extends TestCase {
     public void testFindByAddedTime() throws Exception {
 
         logger.debug("Test find-by-addedTime begins!");
-        java.util.Date addedTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date addedTime = com.centuryOldShop.server.Util.getRandomDate();
         List videoIntroductions = new ArrayList();
         // Create and insert addedTime instances
         videoIntroductions = preFindByAddedTime(addedTime);

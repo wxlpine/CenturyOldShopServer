@@ -118,7 +118,7 @@ public class MessageTest extends TestCase {
     public void testFindBySendTime() throws Exception {
 
         logger.debug("Test find-by-sendTime begins!");
-        java.util.Date sendTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date sendTime = com.centuryOldShop.server.Util.getRandomDate();
         List messages = new ArrayList();
         // Create and insert sendTime instances
         messages = preFindBySendTime(sendTime);

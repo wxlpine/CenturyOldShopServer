@@ -142,7 +142,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByDiscountStartTime() throws Exception {
 
         logger.debug("Test find-by-discountStartTime begins!");
-        java.util.Date discountStartTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date discountStartTime = com.centuryOldShop.server.Util.getRandomDate();
         List discountInfos = new ArrayList();
         // Create and insert discountStartTime instances
         discountInfos = preFindByDiscountStartTime(discountStartTime);
@@ -166,7 +166,7 @@ public class DiscountInfoTest extends TestCase {
     public void testFindByDiscountEndTime() throws Exception {
 
         logger.debug("Test find-by-discountEndTime begins!");
-        java.util.Date discountEndTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date discountEndTime = com.centuryOldShop.server.Util.getRandomDate();
         List discountInfos = new ArrayList();
         // Create and insert discountEndTime instances
         discountInfos = preFindByDiscountEndTime(discountEndTime);

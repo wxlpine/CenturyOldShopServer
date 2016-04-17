@@ -46,10 +46,10 @@ public class OrderFormTestHelper {
             persistentObject = new OrderForm();
 
 //        persistentObject.setOrderFormId((long) random.nextInt());
-        persistentObject.setOrderedTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setPayedTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setSendTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setReceiptedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setOrderedTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setPayedTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setSendTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setReceiptedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setExpressNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("9E9548A2-5886-4037-95A7-DB8C763BB115")) {
             persistentObject.addCommodity((Commodity) precedingObject);
@@ -83,10 +83,10 @@ public class OrderFormTestHelper {
      */
 
     public static void modifyObject(OrderForm persistentObject) {
-        persistentObject.setOrderedTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setPayedTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setSendTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setReceiptedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setOrderedTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setPayedTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setSendTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setReceiptedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setExpressNumber(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
 
@@ -107,7 +107,7 @@ public class OrderFormTestHelper {
         orderFormObject.setAppUser(appUser);
         Shop shop = orderFormObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "C95F23C3-C062-43F0-80C9-B18BF56A4C58", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "C95F23C3-C062-43F0-80C9-B18BF56A4C58", 1, true);
         }
         shop.setOrderForm(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

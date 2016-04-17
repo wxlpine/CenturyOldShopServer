@@ -262,7 +262,7 @@ public class AppUserTest extends TestCase {
     public void testFindByRegisterTime() throws Exception {
 
         logger.debug("Test find-by-registerTime begins!");
-        java.util.Date registerTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date registerTime = com.centuryOldShop.server.Util.getRandomDate();
         List appUsers = new ArrayList();
         // Create and insert registerTime instances
         appUsers = preFindByRegisterTime(registerTime);

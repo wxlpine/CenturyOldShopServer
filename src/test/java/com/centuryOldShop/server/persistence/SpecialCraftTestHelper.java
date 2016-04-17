@@ -49,7 +49,7 @@ public class SpecialCraftTestHelper {
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setIntroductionUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setShortIntro(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("36845EDD-5004-47D9-ADC6-9C1787C42BF4")) {
             persistentObject.setShop((Shop) precedingObject);
@@ -67,7 +67,7 @@ public class SpecialCraftTestHelper {
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setIntroductionUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setAddedTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setShortIntro(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
 
@@ -81,7 +81,7 @@ public class SpecialCraftTestHelper {
 
         Shop shop = specialCraftObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "36845EDD-5004-47D9-ADC6-9C1787C42BF4", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "36845EDD-5004-47D9-ADC6-9C1787C42BF4", 1, true);
         }
         shop.setSpecialCraft(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

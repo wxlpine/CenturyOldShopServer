@@ -49,7 +49,7 @@ public class ShopHistoryTestHelper {
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPublishTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setPublishTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setVisitCount(random.nextInt());
         persistentObject.setDetailedIntroductionPageUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         if (precedingObject != null && associationId.equals("DD1553D4-C90B-4F1B-AE75-28AF72FCD46E")) {
@@ -68,7 +68,7 @@ public class ShopHistoryTestHelper {
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPublishTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setPublishTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setVisitCount(random.nextInt());
         persistentObject.setDetailedIntroductionPageUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
@@ -83,7 +83,7 @@ public class ShopHistoryTestHelper {
 
         Shop shop = shopHistoryObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "DD1553D4-C90B-4F1B-AE75-28AF72FCD46E", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "DD1553D4-C90B-4F1B-AE75-28AF72FCD46E", 1, true);
         }
         shop.setShopHistory(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

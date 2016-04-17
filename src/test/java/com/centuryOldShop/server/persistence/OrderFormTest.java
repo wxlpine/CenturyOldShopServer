@@ -118,7 +118,7 @@ public class OrderFormTest extends TestCase {
     public void testFindByOrderedTime() throws Exception {
 
         logger.debug("Test find-by-orderedTime begins!");
-        java.util.Date orderedTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date orderedTime = com.centuryOldShop.server.Util.getRandomDate();
         List orderForms = new ArrayList();
         // Create and insert orderedTime instances
         orderForms = preFindByOrderedTime(orderedTime);
@@ -142,7 +142,7 @@ public class OrderFormTest extends TestCase {
     public void testFindByPayedTime() throws Exception {
 
         logger.debug("Test find-by-payedTime begins!");
-        java.util.Date payedTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date payedTime = com.centuryOldShop.server.Util.getRandomDate();
         List orderForms = new ArrayList();
         // Create and insert payedTime instances
         orderForms = preFindByPayedTime(payedTime);
@@ -166,7 +166,7 @@ public class OrderFormTest extends TestCase {
     public void testFindBySendTime() throws Exception {
 
         logger.debug("Test find-by-sendTime begins!");
-        java.util.Date sendTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date sendTime = com.centuryOldShop.server.Util.getRandomDate();
         List orderForms = new ArrayList();
         // Create and insert sendTime instances
         orderForms = preFindBySendTime(sendTime);
@@ -190,7 +190,7 @@ public class OrderFormTest extends TestCase {
     public void testFindByReceiptedTime() throws Exception {
 
         logger.debug("Test find-by-receiptedTime begins!");
-        java.util.Date receiptedTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date receiptedTime = com.centuryOldShop.server.Util.getRandomDate();
         List orderForms = new ArrayList();
         // Create and insert receiptedTime instances
         orderForms = preFindByReceiptedTime(receiptedTime);

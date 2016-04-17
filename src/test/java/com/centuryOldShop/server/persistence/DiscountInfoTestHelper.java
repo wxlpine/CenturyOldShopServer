@@ -47,8 +47,8 @@ public class DiscountInfoTestHelper {
 
 //        persistentObject.setDiscountInfoId((long) random.nextInt());
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setDiscountStartTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setDiscountEndTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setDiscountStartTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setDiscountEndTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setPriceReduceMinPrice(random.nextDouble());
         persistentObject.setPriceReduceAmount(random.nextDouble());
         persistentObject.setDiscountMinPrice(random.nextDouble());
@@ -77,8 +77,8 @@ public class DiscountInfoTestHelper {
 
     public static void modifyObject(DiscountInfo persistentObject) {
         persistentObject.setTitle(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setDiscountStartTime(new java.util.Date(random.nextInt(10000)));
-        persistentObject.setDiscountEndTime(new java.util.Date(random.nextInt(10000)));
+        persistentObject.setDiscountStartTime(com.centuryOldShop.server.Util.getRandomDate());
+        persistentObject.setDiscountEndTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setPriceReduceMinPrice(random.nextDouble());
         persistentObject.setPriceReduceAmount(random.nextDouble());
         persistentObject.setDiscountMinPrice(random.nextDouble());
@@ -95,7 +95,7 @@ public class DiscountInfoTestHelper {
 
         Shop shop = discountInfoObject.getShop();
         if (shop == null) {
-            shop = ShopTestHelper.newInstance(null, null, "0F9D1CF5-8FE8-45D8-89F8-9C1941B8561B", 1, false);
+            shop = ShopTestHelper.newInstance(null, null, "0F9D1CF5-8FE8-45D8-89F8-9C1941B8561B", 1, true);
         }
         shop.setDiscountInfo(null);
         DaoFactory.getDaoFactory().getShopDao().save(shop);

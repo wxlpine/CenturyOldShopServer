@@ -166,7 +166,7 @@ public class ShopTest extends TestCase {
     public void testFindByOpenABusinessTime() throws Exception {
 
         logger.debug("Test find-by-openABusinessTime begins!");
-        java.util.Date openABusinessTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date openABusinessTime = com.centuryOldShop.server.Util.getRandomDate();
         List shops = new ArrayList();
         // Create and insert openABusinessTime instances
         shops = preFindByOpenABusinessTime(openABusinessTime);
@@ -262,7 +262,7 @@ public class ShopTest extends TestCase {
     public void testFindByEnterTime() throws Exception {
 
         logger.debug("Test find-by-enterTime begins!");
-        java.util.Date enterTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date enterTime = com.centuryOldShop.server.Util.getRandomDate();
         List shops = new ArrayList();
         // Create and insert enterTime instances
         shops = preFindByEnterTime(enterTime);
@@ -375,7 +375,7 @@ public class ShopTest extends TestCase {
      * @throws Exception
      */
     private Shop preInsert() throws Exception {
-        Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+        Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
         Shop old = dao.load(shop.getShopPK());
         if (old != null)
             ShopTestHelper.delete(old);
@@ -500,7 +500,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setShopName(shopName);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -569,7 +569,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setShortDescription(shortDescription);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -638,7 +638,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setOpenABusinessTime(openABusinessTime);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -707,7 +707,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setVisitCount(visitCount);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -776,7 +776,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setDetailedAddress(detailedAddress);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -845,7 +845,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setTrademark(trademark);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -914,7 +914,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setEnterTime(enterTime);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -983,7 +983,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setPhoneNumber(phoneNumber);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -1052,7 +1052,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setFax(fax);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -1121,7 +1121,7 @@ public class ShopTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
             shop.setLongDescription(longDescription);
             deleteBeforeSave(shop);
             dao.commitTransaction();
@@ -1238,7 +1238,7 @@ public class ShopTest extends TestCase {
      * @throws Exception
      */
     private Shop prepare() {
-        Shop shop = ShopTestHelper.newInstance(null, null, "", 0, false);
+        Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
         return deleteBeforeSave(shop);
     }
 

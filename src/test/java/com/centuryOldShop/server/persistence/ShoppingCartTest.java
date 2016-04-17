@@ -142,7 +142,7 @@ public class ShoppingCartTest extends TestCase {
     public void testFindByAddedTime() throws Exception {
 
         logger.debug("Test find-by-addedTime begins!");
-        java.util.Date addedTime = new java.util.Date(random.nextInt(10000));
+        java.util.Date addedTime = com.centuryOldShop.server.Util.getRandomDate();
         List shoppingCarts = new ArrayList();
         // Create and insert addedTime instances
         shoppingCarts = preFindByAddedTime(addedTime);
