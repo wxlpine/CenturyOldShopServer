@@ -34,10 +34,10 @@
             <column name="enterTime" sql-type="datetime2(0)" not-null="true"/>
         </property>
         <property name="phoneNumber" insert="true" update="true" lazy="false" optimistic-lock="true">
-            <column name="phoneNumber" sql-type="char(15)" length="15"/>
+            <column name="phoneNumber" sql-type="char(15)" length="15" read="RTRIM(phoneNumber)"/>
         </property>
         <property name="fax" insert="true" update="true" lazy="false" optimistic-lock="true">
-            <column name="fax" sql-type="char(15)" length="15"/>
+            <column name="fax" sql-type="char(15)" length="15" read="RTRIM(fax)"/>
         </property>
         <property name="longDescription" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="longDescription" sql-type="nvarchar(4000)" not-null="true" length="4000"/>

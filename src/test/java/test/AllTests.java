@@ -6,6 +6,7 @@
 
 package test;
 
+import com.centuryOldShop.server.persistence.DiscountInfoTest;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -24,10 +25,10 @@ public class AllTests {
 
         TestSuite suite = new TestSuite();
 
-//        suite.addTest(ShopStoryTest.suite());
-//        suite.addTest(ShopTest.suite());
 
         //ok
+//        suite.addTest(ShopTest.suite());
+//        suite.addTest(ShopStoryTest.suite());
 //        suite.addTest(NewsTest.suite());
 //        suite.addTest(ShopTypeTest.suite());
 //        suite.addTest(ShopAreaTest.suite());
@@ -38,7 +39,7 @@ public class AllTests {
 //        suite.addTest(DisputeStatusTypeTest.suite());
 
 //        suite.addTest(ShoppingCartTest.suite());
-//        suite.addTest(DiscountInfoTest.suite());
+        suite.addTest(DiscountInfoTest.suite());
 //        suite.addTest(CommodityTest.suite());
 //        suite.addTest(OrderFormTest.suite());
 //        suite.addTest(ShopHistoryTest.suite());

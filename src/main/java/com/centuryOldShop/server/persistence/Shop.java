@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid 2fe8d93d-8619-4e37-81d6-d3866f60f343
  */
@@ -17,11 +19,11 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdOid 46021f37-5027-45ec-9d6e-cb039f683294
      */
-    private java.lang.String shopName;
+    private String shopName;
     /**
      * @pdOid 2c58e478-b314-4dbe-a1e7-a7fe7de879fe
      */
-    private java.lang.String shortDescription;
+    private String shortDescription;
     /**
      * @pdOid f5cc50f7-ec5d-404e-8d3a-85f0c5f04262
      */
@@ -33,11 +35,11 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdOid 17569ca3-4b27-40e8-99ae-c4944e9b5b41
      */
-    private java.lang.String detailedAddress;
+    private String detailedAddress;
     /**
      * @pdOid 09c6d3ff-0679-4c9f-90ed-bf651f93f393
      */
-    private java.lang.String trademark;
+    private String trademark;
     /**
      * 入驻时间
      *
@@ -47,48 +49,48 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdOid 08bf0740-6305-48b1-83d6-b07b276e196b
      */
-    private java.lang.String phoneNumber;
+    private String phoneNumber;
     /**
      * @pdOid 44e72b83-21ad-4fc3-a246-2e61b10d3a52
      */
-    private java.lang.String fax;
+    private String fax;
     /**
      * @pdOid a0b0d1e2-7e2f-45f7-a5b7-6d227b4d0d1f
      */
-    private java.lang.String longDescription;
+    private String longDescription;
 
     /**
      * @pdRoleInfo migr=no name=News assc=shopNews coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<News> news;
+    private List<News> news;
     /**
      * @pdRoleInfo migr=no name=ShopStory assc=shopShopStory coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<ShopStory> shopStory;
+    private List<ShopStory> shopStory;
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=shopDiscountInfo coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<DiscountInfo> discountInfo;
+    private List<DiscountInfo> discountInfo;
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=shopOrderForm coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<OrderForm> orderForm;
+    private List<OrderForm> orderForm;
     /**
      * @pdRoleInfo migr=no name=ShopHistory assc=shopShopHistory coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<ShopHistory> shopHistory;
+    private List<ShopHistory> shopHistory;
     /**
      * @pdRoleInfo migr=no name=SpecialCraft assc=specialCraftShop coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<SpecialCraft> specialCraft;
+    private List<SpecialCraft> specialCraft;
     /**
      * @pdRoleInfo migr=no name=VideoIntroduction assc=shopVideoIntroduction coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<VideoIntroduction> videoIntroduction;
+    private List<VideoIntroduction> videoIntroduction;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=manage coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<AppUser> shopManager;
+    private List<AppUser> shopManager;
     /**
      * @pdRoleInfo migr=no name=ShopType assc=shopShopType mult=1..1 side=A
      */
@@ -121,7 +123,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return shopName
      */
-    public java.lang.String getShopName() {
+    public String getShopName() {
         return shopName;
     }
 
@@ -130,7 +132,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newShopName
      */
-    public void setShopName(java.lang.String newShopName) {
+    public void setShopName(String newShopName) {
         this.shopName = newShopName;
     }
 
@@ -139,7 +141,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return shortDescription
      */
-    public java.lang.String getShortDescription() {
+    public String getShortDescription() {
         return shortDescription;
     }
 
@@ -148,7 +150,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newShortDescription
      */
-    public void setShortDescription(java.lang.String newShortDescription) {
+    public void setShortDescription(String newShortDescription) {
         this.shortDescription = newShortDescription;
     }
 
@@ -193,7 +195,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return detailedAddress
      */
-    public java.lang.String getDetailedAddress() {
+    public String getDetailedAddress() {
         return detailedAddress;
     }
 
@@ -202,7 +204,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newDetailedAddress
      */
-    public void setDetailedAddress(java.lang.String newDetailedAddress) {
+    public void setDetailedAddress(String newDetailedAddress) {
         this.detailedAddress = newDetailedAddress;
     }
 
@@ -211,7 +213,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return trademark
      */
-    public java.lang.String getTrademark() {
+    public String getTrademark() {
         return trademark;
     }
 
@@ -220,7 +222,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newTrademark
      */
-    public void setTrademark(java.lang.String newTrademark) {
+    public void setTrademark(String newTrademark) {
         this.trademark = newTrademark;
     }
 
@@ -247,7 +249,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return phoneNumber
      */
-    public java.lang.String getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -256,7 +258,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newPhoneNumber
      */
-    public void setPhoneNumber(java.lang.String newPhoneNumber) {
+    public void setPhoneNumber(String newPhoneNumber) {
         this.phoneNumber = newPhoneNumber;
     }
 
@@ -265,7 +267,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return fax
      */
-    public java.lang.String getFax() {
+    public String getFax() {
         return fax;
     }
 
@@ -274,7 +276,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newFax
      */
-    public void setFax(java.lang.String newFax) {
+    public void setFax(String newFax) {
         this.fax = newFax;
     }
 
@@ -283,7 +285,7 @@ public class Shop implements java.io.Serializable {
      *
      * @return longDescription
      */
-    public java.lang.String getLongDescription() {
+    public String getLongDescription() {
         return longDescription;
     }
 
@@ -292,7 +294,7 @@ public class Shop implements java.io.Serializable {
      *
      * @param newLongDescription
      */
-    public void setLongDescription(java.lang.String newLongDescription) {
+    public void setLongDescription(String newLongDescription) {
         this.longDescription = newLongDescription;
     }
 
@@ -420,7 +422,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<News> getNews() {
+    public List<News> getNews() {
         if (news == null)
             news = new java.util.ArrayList<News>();
         return news;
@@ -439,7 +441,7 @@ public class Shop implements java.io.Serializable {
      * @param newNews
      * @pdGenerated default setter
      */
-    public void setNews(java.util.List<News> newNews) {
+    public void setNews(List<News> newNews) {
         //removeAllNews();
         this.news = newNews;
     }
@@ -490,7 +492,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<ShopStory> getShopStory() {
+    public List<ShopStory> getShopStory() {
         if (shopStory == null)
             shopStory = new java.util.ArrayList<ShopStory>();
         return shopStory;
@@ -509,7 +511,7 @@ public class Shop implements java.io.Serializable {
      * @param newShopStory
      * @pdGenerated default setter
      */
-    public void setShopStory(java.util.List<ShopStory> newShopStory) {
+    public void setShopStory(List<ShopStory> newShopStory) {
         //removeAllShopStory();
         this.shopStory = newShopStory;
     }
@@ -560,7 +562,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfo> getDiscountInfo() {
         if (discountInfo == null)
             discountInfo = new java.util.ArrayList<DiscountInfo>();
         return discountInfo;
@@ -579,7 +581,7 @@ public class Shop implements java.io.Serializable {
      * @param newDiscountInfo
      * @pdGenerated default setter
      */
-    public void setDiscountInfo(java.util.List<DiscountInfo> newDiscountInfo) {
+    public void setDiscountInfo(List<DiscountInfo> newDiscountInfo) {
         //removeAllDiscountInfo();
         this.discountInfo = newDiscountInfo;
     }
@@ -630,7 +632,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<OrderForm> getOrderForm() {
+    public List<OrderForm> getOrderForm() {
         if (orderForm == null)
             orderForm = new java.util.ArrayList<OrderForm>();
         return orderForm;
@@ -649,7 +651,7 @@ public class Shop implements java.io.Serializable {
      * @param newOrderForm
      * @pdGenerated default setter
      */
-    public void setOrderForm(java.util.List<OrderForm> newOrderForm) {
+    public void setOrderForm(List<OrderForm> newOrderForm) {
         //removeAllOrderForm();
         this.orderForm = newOrderForm;
     }
@@ -700,7 +702,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<ShopHistory> getShopHistory() {
+    public List<ShopHistory> getShopHistory() {
         if (shopHistory == null)
             shopHistory = new java.util.ArrayList<ShopHistory>();
         return shopHistory;
@@ -719,7 +721,7 @@ public class Shop implements java.io.Serializable {
      * @param newShopHistory
      * @pdGenerated default setter
      */
-    public void setShopHistory(java.util.List<ShopHistory> newShopHistory) {
+    public void setShopHistory(List<ShopHistory> newShopHistory) {
         //removeAllShopHistory();
         this.shopHistory = newShopHistory;
     }
@@ -770,7 +772,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<SpecialCraft> getSpecialCraft() {
+    public List<SpecialCraft> getSpecialCraft() {
         if (specialCraft == null)
             specialCraft = new java.util.ArrayList<SpecialCraft>();
         return specialCraft;
@@ -789,7 +791,7 @@ public class Shop implements java.io.Serializable {
      * @param newSpecialCraft
      * @pdGenerated default setter
      */
-    public void setSpecialCraft(java.util.List<SpecialCraft> newSpecialCraft) {
+    public void setSpecialCraft(List<SpecialCraft> newSpecialCraft) {
         //removeAllSpecialCraft();
         this.specialCraft = newSpecialCraft;
     }
@@ -840,7 +842,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<VideoIntroduction> getVideoIntroduction() {
+    public List<VideoIntroduction> getVideoIntroduction() {
         if (videoIntroduction == null)
             videoIntroduction = new java.util.ArrayList<VideoIntroduction>();
         return videoIntroduction;
@@ -859,7 +861,7 @@ public class Shop implements java.io.Serializable {
      * @param newVideoIntroduction
      * @pdGenerated default setter
      */
-    public void setVideoIntroduction(java.util.List<VideoIntroduction> newVideoIntroduction) {
+    public void setVideoIntroduction(List<VideoIntroduction> newVideoIntroduction) {
         //removeAllVideoIntroduction();
         this.videoIntroduction = newVideoIntroduction;
     }
@@ -910,7 +912,7 @@ public class Shop implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<AppUser> getShopManager() {
+    public List<AppUser> getShopManager() {
         if (shopManager == null)
             shopManager = new java.util.ArrayList<AppUser>();
         return shopManager;
@@ -929,7 +931,7 @@ public class Shop implements java.io.Serializable {
      * @param newShopManager
      * @pdGenerated default setter
      */
-    public void setShopManager(java.util.List<AppUser> newShopManager) {
+    public void setShopManager(List<AppUser> newShopManager) {
         //removeAllShopManager();
         this.shopManager = newShopManager;
     }
