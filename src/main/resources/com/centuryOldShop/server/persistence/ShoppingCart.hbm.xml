@@ -12,8 +12,6 @@
         <composite-id name="shoppingCartPK" class="ShoppingCartPK">
             <key-property name="userId" column="userId"/>
             <key-property name="commodityId" column="commodityId"/>
-            <!--<key-many-to-one name="userId"/>-->
-            <!--<key-many-to-one name="commodityId" column="commodityId"/>-->
         </composite-id>
         <property name="amount" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="amount" sql-type="int" not-null="true"/>
@@ -22,5 +20,14 @@
             <column name="addedTime" sql-type="datetime2(0)" not-null="true"/>
         </property>
 
+        <many-to-one name="shoppingCartUser" class="AppUser" outer-join="false"
+                     update="false" insert="false">
+            <column name="userId" sql-type="int" not-null="true" length="0"/>
+        </many-to-one>
+
+        <many-to-one name="commodity" class="Commodity" outer-join="false"
+                     update="false" insert="false">
+            <column name="commodityId" sql-type="int" not-null="true" length="0"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>
