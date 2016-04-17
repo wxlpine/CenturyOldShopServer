@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence;
 
+import com.centuryOldShop.server.Util;
 import com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao;
 import factory.DaoFactory;
 import org.apache.commons.logging.Log;
@@ -45,7 +46,20 @@ public class OrderFormCommodityTestHelper {
         if (persistentObject == null)
             persistentObject = new OrderFormCommodity();
 
-        persistentObject.setBuyPrice(random.nextDouble());
+        if (associationInitialized) {
+            DaoFactory daoFactory = DaoFactory.getDaoFactory();
+
+            OrderForm orderForm = OrderFormTestHelper.newInstance(null, null, "", 0, true);
+            OrderFormTestHelper.save(orderForm);
+
+            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, true);
+            CommodityTestHelper.save(commodity);
+
+            OrderFormCommodityPK pk = new OrderFormCommodityPK(orderForm.getOrderFormId(), commodity.getCommodityId());
+            persistentObject.setOrderFormCommodityPK(pk);
+        }
+
+        persistentObject.setBuyPrice(getRandomBuyPrice());
         persistentObject.setBuyAmount(random.nextInt());
         return persistentObject;
     }
@@ -57,7 +71,7 @@ public class OrderFormCommodityTestHelper {
      */
 
     public static void modifyObject(OrderFormCommodity persistentObject) {
-        persistentObject.setBuyPrice(random.nextDouble());
+        persistentObject.setBuyPrice(getRandomBuyPrice());
         persistentObject.setBuyAmount(random.nextInt());
     }
 
@@ -115,5 +129,9 @@ public class OrderFormCommodityTestHelper {
      */
     public static OrderFormCommodity getOrderFormCommodityByPk(OrderFormCommodity[] orderFormCommodityArray, OrderFormCommodityPK pk) {
         return orderFormCommodityArray == null ? null : getOrderFormCommodityByPk(Arrays.asList(orderFormCommodityArray), pk);
+    }
+
+    static double getRandomBuyPrice() {
+        return Util.getRandomDecimal(3);
     }
 }

@@ -11,7 +11,7 @@ package com.centuryOldShop.server.persistence;
  */
 public class OrderFormCommodity implements java.io.Serializable {
 
-    private OrderFormCommodityPK id;
+    private OrderFormCommodityPK orderFormCommodityPK;
 
     /**
      * @pdOid fac1d3cd-eb22-4eb8-a381-65413c344b01
@@ -25,12 +25,20 @@ public class OrderFormCommodity implements java.io.Serializable {
     private OrderForm orderForm;
     private Commodity commodity;
 
-    public OrderFormCommodityPK getId() {
-        return id;
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public OrderFormCommodity() {
     }
 
-    public OrderFormCommodity setId(OrderFormCommodityPK id) {
-        this.id = id;
+    //<editor-fold name="accessor">
+
+    public OrderFormCommodityPK getOrderFormCommodityPK() {
+        return orderFormCommodityPK;
+    }
+
+    public OrderFormCommodity setOrderFormCommodityPK(OrderFormCommodityPK id) {
+        this.orderFormCommodityPK = id;
         return this;
     }
 
@@ -64,7 +72,6 @@ public class OrderFormCommodity implements java.io.Serializable {
     /**
      * Set value of buyPrice
      *
-     * @param newBuyPrice
      */
     public void setBuyPrice(double newBuyPrice) {
         this.buyPrice = newBuyPrice;
@@ -82,79 +89,49 @@ public class OrderFormCommodity implements java.io.Serializable {
     /**
      * Set value of buyAmount
      *
-     * @param newBuyAmount
      */
     public void setBuyAmount(int newBuyAmount) {
         this.buyAmount = newBuyAmount;
     }
 
-    /**
-     * Get value of orderFormCommodityPK.
-     *
-     * @return orderFormCommodityPK object
-     */
-    public OrderFormCommodityPK getOrderFormCommodityPK() {
-        return new OrderFormCommodityPK();
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrderFormCommodity)) return false;
+
+        OrderFormCommodity that = (OrderFormCommodity) o;
+
+        if (Double.compare(that.buyPrice, buyPrice) != 0) return false;
+        if (buyAmount != that.buyAmount) return false;
+        return orderFormCommodityPK != null ? orderFormCommodityPK.equals(that.orderFormCommodityPK) : that.orderFormCommodityPK == null;
+
     }
 
-    /**
-     * Set value of orderFormCommodityPK.
-     *
-     * @param pk
-     */
-    public void setOrderFormCommodityPK(OrderFormCommodityPK pk) {
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof OrderFormCommodity))
-            return false;
-
-        OrderFormCommodity cast = (OrderFormCommodity) other;
-
-        if (Double.doubleToLongBits(this.buyPrice) != Double.doubleToLongBits(cast.getBuyPrice()))
-            return false;
-
-        if (this.buyAmount != cast.getBuyAmount())
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Double(buyPrice)).hashCode();
-        hashCode = 29 * hashCode + (new Integer(buyAmount)).hashCode();
-        return hashCode;
+        int result;
+        long temp;
+        result = orderFormCommodityPK != null ? orderFormCommodityPK.hashCode() : 0;
+        temp = Double.doubleToLongBits(buyPrice);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + buyAmount;
+        return result;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.OrderFormCommodity: ");
-        ret.append("buyPrice='" + buyPrice + "'");
-        ret.append("buyAmount='" + buyAmount + "'");
-        return ret.toString();
+        return "OrderFormCommodity{" +
+                "orderFormCommodityPK=" + orderFormCommodityPK +
+                ", buyPrice=" + buyPrice +
+                ", buyAmount=" + buyAmount +
+                '}';
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public OrderFormCommodity() {
-    }
+    //</editor-fold>
 
 }

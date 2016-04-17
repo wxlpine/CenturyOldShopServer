@@ -19,6 +19,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.OrderFormCommodityTestHelper.getRandomBuyPrice;
+import static com.centuryOldShop.server.persistence.OrderFormCommodityTestHelper.newInstance;
+
 /**
  * Test case class to test OrderFormCommodity's persistence
  */
@@ -118,7 +121,7 @@ public class OrderFormCommodityTest extends TestCase {
     public void testFindByBuyPrice() throws Exception {
 
         logger.debug("Test find-by-buyPrice begins!");
-        double buyPrice = random.nextDouble();
+        double buyPrice = getRandomBuyPrice();
         List orderFormCommoditys = new ArrayList();
         // Create and insert buyPrice instances
         orderFormCommoditys = preFindByBuyPrice(buyPrice);
@@ -183,7 +186,7 @@ public class OrderFormCommodityTest extends TestCase {
      * @throws Exception
      */
     private OrderFormCommodity preInsert() throws Exception {
-        OrderFormCommodity orderFormCommodity = OrderFormCommodityTestHelper.newInstance(null, null, "", 0, false);
+        OrderFormCommodity orderFormCommodity = newInstance(null, null, "", 0, true);
         return orderFormCommodity;
     }
 
@@ -305,7 +308,7 @@ public class OrderFormCommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            OrderFormCommodity orderFormCommodity = OrderFormCommodityTestHelper.newInstance(null, null, "", 0, false);
+            OrderFormCommodity orderFormCommodity = newInstance(null, null, "", 0, true);
             orderFormCommodity.setBuyPrice(buyPrice);
             deleteBeforeSave(orderFormCommodity);
             dao.commitTransaction();
@@ -374,7 +377,7 @@ public class OrderFormCommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            OrderFormCommodity orderFormCommodity = OrderFormCommodityTestHelper.newInstance(null, null, "", 0, false);
+            OrderFormCommodity orderFormCommodity = newInstance(null, null, "", 0, true);
             orderFormCommodity.setBuyAmount(buyAmount);
             deleteBeforeSave(orderFormCommodity);
             dao.commitTransaction();
@@ -491,7 +494,7 @@ public class OrderFormCommodityTest extends TestCase {
      * @throws Exception
      */
     private OrderFormCommodity prepare() {
-        OrderFormCommodity orderFormCommodity = OrderFormCommodityTestHelper.newInstance(null, null, "", 0, false);
+        OrderFormCommodity orderFormCommodity = newInstance(null, null, "", 0, true);
         return deleteBeforeSave(orderFormCommodity);
     }
 
