@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence;
 
+import com.centuryOldShop.server.Util;
 import com.centuryOldShop.server.persistence.dao.CommodityDao;
 import factory.DaoFactory;
 import org.apache.commons.logging.Log;
@@ -49,13 +50,14 @@ public class CommodityTestHelper {
         persistentObject.setCommodityName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPrice(random.nextDouble());
+        persistentObject.setPrice(getRandomPrice());
         persistentObject.setSalesVolume(random.nextInt());
         persistentObject.setExemptionFromPostage(random.nextBoolean());
         persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
         persistentObject.setPhoneTopBigPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setOffShelf(random.nextBoolean());
         persistentObject.setRemainingQuantity(random.nextInt());
+
         if (precedingObject != null && associationId.equals("FA86E9CC-9786-4EA4-8E04-251C1EB2B194")) {
             persistentObject.addFavoriteUser((AppUser) precedingObject);
         }
@@ -87,7 +89,7 @@ public class CommodityTestHelper {
         persistentObject.setCommodityName(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setSmallPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setShortDescription(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
-        persistentObject.setPrice(random.nextDouble());
+        persistentObject.setPrice(getRandomPrice());
         persistentObject.setSalesVolume(random.nextInt());
         persistentObject.setExemptionFromPostage(random.nextBoolean());
         persistentObject.setAddedTime(com.centuryOldShop.server.Util.getRandomDate());
@@ -190,5 +192,9 @@ public class CommodityTestHelper {
      */
     public static Commodity getCommodityByPk(Commodity[] commodityArray, CommodityPK pk) {
         return commodityArray == null ? null : getCommodityByPk(Arrays.asList(commodityArray), pk);
+    }
+
+    static double getRandomPrice() {
+        return Util.getRandomDecimal(4);
     }
 }

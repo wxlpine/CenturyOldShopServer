@@ -190,7 +190,7 @@ public class CommodityTest extends TestCase {
     public void testFindByPrice() throws Exception {
 
         logger.debug("Test find-by-price begins!");
-        double price = random.nextDouble();
+        double price = CommodityTestHelper.getRandomPrice();
         List commoditys = new ArrayList();
         // Create and insert price instances
         commoditys = preFindByPrice(price);
