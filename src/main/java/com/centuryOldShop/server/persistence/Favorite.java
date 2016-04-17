@@ -11,7 +11,7 @@ package com.centuryOldShop.server.persistence;
  */
 public class Favorite implements java.io.Serializable {
 
-    private FavoritePK id;
+    private FavoritePK favoritePK;
 
     /**
      * @pdOid 98df48f9-793e-454b-bd8c-e62c8a0e4eb4
@@ -21,12 +21,22 @@ public class Favorite implements java.io.Serializable {
     private Commodity favoriteCommodity;
     private AppUser favoriteUser;
 
-    public FavoritePK getId() {
-        return id;
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public Favorite() {
     }
 
-    public Favorite setId(FavoritePK id) {
-        this.id = id;
+
+    //<editor-fold name="accessor">
+
+    public FavoritePK getFavoritePK() {
+        return favoritePK;
+    }
+
+    public Favorite setFavoritePK(FavoritePK id) {
+        this.favoritePK = id;
         return this;
     }
 
@@ -48,87 +58,49 @@ public class Favorite implements java.io.Serializable {
         return this;
     }
 
-    /**
-     * Get value of addTime
-     *
-     * @return addTime
-     */
     public java.util.Date getAddTime() {
         return addTime;
     }
 
-    /**
-     * Set value of addTime
-     *
-     * @param newAddTime
-     */
     public void setAddTime(java.util.Date newAddTime) {
         this.addTime = newAddTime;
     }
 
-    /**
-     * Get value of favoritePK.
-     *
-     * @return favoritePK object
-     */
-    public FavoritePK getFavoritePK() {
-        return new FavoritePK();
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Favorite)) return false;
+
+        Favorite favorite = (Favorite) o;
+
+        if (favoritePK != null ? !favoritePK.equals(favorite.favoritePK) : favorite.favoritePK != null) return false;
+        return addTime != null ? addTime.equals(favorite.addTime) : favorite.addTime == null;
+
     }
 
-    /**
-     * Set value of favoritePK.
-     *
-     * @param pk
-     */
-    public void setFavoritePK(FavoritePK pk) {
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof Favorite))
-            return false;
-
-        Favorite cast = (Favorite) other;
-
-        if (this.addTime == null ? cast.getAddTime() != this.addTime : !(com.sybase.orm.util.Util.compareDate(this.addTime, cast.getAddTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int hashCode = 0;
-        if (this.addTime != null)
-            hashCode = 29 * hashCode + addTime.hashCode();
-        return hashCode;
+        int result = favoritePK != null ? favoritePK.hashCode() : 0;
+        result = 31 * result + (addTime != null ? addTime.hashCode() : 0);
+        return result;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.Favorite: ");
-        ret.append("addTime='" + addTime + "'");
-        return ret.toString();
+        return "Favorite{" +
+                "favoritePK=" + favoritePK +
+                ", addTime=" + addTime +
+                ", favoriteCommodity=" + favoriteCommodity +
+                ", favoriteUser=" + favoriteUser +
+                '}';
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public Favorite() {
-    }
+    //</editor-fold>
+
 
 }

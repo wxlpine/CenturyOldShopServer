@@ -45,6 +45,17 @@ public class FavoriteTestHelper {
         if (persistentObject == null)
             persistentObject = new Favorite();
 
+        if (associationInitialized) {
+            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUserTestHelper.save(appUser);
+
+            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            CommodityTestHelper.save(commodity);
+
+            FavoritePK pk = new FavoritePK(appUser.getUserId(), commodity.getCommodityId());
+            persistentObject.setFavoritePK(pk);
+        }
+
         persistentObject.setAddTime(com.centuryOldShop.server.Util.getRandomDate());
         return persistentObject;
     }
@@ -52,7 +63,7 @@ public class FavoriteTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param favoriteObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(Favorite persistentObject) {

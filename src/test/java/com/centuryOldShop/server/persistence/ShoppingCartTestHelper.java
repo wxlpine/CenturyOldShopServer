@@ -45,8 +45,6 @@ public class ShoppingCartTestHelper {
             persistentObject = new ShoppingCart();
 
         if (associationInitialized) {
-            DaoFactory daoFactory = DaoFactory.getDaoFactory();
-
             AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, true);
             AppUserTestHelper.save(appUser);
 

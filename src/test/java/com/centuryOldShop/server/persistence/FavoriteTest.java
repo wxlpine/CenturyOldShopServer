@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.FavoriteTestHelper.newInstance;
+
 /**
  * Test case class to test Favorite's persistence
  */
@@ -159,7 +161,7 @@ public class FavoriteTest extends TestCase {
      * @throws Exception
      */
     private Favorite preInsert() throws Exception {
-        Favorite favorite = FavoriteTestHelper.newInstance(null, null, "", 0, false);
+        Favorite favorite = newInstance(null, null, "", 0, true);
         return favorite;
     }
 
@@ -281,7 +283,7 @@ public class FavoriteTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Favorite favorite = FavoriteTestHelper.newInstance(null, null, "", 0, false);
+            Favorite favorite = newInstance(null, null, "", 0, true);
             favorite.setAddTime(addTime);
             deleteBeforeSave(favorite);
             dao.commitTransaction();
@@ -398,7 +400,7 @@ public class FavoriteTest extends TestCase {
      * @throws Exception
      */
     private Favorite prepare() {
-        Favorite favorite = FavoriteTestHelper.newInstance(null, null, "", 0, false);
+        Favorite favorite = newInstance(null, null, "", 0, true);
         return deleteBeforeSave(favorite);
     }
 
