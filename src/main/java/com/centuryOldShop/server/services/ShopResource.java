@@ -1,6 +1,12 @@
 package com.centuryOldShop.server.services;
 
-import com.centuryOldShop.server.domain.ShopTrans;
+import com.centuryOldShop.server.beanMapper.ShopMapper;
+import com.centuryOldShop.server.domain.ShopDto;
+import com.centuryOldShop.server.persistence.Shop;
+import com.centuryOldShop.server.persistence.ShopPK;
+import com.centuryOldShop.server.persistence.dao.ShopDao;
+import factory.DaoFactory;
+import org.mapstruct.factory.Mappers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -17,38 +23,16 @@ public class ShopResource {
 
     @GET
     @Produces("application/json")
-    public ShopTrans getShop() {
-        ShopTrans shopTrans = new ShopTrans();
-        shopTrans.setDetailedAddress("test");
+    public ShopDto getShop() {
 
-//        EntityManager manager = null;
-//        EntityTransaction transaction = null;
-//        try {
-//            manager = PersistenceManager.getEntityManagerFactory().createEntityManager();
-//            transaction = manager.getTransaction();
-//            transaction.begin();
-//
-//            CriteriaBuilder builder = manager.getCriteriaBuilder();
-//
-//            CriteriaQuery<ShopTypeEntity> q1 = builder.createQuery(ShopTypeEntity.class);
-//            Root<ShopTypeEntity> root = q1.from(ShopTypeEntity.class);
-//            List<ShopTypeEntity> res = manager.createQuery(
-//                    q1.select(root)
-//            ).getResultList();
-//
-//            System.out.println(res);
-//
-//
-//            transaction.commit();
-//        } catch (Exception e) {
-//            if (transaction != null && transaction.isActive())
-//                transaction.rollback();
-//            throw e;
-//        } finally {
-//            if (manager != null && manager.isOpen())
-//                manager.close();
-//        }
+        DaoFactory daoFactory = DaoFactory.getDaoFactory();
+        ShopDao shopDao = daoFactory.getShopDao();
+        Shop load = shopDao.load(new ShopPK(11816));
 
-        return shopTrans;
+        System.out.println(load);
+        ShopMapper mapper = Mappers.getMapper(ShopMapper.class);
+        ShopDto shopDto = mapper.ShopEntityToShopDto(load);
+
+        return shopDto;
     }
 }

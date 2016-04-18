@@ -8,7 +8,7 @@ package com.centuryOldShop.server.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ShopTrans implements Serializable {
+public class ShopDto implements Serializable {
 
     private String shopName;
     private String shortDescription;
@@ -25,7 +25,7 @@ public class ShopTrans implements Serializable {
     private String shopArea;
 
     //<editor-fold desc="constructor">
-    public ShopTrans() {
+    public ShopDto() {
     }
     //</editor-fold>
 
@@ -35,7 +35,7 @@ public class ShopTrans implements Serializable {
         return shopName;
     }
 
-    public ShopTrans setShopName(String shopName) {
+    public ShopDto setShopName(String shopName) {
         this.shopName = shopName;
         return this;
     }
@@ -44,7 +44,7 @@ public class ShopTrans implements Serializable {
         return shortDescription;
     }
 
-    public ShopTrans setShortDescription(String shortDescription) {
+    public ShopDto setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
         return this;
     }
@@ -53,7 +53,7 @@ public class ShopTrans implements Serializable {
         return openABusinessTime;
     }
 
-    public ShopTrans setOpenABusinessTime(Date openABusinessTime) {
+    public ShopDto setOpenABusinessTime(Date openABusinessTime) {
         this.openABusinessTime = openABusinessTime;
         return this;
     }
@@ -62,7 +62,7 @@ public class ShopTrans implements Serializable {
         return visitCount;
     }
 
-    public ShopTrans setVisitCount(int visitCount) {
+    public ShopDto setVisitCount(int visitCount) {
         this.visitCount = visitCount;
         return this;
     }
@@ -71,7 +71,7 @@ public class ShopTrans implements Serializable {
         return detailedAddress;
     }
 
-    public ShopTrans setDetailedAddress(String detailedAddress) {
+    public ShopDto setDetailedAddress(String detailedAddress) {
         this.detailedAddress = detailedAddress;
         return this;
     }
@@ -80,7 +80,7 @@ public class ShopTrans implements Serializable {
         return trademark;
     }
 
-    public ShopTrans setTrademark(String trademark) {
+    public ShopDto setTrademark(String trademark) {
         this.trademark = trademark;
         return this;
     }
@@ -89,7 +89,7 @@ public class ShopTrans implements Serializable {
         return enterTime;
     }
 
-    public ShopTrans setEnterTime(Date enterTime) {
+    public ShopDto setEnterTime(Date enterTime) {
         this.enterTime = enterTime;
         return this;
     }
@@ -98,7 +98,7 @@ public class ShopTrans implements Serializable {
         return phoneNumber;
     }
 
-    public ShopTrans setPhoneNumber(String phoneNumber) {
+    public ShopDto setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }
@@ -107,7 +107,7 @@ public class ShopTrans implements Serializable {
         return fax;
     }
 
-    public ShopTrans setFax(String fax) {
+    public ShopDto setFax(String fax) {
         this.fax = fax;
         return this;
     }
@@ -116,7 +116,7 @@ public class ShopTrans implements Serializable {
         return longDescription;
     }
 
-    public ShopTrans setLongDescription(String longDescription) {
+    public ShopDto setLongDescription(String longDescription) {
         this.longDescription = longDescription;
         return this;
     }
@@ -125,7 +125,7 @@ public class ShopTrans implements Serializable {
         return shopType;
     }
 
-    public ShopTrans setShopType(String shopType) {
+    public ShopDto setShopType(String shopType) {
         this.shopType = shopType;
         return this;
     }
@@ -134,7 +134,7 @@ public class ShopTrans implements Serializable {
         return shopArea;
     }
 
-    public ShopTrans setShopArea(String shopArea) {
+    public ShopDto setShopArea(String shopArea) {
         this.shopArea = shopArea;
         return this;
     }
@@ -150,25 +150,25 @@ public class ShopTrans implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShopTrans shopTrans = (ShopTrans) o;
+        ShopDto shopDto = (ShopDto) o;
 
-        if (visitCount != shopTrans.visitCount) return false;
-        if (shopName != null ? !shopName.equals(shopTrans.shopName) : shopTrans.shopName != null) return false;
-        if (shortDescription != null ? !shortDescription.equals(shopTrans.shortDescription) : shopTrans.shortDescription != null)
+        if (visitCount != shopDto.visitCount) return false;
+        if (shopName != null ? !shopName.equals(shopDto.shopName) : shopDto.shopName != null) return false;
+        if (shortDescription != null ? !shortDescription.equals(shopDto.shortDescription) : shopDto.shortDescription != null)
             return false;
-        if (openABusinessTime != null ? !openABusinessTime.equals(shopTrans.openABusinessTime) : shopTrans.openABusinessTime != null)
+        if (openABusinessTime != null ? !openABusinessTime.equals(shopDto.openABusinessTime) : shopDto.openABusinessTime != null)
             return false;
-        if (detailedAddress != null ? !detailedAddress.equals(shopTrans.detailedAddress) : shopTrans.detailedAddress != null)
+        if (detailedAddress != null ? !detailedAddress.equals(shopDto.detailedAddress) : shopDto.detailedAddress != null)
             return false;
-        if (trademark != null ? !trademark.equals(shopTrans.trademark) : shopTrans.trademark != null) return false;
-        if (enterTime != null ? !enterTime.equals(shopTrans.enterTime) : shopTrans.enterTime != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(shopTrans.phoneNumber) : shopTrans.phoneNumber != null)
+        if (trademark != null ? !trademark.equals(shopDto.trademark) : shopDto.trademark != null) return false;
+        if (enterTime != null ? !enterTime.equals(shopDto.enterTime) : shopDto.enterTime != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(shopDto.phoneNumber) : shopDto.phoneNumber != null)
             return false;
-        if (fax != null ? !fax.equals(shopTrans.fax) : shopTrans.fax != null) return false;
-        if (longDescription != null ? !longDescription.equals(shopTrans.longDescription) : shopTrans.longDescription != null)
+        if (fax != null ? !fax.equals(shopDto.fax) : shopDto.fax != null) return false;
+        if (longDescription != null ? !longDescription.equals(shopDto.longDescription) : shopDto.longDescription != null)
             return false;
-        if (shopType != null ? !shopType.equals(shopTrans.shopType) : shopTrans.shopType != null) return false;
-        return shopArea != null ? shopArea.equals(shopTrans.shopArea) : shopTrans.shopArea == null;
+        if (shopType != null ? !shopType.equals(shopDto.shopType) : shopDto.shopType != null) return false;
+        return shopArea != null ? shopArea.equals(shopDto.shopArea) : shopDto.shopArea == null;
 
     }
 
@@ -191,7 +191,7 @@ public class ShopTrans implements Serializable {
 
     @Override
     public String toString() {
-        return "ShopTrans{" +
+        return "ShopDto{" +
                 "shopName='" + shopName + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +
                 ", openABusinessTime=" + openABusinessTime +
