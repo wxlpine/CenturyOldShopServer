@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for ShopArea. It provides some utility methods, such as methods to
@@ -127,4 +128,16 @@ public class ShopAreaTestHelper {
     public static ShopArea getShopAreaByPk(ShopArea[] shopAreaArray, ShopAreaPK pk) {
         return shopAreaArray == null ? null : getShopAreaByPk(Arrays.asList(shopAreaArray), pk);
     }
+
+    static boolean unitTestEquals(ShopArea left, ShopArea right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getShopAreaId() == right.getShopAreaId() &&
+                Objects.equals(left.getShopAreaName(), right.getShopAreaName());
+    }
+
 }

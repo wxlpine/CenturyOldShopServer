@@ -8,6 +8,7 @@ package com.centuryOldShop.server.persistence;
 
 /**
  * @pdOid c52fab3d-a8af-451b-a445-d276ae726ce7
+ * 这个类没有对应的单元测试
  */
 public class UserEvaluation implements java.io.Serializable {
     /**

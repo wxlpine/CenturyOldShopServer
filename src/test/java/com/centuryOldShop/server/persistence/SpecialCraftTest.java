@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.SpecialCraftTestHelper.unitTestEquals;
+
 /**
  * Test case class to test SpecialCraft's persistence
  */
@@ -282,8 +284,13 @@ public class SpecialCraftTest extends TestCase {
      */
     private void afterInsert(SpecialCraft specialCraft) {
         SpecialCraft anotherSpecialCraft = dao.load(specialCraft.getSpecialCraftPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                specialCraft, anotherSpecialCraft);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        specialCraft, anotherSpecialCraft),
+                unitTestEquals(specialCraft, anotherSpecialCraft)
+        );
         SpecialCraftTestHelper.delete(anotherSpecialCraft);
     }
 
@@ -318,7 +325,13 @@ public class SpecialCraftTest extends TestCase {
      */
     private void afterUpdate(SpecialCraft specialCraft) throws Exception {
         SpecialCraft another = dao.load(specialCraft.getSpecialCraftPK());
-        assertEquals("Queried result does not equal to updated instance", specialCraft, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        specialCraft, another),
+                unitTestEquals(specialCraft, another)
+        );
         SpecialCraftTestHelper.delete(another);
     }
 
@@ -417,7 +430,13 @@ public class SpecialCraftTest extends TestCase {
             while (it.hasNext()) {
                 SpecialCraft specialCraft = (SpecialCraft) it.next();
                 SpecialCraft another = SpecialCraftTestHelper.getSpecialCraftByPk(resultFound, specialCraft.getSpecialCraftPK());
-                assertEquals("Result returned by find-by-title does not equal to inserted specialCraft object.", specialCraft, another);
+                assertTrue(
+                        String.format("Result returned by find-by-title does not equal to inserted specialCraft object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                specialCraft, another),
+                        unitTestEquals(specialCraft, another)
+                );
                 SpecialCraftTestHelper.delete(another);
             }
         }
@@ -486,7 +505,13 @@ public class SpecialCraftTest extends TestCase {
             while (it.hasNext()) {
                 SpecialCraft specialCraft = (SpecialCraft) it.next();
                 SpecialCraft another = SpecialCraftTestHelper.getSpecialCraftByPk(resultFound, specialCraft.getSpecialCraftPK());
-                assertEquals("Result returned by find-by-smallPhotoUrl does not equal to inserted specialCraft object.", specialCraft, another);
+                assertTrue(
+                        String.format("Result returned by find-by-smallPhotoUrl does not equal to inserted specialCraft object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                specialCraft, another),
+                        unitTestEquals(specialCraft, another)
+                );
                 SpecialCraftTestHelper.delete(another);
             }
         }
@@ -555,7 +580,13 @@ public class SpecialCraftTest extends TestCase {
             while (it.hasNext()) {
                 SpecialCraft specialCraft = (SpecialCraft) it.next();
                 SpecialCraft another = SpecialCraftTestHelper.getSpecialCraftByPk(resultFound, specialCraft.getSpecialCraftPK());
-                assertEquals("Result returned by find-by-introductionUrl does not equal to inserted specialCraft object.", specialCraft, another);
+                assertTrue(
+                        String.format("Result returned by find-by-introductionUrl does not equal to inserted specialCraft object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                specialCraft, another),
+                        unitTestEquals(specialCraft, another)
+                );
                 SpecialCraftTestHelper.delete(another);
             }
         }
@@ -624,7 +655,13 @@ public class SpecialCraftTest extends TestCase {
             while (it.hasNext()) {
                 SpecialCraft specialCraft = (SpecialCraft) it.next();
                 SpecialCraft another = SpecialCraftTestHelper.getSpecialCraftByPk(resultFound, specialCraft.getSpecialCraftPK());
-                assertEquals("Result returned by find-by-addedTime does not equal to inserted specialCraft object.", specialCraft, another);
+                assertTrue(
+                        String.format("Result returned by find-by-addedTime does not equal to inserted specialCraft object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                specialCraft, another),
+                        unitTestEquals(specialCraft, another)
+                );
                 SpecialCraftTestHelper.delete(another);
             }
         }
@@ -693,7 +730,13 @@ public class SpecialCraftTest extends TestCase {
             while (it.hasNext()) {
                 SpecialCraft specialCraft = (SpecialCraft) it.next();
                 SpecialCraft another = SpecialCraftTestHelper.getSpecialCraftByPk(resultFound, specialCraft.getSpecialCraftPK());
-                assertEquals("Result returned by find-by-shortIntro does not equal to inserted specialCraft object.", specialCraft, another);
+                assertTrue(
+                        String.format("Result returned by find-by-shortIntro does not equal to inserted specialCraft object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                specialCraft, another),
+                        unitTestEquals(specialCraft, another)
+                );
                 SpecialCraftTestHelper.delete(another);
             }
         }
@@ -758,7 +801,13 @@ public class SpecialCraftTest extends TestCase {
             while (it.hasNext()) {
                 SpecialCraft specialCraft = (SpecialCraft) it.next();
                 SpecialCraft another = SpecialCraftTestHelper.getSpecialCraftByPk(resultFound, specialCraft.getSpecialCraftPK());
-                assertEquals("Result returned by get-specialCraft-list does not equal to inserted specialCraft object.", specialCraft, another);
+                assertTrue(
+                        String.format("Result returned by get-specialCraft-list does not equal to inserted specialCraft object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                specialCraft, another),
+                        unitTestEquals(specialCraft, another)
+                );
                 SpecialCraftTestHelper.delete(another);
             }
         }

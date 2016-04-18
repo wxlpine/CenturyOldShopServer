@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for CommodityType. It provides some utility methods, such as methods to
@@ -124,4 +125,15 @@ public class CommodityTypeTestHelper {
     public static CommodityType getCommodityTypeByPk(CommodityType[] commodityTypeArray, CommodityTypePK pk) {
         return commodityTypeArray == null ? null : getCommodityTypeByPk(Arrays.asList(commodityTypeArray), pk);
     }
+
+    static boolean unitTestEquals(CommodityType left, CommodityType right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return Objects.equals(left.getCommodityType(), right.getCommodityType());
+    }
+
 }

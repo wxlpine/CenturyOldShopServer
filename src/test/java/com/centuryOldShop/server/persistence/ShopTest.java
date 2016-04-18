@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShopTestHelper.unitTestEquals;
+
 /**
  * Test case class to test Shop's persistence
  */
@@ -402,8 +404,13 @@ public class ShopTest extends TestCase {
      */
     private void afterInsert(Shop shop) {
         Shop anotherShop = dao.load(shop.getShopPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shop, anotherShop);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shop, anotherShop),
+                unitTestEquals(shop, anotherShop)
+        );
         ShopTestHelper.delete(anotherShop);
     }
 
@@ -438,7 +445,13 @@ public class ShopTest extends TestCase {
      */
     private void afterUpdate(Shop shop) throws Exception {
         Shop another = dao.load(shop.getShopPK());
-        assertEquals("Queried result does not equal to updated instance", shop, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shop, another),
+                unitTestEquals(shop, another)
+        );
         ShopTestHelper.delete(another);
     }
 
@@ -537,7 +550,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-shopName does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-shopName does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -606,7 +625,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-shortDescription does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-shortDescription does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -675,7 +700,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-openABusinessTime does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-openABusinessTime does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -744,7 +775,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-visitCount does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-visitCount does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -813,7 +850,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-detailedAddress does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-detailedAddress does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -882,7 +925,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-trademark does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-trademark does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -951,7 +1000,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-enterTime does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-enterTime does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -1020,7 +1075,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-phoneNumber does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-phoneNumber does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -1089,7 +1150,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-fax does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-fax does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -1158,7 +1225,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by find-by-longDescription does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by find-by-longDescription does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }
@@ -1223,7 +1296,13 @@ public class ShopTest extends TestCase {
             while (it.hasNext()) {
                 Shop shop = (Shop) it.next();
                 Shop another = ShopTestHelper.getShopByPk(resultFound, shop.getShopPK());
-                assertEquals("Result returned by get-shop-list does not equal to inserted shop object.", shop, another);
+                assertTrue(
+                        String.format("Result returned by get-shop-list does not equal to inserted shop object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shop, another),
+                        unitTestEquals(shop, another)
+                );
                 ShopTestHelper.delete(another);
             }
         }

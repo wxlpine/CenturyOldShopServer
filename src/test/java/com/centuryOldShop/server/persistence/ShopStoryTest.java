@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShopStoryTestHelper.unitTestEquals;
+
 /**
  * Test case class to test ShopStory's persistence
  */
@@ -234,8 +236,13 @@ public class ShopStoryTest extends TestCase {
      */
     private void afterInsert(ShopStory shopStory) {
         ShopStory anotherShopStory = dao.load(shopStory.getShopStoryPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shopStory, anotherShopStory);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopStory, anotherShopStory),
+                unitTestEquals(shopStory, anotherShopStory)
+        );
         ShopStoryTestHelper.delete(anotherShopStory);
     }
 
@@ -270,7 +277,13 @@ public class ShopStoryTest extends TestCase {
      */
     private void afterUpdate(ShopStory shopStory) throws Exception {
         ShopStory another = dao.load(shopStory.getShopStoryPK());
-        assertEquals("Queried result does not equal to updated instance", shopStory, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopStory, another),
+                unitTestEquals(shopStory, another)
+        );
         ShopStoryTestHelper.delete(another);
     }
 
@@ -369,7 +382,13 @@ public class ShopStoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopStory shopStory = (ShopStory) it.next();
                 ShopStory another = ShopStoryTestHelper.getShopStoryByPk(resultFound, shopStory.getShopStoryPK());
-                assertEquals("Result returned by find-by-storyName does not equal to inserted shopStory object.", shopStory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-storyName does not equal to inserted shopStory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopStory, another),
+                        unitTestEquals(shopStory, another)
+                );
                 ShopStoryTestHelper.delete(another);
             }
         }
@@ -438,7 +457,13 @@ public class ShopStoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopStory shopStory = (ShopStory) it.next();
                 ShopStory another = ShopStoryTestHelper.getShopStoryByPk(resultFound, shopStory.getShopStoryPK());
-                assertEquals("Result returned by find-by-storyContentUrl does not equal to inserted shopStory object.", shopStory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-storyContentUrl does not equal to inserted shopStory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopStory, another),
+                        unitTestEquals(shopStory, another)
+                );
                 ShopStoryTestHelper.delete(another);
             }
         }
@@ -507,7 +532,13 @@ public class ShopStoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopStory shopStory = (ShopStory) it.next();
                 ShopStory another = ShopStoryTestHelper.getShopStoryByPk(resultFound, shopStory.getShopStoryPK());
-                assertEquals("Result returned by find-by-addedTime does not equal to inserted shopStory object.", shopStory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-addedTime does not equal to inserted shopStory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopStory, another),
+                        unitTestEquals(shopStory, another)
+                );
                 ShopStoryTestHelper.delete(another);
             }
         }
@@ -572,7 +603,13 @@ public class ShopStoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopStory shopStory = (ShopStory) it.next();
                 ShopStory another = ShopStoryTestHelper.getShopStoryByPk(resultFound, shopStory.getShopStoryPK());
-                assertEquals("Result returned by get-shopStory-list does not equal to inserted shopStory object.", shopStory, another);
+                assertTrue(
+                        String.format("Result returned by get-shopStory-list does not equal to inserted shopStory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopStory, another),
+                        unitTestEquals(shopStory, another)
+                );
                 ShopStoryTestHelper.delete(another);
             }
         }

@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.MessageTestHelper.unitTestEquals;
+
 /**
  * Test case class to test Message's persistence
  */
@@ -210,8 +212,13 @@ public class MessageTest extends TestCase {
      */
     private void afterInsert(Message message) {
         Message anotherMessage = dao.load(message.getMessagePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                message, anotherMessage);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        message, anotherMessage),
+                unitTestEquals(message, anotherMessage)
+        );
         MessageTestHelper.delete(anotherMessage);
     }
 
@@ -246,7 +253,13 @@ public class MessageTest extends TestCase {
      */
     private void afterUpdate(Message message) throws Exception {
         Message another = dao.load(message.getMessagePK());
-        assertEquals("Queried result does not equal to updated instance", message, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        message, another),
+                unitTestEquals(message, another)
+        );
         MessageTestHelper.delete(another);
     }
 
@@ -345,7 +358,13 @@ public class MessageTest extends TestCase {
             while (it.hasNext()) {
                 Message message = (Message) it.next();
                 Message another = MessageTestHelper.getMessageByPk(resultFound, message.getMessagePK());
-                assertEquals("Result returned by find-by-sendTime does not equal to inserted message object.", message, another);
+                assertTrue(
+                        String.format("Result returned by find-by-sendTime does not equal to inserted message object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                message, another),
+                        unitTestEquals(message, another)
+                );
                 MessageTestHelper.delete(another);
             }
         }
@@ -414,7 +433,13 @@ public class MessageTest extends TestCase {
             while (it.hasNext()) {
                 Message message = (Message) it.next();
                 Message another = MessageTestHelper.getMessageByPk(resultFound, message.getMessagePK());
-                assertEquals("Result returned by find-by-content does not equal to inserted message object.", message, another);
+                assertTrue(
+                        String.format("Result returned by find-by-content does not equal to inserted message object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                message, another),
+                        unitTestEquals(message, another)
+                );
                 MessageTestHelper.delete(another);
             }
         }
@@ -479,7 +504,13 @@ public class MessageTest extends TestCase {
             while (it.hasNext()) {
                 Message message = (Message) it.next();
                 Message another = MessageTestHelper.getMessageByPk(resultFound, message.getMessagePK());
-                assertEquals("Result returned by get-message-list does not equal to inserted message object.", message, another);
+                assertTrue(
+                        String.format("Result returned by get-message-list does not equal to inserted message object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                message, another),
+                        unitTestEquals(message, another)
+                );
                 MessageTestHelper.delete(another);
             }
         }

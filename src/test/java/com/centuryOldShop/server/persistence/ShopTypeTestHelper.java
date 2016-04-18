@@ -124,4 +124,17 @@ public class ShopTypeTestHelper {
     public static ShopType getShopTypeByPk(ShopType[] shopTypeArray, ShopTypePK pk) {
         return shopTypeArray == null ? null : getShopTypeByPk(Arrays.asList(shopTypeArray), pk);
     }
+
+    static boolean unitTestEquals(ShopType left, ShopType right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getShopTypeName() != null ?
+                left.getShopTypeName().equals(right.getShopTypeName()) :
+                right.getShopTypeName() == null;
+    }
+
 }

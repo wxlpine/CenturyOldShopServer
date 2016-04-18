@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.DisputeStatusTypeTestHelper.unitTestEquals;
+
 /**
  * Test case class to test DisputeStatusType's persistence
  */
@@ -161,8 +163,13 @@ public class DisputeStatusTypeTest extends TestCase {
      */
     private void afterInsert(DisputeStatusType disputeStatusType) {
         DisputeStatusType anotherDisputeStatusType = dao.load(disputeStatusType.getDisputeStatusTypePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                disputeStatusType, anotherDisputeStatusType);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        disputeStatusType, anotherDisputeStatusType),
+                unitTestEquals(disputeStatusType, anotherDisputeStatusType)
+        );
         DisputeStatusTypeTestHelper.delete(anotherDisputeStatusType);
     }
 
@@ -197,7 +204,13 @@ public class DisputeStatusTypeTest extends TestCase {
      */
     private void afterUpdate(DisputeStatusType disputeStatusType) throws Exception {
         DisputeStatusType another = dao.load(disputeStatusType.getDisputeStatusTypePK());
-        assertEquals("Queried result does not equal to updated instance", disputeStatusType, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        disputeStatusType, another),
+                unitTestEquals(disputeStatusType, another)
+        );
         DisputeStatusTypeTestHelper.delete(another);
     }
 
@@ -291,7 +304,13 @@ public class DisputeStatusTypeTest extends TestCase {
             while (it.hasNext()) {
                 DisputeStatusType disputeStatusType = (DisputeStatusType) it.next();
                 DisputeStatusType another = DisputeStatusTypeTestHelper.getDisputeStatusTypeByPk(resultFound, disputeStatusType.getDisputeStatusTypePK());
-                assertEquals("Result returned by get-disputeStatusType-list does not equal to inserted disputeStatusType object.", disputeStatusType, another);
+                assertTrue(
+                        String.format("Result returned by get-disputeStatusType-list does not equal to inserted disputeStatusType object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                disputeStatusType, another),
+                        unitTestEquals(disputeStatusType, another)
+                );
                 DisputeStatusTypeTestHelper.delete(another);
             }
         }

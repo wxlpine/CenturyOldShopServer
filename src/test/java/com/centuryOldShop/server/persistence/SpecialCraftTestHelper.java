@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for SpecialCraft. It provides some utility methods, such as methods to
@@ -60,7 +61,7 @@ public class SpecialCraftTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param specialCraftObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(SpecialCraft persistentObject) {
@@ -134,4 +135,21 @@ public class SpecialCraftTestHelper {
     public static SpecialCraft getSpecialCraftByPk(SpecialCraft[] specialCraftArray, SpecialCraftPK pk) {
         return specialCraftArray == null ? null : getSpecialCraftByPk(Arrays.asList(specialCraftArray), pk);
     }
+
+    static boolean unitTestEquals(SpecialCraft left, SpecialCraft right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getSpecialCraftId() == right.getSpecialCraftId() &&
+                Objects.equals(left.getTitle(), right.getTitle()) &&
+                Objects.equals(left.getSmallPhotoUrl(), right.getSmallPhotoUrl()) &&
+                Objects.equals(left.getIntroductionUrl(), right.getIntroductionUrl()) &&
+                Objects.equals(left.getAddedTime(), right.getAddedTime()) &&
+                ShopTestHelper.unitTestEquals(left.getShop(), right.getShop()) &&
+                Objects.equals(left.getShortIntro(), right.getShortIntro());
+    }
+
 }

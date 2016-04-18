@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for ShopStoryType. It provides some utility methods, such as methods to
@@ -55,7 +56,7 @@ public class ShopStoryTypeTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param shopStoryTypeObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(ShopStoryType persistentObject) {
@@ -123,5 +124,15 @@ public class ShopStoryTypeTestHelper {
      */
     public static ShopStoryType getShopStoryTypeByPk(ShopStoryType[] shopStoryTypeArray, ShopStoryTypePK pk) {
         return shopStoryTypeArray == null ? null : getShopStoryTypeByPk(Arrays.asList(shopStoryTypeArray), pk);
+    }
+
+    static boolean unitTestEquals(ShopStoryType left, ShopStoryType right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return Objects.equals(left.getStoryTypeName(), right.getStoryTypeName());
     }
 }

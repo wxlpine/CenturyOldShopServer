@@ -11,9 +11,7 @@ import factory.DaoFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * Test helper class for RateKeyword. It provides some utility methods, such as methods to
@@ -126,4 +124,34 @@ public class RateKeywordTestHelper {
     public static RateKeyword getRateKeywordByPk(RateKeyword[] rateKeywordArray, RateKeywordPK pk) {
         return rateKeywordArray == null ? null : getRateKeywordByPk(Arrays.asList(rateKeywordArray), pk);
     }
+
+    static boolean unitTestEquals(RateKeyword left, RateKeyword right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return Objects.equals(left.getRateKeyword(), right.getRateKeyword());
+    }
+
+    static <T extends RateKeyword, U extends RateKeyword>
+    boolean unitTestEquals(List<T> left, List<U> right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        ListIterator<T> e1 = left.listIterator();
+        ListIterator<U> e2 = right.listIterator();
+        while (e1.hasNext() && e2.hasNext()) {
+            T o1 = e1.next();
+            U o2 = e2.next();
+            if (!unitTestEquals(o1, o2))
+                return false;
+        }
+        return !(e1.hasNext() || e2.hasNext());
+    }
+
 }

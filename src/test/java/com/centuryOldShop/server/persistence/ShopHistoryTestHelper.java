@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for ShopHistory. It provides some utility methods, such as methods to
@@ -61,7 +62,7 @@ public class ShopHistoryTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param shopHistoryObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(ShopHistory persistentObject) {
@@ -136,4 +137,22 @@ public class ShopHistoryTestHelper {
     public static ShopHistory getShopHistoryByPk(ShopHistory[] shopHistoryArray, ShopHistoryPK pk) {
         return shopHistoryArray == null ? null : getShopHistoryByPk(Arrays.asList(shopHistoryArray), pk);
     }
+
+    static boolean unitTestEquals(ShopHistory left, ShopHistory right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getShopHistoryId() == right.getShopHistoryId() &&
+                left.getVisitCount() == right.getVisitCount() &&
+                Objects.equals(left.getTitle(), right.getTitle()) &&
+                Objects.equals(left.getSmallPhotoUrl(), right.getSmallPhotoUrl()) &&
+                Objects.equals(left.getShortDescription(), right.getShortDescription()) &&
+                Objects.equals(left.getPublishTime(), right.getPublishTime()) &&
+                Objects.equals(left.getDetailedIntroductionPageUrl(), right.getDetailedIntroductionPageUrl()) &&
+                ShopTestHelper.unitTestEquals(left.getShop(), right.getShop());
+    }
+
 }

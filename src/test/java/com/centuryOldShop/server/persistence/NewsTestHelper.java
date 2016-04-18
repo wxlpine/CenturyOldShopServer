@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for News. It provides some utility methods, such as methods to
@@ -134,4 +135,21 @@ public class NewsTestHelper {
     public static News getNewsByPk(News[] newsArray, NewsPK pk) {
         return newsArray == null ? null : getNewsByPk(Arrays.asList(newsArray), pk);
     }
+
+    static boolean unitTestEquals(News left, News right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getNewsId() == right.getNewsId() &&
+                left.getReadCount() == right.getReadCount() &&
+                Objects.equals(left.getTitle(), right.getTitle()) &&
+                Objects.equals(left.getContentUrl(), right.getContentUrl()) &&
+                Objects.equals(left.getPublishTime(), right.getPublishTime()) &&
+                Objects.equals(left.getSpotScene(), right.getSpotScene()) &&
+                ShopTestHelper.unitTestEquals(left.getShop(), right.getShop());
+    }
+
 }

@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for OrderFormCommodity. It provides some utility methods, such as methods to
@@ -47,13 +48,13 @@ public class OrderFormCommodityTestHelper {
             persistentObject = new OrderFormCommodity();
 
         if (associationInitialized) {
-            DaoFactory daoFactory = DaoFactory.getDaoFactory();
-
             OrderForm orderForm = OrderFormTestHelper.newInstance(null, null, "", 0, true);
             OrderFormTestHelper.save(orderForm);
+            persistentObject.setOrderForm(orderForm);
 
             Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, true);
             CommodityTestHelper.save(commodity);
+            persistentObject.setCommodity(commodity);
 
             OrderFormCommodityPK pk = new OrderFormCommodityPK(orderForm.getOrderFormId(), commodity.getCommodityId());
             persistentObject.setOrderFormCommodityPK(pk);
@@ -134,4 +135,19 @@ public class OrderFormCommodityTestHelper {
     static double getRandomBuyPrice() {
         return Util.getRandomDecimal(3);
     }
+
+    static boolean unitTestEquals(OrderFormCommodity left, OrderFormCommodity right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return Double.compare(right.getBuyPrice(), left.getBuyPrice()) == 0 &&
+                left.getBuyAmount() == right.getBuyAmount() &&
+                Objects.equals(left.getOrderFormCommodityPK(), right.getOrderFormCommodityPK()) &&
+                OrderFormTestHelper.unitTestEquals(left.getOrderForm(), right.getOrderForm()) &&
+                CommodityTestHelper.unitTestEquals(left.getCommodity(), right.getCommodity());
+    }
+
 }

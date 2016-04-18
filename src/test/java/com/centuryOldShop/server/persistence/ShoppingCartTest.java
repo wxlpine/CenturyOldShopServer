@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShoppingCartTestHelper.unitTestEquals;
+
 /**
  * Test case class to test ShoppingCart's persistence
  */
@@ -207,8 +209,13 @@ public class ShoppingCartTest extends TestCase {
      */
     private void afterInsert(ShoppingCart shoppingCart) {
         ShoppingCart anotherShoppingCart = dao.load(shoppingCart.getShoppingCartPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shoppingCart, anotherShoppingCart);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shoppingCart, anotherShoppingCart),
+                unitTestEquals(shoppingCart, anotherShoppingCart)
+        );
         ShoppingCartTestHelper.delete(anotherShoppingCart);
     }
 
@@ -243,7 +250,13 @@ public class ShoppingCartTest extends TestCase {
      */
     private void afterUpdate(ShoppingCart shoppingCart) throws Exception {
         ShoppingCart another = dao.load(shoppingCart.getShoppingCartPK());
-        assertEquals("Queried result does not equal to updated instance", shoppingCart, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shoppingCart, another),
+                unitTestEquals(shoppingCart, another)
+        );
         ShoppingCartTestHelper.delete(another);
     }
 
@@ -342,7 +355,13 @@ public class ShoppingCartTest extends TestCase {
             while (it.hasNext()) {
                 ShoppingCart shoppingCart = (ShoppingCart) it.next();
                 ShoppingCart another = ShoppingCartTestHelper.getShoppingCartByPk(resultFound, shoppingCart.getShoppingCartPK());
-                assertEquals("Result returned by find-by-amount does not equal to inserted shoppingCart object.", shoppingCart, another);
+                assertTrue(
+                        String.format("Result returned by find-by-amount does not equal to inserted shoppingCart object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shoppingCart, another),
+                        unitTestEquals(shoppingCart, another)
+                );
                 ShoppingCartTestHelper.delete(another);
             }
         }
@@ -411,7 +430,13 @@ public class ShoppingCartTest extends TestCase {
             while (it.hasNext()) {
                 ShoppingCart shoppingCart = (ShoppingCart) it.next();
                 ShoppingCart another = ShoppingCartTestHelper.getShoppingCartByPk(resultFound, shoppingCart.getShoppingCartPK());
-                assertEquals("Result returned by find-by-addedTime does not equal to inserted shoppingCart object.", shoppingCart, another);
+                assertTrue(
+                        String.format("Result returned by find-by-addedTime does not equal to inserted shoppingCart object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shoppingCart, another),
+                        unitTestEquals(shoppingCart, another)
+                );
                 ShoppingCartTestHelper.delete(another);
             }
         }
@@ -476,7 +501,13 @@ public class ShoppingCartTest extends TestCase {
             while (it.hasNext()) {
                 ShoppingCart shoppingCart = (ShoppingCart) it.next();
                 ShoppingCart another = ShoppingCartTestHelper.getShoppingCartByPk(resultFound, shoppingCart.getShoppingCartPK());
-                assertEquals("Result returned by get-shoppingCart-list does not equal to inserted shoppingCart object.", shoppingCart, another);
+                assertTrue(
+                        String.format("Result returned by get-shoppingCart-list does not equal to inserted shoppingCart object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shoppingCart, another),
+                        unitTestEquals(shoppingCart, another)
+                );
                 ShoppingCartTestHelper.delete(another);
             }
         }

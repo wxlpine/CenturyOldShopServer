@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShopStoryTypeTestHelper.unitTestEquals;
+
 /**
  * Test case class to test ShopStoryType's persistence
  */
@@ -161,8 +163,13 @@ public class ShopStoryTypeTest extends TestCase {
      */
     private void afterInsert(ShopStoryType shopStoryType) {
         ShopStoryType anotherShopStoryType = dao.load(shopStoryType.getShopStoryTypePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shopStoryType, anotherShopStoryType);
+//        ShopStoryType anotherShopStoryType = null;
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance\nExpected: %s\nActual: %s",
+                        shopStoryType, anotherShopStoryType),
+                unitTestEquals(shopStoryType, anotherShopStoryType)
+        );
+//        assertEquals(shopStoryType, anotherShopStoryType);
         ShopStoryTypeTestHelper.delete(anotherShopStoryType);
     }
 
@@ -197,7 +204,11 @@ public class ShopStoryTypeTest extends TestCase {
      */
     private void afterUpdate(ShopStoryType shopStoryType) throws Exception {
         ShopStoryType another = dao.load(shopStoryType.getShopStoryTypePK());
-        assertEquals("Queried result does not equal to updated instance", shopStoryType, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance\nExpected: %s\nActual: %s",
+                        shopStoryType, another),
+                unitTestEquals(shopStoryType, another)
+        );
         ShopStoryTypeTestHelper.delete(another);
     }
 
@@ -290,8 +301,16 @@ public class ShopStoryTypeTest extends TestCase {
             Iterator it = shopStoryTypes.iterator();
             while (it.hasNext()) {
                 ShopStoryType shopStoryType = (ShopStoryType) it.next();
-                ShopStoryType another = ShopStoryTypeTestHelper.getShopStoryTypeByPk(resultFound, shopStoryType.getShopStoryTypePK());
-                assertEquals("Result returned by get-shopStoryType-list does not equal to inserted shopStoryType object.", shopStoryType, another);
+                ShopStoryType another = ShopStoryTypeTestHelper.getShopStoryTypeByPk(
+                        resultFound, shopStoryType.getShopStoryTypePK());
+
+                assertTrue(
+                        String.format("Result returned by get-shopStoryType-list does not equal to inserted shopStoryType object.\n" +
+                                        "Expected: %s\n" +
+                                        "Actual: %s",
+                                shopStoryType, another),
+                        unitTestEquals(shopStoryType, another)
+                );
                 ShopStoryTypeTestHelper.delete(another);
             }
         }

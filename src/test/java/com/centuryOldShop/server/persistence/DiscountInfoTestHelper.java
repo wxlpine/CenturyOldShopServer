@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for DiscountInfo. It provides some utility methods, such as methods to
@@ -189,4 +190,24 @@ public class DiscountInfoTestHelper {
     static double getRandomPriceReduceMinPrice() {
         return Util.getRandomDecimal(4);
     }
+
+    static boolean unitTestEquals(DiscountInfo left, DiscountInfo right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getDiscountInfoId() == right.getDiscountInfoId() &&
+                Double.compare(right.getPriceReduceMinPrice(), left.getPriceReduceMinPrice()) == 0 &&
+                Double.compare(right.getPriceReduceAmount(), left.getPriceReduceAmount()) == 0 &&
+                Double.compare(right.getDiscountMinPrice(), left.getDiscountMinPrice()) == 0 &&
+                Double.compare(right.getDiscountRatio(), left.getDiscountRatio()) == 0 &&
+                Objects.equals(left.getTitle(), right.getTitle()) &&
+                Objects.equals(left.getDiscountStartTime(), right.getDiscountStartTime()) &&
+                Objects.equals(left.getDiscountEndTime(), right.getDiscountEndTime()) &&
+                ShopTestHelper.unitTestEquals(left.getShop(), right.getShop()) &&
+                DiscountTypeTestHelper.unitTestEquals(left.getDiscountType(), right.getDiscountType());
+    }
+
 }

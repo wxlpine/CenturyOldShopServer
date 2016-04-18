@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.RateKeywordTestHelper.unitTestEquals;
+
 /**
  * Test case class to test RateKeyword's persistence
  */
@@ -161,8 +163,13 @@ public class RateKeywordTest extends TestCase {
      */
     private void afterInsert(RateKeyword rateKeyword) {
         RateKeyword anotherRateKeyword = dao.load(rateKeyword.getRateKeywordPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                rateKeyword, anotherRateKeyword);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        rateKeyword, anotherRateKeyword),
+                unitTestEquals(rateKeyword, anotherRateKeyword)
+        );
         RateKeywordTestHelper.delete(anotherRateKeyword);
     }
 
@@ -197,7 +204,13 @@ public class RateKeywordTest extends TestCase {
      */
     private void afterUpdate(RateKeyword rateKeyword) throws Exception {
         RateKeyword another = dao.load(rateKeyword.getRateKeywordPK());
-        assertEquals("Queried result does not equal to updated instance", rateKeyword, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        rateKeyword, another),
+                unitTestEquals(rateKeyword, another)
+        );
         RateKeywordTestHelper.delete(another);
     }
 
@@ -291,7 +304,13 @@ public class RateKeywordTest extends TestCase {
             while (it.hasNext()) {
                 RateKeyword rateKeyword = (RateKeyword) it.next();
                 RateKeyword another = RateKeywordTestHelper.getRateKeywordByPk(resultFound, rateKeyword.getRateKeywordPK());
-                assertEquals("Result returned by get-rateKeyword-list does not equal to inserted rateKeyword object.", rateKeyword, another);
+                assertTrue(
+                        String.format("Result returned by get-rateKeyword-list does not equal to inserted rateKeyword object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                rateKeyword, another),
+                        unitTestEquals(rateKeyword, another)
+                );
                 RateKeywordTestHelper.delete(another);
             }
         }

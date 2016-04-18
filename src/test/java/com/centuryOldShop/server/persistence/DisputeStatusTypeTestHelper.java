@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for DisputeStatusType. It provides some utility methods, such as methods to
@@ -123,5 +124,15 @@ public class DisputeStatusTypeTestHelper {
      */
     public static DisputeStatusType getDisputeStatusTypeByPk(DisputeStatusType[] disputeStatusTypeArray, DisputeStatusTypePK pk) {
         return disputeStatusTypeArray == null ? null : getDisputeStatusTypeByPk(Arrays.asList(disputeStatusTypeArray), pk);
+    }
+
+    static boolean unitTestEquals(DisputeStatusType left, DisputeStatusType that) {
+        if (left == that) return true;
+
+        if (left == null || that == null) {
+            return false;
+        }
+
+        return Objects.equals(left.getDisputeStatusType(), that.getDisputeStatusType());
     }
 }

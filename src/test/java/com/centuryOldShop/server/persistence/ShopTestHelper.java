@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for Shop. It provides some utility methods, such as methods to
@@ -254,4 +255,27 @@ public class ShopTestHelper {
     public static Shop getShopByPk(Shop[] shopArray, ShopPK pk) {
         return shopArray == null ? null : getShopByPk(Arrays.asList(shopArray), pk);
     }
+
+    static boolean unitTestEquals(Shop left, Shop right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getShopId() == right.getShopId() &&
+                left.getVisitCount() == right.getVisitCount() &&
+                Objects.equals(left.getShopName(), right.getShopName()) &&
+                Objects.equals(left.getShortDescription(), right.getShortDescription()) &&
+                Objects.equals(left.getOpenABusinessTime(), right.getOpenABusinessTime()) &&
+                Objects.equals(left.getDetailedAddress(), right.getDetailedAddress()) &&
+                Objects.equals(left.getTrademark(), right.getTrademark()) &&
+                Objects.equals(left.getEnterTime(), right.getEnterTime()) &&
+                Objects.equals(left.getPhoneNumber(), right.getPhoneNumber()) &&
+                Objects.equals(left.getFax(), right.getFax()) &&
+                Objects.equals(left.getLongDescription(), right.getLongDescription()) &&
+                ShopTypeTestHelper.unitTestEquals(left.getShopType(), right.getShopType()) &&
+                ShopAreaTestHelper.unitTestEquals(left.getShopArea(), right.getShopArea());
+    }
+
 }

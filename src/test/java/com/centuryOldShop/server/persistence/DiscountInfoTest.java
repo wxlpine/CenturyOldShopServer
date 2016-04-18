@@ -20,6 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.DiscountInfoTestHelper.unitTestEquals;
+
 /**
  * Test case class to test DiscountInfo's persistence
  */
@@ -331,8 +333,13 @@ public class DiscountInfoTest extends TestCase {
      */
     private void afterInsert(DiscountInfo discountInfo) {
         DiscountInfo anotherDiscountInfo = dao.load(discountInfo.getDiscountInfoPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                discountInfo, anotherDiscountInfo);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        discountInfo, anotherDiscountInfo),
+                unitTestEquals(discountInfo, anotherDiscountInfo)
+        );
         DiscountInfoTestHelper.delete(anotherDiscountInfo);
     }
 
@@ -367,7 +374,13 @@ public class DiscountInfoTest extends TestCase {
      */
     private void afterUpdate(DiscountInfo discountInfo) throws Exception {
         DiscountInfo another = dao.load(discountInfo.getDiscountInfoPK());
-        assertEquals("Queried result does not equal to updated instance", discountInfo, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        discountInfo, another),
+                unitTestEquals(discountInfo, another)
+        );
         DiscountInfoTestHelper.delete(another);
     }
 
@@ -466,7 +479,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-title does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-title does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -535,7 +554,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-discountStartTime does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-discountStartTime does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -604,7 +629,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-discountEndTime does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-discountEndTime does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -673,7 +704,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-priceReduceMinPrice does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-priceReduceMinPrice does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -742,7 +779,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-priceReduceAmount does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-priceReduceAmount does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -811,7 +854,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-discountMinPrice does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-discountMinPrice does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -880,7 +929,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by find-by-discountRatio does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by find-by-discountRatio does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }
@@ -945,7 +1000,13 @@ public class DiscountInfoTest extends TestCase {
             while (it.hasNext()) {
                 DiscountInfo discountInfo = (DiscountInfo) it.next();
                 DiscountInfo another = DiscountInfoTestHelper.getDiscountInfoByPk(resultFound, discountInfo.getDiscountInfoPK());
-                assertEquals("Result returned by get-discountInfo-list does not equal to inserted discountInfo object.", discountInfo, another);
+                assertTrue(
+                        String.format("Result returned by get-discountInfo-list does not equal to inserted discountInfo object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountInfo, another),
+                        unitTestEquals(discountInfo, another)
+                );
                 DiscountInfoTestHelper.delete(another);
             }
         }

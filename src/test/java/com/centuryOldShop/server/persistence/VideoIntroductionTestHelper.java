@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for VideoIntroduction. It provides some utility methods, such as methods to
@@ -65,7 +66,7 @@ public class VideoIntroductionTestHelper {
     /**
      * Modify persistent object.
      *
-     * @param videoIntroductionObject saved persistent object
+     * @param persistentObject saved persistent object
      */
 
     public static void modifyObject(VideoIntroduction persistentObject) {
@@ -151,5 +152,39 @@ public class VideoIntroductionTestHelper {
 
     static double getRandomRate() {
         return Util.getRandomDecimal(2);
+    }
+
+    static boolean unitTestEquals(VideoIntroduction left, VideoIntroduction right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        if (left.getVideoIntroductionId() != right.getVideoIntroductionId()) {
+            return false;
+        }
+        if (left.getDuration() != right.getDuration()) {
+            return false;
+        }
+        if (left.getPlayedTimes() != right.getPlayedTimes()) {
+            return false;
+        }
+        if (Double.compare(right.getRate(), left.getRate()) != 0) {
+            return false;
+        }
+        if (!Objects.equals(left.getVideoUrl(), right.getVideoUrl())) {
+            return false;
+        }
+        if (!Objects.equals(left.getScreenshotUrl(), right.getScreenshotUrl())) {
+            return false;
+        }
+        if (!Objects.equals(left.getAddedTime(), right.getAddedTime())) {
+            return false;
+        }
+        if (!RateKeywordTestHelper.unitTestEquals(left.getRateKeyword(), right.getRateKeyword())) {
+            return false;
+        }
+        return ShopTestHelper.unitTestEquals(left.getShop(), right.getShop());
     }
 }

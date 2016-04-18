@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for OrderStatusType. It provides some utility methods, such as methods to
@@ -124,4 +125,15 @@ public class OrderStatusTypeTestHelper {
     public static OrderStatusType getOrderStatusTypeByPk(OrderStatusType[] orderStatusTypeArray, OrderStatusTypePK pk) {
         return orderStatusTypeArray == null ? null : getOrderStatusTypeByPk(Arrays.asList(orderStatusTypeArray), pk);
     }
+
+    static boolean unitTestEquals(OrderStatusType left, OrderStatusType right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return Objects.equals(left.getOrderStatusType(), right.getOrderStatusType());
+    }
+
 }

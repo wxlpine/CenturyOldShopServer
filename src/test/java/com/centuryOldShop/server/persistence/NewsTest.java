@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.NewsTestHelper.unitTestEquals;
+
 /**
  * Test case class to test News's persistence
  */
@@ -282,8 +284,13 @@ public class NewsTest extends TestCase {
      */
     private void afterInsert(News news) {
         News anotherNews = dao.load(news.getNewsPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                news, anotherNews);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        news, anotherNews),
+                unitTestEquals(news, anotherNews)
+        );
         NewsTestHelper.delete(anotherNews);
     }
 
@@ -318,7 +325,13 @@ public class NewsTest extends TestCase {
      */
     private void afterUpdate(News news) throws Exception {
         News another = dao.load(news.getNewsPK());
-        assertEquals("Queried result does not equal to updated instance", news, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        news, another),
+                unitTestEquals(news, another)
+        );
         NewsTestHelper.delete(another);
     }
 
@@ -417,7 +430,13 @@ public class NewsTest extends TestCase {
             while (it.hasNext()) {
                 News news = (News) it.next();
                 News another = NewsTestHelper.getNewsByPk(resultFound, news.getNewsPK());
-                assertEquals("Result returned by find-by-title does not equal to inserted news object.", news, another);
+                assertTrue(
+                        String.format("Result returned by find-by-title does not equal to inserted news object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                news, another),
+                        unitTestEquals(news, another)
+                );
                 NewsTestHelper.delete(another);
             }
         }
@@ -486,7 +505,13 @@ public class NewsTest extends TestCase {
             while (it.hasNext()) {
                 News news = (News) it.next();
                 News another = NewsTestHelper.getNewsByPk(resultFound, news.getNewsPK());
-                assertEquals("Result returned by find-by-contentUrl does not equal to inserted news object.", news, another);
+                assertTrue(
+                        String.format("Result returned by find-by-contentUrl does not equal to inserted news object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                news, another),
+                        unitTestEquals(news, another)
+                );
                 NewsTestHelper.delete(another);
             }
         }
@@ -555,7 +580,13 @@ public class NewsTest extends TestCase {
             while (it.hasNext()) {
                 News news = (News) it.next();
                 News another = NewsTestHelper.getNewsByPk(resultFound, news.getNewsPK());
-                assertEquals("Result returned by find-by-publishTime does not equal to inserted news object.", news, another);
+                assertTrue(
+                        String.format("Result returned by find-by-publishTime does not equal to inserted news object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                news, another),
+                        unitTestEquals(news, another)
+                );
                 NewsTestHelper.delete(another);
             }
         }
@@ -624,7 +655,13 @@ public class NewsTest extends TestCase {
             while (it.hasNext()) {
                 News news = (News) it.next();
                 News another = NewsTestHelper.getNewsByPk(resultFound, news.getNewsPK());
-                assertEquals("Result returned by find-by-readCount does not equal to inserted news object.", news, another);
+                assertTrue(
+                        String.format("Result returned by find-by-readCount does not equal to inserted news object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                news, another),
+                        unitTestEquals(news, another)
+                );
                 NewsTestHelper.delete(another);
             }
         }
@@ -693,7 +730,13 @@ public class NewsTest extends TestCase {
             while (it.hasNext()) {
                 News news = (News) it.next();
                 News another = NewsTestHelper.getNewsByPk(resultFound, news.getNewsPK());
-                assertEquals("Result returned by find-by-spotScene does not equal to inserted news object.", news, another);
+                assertTrue(
+                        String.format("Result returned by find-by-spotScene does not equal to inserted news object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                news, another),
+                        unitTestEquals(news, another)
+                );
                 NewsTestHelper.delete(another);
             }
         }
@@ -758,7 +801,13 @@ public class NewsTest extends TestCase {
             while (it.hasNext()) {
                 News news = (News) it.next();
                 News another = NewsTestHelper.getNewsByPk(resultFound, news.getNewsPK());
-                assertEquals("Result returned by get-news-list does not equal to inserted news object.", news, another);
+                assertTrue(
+                        String.format("Result returned by get-news-list does not equal to inserted news object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                news, another),
+                        unitTestEquals(news, another)
+                );
                 NewsTestHelper.delete(another);
             }
         }

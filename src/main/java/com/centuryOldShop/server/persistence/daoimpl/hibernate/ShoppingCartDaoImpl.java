@@ -35,10 +35,8 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
      */
     public ShoppingCart load(ShoppingCartPK pk) throws DaoException {
         List cs = new ArrayList();
-        String[] paramNames = new String[]{};
-        Object[] values = new Object[]{};
-        for (int i = 0; i < paramNames.length; i++)
-            cs.add(Restrictions.eq(paramNames[i], values[i]));
+
+        cs.add(Restrictions.idEq(pk));
 
         List list = super.findByCriterions(ShoppingCart.class, cs);
         return (((list != null) && (list.size() > 0)) ? (ShoppingCart) list.get(0) : null);

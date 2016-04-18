@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.centuryOldShop.server.persistence.VideoIntroductionTestHelper.getRandomRate;
+import static com.centuryOldShop.server.persistence.VideoIntroductionTestHelper.unitTestEquals;
 
 /**
  * Test case class to test VideoIntroduction's persistence
@@ -308,8 +309,13 @@ public class VideoIntroductionTest extends TestCase {
      */
     private void afterInsert(VideoIntroduction videoIntroduction) {
         VideoIntroduction anotherVideoIntroduction = dao.load(videoIntroduction.getVideoIntroductionPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                videoIntroduction, anotherVideoIntroduction);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        videoIntroduction, anotherVideoIntroduction),
+                unitTestEquals(videoIntroduction, anotherVideoIntroduction)
+        );
         VideoIntroductionTestHelper.delete(anotherVideoIntroduction);
     }
 
@@ -344,7 +350,13 @@ public class VideoIntroductionTest extends TestCase {
      */
     private void afterUpdate(VideoIntroduction videoIntroduction) throws Exception {
         VideoIntroduction another = dao.load(videoIntroduction.getVideoIntroductionPK());
-        assertEquals("Queried result does not equal to updated instance", videoIntroduction, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        videoIntroduction, another),
+                unitTestEquals(videoIntroduction, another)
+        );
         VideoIntroductionTestHelper.delete(another);
     }
 
@@ -443,7 +455,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by find-by-videoUrl does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by find-by-videoUrl does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }
@@ -512,7 +530,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by find-by-duration does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by find-by-duration does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }
@@ -581,7 +605,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by find-by-screenshotUrl does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by find-by-screenshotUrl does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }
@@ -650,7 +680,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by find-by-playedTimes does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by find-by-playedTimes does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }
@@ -719,7 +755,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by find-by-rate does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by find-by-rate does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }
@@ -788,7 +830,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by find-by-addedTime does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by find-by-addedTime does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }
@@ -853,7 +901,13 @@ public class VideoIntroductionTest extends TestCase {
             while (it.hasNext()) {
                 VideoIntroduction videoIntroduction = (VideoIntroduction) it.next();
                 VideoIntroduction another = VideoIntroductionTestHelper.getVideoIntroductionByPk(resultFound, videoIntroduction.getVideoIntroductionPK());
-                assertEquals("Result returned by get-videoIntroduction-list does not equal to inserted videoIntroduction object.", videoIntroduction, another);
+                assertTrue(
+                        String.format("Result returned by get-videoIntroduction-list does not equal to inserted videoIntroduction object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                videoIntroduction, another),
+                        unitTestEquals(videoIntroduction, another)
+                );
                 VideoIntroductionTestHelper.delete(another);
             }
         }

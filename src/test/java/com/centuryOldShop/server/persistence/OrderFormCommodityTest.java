@@ -19,8 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import static com.centuryOldShop.server.persistence.OrderFormCommodityTestHelper.getRandomBuyPrice;
-import static com.centuryOldShop.server.persistence.OrderFormCommodityTestHelper.newInstance;
+import static com.centuryOldShop.server.persistence.OrderFormCommodityTestHelper.*;
 
 /**
  * Test case class to test OrderFormCommodity's persistence
@@ -122,9 +121,8 @@ public class OrderFormCommodityTest extends TestCase {
 
         logger.debug("Test find-by-buyPrice begins!");
         double buyPrice = getRandomBuyPrice();
-        List orderFormCommoditys = new ArrayList();
         // Create and insert buyPrice instances
-        orderFormCommoditys = preFindByBuyPrice(buyPrice);
+        List orderFormCommoditys = preFindByBuyPrice(buyPrice);
         // Perform query
         List result = doFindByBuyPrice(buyPrice);
         // Do asserts
@@ -210,8 +208,13 @@ public class OrderFormCommodityTest extends TestCase {
      */
     private void afterInsert(OrderFormCommodity orderFormCommodity) {
         OrderFormCommodity anotherOrderFormCommodity = dao.load(orderFormCommodity.getOrderFormCommodityPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                orderFormCommodity, anotherOrderFormCommodity);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        orderFormCommodity, anotherOrderFormCommodity),
+                unitTestEquals(orderFormCommodity, anotherOrderFormCommodity)
+        );
         OrderFormCommodityTestHelper.delete(anotherOrderFormCommodity);
     }
 
@@ -246,7 +249,13 @@ public class OrderFormCommodityTest extends TestCase {
      */
     private void afterUpdate(OrderFormCommodity orderFormCommodity) throws Exception {
         OrderFormCommodity another = dao.load(orderFormCommodity.getOrderFormCommodityPK());
-        assertEquals("Queried result does not equal to updated instance", orderFormCommodity, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        orderFormCommodity, another),
+                unitTestEquals(orderFormCommodity, another)
+        );
         OrderFormCommodityTestHelper.delete(another);
     }
 
@@ -345,7 +354,13 @@ public class OrderFormCommodityTest extends TestCase {
             while (it.hasNext()) {
                 OrderFormCommodity orderFormCommodity = (OrderFormCommodity) it.next();
                 OrderFormCommodity another = OrderFormCommodityTestHelper.getOrderFormCommodityByPk(resultFound, orderFormCommodity.getOrderFormCommodityPK());
-                assertEquals("Result returned by find-by-buyPrice does not equal to inserted orderFormCommodity object.", orderFormCommodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-buyPrice does not equal to inserted orderFormCommodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderFormCommodity, another),
+                        unitTestEquals(orderFormCommodity, another)
+                );
                 OrderFormCommodityTestHelper.delete(another);
             }
         }
@@ -414,7 +429,13 @@ public class OrderFormCommodityTest extends TestCase {
             while (it.hasNext()) {
                 OrderFormCommodity orderFormCommodity = (OrderFormCommodity) it.next();
                 OrderFormCommodity another = OrderFormCommodityTestHelper.getOrderFormCommodityByPk(resultFound, orderFormCommodity.getOrderFormCommodityPK());
-                assertEquals("Result returned by find-by-buyAmount does not equal to inserted orderFormCommodity object.", orderFormCommodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-buyAmount does not equal to inserted orderFormCommodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderFormCommodity, another),
+                        unitTestEquals(orderFormCommodity, another)
+                );
                 OrderFormCommodityTestHelper.delete(another);
             }
         }
@@ -479,7 +500,13 @@ public class OrderFormCommodityTest extends TestCase {
             while (it.hasNext()) {
                 OrderFormCommodity orderFormCommodity = (OrderFormCommodity) it.next();
                 OrderFormCommodity another = OrderFormCommodityTestHelper.getOrderFormCommodityByPk(resultFound, orderFormCommodity.getOrderFormCommodityPK());
-                assertEquals("Result returned by get-orderFormCommodity-list does not equal to inserted orderFormCommodity object.", orderFormCommodity, another);
+                assertTrue(
+                        String.format("Result returned by get-orderFormCommodity-list does not equal to inserted orderFormCommodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderFormCommodity, another),
+                        unitTestEquals(orderFormCommodity, another)
+                );
                 OrderFormCommodityTestHelper.delete(another);
             }
         }

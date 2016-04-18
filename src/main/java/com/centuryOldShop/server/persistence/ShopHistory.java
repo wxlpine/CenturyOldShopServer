@@ -39,6 +39,11 @@ public class ShopHistory implements java.io.Serializable {
      */
     private String detailedIntroductionPageUrl;
 
+    /**
+     * @pdRoleInfo migr=no name=Shop assc=shopShopHistory mult=1..1 side=A
+     */
+    private Shop shop;
+
 
     //<editor-fold name="constructor">
 
@@ -50,10 +55,6 @@ public class ShopHistory implements java.io.Serializable {
 
     //</editor-fold>
 
-    /**
-     * @pdRoleInfo migr=no name=Shop assc=shopShopHistory mult=1..1 side=A
-     */
-    private Shop shop;
 
     //<editor-fold name="accessor">
 

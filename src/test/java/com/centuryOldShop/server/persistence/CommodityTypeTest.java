@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.CommodityTypeTestHelper.unitTestEquals;
+
 /**
  * Test case class to test CommodityType's persistence
  */
@@ -161,8 +163,13 @@ public class CommodityTypeTest extends TestCase {
      */
     private void afterInsert(CommodityType commodityType) {
         CommodityType anotherCommodityType = dao.load(commodityType.getCommodityTypePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                commodityType, anotherCommodityType);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        commodityType, anotherCommodityType),
+                unitTestEquals(commodityType, anotherCommodityType)
+        );
         CommodityTypeTestHelper.delete(anotherCommodityType);
     }
 
@@ -197,7 +204,13 @@ public class CommodityTypeTest extends TestCase {
      */
     private void afterUpdate(CommodityType commodityType) throws Exception {
         CommodityType another = dao.load(commodityType.getCommodityTypePK());
-        assertEquals("Queried result does not equal to updated instance", commodityType, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        commodityType, another),
+                unitTestEquals(commodityType, another)
+        );
         CommodityTypeTestHelper.delete(another);
     }
 
@@ -291,7 +304,13 @@ public class CommodityTypeTest extends TestCase {
             while (it.hasNext()) {
                 CommodityType commodityType = (CommodityType) it.next();
                 CommodityType another = CommodityTypeTestHelper.getCommodityTypeByPk(resultFound, commodityType.getCommodityTypePK());
-                assertEquals("Result returned by get-commodityType-list does not equal to inserted commodityType object.", commodityType, another);
+                assertTrue(
+                        String.format("Result returned by get-commodityType-list does not equal to inserted commodityType object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodityType, another),
+                        unitTestEquals(commodityType, another)
+                );
                 CommodityTypeTestHelper.delete(another);
             }
         }

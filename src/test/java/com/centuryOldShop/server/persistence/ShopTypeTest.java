@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShopTypeTestHelper.unitTestEquals;
+
 /**
  * Test case class to test ShopType's persistence
  */
@@ -161,8 +163,13 @@ public class ShopTypeTest extends TestCase {
      */
     private void afterInsert(ShopType shopType) {
         ShopType anotherShopType = dao.load(shopType.getShopTypePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shopType, anotherShopType);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopType, anotherShopType),
+                unitTestEquals(shopType, anotherShopType)
+        );
         ShopTypeTestHelper.delete(anotherShopType);
     }
 
@@ -197,7 +204,13 @@ public class ShopTypeTest extends TestCase {
      */
     private void afterUpdate(ShopType shopType) throws Exception {
         ShopType another = dao.load(shopType.getShopTypePK());
-        assertEquals("Queried result does not equal to updated instance", shopType, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopType, another),
+                unitTestEquals(shopType, another)
+        );
         ShopTypeTestHelper.delete(another);
     }
 
@@ -291,7 +304,13 @@ public class ShopTypeTest extends TestCase {
             while (it.hasNext()) {
                 ShopType shopType = (ShopType) it.next();
                 ShopType another = ShopTypeTestHelper.getShopTypeByPk(resultFound, shopType.getShopTypePK());
-                assertEquals("Result returned by get-shopType-list does not equal to inserted shopType object.", shopType, another);
+                assertTrue(
+                        String.format("Result returned by get-shopType-list does not equal to inserted shopType object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopType, another),
+                        unitTestEquals(shopType, another)
+                );
                 ShopTypeTestHelper.delete(another);
             }
         }

@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.DiscountTypeTestHelper.unitTestEquals;
+
 /**
  * Test case class to test DiscountType's persistence
  */
@@ -186,8 +188,13 @@ public class DiscountTypeTest extends TestCase {
      */
     private void afterInsert(DiscountType discountType) {
         DiscountType anotherDiscountType = dao.load(discountType.getDiscountTypePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                discountType, anotherDiscountType);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        discountType, anotherDiscountType),
+                unitTestEquals(discountType, anotherDiscountType)
+        );
         DiscountTypeTestHelper.delete(anotherDiscountType);
     }
 
@@ -222,7 +229,13 @@ public class DiscountTypeTest extends TestCase {
      */
     private void afterUpdate(DiscountType discountType) throws Exception {
         DiscountType another = dao.load(discountType.getDiscountTypePK());
-        assertEquals("Queried result does not equal to updated instance", discountType, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        discountType, another),
+                unitTestEquals(discountType, another)
+        );
         DiscountTypeTestHelper.delete(another);
     }
 
@@ -321,7 +334,13 @@ public class DiscountTypeTest extends TestCase {
             while (it.hasNext()) {
                 DiscountType discountType = (DiscountType) it.next();
                 DiscountType another = DiscountTypeTestHelper.getDiscountTypeByPk(resultFound, discountType.getDiscountTypePK());
-                assertEquals("Result returned by find-by-discountTypeName does not equal to inserted discountType object.", discountType, another);
+                assertTrue(
+                        String.format("Result returned by find-by-discountTypeName does not equal to inserted discountType object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountType, another),
+                        unitTestEquals(discountType, another)
+                );
                 DiscountTypeTestHelper.delete(another);
             }
         }
@@ -386,7 +405,13 @@ public class DiscountTypeTest extends TestCase {
             while (it.hasNext()) {
                 DiscountType discountType = (DiscountType) it.next();
                 DiscountType another = DiscountTypeTestHelper.getDiscountTypeByPk(resultFound, discountType.getDiscountTypePK());
-                assertEquals("Result returned by get-discountType-list does not equal to inserted discountType object.", discountType, another);
+                assertTrue(
+                        String.format("Result returned by get-discountType-list does not equal to inserted discountType object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                discountType, another),
+                        unitTestEquals(discountType, another)
+                );
                 DiscountTypeTestHelper.delete(another);
             }
         }

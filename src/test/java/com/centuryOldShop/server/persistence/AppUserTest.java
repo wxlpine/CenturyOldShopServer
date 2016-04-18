@@ -309,8 +309,13 @@ public class AppUserTest extends TestCase {
      */
     private void afterInsert(AppUser appUser) {
         AppUser anotherAppUser = dao.load(appUser.getAppUserPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                appUser, anotherAppUser);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        appUser, anotherAppUser),
+                unitTestEquals(appUser, anotherAppUser)
+        );
         delete(anotherAppUser);
     }
 
@@ -345,7 +350,13 @@ public class AppUserTest extends TestCase {
      */
     private void afterUpdate(AppUser appUser) throws Exception {
         AppUser another = dao.load(appUser.getAppUserPK());
-        assertEquals("Queried result does not equal to updated instance", appUser, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        appUser, another),
+                unitTestEquals(appUser, another)
+        );
         delete(another);
     }
 
@@ -444,7 +455,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-userName does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by find-by-userName does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }
@@ -513,7 +530,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-email does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by find-by-email does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }
@@ -582,7 +605,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-phoneNumber does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by find-by-phoneNumber does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }
@@ -651,7 +680,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-userType does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by find-by-userType does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }
@@ -720,7 +755,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-headPortraitUrl does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by find-by-headPortraitUrl does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }
@@ -789,7 +830,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by find-by-registerTime does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by find-by-registerTime does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }
@@ -854,7 +901,13 @@ public class AppUserTest extends TestCase {
             while (it.hasNext()) {
                 AppUser appUser = (AppUser) it.next();
                 AppUser another = getAppUserByPk(resultFound, appUser.getAppUserPK());
-                assertEquals("Result returned by get-appUser-list does not equal to inserted appUser object.", appUser, another);
+                assertTrue(
+                        String.format("Result returned by get-appUser-list does not equal to inserted appUser object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                appUser, another),
+                        unitTestEquals(appUser, another)
+                );
                 delete(another);
             }
         }

@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -204,5 +205,23 @@ public class AppUserTestHelper {
 
     static short getRandomUserType() {
         return (short) ThreadLocalRandom.current().nextInt(0, 3);
+    }
+
+    static boolean unitTestEquals(AppUser left, AppUser right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getUserId() == right.getUserId() &&
+                left.getUserType() == right.getUserType() &&
+                Objects.equals(left.getUserName(), right.getUserName()) &&
+                Arrays.equals(left.getPassword(), right.getPassword()) &&
+                Objects.equals(left.getEmail(), right.getEmail()) &&
+                Objects.equals(left.getPhoneNumber(), right.getPhoneNumber()) &&
+                Objects.equals(left.getHeadPortraitUrl(), right.getHeadPortraitUrl()) &&
+                Objects.equals(left.getRegisterTime(), right.getRegisterTime()) &&
+                ShopTestHelper.unitTestEquals(left.getManagedShop(), right.getManagedShop());
     }
 }

@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for Favorite. It provides some utility methods, such as methods to
@@ -48,9 +49,11 @@ public class FavoriteTestHelper {
         if (associationInitialized) {
             AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
             AppUserTestHelper.save(appUser);
+            persistentObject.setFavoriteUser(appUser);
 
             Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
             CommodityTestHelper.save(commodity);
+            persistentObject.setFavoriteCommodity(commodity);
 
             FavoritePK pk = new FavoritePK(appUser.getUserId(), commodity.getCommodityId());
             persistentObject.setFavoritePK(pk);
@@ -124,5 +127,18 @@ public class FavoriteTestHelper {
      */
     public static Favorite getFavoriteByPk(Favorite[] favoriteArray, FavoritePK pk) {
         return favoriteArray == null ? null : getFavoriteByPk(Arrays.asList(favoriteArray), pk);
+    }
+
+    static boolean unitTestEquals(Favorite left, Favorite right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return Objects.equals(left.getFavoritePK(), right.getFavoritePK()) &&
+                Objects.equals(left.getAddTime(), right.getAddTime()) &&
+                CommodityTestHelper.unitTestEquals(left.getFavoriteCommodity(), right.getFavoriteCommodity()) &&
+                AppUserTestHelper.unitTestEquals(left.getFavoriteUser(), right.getFavoriteUser());
     }
 }

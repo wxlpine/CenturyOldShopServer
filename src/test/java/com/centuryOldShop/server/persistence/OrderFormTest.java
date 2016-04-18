@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.OrderFormTestHelper.unitTestEquals;
+
 /**
  * Test case class to test OrderForm's persistence
  */
@@ -282,8 +284,13 @@ public class OrderFormTest extends TestCase {
      */
     private void afterInsert(OrderForm orderForm) {
         OrderForm anotherOrderForm = dao.load(orderForm.getOrderFormPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                orderForm, anotherOrderForm);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected : %s\n" +
+                                "Actual   : %s",
+                        orderForm, anotherOrderForm),
+                unitTestEquals(orderForm, anotherOrderForm)
+        );
         OrderFormTestHelper.delete(anotherOrderForm);
     }
 
@@ -318,7 +325,13 @@ public class OrderFormTest extends TestCase {
      */
     private void afterUpdate(OrderForm orderForm) throws Exception {
         OrderForm another = dao.load(orderForm.getOrderFormPK());
-        assertEquals("Queried result does not equal to updated instance", orderForm, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        orderForm, another),
+                unitTestEquals(orderForm, another)
+        );
         OrderFormTestHelper.delete(another);
     }
 
@@ -417,7 +430,13 @@ public class OrderFormTest extends TestCase {
             while (it.hasNext()) {
                 OrderForm orderForm = (OrderForm) it.next();
                 OrderForm another = OrderFormTestHelper.getOrderFormByPk(resultFound, orderForm.getOrderFormPK());
-                assertEquals("Result returned by find-by-orderedTime does not equal to inserted orderForm object.", orderForm, another);
+                assertTrue(
+                        String.format("Result returned by find-by-orderedTime does not equal to inserted orderForm object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderForm, another),
+                        unitTestEquals(orderForm, another)
+                );
                 OrderFormTestHelper.delete(another);
             }
         }
@@ -486,7 +505,13 @@ public class OrderFormTest extends TestCase {
             while (it.hasNext()) {
                 OrderForm orderForm = (OrderForm) it.next();
                 OrderForm another = OrderFormTestHelper.getOrderFormByPk(resultFound, orderForm.getOrderFormPK());
-                assertEquals("Result returned by find-by-payedTime does not equal to inserted orderForm object.", orderForm, another);
+                assertTrue(
+                        String.format("Result returned by find-by-payedTime does not equal to inserted orderForm object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderForm, another),
+                        unitTestEquals(orderForm, another)
+                );
                 OrderFormTestHelper.delete(another);
             }
         }
@@ -555,7 +580,13 @@ public class OrderFormTest extends TestCase {
             while (it.hasNext()) {
                 OrderForm orderForm = (OrderForm) it.next();
                 OrderForm another = OrderFormTestHelper.getOrderFormByPk(resultFound, orderForm.getOrderFormPK());
-                assertEquals("Result returned by find-by-sendTime does not equal to inserted orderForm object.", orderForm, another);
+                assertTrue(
+                        String.format("Result returned by find-by-sendTime does not equal to inserted orderForm object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderForm, another),
+                        unitTestEquals(orderForm, another)
+                );
                 OrderFormTestHelper.delete(another);
             }
         }
@@ -624,7 +655,13 @@ public class OrderFormTest extends TestCase {
             while (it.hasNext()) {
                 OrderForm orderForm = (OrderForm) it.next();
                 OrderForm another = OrderFormTestHelper.getOrderFormByPk(resultFound, orderForm.getOrderFormPK());
-                assertEquals("Result returned by find-by-receiptedTime does not equal to inserted orderForm object.", orderForm, another);
+                assertTrue(
+                        String.format("Result returned by find-by-receiptedTime does not equal to inserted orderForm object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderForm, another),
+                        unitTestEquals(orderForm, another)
+                );
                 OrderFormTestHelper.delete(another);
             }
         }
@@ -693,7 +730,13 @@ public class OrderFormTest extends TestCase {
             while (it.hasNext()) {
                 OrderForm orderForm = (OrderForm) it.next();
                 OrderForm another = OrderFormTestHelper.getOrderFormByPk(resultFound, orderForm.getOrderFormPK());
-                assertEquals("Result returned by find-by-expressNumber does not equal to inserted orderForm object.", orderForm, another);
+                assertTrue(
+                        String.format("Result returned by find-by-expressNumber does not equal to inserted orderForm object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderForm, another),
+                        unitTestEquals(orderForm, another)
+                );
                 OrderFormTestHelper.delete(another);
             }
         }
@@ -758,7 +801,13 @@ public class OrderFormTest extends TestCase {
             while (it.hasNext()) {
                 OrderForm orderForm = (OrderForm) it.next();
                 OrderForm another = OrderFormTestHelper.getOrderFormByPk(resultFound, orderForm.getOrderFormPK());
-                assertEquals("Result returned by get-orderForm-list does not equal to inserted orderForm object.", orderForm, another);
+                assertTrue(
+                        String.format("Result returned by get-orderForm-list does not equal to inserted orderForm object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                orderForm, another),
+                        unitTestEquals(orderForm, another)
+                );
                 OrderFormTestHelper.delete(another);
             }
         }

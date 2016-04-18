@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for Commodity. It provides some utility methods, such as methods to
@@ -196,5 +197,26 @@ public class CommodityTestHelper {
 
     static double getRandomPrice() {
         return Util.getRandomDecimal(4);
+    }
+
+    static boolean unitTestEquals(Commodity left, Commodity right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getCommodityId() == right.getCommodityId() &&
+                Double.compare(right.getPrice(), left.getPrice()) == 0 &&
+                left.getSalesVolume() == right.getSalesVolume() &&
+                left.getExemptionFromPostage() == right.getExemptionFromPostage() &&
+                left.getOffShelf() == right.getOffShelf() &&
+                left.getRemainingQuantity() == right.getRemainingQuantity() &&
+                Objects.equals(left.getCommodityName(), right.getCommodityName()) &&
+                Objects.equals(left.getSmallPhotoUrl(), right.getSmallPhotoUrl()) &&
+                Objects.equals(left.getShortDescription(), right.getShortDescription()) &&
+                Objects.equals(left.getAddedTime(), right.getAddedTime()) &&
+                Objects.equals(left.getPhoneTopBigPhotoUrl(), right.getPhoneTopBigPhotoUrl()) &&
+                CommodityTypeTestHelper.unitTestEquals(left.getCommodityType(), right.getCommodityType());
     }
 }

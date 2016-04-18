@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShopHistoryTestHelper.unitTestEquals;
+
 /**
  * Test case class to test ShopHistory's persistence
  */
@@ -306,8 +308,13 @@ public class ShopHistoryTest extends TestCase {
      */
     private void afterInsert(ShopHistory shopHistory) {
         ShopHistory anotherShopHistory = dao.load(shopHistory.getShopHistoryPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shopHistory, anotherShopHistory);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopHistory, anotherShopHistory),
+                unitTestEquals(shopHistory, anotherShopHistory)
+        );
         ShopHistoryTestHelper.delete(anotherShopHistory);
     }
 
@@ -342,7 +349,13 @@ public class ShopHistoryTest extends TestCase {
      */
     private void afterUpdate(ShopHistory shopHistory) throws Exception {
         ShopHistory another = dao.load(shopHistory.getShopHistoryPK());
-        assertEquals("Queried result does not equal to updated instance", shopHistory, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopHistory, another),
+                unitTestEquals(shopHistory, another)
+        );
         ShopHistoryTestHelper.delete(another);
     }
 
@@ -441,7 +454,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by find-by-title does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-title does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }
@@ -510,7 +529,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by find-by-smallPhotoUrl does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-smallPhotoUrl does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }
@@ -579,7 +604,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by find-by-shortDescription does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-shortDescription does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }
@@ -648,7 +679,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by find-by-publishTime does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-publishTime does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }
@@ -717,7 +754,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by find-by-visitCount does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-visitCount does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }
@@ -786,7 +829,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by find-by-detailedIntroductionPageUrl does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by find-by-detailedIntroductionPageUrl does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }
@@ -851,7 +900,13 @@ public class ShopHistoryTest extends TestCase {
             while (it.hasNext()) {
                 ShopHistory shopHistory = (ShopHistory) it.next();
                 ShopHistory another = ShopHistoryTestHelper.getShopHistoryByPk(resultFound, shopHistory.getShopHistoryPK());
-                assertEquals("Result returned by get-shopHistory-list does not equal to inserted shopHistory object.", shopHistory, another);
+                assertTrue(
+                        String.format("Result returned by get-shopHistory-list does not equal to inserted shopHistory object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopHistory, another),
+                        unitTestEquals(shopHistory, another)
+                );
                 ShopHistoryTestHelper.delete(another);
             }
         }

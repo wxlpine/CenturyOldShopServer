@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Random;
 
 import static com.centuryOldShop.server.persistence.FavoriteTestHelper.newInstance;
+import static com.centuryOldShop.server.persistence.FavoriteTestHelper.unitTestEquals;
 
 /**
  * Test case class to test Favorite's persistence
@@ -185,8 +186,13 @@ public class FavoriteTest extends TestCase {
      */
     private void afterInsert(Favorite favorite) {
         Favorite anotherFavorite = dao.load(favorite.getFavoritePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                favorite, anotherFavorite);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        favorite, anotherFavorite),
+                unitTestEquals(favorite, anotherFavorite)
+        );
         FavoriteTestHelper.delete(anotherFavorite);
     }
 
@@ -221,7 +227,13 @@ public class FavoriteTest extends TestCase {
      */
     private void afterUpdate(Favorite favorite) throws Exception {
         Favorite another = dao.load(favorite.getFavoritePK());
-        assertEquals("Queried result does not equal to updated instance", favorite, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        favorite, another),
+                unitTestEquals(favorite, another)
+        );
         FavoriteTestHelper.delete(another);
     }
 
@@ -320,7 +332,13 @@ public class FavoriteTest extends TestCase {
             while (it.hasNext()) {
                 Favorite favorite = (Favorite) it.next();
                 Favorite another = FavoriteTestHelper.getFavoriteByPk(resultFound, favorite.getFavoritePK());
-                assertEquals("Result returned by find-by-addTime does not equal to inserted favorite object.", favorite, another);
+                assertTrue(
+                        String.format("Result returned by find-by-addTime does not equal to inserted favorite object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                favorite, another),
+                        unitTestEquals(favorite, another)
+                );
                 FavoriteTestHelper.delete(another);
             }
         }
@@ -385,7 +403,13 @@ public class FavoriteTest extends TestCase {
             while (it.hasNext()) {
                 Favorite favorite = (Favorite) it.next();
                 Favorite another = FavoriteTestHelper.getFavoriteByPk(resultFound, favorite.getFavoritePK());
-                assertEquals("Result returned by get-favorite-list does not equal to inserted favorite object.", favorite, another);
+                assertTrue(
+                        String.format("Result returned by get-favorite-list does not equal to inserted favorite object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                favorite, another),
+                        unitTestEquals(favorite, another)
+                );
                 FavoriteTestHelper.delete(another);
             }
         }

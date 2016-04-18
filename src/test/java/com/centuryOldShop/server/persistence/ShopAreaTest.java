@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.ShopAreaTestHelper.unitTestEquals;
+
 /**
  * Test case class to test ShopArea's persistence
  */
@@ -186,8 +188,13 @@ public class ShopAreaTest extends TestCase {
      */
     private void afterInsert(ShopArea shopArea) {
         ShopArea anotherShopArea = dao.load(shopArea.getShopAreaPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                shopArea, anotherShopArea);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopArea, anotherShopArea),
+                unitTestEquals(shopArea, anotherShopArea)
+        );
         ShopAreaTestHelper.delete(anotherShopArea);
     }
 
@@ -222,7 +229,13 @@ public class ShopAreaTest extends TestCase {
      */
     private void afterUpdate(ShopArea shopArea) throws Exception {
         ShopArea another = dao.load(shopArea.getShopAreaPK());
-        assertEquals("Queried result does not equal to updated instance", shopArea, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        shopArea, another),
+                unitTestEquals(shopArea, another)
+        );
         ShopAreaTestHelper.delete(another);
     }
 
@@ -321,7 +334,13 @@ public class ShopAreaTest extends TestCase {
             while (it.hasNext()) {
                 ShopArea shopArea = (ShopArea) it.next();
                 ShopArea another = ShopAreaTestHelper.getShopAreaByPk(resultFound, shopArea.getShopAreaPK());
-                assertEquals("Result returned by find-by-shopAreaName does not equal to inserted shopArea object.", shopArea, another);
+                assertTrue(
+                        String.format("Result returned by find-by-shopAreaName does not equal to inserted shopArea object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopArea, another),
+                        unitTestEquals(shopArea, another)
+                );
                 ShopAreaTestHelper.delete(another);
             }
         }
@@ -386,7 +405,13 @@ public class ShopAreaTest extends TestCase {
             while (it.hasNext()) {
                 ShopArea shopArea = (ShopArea) it.next();
                 ShopArea another = ShopAreaTestHelper.getShopAreaByPk(resultFound, shopArea.getShopAreaPK());
-                assertEquals("Result returned by get-shopArea-list does not equal to inserted shopArea object.", shopArea, another);
+                assertTrue(
+                        String.format("Result returned by get-shopArea-list does not equal to inserted shopArea object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                shopArea, another),
+                        unitTestEquals(shopArea, another)
+                );
                 ShopAreaTestHelper.delete(another);
             }
         }

@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for OrderForm. It provides some utility methods, such as methods to
@@ -188,4 +189,26 @@ public class OrderFormTestHelper {
     public static OrderForm getOrderFormByPk(OrderForm[] orderFormArray, OrderFormPK pk) {
         return orderFormArray == null ? null : getOrderFormByPk(Arrays.asList(orderFormArray), pk);
     }
+
+    static boolean unitTestEquals(OrderForm left, OrderForm right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getOrderFormId() == right.getOrderFormId() &&
+                Objects.equals(left.getOrderedTime(), right.getOrderedTime()) &&
+                Objects.equals(left.getPayedTime(), right.getPayedTime()) &&
+                Objects.equals(left.getSendTime(), right.getSendTime()) &&
+                Objects.equals(left.getReceiptedTime(), right.getReceiptedTime()) &&
+                Objects.equals(left.getExpressNumber(), right.getExpressNumber()) &&
+                AppUserTestHelper.unitTestEquals(left.getAppUser(), right.getAppUser()) &&
+                ShopTestHelper.unitTestEquals(left.getShop(), right.getShop()) &&
+                DiscountInfoTestHelper.unitTestEquals(left.getDiscountInfo(), right.getDiscountInfo()) &&
+                OrderStatusTypeTestHelper.unitTestEquals(left.getOrderStatusType(), right.getOrderStatusType()) &&
+                DisputeStatusTypeTestHelper.unitTestEquals(left.getDisputeStatusType(), right.getDisputeStatusType());
+    }
+
+
 }

@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.CommodityTestHelper.unitTestEquals;
+
 /**
  * Test case class to test Commodity's persistence
  */
@@ -402,8 +404,13 @@ public class CommodityTest extends TestCase {
      */
     private void afterInsert(Commodity commodity) {
         Commodity anotherCommodity = dao.load(commodity.getCommodityPK());
-        assertEquals("Queried result does not equal to inserted instance",
-                commodity, anotherCommodity);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        commodity, anotherCommodity),
+                unitTestEquals(commodity, anotherCommodity)
+        );
         CommodityTestHelper.delete(anotherCommodity);
     }
 
@@ -438,7 +445,13 @@ public class CommodityTest extends TestCase {
      */
     private void afterUpdate(Commodity commodity) throws Exception {
         Commodity another = dao.load(commodity.getCommodityPK());
-        assertEquals("Queried result does not equal to updated instance", commodity, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual: %s",
+                        commodity, another),
+                unitTestEquals(commodity, another)
+        );
         CommodityTestHelper.delete(another);
     }
 
@@ -537,7 +550,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-commodityName does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-commodityName does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -606,7 +625,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-smallPhotoUrl does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-smallPhotoUrl does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -675,7 +700,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-shortDescription does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-shortDescription does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -744,7 +775,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-price does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-price does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -813,7 +850,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-salesVolume does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-salesVolume does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -882,7 +925,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-exemptionFromPostage does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-exemptionFromPostage does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -951,7 +1000,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-addedTime does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-addedTime does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -1020,7 +1075,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-phoneTopBigPhotoUrl does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-phoneTopBigPhotoUrl does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -1089,7 +1150,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-offShelf does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-offShelf does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -1158,7 +1225,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by find-by-remainingQuantity does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by find-by-remainingQuantity does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }
@@ -1223,7 +1296,13 @@ public class CommodityTest extends TestCase {
             while (it.hasNext()) {
                 Commodity commodity = (Commodity) it.next();
                 Commodity another = CommodityTestHelper.getCommodityByPk(resultFound, commodity.getCommodityPK());
-                assertEquals("Result returned by get-commodity-list does not equal to inserted commodity object.", commodity, another);
+                assertTrue(
+                        String.format("Result returned by get-commodity-list does not equal to inserted commodity object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual: %s",
+                                commodity, another),
+                        unitTestEquals(commodity, another)
+                );
                 CommodityTestHelper.delete(another);
             }
         }

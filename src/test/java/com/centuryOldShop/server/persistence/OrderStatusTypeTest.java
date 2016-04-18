@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.OrderStatusTypeTestHelper.unitTestEquals;
+
 /**
  * Test case class to test OrderStatusType's persistence
  */
@@ -161,8 +163,13 @@ public class OrderStatusTypeTest extends TestCase {
      */
     private void afterInsert(OrderStatusType orderStatusType) {
         OrderStatusType anotherOrderStatusType = dao.load(orderStatusType.getOrderStatusTypePK());
-        assertEquals("Queried result does not equal to inserted instance",
-                orderStatusType, anotherOrderStatusType);
+        assertTrue(
+                String.format("Queried result does not equal to inserted instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        orderStatusType, anotherOrderStatusType),
+                unitTestEquals(orderStatusType, anotherOrderStatusType)
+        );
         OrderStatusTypeTestHelper.delete(anotherOrderStatusType);
     }
 
@@ -197,7 +204,13 @@ public class OrderStatusTypeTest extends TestCase {
      */
     private void afterUpdate(OrderStatusType orderStatusType) throws Exception {
         OrderStatusType another = dao.load(orderStatusType.getOrderStatusTypePK());
-        assertEquals("Queried result does not equal to updated instance", orderStatusType, another);
+        assertTrue(
+                String.format("Queried result does not equal to updated instance" +
+                                "\nExpected: %s\n" +
+                                "Actual  : %s",
+                        orderStatusType, another),
+                unitTestEquals(orderStatusType, another)
+        );
         OrderStatusTypeTestHelper.delete(another);
     }
 
@@ -291,7 +304,13 @@ public class OrderStatusTypeTest extends TestCase {
             while (it.hasNext()) {
                 OrderStatusType orderStatusType = (OrderStatusType) it.next();
                 OrderStatusType another = OrderStatusTypeTestHelper.getOrderStatusTypeByPk(resultFound, orderStatusType.getOrderStatusTypePK());
-                assertEquals("Result returned by get-orderStatusType-list does not equal to inserted orderStatusType object.", orderStatusType, another);
+                assertTrue(
+                        String.format("Result returned by get-orderStatusType-list does not equal to inserted orderStatusType object." +
+                                        "\nExpected: %s\n" +
+                                        "Actual  : %s",
+                                orderStatusType, another),
+                        unitTestEquals(orderStatusType, another)
+                );
                 OrderStatusTypeTestHelper.delete(another);
             }
         }

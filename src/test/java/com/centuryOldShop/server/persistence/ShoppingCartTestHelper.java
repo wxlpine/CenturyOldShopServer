@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -47,9 +48,11 @@ public class ShoppingCartTestHelper {
         if (associationInitialized) {
             AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, true);
             AppUserTestHelper.save(appUser);
+            persistentObject.setShoppingCartUser(appUser);
 
             Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, true);
             CommodityTestHelper.save(commodity);
+            persistentObject.setCommodity(commodity);
 
             ShoppingCartPK pk = new ShoppingCartPK(appUser.getUserId(), commodity.getCommodityId());
             persistentObject.setShoppingCartPK(pk);
@@ -127,4 +130,19 @@ public class ShoppingCartTestHelper {
     public static ShoppingCart getShoppingCartByPk(ShoppingCart[] shoppingCartArray, ShoppingCartPK pk) {
         return shoppingCartArray == null ? null : getShoppingCartByPk(Arrays.asList(shoppingCartArray), pk);
     }
+
+    static boolean unitTestEquals(ShoppingCart left, ShoppingCart right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getAmount() == right.getAmount() &&
+                Objects.equals(left.getShoppingCartPK(), right.getShoppingCartPK()) &&
+                Objects.equals(left.getAddedTime(), right.getAddedTime()) &&
+                AppUserTestHelper.unitTestEquals(left.getShoppingCartUser(), right.getShoppingCartUser()) &&
+                CommodityTestHelper.unitTestEquals(left.getCommodity(), right.getCommodity());
+    }
+
 }

@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for DiscountType. It provides some utility methods, such as methods to
@@ -126,4 +127,16 @@ public class DiscountTypeTestHelper {
     public static DiscountType getDiscountTypeByPk(DiscountType[] discountTypeArray, DiscountTypePK pk) {
         return discountTypeArray == null ? null : getDiscountTypeByPk(Arrays.asList(discountTypeArray), pk);
     }
+
+    static boolean unitTestEquals(DiscountType left, DiscountType right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getDiscountTypeId() == right.getDiscountTypeId() &&
+                Objects.equals(left.getDiscountTypeName(), right.getDiscountTypeName());
+    }
+
 }

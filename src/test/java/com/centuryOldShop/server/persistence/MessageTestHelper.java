@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Test helper class for Message. It provides some utility methods, such as methods to
@@ -138,5 +139,19 @@ public class MessageTestHelper {
      */
     public static Message getMessageByPk(Message[] messageArray, MessagePK pk) {
         return messageArray == null ? null : getMessageByPk(Arrays.asList(messageArray), pk);
+    }
+
+    static boolean unitTestEquals(Message left, Message right) {
+        if (left == right) return true;
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        return left.getMessageId() == right.getMessageId() &&
+                Objects.equals(left.getSendTime(), right.getSendTime()) &&
+                Objects.equals(left.getContent(), right.getContent()) &&
+                AppUserTestHelper.unitTestEquals(left.getSendUser(), right.getSendUser()) &&
+                AppUserTestHelper.unitTestEquals(left.getReceiveUser(), right.getReceiveUser());
     }
 }
