@@ -14,13 +14,14 @@ public class ShopTypePK implements java.io.Serializable {
     /**
      * @pdOid c9a9711d-7338-40fa-be2f-b29ed6e7b5cb
      */
-    private java.lang.String shopTypeName;
+    private String shopTypeName;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
      */
     public ShopTypePK() {
-
     }
 
     /**
@@ -28,16 +29,21 @@ public class ShopTypePK implements java.io.Serializable {
      *
      * @param shopTypeName parameter to set value of field shopTypeName
      */
-    public ShopTypePK(java.lang.String shopTypeName) {
+    public ShopTypePK(String shopTypeName) {
         this.shopTypeName = shopTypeName;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopTypeName
      *
      * @return shopTypeName
      */
-    public java.lang.String getShopTypeName() {
+    public String getShopTypeName() {
         return shopTypeName;
     }
 
@@ -46,9 +52,13 @@ public class ShopTypePK implements java.io.Serializable {
      *
      * @param newShopTypeName
      */
-    public void setShopTypeName(java.lang.String newShopTypeName) {
+    public void setShopTypeName(String newShopTypeName) {
         this.shopTypeName = newShopTypeName;
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
@@ -95,4 +105,6 @@ public class ShopTypePK implements java.io.Serializable {
         ret.append("shopTypeName='" + shopTypeName + "'");
         return ret.toString();
     }
+
+    //</editor-fold>
 }

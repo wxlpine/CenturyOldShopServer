@@ -16,6 +16,8 @@ public class CommodityPK implements java.io.Serializable {
      */
     private long commodityId;
 
+    //<editor-fold name="constructor">
+
     /**
      * Empty constructor
      */
@@ -31,6 +33,10 @@ public class CommodityPK implements java.io.Serializable {
         this.commodityId = commodityId;
     }
 
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
+
     /**
      * Get value of commodityId
      *
@@ -43,54 +49,37 @@ public class CommodityPK implements java.io.Serializable {
     /**
      * Set value of commodityId
      *
-     * @param newCommodityId
      */
     public void setCommodityId(long newCommodityId) {
         this.commodityId = newCommodityId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
+    //<editor-fold name="common methods">
 
-        if (other == this) {
-            return true;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if (!(other.getClass() == getClass()))
-            return false;
+        CommodityPK that = (CommodityPK) o;
 
-        CommodityPK cast = (CommodityPK) other;
+        return commodityId == that.commodityId;
 
-        if (this.commodityId != cast.getCommodityId())
-            return false;
-
-        return true;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(commodityId)).hashCode();
-        return _hashCode;
+        return (int) (commodityId ^ (commodityId >>> 32));
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.CommodityPK: ");
-        ret.append("commodityId='" + commodityId + "'");
-        return ret.toString();
+        return "CommodityPK{" +
+                "commodityId=" + commodityId +
+                '}';
     }
+
+    //</editor-fold>
 }

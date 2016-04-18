@@ -21,11 +21,19 @@ public class OrderFormCommodityPK implements java.io.Serializable {
 
     @Column(name="commodityId")
     private long commodityId;
+
+
+    //<editor-fold name="constructor">
+
     /**
      * Empty constructor
      */
     public OrderFormCommodityPK() {
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     public OrderFormCommodityPK(long orderFormId, long commodityId) {
         this.orderFormId = orderFormId;
@@ -49,6 +57,11 @@ public class OrderFormCommodityPK implements java.io.Serializable {
         this.commodityId = commodityId;
         return this;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
 
     @Override
     public boolean equals(Object o) {
@@ -76,4 +89,7 @@ public class OrderFormCommodityPK implements java.io.Serializable {
                 ", commodityId=" + commodityId +
                 '}';
     }
+
+    //</editor-fold>
+
 }

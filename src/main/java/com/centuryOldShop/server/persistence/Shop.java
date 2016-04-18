@@ -100,6 +100,19 @@ public class Shop implements java.io.Serializable {
      */
     private ShopArea shopArea;
 
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public Shop() {
+    }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
+
     /**
      * Get value of shopId
      *
@@ -316,106 +329,6 @@ public class Shop implements java.io.Serializable {
         if (pk != null) {
             this.shopId = pk.getShopId();
         }
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof Shop))
-            return false;
-
-        Shop cast = (Shop) other;
-
-        if (this.shopId != cast.getShopId())
-            return false;
-
-        if (this.shopName == null ? cast.getShopName() != this.shopName : !this.shopName.equals(cast.getShopName()))
-            return false;
-
-        if (this.shortDescription == null ? cast.getShortDescription() != this.shortDescription : !this.shortDescription.equals(cast.getShortDescription()))
-            return false;
-
-        if (this.openABusinessTime == null ? cast.getOpenABusinessTime() != this.openABusinessTime : !(com.sybase.orm.util.Util.compareDate(this.openABusinessTime, cast.getOpenABusinessTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.visitCount != cast.getVisitCount())
-            return false;
-
-        if (this.detailedAddress == null ? cast.getDetailedAddress() != this.detailedAddress : !this.detailedAddress.equals(cast.getDetailedAddress()))
-            return false;
-
-        if (this.trademark == null ? cast.getTrademark() != this.trademark : !this.trademark.equals(cast.getTrademark()))
-            return false;
-
-        if (this.enterTime == null ? cast.getEnterTime() != this.enterTime : !(com.sybase.orm.util.Util.compareDate(this.enterTime, cast.getEnterTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.phoneNumber == null ? cast.getPhoneNumber() != this.phoneNumber : !this.phoneNumber.equals(cast.getPhoneNumber()))
-            return false;
-
-        if (this.fax == null ? cast.getFax() != this.fax : !this.fax.equals(cast.getFax()))
-            return false;
-
-        if (this.longDescription == null ? cast.getLongDescription() != this.longDescription : !this.longDescription.equals(cast.getLongDescription()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(shopId)).hashCode();
-        if (this.shopName != null)
-            hashCode = 29 * hashCode + shopName.hashCode();
-        if (this.shortDescription != null)
-            hashCode = 29 * hashCode + shortDescription.hashCode();
-        if (this.openABusinessTime != null)
-            hashCode = 29 * hashCode + openABusinessTime.hashCode();
-        hashCode = 29 * hashCode + (new Integer(visitCount)).hashCode();
-        if (this.detailedAddress != null)
-            hashCode = 29 * hashCode + detailedAddress.hashCode();
-        if (this.trademark != null)
-            hashCode = 29 * hashCode + trademark.hashCode();
-        if (this.enterTime != null)
-            hashCode = 29 * hashCode + enterTime.hashCode();
-        if (this.phoneNumber != null)
-            hashCode = 29 * hashCode + phoneNumber.hashCode();
-        if (this.fax != null)
-            hashCode = 29 * hashCode + fax.hashCode();
-        if (this.longDescription != null)
-            hashCode = 29 * hashCode + longDescription.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.Shop: ");
-        ret.append("shopId='" + shopId + "'");
-        ret.append("shopName='" + shopName + "'");
-        ret.append("shortDescription='" + shortDescription + "'");
-        ret.append("openABusinessTime='" + openABusinessTime + "'");
-        ret.append("visitCount='" + visitCount + "'");
-        ret.append("detailedAddress='" + detailedAddress + "'");
-        ret.append("trademark='" + trademark + "'");
-        ret.append("enterTime='" + enterTime + "'");
-        ret.append("phoneNumber='" + phoneNumber + "'");
-        ret.append("fax='" + fax + "'");
-        ret.append("longDescription='" + longDescription + "'");
-        return ret.toString();
     }
 
 
@@ -1029,10 +942,31 @@ public class Shop implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public Shop() {
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "shopId=" + shopId +
+                ", shopName='" + shopName + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", openABusinessTime=" + openABusinessTime +
+                ", visitCount=" + visitCount +
+                ", detailedAddress='" + detailedAddress + '\'' +
+                ", trademark='" + trademark + '\'' +
+                ", enterTime=" + enterTime +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", fax='" + fax + '\'' +
+                ", longDescription='" + longDescription + '\'' +
+                ", shopType=" + shopType +
+                ", shopArea=" + shopArea +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

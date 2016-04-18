@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid eb18f615-d7d0-4640-a782-cc8f382e95cc
  */
@@ -13,28 +15,33 @@ public class DisputeStatusType implements java.io.Serializable {
     /**
      * @pdOid d1ef8a09-060f-4b2a-bea4-f5d3f485cfb3
      */
-    private java.lang.String disputeStatusType;
+    private String disputeStatusType;
 
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=disputeStatusTypeOrderForm coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<OrderForm> orderForm;
+    private List<OrderForm> orderForm;
+
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public DisputeStatusType() {
+    }
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of disputeStatusType
      *
      * @return disputeStatusType
      */
-    public java.lang.String getDisputeStatusType() {
+    public String getDisputeStatusType() {
         return disputeStatusType;
     }
 
-    /**
-     * Set value of disputeStatusType
-     *
-     * @param newDisputeStatusType
-     */
-    public void setDisputeStatusType(java.lang.String newDisputeStatusType) {
+    public void setDisputeStatusType(String newDisputeStatusType) {
         this.disputeStatusType = newDisputeStatusType;
     }
 
@@ -58,53 +65,11 @@ public class DisputeStatusType implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof DisputeStatusType))
-            return false;
-
-        DisputeStatusType cast = (DisputeStatusType) other;
-
-        if (this.disputeStatusType == null ? cast.getDisputeStatusType() != this.disputeStatusType : !this.disputeStatusType.equals(cast.getDisputeStatusType()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        if (this.disputeStatusType != null)
-            hashCode = 29 * hashCode + disputeStatusType.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.DisputeStatusType: ");
-        ret.append("disputeStatusType='" + disputeStatusType + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<OrderForm> getOrderForm() {
+    public List<OrderForm> getOrderForm() {
         if (orderForm == null)
             orderForm = new java.util.ArrayList<OrderForm>();
         return orderForm;
@@ -123,7 +88,7 @@ public class DisputeStatusType implements java.io.Serializable {
      * @param newOrderForm
      * @pdGenerated default setter
      */
-    public void setOrderForm(java.util.List<OrderForm> newOrderForm) {
+    public void setOrderForm(List<OrderForm> newOrderForm) {
         //removeAllOrderForm();
         this.orderForm = newOrderForm;
     }
@@ -171,10 +136,18 @@ public class DisputeStatusType implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public DisputeStatusType() {
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "DisputeStatusType{" +
+                "disputeStatusType='" + disputeStatusType + '\'' +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

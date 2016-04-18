@@ -16,6 +16,9 @@ public class AppUserPK implements java.io.Serializable {
      */
     private long userId;
 
+
+    //<editor-fold name="constructor">
+
     /**
      * Empty constructor
      */
@@ -31,6 +34,10 @@ public class AppUserPK implements java.io.Serializable {
         this.userId = userId;
     }
 
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
+
     /**
      * Get value of userId
      *
@@ -43,54 +50,37 @@ public class AppUserPK implements java.io.Serializable {
     /**
      * Set value of userId
      *
-     * @param newUserId
      */
     public void setUserId(long newUserId) {
         this.userId = newUserId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
+    //<editor-fold name="common methods">
 
-        if (other == this) {
-            return true;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if (!(other.getClass() == getClass()))
-            return false;
+        AppUserPK appUserPK = (AppUserPK) o;
 
-        AppUserPK cast = (AppUserPK) other;
+        return userId == appUserPK.userId;
 
-        if (this.userId != cast.getUserId())
-            return false;
-
-        return true;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(userId)).hashCode();
-        return _hashCode;
+        return (int) (userId ^ (userId >>> 32));
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.AppUserPK: ");
-        ret.append("userId='" + userId + "'");
-        return ret.toString();
+        return "AppUserPK{" +
+                "userId=" + userId +
+                '}';
     }
+
+    //</editor-fold>
 }

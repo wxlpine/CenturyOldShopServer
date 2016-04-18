@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid 841b88ce-2fbe-45ca-99c0-3121449b37bb
  */
@@ -17,12 +19,25 @@ public class ShopArea implements java.io.Serializable {
     /**
      * @pdOid fe867869-bde9-4ddc-a05d-3256a3cecd55
      */
-    private java.lang.String shopAreaName;
+    private String shopAreaName;
 
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopShopArea coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<Shop> shop;
+    private List<Shop> shop;
+
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public ShopArea() {
+    }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopAreaId
@@ -47,7 +62,7 @@ public class ShopArea implements java.io.Serializable {
      *
      * @return shopAreaName
      */
-    public java.lang.String getShopAreaName() {
+    public String getShopAreaName() {
         return shopAreaName;
     }
 
@@ -56,7 +71,7 @@ public class ShopArea implements java.io.Serializable {
      *
      * @param newShopAreaName
      */
-    public void setShopAreaName(java.lang.String newShopAreaName) {
+    public void setShopAreaName(String newShopAreaName) {
         this.shopAreaName = newShopAreaName;
     }
 
@@ -80,58 +95,10 @@ public class ShopArea implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof ShopArea))
-            return false;
-
-        ShopArea cast = (ShopArea) other;
-
-        if (this.shopAreaId != cast.getShopAreaId())
-            return false;
-
-        if (this.shopAreaName == null ? cast.getShopAreaName() != this.shopAreaName : !this.shopAreaName.equals(cast.getShopAreaName()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(shopAreaId)).hashCode();
-        if (this.shopAreaName != null)
-            hashCode = 29 * hashCode + shopAreaName.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopArea: ");
-        ret.append("shopAreaId='" + shopAreaId + "'");
-        ret.append("shopAreaName='" + shopAreaName + "'");
-        return ret.toString();
-    }
-
-
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<Shop> getShop() {
+    public List<Shop> getShop() {
         if (shop == null)
             shop = new java.util.ArrayList<Shop>();
         return shop;
@@ -150,7 +117,7 @@ public class ShopArea implements java.io.Serializable {
      * @param newShop
      * @pdGenerated default setter
      */
-    public void setShop(java.util.List<Shop> newShop) {
+    public void setShop(List<Shop> newShop) {
         //removeAllShop();
         this.shop = newShop;
     }
@@ -198,10 +165,20 @@ public class ShopArea implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public ShopArea() {
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "ShopArea{" +
+                "shopAreaId=" + shopAreaId +
+                ", shopAreaName='" + shopAreaName + '\'' +
+                '}';
     }
+
+
+    //</editor-fold>
+
 
 }

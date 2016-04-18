@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for ShopHistory. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -15,6 +17,8 @@ public class ShopHistoryPK implements java.io.Serializable {
      * @pdOid c054dd98-6629-4f2d-a8a6-94ecfca57ec9
      */
     private long shopHistoryId;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -31,6 +35,11 @@ public class ShopHistoryPK implements java.io.Serializable {
     public ShopHistoryPK(long shopHistoryId) {
         this.shopHistoryId = shopHistoryId;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopHistoryId
@@ -50,48 +59,30 @@ public class ShopHistoryPK implements java.io.Serializable {
         this.shopHistoryId = newShopHistoryId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        ShopHistoryPK cast = (ShopHistoryPK) other;
-
-        if (this.shopHistoryId != cast.getShopHistoryId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShopHistoryPK that = (ShopHistoryPK) o;
+        return shopHistoryId == that.shopHistoryId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(shopHistoryId)).hashCode();
-        return _hashCode;
+        return Objects.hash(shopHistoryId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopHistoryPK: ");
-        ret.append("shopHistoryId='" + shopHistoryId + "'");
-        return ret.toString();
+        return "ShopHistoryPK{" +
+                "shopHistoryId=" + shopHistoryId +
+                '}';
     }
+
+    //</editor-fold>
 }

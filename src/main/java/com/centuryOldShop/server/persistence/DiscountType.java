@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid 0acedbd1-f1cf-477e-93c5-65e2c4ecf157
  */
@@ -17,148 +19,65 @@ public class DiscountType implements java.io.Serializable {
     /**
      * @pdOid 306f7746-0db1-486b-8b2a-3ee9aa246a7e
      */
-    private java.lang.String discountTypeName;
+    private String discountTypeName;
 
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=discountInfoDiscountType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<DiscountInfo> discountInfo;
+    private List<DiscountInfo> discountInfo;
+
 
     /**
-     * Get value of discountTypeId
-     *
-     * @return discountTypeId
+     * Empty constructor which is required by Hibernate
      */
+    public DiscountType() {
+    }
+
+    //<editor-fold name="accessor">
+
     public long getDiscountTypeId() {
         return discountTypeId;
     }
 
-    /**
-     * Set value of discountTypeId
-     *
-     * @param newDiscountTypeId
-     */
     public void setDiscountTypeId(long newDiscountTypeId) {
         this.discountTypeId = newDiscountTypeId;
     }
 
-    /**
-     * Get value of discountTypeName
-     *
-     * @return discountTypeName
-     */
-    public java.lang.String getDiscountTypeName() {
+    public String getDiscountTypeName() {
         return discountTypeName;
     }
 
-    /**
-     * Set value of discountTypeName
-     *
-     * @param newDiscountTypeName
-     */
-    public void setDiscountTypeName(java.lang.String newDiscountTypeName) {
+    public void setDiscountTypeName(String newDiscountTypeName) {
         this.discountTypeName = newDiscountTypeName;
     }
 
-    /**
-     * Get value of discountTypePK.
-     *
-     * @return discountTypePK object
-     */
     public DiscountTypePK getDiscountTypePK() {
         return new DiscountTypePK(discountTypeId);
     }
 
-    /**
-     * Set value of discountTypePK.
-     *
-     * @param pk
-     */
     public void setDiscountTypePK(DiscountTypePK pk) {
         if (pk != null) {
             this.discountTypeId = pk.getDiscountTypeId();
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof DiscountType))
-            return false;
-
-        DiscountType cast = (DiscountType) other;
-
-        if (this.discountTypeId != cast.getDiscountTypeId())
-            return false;
-
-        if (this.discountTypeName == null ? cast.getDiscountTypeName() != this.discountTypeName : !this.discountTypeName.equals(cast.getDiscountTypeName()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(discountTypeId)).hashCode();
-        if (this.discountTypeName != null)
-            hashCode = 29 * hashCode + discountTypeName.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.DiscountType: ");
-        ret.append("discountTypeId='" + discountTypeId + "'");
-        ret.append("discountTypeName='" + discountTypeName + "'");
-        return ret.toString();
-    }
-
-
-    /**
-     * @pdGenerated default getter
-     */
-    public java.util.List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfo> getDiscountInfo() {
         if (discountInfo == null)
             discountInfo = new java.util.ArrayList<DiscountInfo>();
         return discountInfo;
     }
 
-    /**
-     * @pdGenerated default iterator getter
-     */
     public java.util.Iterator getIteratorDiscountInfo() {
         if (discountInfo == null)
             discountInfo = new java.util.ArrayList<DiscountInfo>();
         return discountInfo.iterator();
     }
 
-    /**
-     * @param newDiscountInfo
-     * @pdGenerated default setter
-     */
-    public void setDiscountInfo(java.util.List<DiscountInfo> newDiscountInfo) {
+    public void setDiscountInfo(List<DiscountInfo> newDiscountInfo) {
         //removeAllDiscountInfo();
         this.discountInfo = newDiscountInfo;
     }
 
-    /**
-     * @param newDiscountInfo
-     * @pdGenerated default add
-     */
     public void addDiscountInfo(DiscountInfo newDiscountInfo) {
         if (newDiscountInfo == null)
             return;
@@ -170,10 +89,6 @@ public class DiscountType implements java.io.Serializable {
         }
     }
 
-    /**
-     * @param oldDiscountInfo
-     * @pdGenerated default remove
-     */
     public void removeDiscountInfo(DiscountInfo oldDiscountInfo) {
         if (oldDiscountInfo == null)
             return;
@@ -184,9 +99,6 @@ public class DiscountType implements java.io.Serializable {
             }
     }
 
-    /**
-     * @pdGenerated default removeAll
-     */
     public void removeAllDiscountInfo() {
         if (discountInfo != null) {
             DiscountInfo oldDiscountInfo;
@@ -198,10 +110,20 @@ public class DiscountType implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public DiscountType() {
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "DiscountType{" +
+                "discountTypeId=" + discountTypeId +
+                ", discountTypeName='" + discountTypeName + '\'' +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

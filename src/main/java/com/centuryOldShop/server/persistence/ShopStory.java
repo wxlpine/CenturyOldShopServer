@@ -17,11 +17,11 @@ public class ShopStory implements java.io.Serializable {
     /**
      * @pdOid a58afed5-57f0-4390-899a-80b6a7c77b88
      */
-    private java.lang.String storyName;
+    private String storyName;
     /**
      * @pdOid 2bccc221-e36c-45c5-967a-bc4dcffc42ec
      */
-    private java.lang.String storyContentUrl;
+    private String storyContentUrl;
     /**
      * @pdOid 9edf5a68-10da-449e-af94-001435b6a958
      */
@@ -35,6 +35,16 @@ public class ShopStory implements java.io.Serializable {
      * @pdRoleInfo migr=no name=ShopStoryType assc=shopStoryShopStoryType mult=1..1 side=A
      */
     private ShopStoryType shopStoryType;
+
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public ShopStory() {
+
+    }
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of storyId
@@ -59,7 +69,7 @@ public class ShopStory implements java.io.Serializable {
      *
      * @return storyName
      */
-    public java.lang.String getStoryName() {
+    public String getStoryName() {
         return storyName;
     }
 
@@ -68,7 +78,7 @@ public class ShopStory implements java.io.Serializable {
      *
      * @param newStoryName
      */
-    public void setStoryName(java.lang.String newStoryName) {
+    public void setStoryName(String newStoryName) {
         this.storyName = newStoryName;
     }
 
@@ -77,7 +87,7 @@ public class ShopStory implements java.io.Serializable {
      *
      * @return storyContentUrl
      */
-    public java.lang.String getStoryContentUrl() {
+    public String getStoryContentUrl() {
         return storyContentUrl;
     }
 
@@ -86,7 +96,7 @@ public class ShopStory implements java.io.Serializable {
      *
      * @param newStoryContentUrl
      */
-    public void setStoryContentUrl(java.lang.String newStoryContentUrl) {
+    public void setStoryContentUrl(String newStoryContentUrl) {
         this.storyContentUrl = newStoryContentUrl;
     }
 
@@ -127,66 +137,6 @@ public class ShopStory implements java.io.Serializable {
             this.storyId = pk.getStoryId();
         }
     }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof ShopStory))
-            return false;
-
-        ShopStory cast = (ShopStory) other;
-
-        if (this.storyId != cast.getStoryId())
-            return false;
-
-        if (this.storyName == null ? cast.getStoryName() != this.storyName : !this.storyName.equals(cast.getStoryName()))
-            return false;
-
-        if (this.storyContentUrl == null ? cast.getStoryContentUrl() != this.storyContentUrl : !this.storyContentUrl.equals(cast.getStoryContentUrl()))
-            return false;
-
-        if (this.addedTime == null ? cast.getAddedTime() != this.addedTime : !(com.sybase.orm.util.Util.compareDate(this.addedTime, cast.getAddedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(storyId)).hashCode();
-        if (this.storyName != null)
-            hashCode = 29 * hashCode + storyName.hashCode();
-        if (this.storyContentUrl != null)
-            hashCode = 29 * hashCode + storyContentUrl.hashCode();
-        if (this.addedTime != null)
-            hashCode = 29 * hashCode + addedTime.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopStory: ");
-        ret.append("storyId='" + storyId + "'");
-        ret.append("storyName='" + storyName + "'");
-        ret.append("storyContentUrl='" + storyContentUrl + "'");
-        ret.append("addedTime='" + addedTime + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default parent getter
@@ -238,11 +188,23 @@ public class ShopStory implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public ShopStory() {
 
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "ShopStory{" +
+                "storyId=" + storyId +
+                ", storyName='" + storyName + '\'' +
+                ", storyContentUrl='" + storyContentUrl + '\'' +
+                ", addedTime=" + addedTime +
+                ", shop=" + shop +
+                ", shopStoryType=" + shopStoryType +
+                '}';
     }
 
+    //</editor-fold>
 }

@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid dfc97029-3bed-48f3-8743-313208c78eaa
  */
@@ -15,10 +17,19 @@ public class CommodityType implements java.io.Serializable {
      */
     private java.lang.String commodityType;
 
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public CommodityType() {
+    }
+
     /**
      * @pdRoleInfo migr=no name=Commodity assc=commodityCommodityType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<Commodity> commodity;
+    private List<Commodity> commodity;
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of commodityType
@@ -32,7 +43,6 @@ public class CommodityType implements java.io.Serializable {
     /**
      * Set value of commodityType
      *
-     * @param newCommodityType
      */
     public void setCommodityType(java.lang.String newCommodityType) {
         this.commodityType = newCommodityType;
@@ -58,53 +68,11 @@ public class CommodityType implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof CommodityType))
-            return false;
-
-        CommodityType cast = (CommodityType) other;
-
-        if (this.commodityType == null ? cast.getCommodityType() != this.commodityType : !this.commodityType.equals(cast.getCommodityType()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        if (this.commodityType != null)
-            hashCode = 29 * hashCode + commodityType.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.CommodityType: ");
-        ret.append("commodityType='" + commodityType + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<Commodity> getCommodity() {
+    public List<Commodity> getCommodity() {
         if (commodity == null)
             commodity = new java.util.ArrayList<Commodity>();
         return commodity;
@@ -123,7 +91,7 @@ public class CommodityType implements java.io.Serializable {
      * @param newCommodity
      * @pdGenerated default setter
      */
-    public void setCommodity(java.util.List<Commodity> newCommodity) {
+    public void setCommodity(List<Commodity> newCommodity) {
         //removeAllCommodity();
         this.commodity = newCommodity;
     }
@@ -171,10 +139,19 @@ public class CommodityType implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public CommodityType() {
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "CommodityType{" +
+                "commodityType='" + commodityType + '\'' +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

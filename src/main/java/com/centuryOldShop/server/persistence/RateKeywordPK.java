@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for RateKeyword. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -14,7 +16,7 @@ public class RateKeywordPK implements java.io.Serializable {
     /**
      * @pdOid 342aed0f-deac-40b5-a181-c8c1ea37e53c
      */
-    private java.lang.String rateKeyword;
+    private String rateKeyword;
 
     /**
      * Empty constructor
@@ -22,12 +24,15 @@ public class RateKeywordPK implements java.io.Serializable {
     public RateKeywordPK() {
     }
 
+    //<editor-fold name="accessor">
+
+
     /**
      * Constructor with parameters
      *
      * @param rateKeyword parameter to set value of field rateKeyword
      */
-    public RateKeywordPK(java.lang.String rateKeyword) {
+    public RateKeywordPK(String rateKeyword) {
         this.rateKeyword = rateKeyword;
     }
 
@@ -36,7 +41,7 @@ public class RateKeywordPK implements java.io.Serializable {
      *
      * @return rateKeyword
      */
-    public java.lang.String getRateKeyword() {
+    public String getRateKeyword() {
         return rateKeyword;
     }
 
@@ -45,53 +50,34 @@ public class RateKeywordPK implements java.io.Serializable {
      *
      * @param newRateKeyword
      */
-    public void setRateKeyword(java.lang.String newRateKeyword) {
+    public void setRateKeyword(String newRateKeyword) {
         this.rateKeyword = newRateKeyword;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        RateKeywordPK cast = (RateKeywordPK) other;
-
-        if (this.rateKeyword == null ? cast.getRateKeyword() != this.rateKeyword : !this.rateKeyword.equals(cast.getRateKeyword()))
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RateKeywordPK that = (RateKeywordPK) o;
+        return Objects.equals(rateKeyword, that.rateKeyword);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        if (this.rateKeyword != null)
-            _hashCode = 29 * _hashCode + rateKeyword.hashCode();
-        return _hashCode;
+        return Objects.hash(rateKeyword);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.RateKeywordPK: ");
-        ret.append("rateKeyword='" + rateKeyword + "'");
-        return ret.toString();
+        return "RateKeywordPK{" +
+                "rateKeyword='" + rateKeyword + '\'' +
+                '}';
     }
+
+    //</editor-fold>
 }

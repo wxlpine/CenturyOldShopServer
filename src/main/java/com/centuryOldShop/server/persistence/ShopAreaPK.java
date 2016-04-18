@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for ShopArea. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -15,6 +17,8 @@ public class ShopAreaPK implements java.io.Serializable {
      * @pdOid e1b625ba-97a1-4473-a7e6-d692abfa826d
      */
     private long shopAreaId;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -31,6 +35,10 @@ public class ShopAreaPK implements java.io.Serializable {
     public ShopAreaPK(long shopAreaId) {
         this.shopAreaId = shopAreaId;
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopAreaId
@@ -50,48 +58,31 @@ public class ShopAreaPK implements java.io.Serializable {
         this.shopAreaId = newShopAreaId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        ShopAreaPK cast = (ShopAreaPK) other;
-
-        if (this.shopAreaId != cast.getShopAreaId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShopAreaPK that = (ShopAreaPK) o;
+        return shopAreaId == that.shopAreaId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(shopAreaId)).hashCode();
-        return _hashCode;
+        return Objects.hash(shopAreaId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopAreaPK: ");
-        ret.append("shopAreaId='" + shopAreaId + "'");
-        return ret.toString();
+        return "ShopAreaPK{" +
+                "shopAreaId=" + shopAreaId +
+                '}';
     }
+
+    //</editor-fold>
+
 }

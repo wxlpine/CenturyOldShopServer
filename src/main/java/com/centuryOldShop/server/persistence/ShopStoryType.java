@@ -20,6 +20,20 @@ public class ShopStoryType implements java.io.Serializable {
      */
     private java.util.List<ShopStory> shopStory;
 
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public ShopStoryType() {
+
+    }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
+
     /**
      * Get value of storyTypeName
      *
@@ -57,49 +71,6 @@ public class ShopStoryType implements java.io.Serializable {
             this.storyTypeName = pk.getStoryTypeName();
         }
     }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof ShopStoryType))
-            return false;
-
-        ShopStoryType cast = (ShopStoryType) other;
-
-        if (this.storyTypeName == null ? cast.getStoryTypeName() != this.storyTypeName : !this.storyTypeName.equals(cast.getStoryTypeName()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        if (this.storyTypeName != null)
-            hashCode = 29 * hashCode + storyTypeName.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopStoryType: ");
-        ret.append("storyTypeName='" + storyTypeName + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
@@ -171,11 +142,19 @@ public class ShopStoryType implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public ShopStoryType() {
+    //</editor-fold>
 
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "ShopStoryType{" +
+                "storyTypeName='" + storyTypeName + '\'' +
+                '}';
     }
+
+
+    //</editor-fold>
 
 }

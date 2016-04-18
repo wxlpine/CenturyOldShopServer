@@ -100,30 +100,6 @@ public class OrderFormCommodity implements java.io.Serializable {
     //<editor-fold name="common methods">
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof OrderFormCommodity)) return false;
-
-        OrderFormCommodity that = (OrderFormCommodity) o;
-
-        if (Double.compare(that.buyPrice, buyPrice) != 0) return false;
-        if (buyAmount != that.buyAmount) return false;
-        return orderFormCommodityPK != null ? orderFormCommodityPK.equals(that.orderFormCommodityPK) : that.orderFormCommodityPK == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = orderFormCommodityPK != null ? orderFormCommodityPK.hashCode() : 0;
-        temp = Double.doubleToLongBits(buyPrice);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + buyAmount;
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "OrderFormCommodity{" +
                 "orderFormCommodityPK=" + orderFormCommodityPK +

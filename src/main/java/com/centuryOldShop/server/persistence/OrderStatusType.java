@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid ea646d3b-99bf-4c5a-a49f-be94e5cc11be
  */
@@ -13,19 +15,31 @@ public class OrderStatusType implements java.io.Serializable {
     /**
      * @pdOid 5a6ad6b3-e960-4853-aad8-c86ca1d73dc2
      */
-    private java.lang.String orderStatusType;
+    private String orderStatusType;
 
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=orderFormOrderStatusType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<OrderForm> orderForm;
+    private List<OrderForm> orderForm;
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public OrderStatusType() {
+    }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of orderStatusType
      *
      * @return orderStatusType
      */
-    public java.lang.String getOrderStatusType() {
+    public String getOrderStatusType() {
         return orderStatusType;
     }
 
@@ -34,7 +48,7 @@ public class OrderStatusType implements java.io.Serializable {
      *
      * @param newOrderStatusType
      */
-    public void setOrderStatusType(java.lang.String newOrderStatusType) {
+    public void setOrderStatusType(String newOrderStatusType) {
         this.orderStatusType = newOrderStatusType;
     }
 
@@ -58,53 +72,11 @@ public class OrderStatusType implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof OrderStatusType))
-            return false;
-
-        OrderStatusType cast = (OrderStatusType) other;
-
-        if (this.orderStatusType == null ? cast.getOrderStatusType() != this.orderStatusType : !this.orderStatusType.equals(cast.getOrderStatusType()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        if (this.orderStatusType != null)
-            hashCode = 29 * hashCode + orderStatusType.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.OrderStatusType: ");
-        ret.append("orderStatusType='" + orderStatusType + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<OrderForm> getOrderForm() {
+    public List<OrderForm> getOrderForm() {
         if (orderForm == null)
             orderForm = new java.util.ArrayList<OrderForm>();
         return orderForm;
@@ -123,7 +95,7 @@ public class OrderStatusType implements java.io.Serializable {
      * @param newOrderForm
      * @pdGenerated default setter
      */
-    public void setOrderForm(java.util.List<OrderForm> newOrderForm) {
+    public void setOrderForm(List<OrderForm> newOrderForm) {
         //removeAllOrderForm();
         this.orderForm = newOrderForm;
     }
@@ -171,10 +143,20 @@ public class OrderStatusType implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public OrderStatusType() {
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "OrderStatusType{" +
+                "orderStatusType='" + orderStatusType + '\'' +
+                '}';
     }
+
+    //</editor-fold>
+
+
 
 }

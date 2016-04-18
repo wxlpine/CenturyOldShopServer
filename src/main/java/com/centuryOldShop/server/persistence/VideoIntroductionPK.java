@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for VideoIntroduction. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -15,6 +17,8 @@ public class VideoIntroductionPK implements java.io.Serializable {
      * @pdOid c1e5a7cf-51ae-4665-873d-607dd4617248
      */
     private long videoIntroductionId;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -31,6 +35,11 @@ public class VideoIntroductionPK implements java.io.Serializable {
     public VideoIntroductionPK(long videoIntroductionId) {
         this.videoIntroductionId = videoIntroductionId;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of videoIntroductionId
@@ -50,48 +59,30 @@ public class VideoIntroductionPK implements java.io.Serializable {
         this.videoIntroductionId = newVideoIntroductionId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        VideoIntroductionPK cast = (VideoIntroductionPK) other;
-
-        if (this.videoIntroductionId != cast.getVideoIntroductionId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VideoIntroductionPK that = (VideoIntroductionPK) o;
+        return videoIntroductionId == that.videoIntroductionId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(videoIntroductionId)).hashCode();
-        return _hashCode;
+        return Objects.hash(videoIntroductionId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.VideoIntroductionPK: ");
-        ret.append("videoIntroductionId='" + videoIntroductionId + "'");
-        return ret.toString();
+        return "VideoIntroductionPK{" +
+                "videoIntroductionId=" + videoIntroductionId +
+                '}';
     }
+
+    //</editor-fold>
 }

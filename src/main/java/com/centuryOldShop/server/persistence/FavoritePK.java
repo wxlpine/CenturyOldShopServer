@@ -22,6 +22,9 @@ public class FavoritePK implements java.io.Serializable {
     @Column(name="commodityId")
     private long commodityId;
 
+
+    //<editor-fold name="constructor">
+
     /**
      * Empty constructor
      */
@@ -32,6 +35,11 @@ public class FavoritePK implements java.io.Serializable {
         this.userId = userId;
         this.commodityId = commodityId;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     public long getUserId() {
         return userId;
@@ -50,6 +58,10 @@ public class FavoritePK implements java.io.Serializable {
         this.commodityId = commodityId;
         return this;
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
 
     @Override
     public boolean equals(Object o) {
@@ -77,4 +89,6 @@ public class FavoritePK implements java.io.Serializable {
                 ", commodityId=" + commodityId +
                 '}';
     }
+
+    //</editor-fold>
 }

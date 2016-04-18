@@ -128,7 +128,6 @@ public class AppUser implements java.io.Serializable {
     /**
      * Set value of password
      *
-     * @param newPassword
      */
     public void setPassword(byte[] newPassword) {
         this.password = newPassword;
@@ -200,7 +199,6 @@ public class AppUser implements java.io.Serializable {
     /**
      * Set value of headPortraitUrl
      *
-     * @param newHeadPortraitUrl
      */
     public void setHeadPortraitUrl(String newHeadPortraitUrl) {
         this.headPortraitUrl = newHeadPortraitUrl;
@@ -218,7 +216,6 @@ public class AppUser implements java.io.Serializable {
     /**
      * Set value of registerTime
      *
-     * @param newRegisterTime
      */
     public void setRegisterTime(java.util.Date newRegisterTime) {
         this.registerTime = newRegisterTime;
@@ -693,41 +690,6 @@ public class AppUser implements java.io.Serializable {
     //</editor-fold>
 
     //<editor-fold name="common methods">
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AppUser)) return false;
-
-        AppUser appUser = (AppUser) o;
-
-        if (userId != appUser.userId) return false;
-        if (userType != appUser.userType) return false;
-        if (userName != null ? !userName.equals(appUser.userName) : appUser.userName != null) return false;
-        if (!Arrays.equals(password, appUser.password)) return false;
-        if (email != null ? !email.equals(appUser.email) : appUser.email != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(appUser.phoneNumber) : appUser.phoneNumber != null) return false;
-        if (headPortraitUrl != null ? !headPortraitUrl.equals(appUser.headPortraitUrl) : appUser.headPortraitUrl != null)
-            return false;
-        if (registerTime != null ? !registerTime.equals(appUser.registerTime) : appUser.registerTime != null)
-            return false;
-        return managedShop != null ? managedShop.equals(appUser.managedShop) : appUser.managedShop == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (userId ^ (userId >>> 32));
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(password);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (int) userType;
-        result = 31 * result + (headPortraitUrl != null ? headPortraitUrl.hashCode() : 0);
-        result = 31 * result + (registerTime != null ? registerTime.hashCode() : 0);
-        result = 31 * result + (managedShop != null ? managedShop.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {

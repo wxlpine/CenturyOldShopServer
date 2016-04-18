@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for OrderStatusType. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -16,11 +18,18 @@ public class OrderStatusTypePK implements java.io.Serializable {
      */
     private java.lang.String orderStatusType;
 
+    //<editor-fold name="constructor">
+
     /**
      * Empty constructor
      */
     public OrderStatusTypePK() {
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Constructor with parameters
@@ -49,49 +58,31 @@ public class OrderStatusTypePK implements java.io.Serializable {
         this.orderStatusType = newOrderStatusType;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
 
-        if (!(other.getClass() == getClass()))
-            return false;
+    //<editor-fold name="common methods">
 
-        OrderStatusTypePK cast = (OrderStatusTypePK) other;
-
-        if (this.orderStatusType == null ? cast.getOrderStatusType() != this.orderStatusType : !this.orderStatusType.equals(cast.getOrderStatusType()))
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderStatusTypePK that = (OrderStatusTypePK) o;
+        return Objects.equals(orderStatusType, that.orderStatusType);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        if (this.orderStatusType != null)
-            _hashCode = 29 * _hashCode + orderStatusType.hashCode();
-        return _hashCode;
+        return Objects.hash(orderStatusType);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.OrderStatusTypePK: ");
-        ret.append("orderStatusType='" + orderStatusType + "'");
-        return ret.toString();
+        return "OrderStatusTypePK{" +
+                "orderStatusType='" + orderStatusType + '\'' +
+                '}';
     }
+
+    //</editor-fold>
 }

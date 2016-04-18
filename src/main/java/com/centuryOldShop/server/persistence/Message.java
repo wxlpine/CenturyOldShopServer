@@ -21,7 +21,7 @@ public class Message implements java.io.Serializable {
     /**
      * @pdOid 4d441c90-1ed5-40d7-8c63-d71b6cdff09a
      */
-    private java.lang.String content;
+    private String content;
 
     /**
      * @pdRoleInfo migr=no name=AppUser assc=sendUser mult=1..1 side=A
@@ -31,6 +31,15 @@ public class Message implements java.io.Serializable {
      * @pdRoleInfo migr=no name=AppUser assc=receiveUser mult=1..1 side=A
      */
     private AppUser receiveUser;
+
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public Message() {
+    }
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of messageId
@@ -73,7 +82,7 @@ public class Message implements java.io.Serializable {
      *
      * @return content
      */
-    public java.lang.String getContent() {
+    public String getContent() {
         return content;
     }
 
@@ -82,7 +91,7 @@ public class Message implements java.io.Serializable {
      *
      * @param newContent
      */
-    public void setContent(java.lang.String newContent) {
+    public void setContent(String newContent) {
         this.content = newContent;
     }
 
@@ -104,59 +113,6 @@ public class Message implements java.io.Serializable {
         if (pk != null) {
             this.messageId = pk.getMessageId();
         }
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof Message))
-            return false;
-
-        Message cast = (Message) other;
-
-        if (this.messageId != cast.getMessageId())
-            return false;
-
-        if (this.sendTime == null ? cast.getSendTime() != this.sendTime : !(com.sybase.orm.util.Util.compareDate(this.sendTime, cast.getSendTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.content == null ? cast.getContent() != this.content : !this.content.equals(cast.getContent()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(messageId)).hashCode();
-        if (this.sendTime != null)
-            hashCode = 29 * hashCode + sendTime.hashCode();
-        if (this.content != null)
-            hashCode = 29 * hashCode + content.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.Message: ");
-        ret.append("messageId='" + messageId + "'");
-        ret.append("sendTime='" + sendTime + "'");
-        ret.append("content='" + content + "'");
-        return ret.toString();
     }
 
 
@@ -210,10 +166,23 @@ public class Message implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public Message() {
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageId=" + messageId +
+                ", sendTime=" + sendTime +
+                ", content='" + content + '\'' +
+                ", sendUser=" + sendUser +
+                ", receiveUser=" + receiveUser +
+                '}';
     }
+
+
+    //</editor-fold>
+
 
 }

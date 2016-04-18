@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for Shop. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -15,6 +17,8 @@ public class ShopPK implements java.io.Serializable {
      * @pdOid d7d4744a-2b76-4a9c-88e9-2600741a34d4
      */
     private long shopId;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -31,6 +35,11 @@ public class ShopPK implements java.io.Serializable {
     public ShopPK(long shopId) {
         this.shopId = shopId;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopId
@@ -50,48 +59,30 @@ public class ShopPK implements java.io.Serializable {
         this.shopId = newShopId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        ShopPK cast = (ShopPK) other;
-
-        if (this.shopId != cast.getShopId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShopPK shopPK = (ShopPK) o;
+        return shopId == shopPK.shopId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(shopId)).hashCode();
-        return _hashCode;
+        return Objects.hash(shopId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopPK: ");
-        ret.append("shopId='" + shopId + "'");
-        return ret.toString();
+        return "ShopPK{" +
+                "shopId=" + shopId +
+                '}';
     }
+
+    //</editor-fold>
 }

@@ -17,15 +17,15 @@ public class SpecialCraft implements java.io.Serializable {
     /**
      * @pdOid 9f11c167-c503-4d3d-bebf-e5c2ce14b2ff
      */
-    private java.lang.String title;
+    private String title;
     /**
      * @pdOid b405206e-9733-47f9-9237-af377d160ede
      */
-    private java.lang.String smallPhotoUrl;
+    private String smallPhotoUrl;
     /**
      * @pdOid f76452fa-d151-4a32-b118-1e963a4f6bf9
      */
-    private java.lang.String introductionUrl;
+    private String introductionUrl;
     /**
      * @pdOid 1a774143-b202-4e4a-a663-2e1d2ffa5e8f
      */
@@ -39,7 +39,21 @@ public class SpecialCraft implements java.io.Serializable {
     /**
      * @pdOid 193039b5-f38f-432c-b5f9-fda6984b8b72
      */
-    public java.lang.String shortIntro;
+    public String shortIntro;
+
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public SpecialCraft() {
+
+    }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of specialCraftId
@@ -64,7 +78,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @return title
      */
-    public java.lang.String getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -73,7 +87,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @param newTitle
      */
-    public void setTitle(java.lang.String newTitle) {
+    public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 
@@ -82,7 +96,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @return smallPhotoUrl
      */
-    public java.lang.String getSmallPhotoUrl() {
+    public String getSmallPhotoUrl() {
         return smallPhotoUrl;
     }
 
@@ -91,7 +105,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @param newSmallPhotoUrl
      */
-    public void setSmallPhotoUrl(java.lang.String newSmallPhotoUrl) {
+    public void setSmallPhotoUrl(String newSmallPhotoUrl) {
         this.smallPhotoUrl = newSmallPhotoUrl;
     }
 
@@ -100,7 +114,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @return introductionUrl
      */
-    public java.lang.String getIntroductionUrl() {
+    public String getIntroductionUrl() {
         return introductionUrl;
     }
 
@@ -109,7 +123,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @param newIntroductionUrl
      */
-    public void setIntroductionUrl(java.lang.String newIntroductionUrl) {
+    public void setIntroductionUrl(String newIntroductionUrl) {
         this.introductionUrl = newIntroductionUrl;
     }
 
@@ -136,7 +150,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @return shortIntro
      */
-    public java.lang.String getShortIntro() {
+    public String getShortIntro() {
         return shortIntro;
     }
 
@@ -145,7 +159,7 @@ public class SpecialCraft implements java.io.Serializable {
      *
      * @param newShortIntro
      */
-    public void setShortIntro(java.lang.String newShortIntro) {
+    public void setShortIntro(String newShortIntro) {
         this.shortIntro = newShortIntro;
     }
 
@@ -167,77 +181,6 @@ public class SpecialCraft implements java.io.Serializable {
         if (pk != null) {
             this.specialCraftId = pk.getSpecialCraftId();
         }
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof SpecialCraft))
-            return false;
-
-        SpecialCraft cast = (SpecialCraft) other;
-
-        if (this.specialCraftId != cast.getSpecialCraftId())
-            return false;
-
-        if (this.title == null ? cast.getTitle() != this.title : !this.title.equals(cast.getTitle()))
-            return false;
-
-        if (this.smallPhotoUrl == null ? cast.getSmallPhotoUrl() != this.smallPhotoUrl : !this.smallPhotoUrl.equals(cast.getSmallPhotoUrl()))
-            return false;
-
-        if (this.introductionUrl == null ? cast.getIntroductionUrl() != this.introductionUrl : !this.introductionUrl.equals(cast.getIntroductionUrl()))
-            return false;
-
-        if (this.addedTime == null ? cast.getAddedTime() != this.addedTime : !(com.sybase.orm.util.Util.compareDate(this.addedTime, cast.getAddedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.shortIntro == null ? cast.getShortIntro() != this.shortIntro : !this.shortIntro.equals(cast.getShortIntro()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(specialCraftId)).hashCode();
-        if (this.title != null)
-            hashCode = 29 * hashCode + title.hashCode();
-        if (this.smallPhotoUrl != null)
-            hashCode = 29 * hashCode + smallPhotoUrl.hashCode();
-        if (this.introductionUrl != null)
-            hashCode = 29 * hashCode + introductionUrl.hashCode();
-        if (this.addedTime != null)
-            hashCode = 29 * hashCode + addedTime.hashCode();
-        if (this.shortIntro != null)
-            hashCode = 29 * hashCode + shortIntro.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.SpecialCraft: ");
-        ret.append("specialCraftId='" + specialCraftId + "'");
-        ret.append("title='" + title + "'");
-        ret.append("smallPhotoUrl='" + smallPhotoUrl + "'");
-        ret.append("introductionUrl='" + introductionUrl + "'");
-        ret.append("addedTime='" + addedTime + "'");
-        ret.append("shortIntro='" + shortIntro + "'");
-        return ret.toString();
     }
 
 
@@ -266,11 +209,25 @@ public class SpecialCraft implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public SpecialCraft() {
+    //</editor-fold>
 
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "SpecialCraft{" +
+                "specialCraftId=" + specialCraftId +
+                ", title='" + title + '\'' +
+                ", smallPhotoUrl='" + smallPhotoUrl + '\'' +
+                ", introductionUrl='" + introductionUrl + '\'' +
+                ", addedTime=" + addedTime +
+                ", shop=" + shop +
+                ", shortIntro='" + shortIntro + '\'' +
+                '}';
     }
+
+
+    //</editor-fold>
 
 }

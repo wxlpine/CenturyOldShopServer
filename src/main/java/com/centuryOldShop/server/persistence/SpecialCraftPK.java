@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for SpecialCraft. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -15,6 +17,8 @@ public class SpecialCraftPK implements java.io.Serializable {
      * @pdOid c4d4b323-fc18-4ce6-b6b1-8675d95fcb47
      */
     private long specialCraftId;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -31,6 +35,11 @@ public class SpecialCraftPK implements java.io.Serializable {
     public SpecialCraftPK(long specialCraftId) {
         this.specialCraftId = specialCraftId;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of specialCraftId
@@ -50,48 +59,31 @@ public class SpecialCraftPK implements java.io.Serializable {
         this.specialCraftId = newSpecialCraftId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
+    //<editor-fold name="common methods">
 
-        if (other == this) {
-            return true;
-        }
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        SpecialCraftPK cast = (SpecialCraftPK) other;
-
-        if (this.specialCraftId != cast.getSpecialCraftId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpecialCraftPK that = (SpecialCraftPK) o;
+        return specialCraftId == that.specialCraftId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(specialCraftId)).hashCode();
-        return _hashCode;
+        return Objects.hash(specialCraftId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.SpecialCraftPK: ");
-        ret.append("specialCraftId='" + specialCraftId + "'");
-        return ret.toString();
+        return "SpecialCraftPK{" +
+                "specialCraftId=" + specialCraftId +
+                '}';
     }
+
+    //</editor-fold>
+
 }

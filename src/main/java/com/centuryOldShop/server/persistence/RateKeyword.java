@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid d88ba9d8-8c5d-4f00-afc8-190e556d1aed
  */
@@ -13,19 +15,31 @@ public class RateKeyword implements java.io.Serializable {
     /**
      * @pdOid 342aed0f-deac-40b5-a181-c8c1ea37e53c
      */
-    private java.lang.String rateKeyword;
+    private String rateKeyword;
 
     /**
      * @pdRoleInfo migr=no name=VideoIntroduction assc=videoIntroductionKeyword coll=java.util.List impl=java.util.ArrayList mult=0..* side=A
      */
-    private java.util.List<VideoIntroduction> videoIntroduction;
+    private List<VideoIntroduction> videoIntroduction;
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public RateKeyword() {
+    }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of rateKeyword
      *
      * @return rateKeyword
      */
-    public java.lang.String getRateKeyword() {
+    public String getRateKeyword() {
         return rateKeyword;
     }
 
@@ -34,7 +48,7 @@ public class RateKeyword implements java.io.Serializable {
      *
      * @param newRateKeyword
      */
-    public void setRateKeyword(java.lang.String newRateKeyword) {
+    public void setRateKeyword(String newRateKeyword) {
         this.rateKeyword = newRateKeyword;
     }
 
@@ -58,53 +72,11 @@ public class RateKeyword implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof RateKeyword))
-            return false;
-
-        RateKeyword cast = (RateKeyword) other;
-
-        if (this.rateKeyword == null ? cast.getRateKeyword() != this.rateKeyword : !this.rateKeyword.equals(cast.getRateKeyword()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        if (this.rateKeyword != null)
-            hashCode = 29 * hashCode + rateKeyword.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.RateKeyword: ");
-        ret.append("rateKeyword='" + rateKeyword + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<VideoIntroduction> getVideoIntroduction() {
+    public List<VideoIntroduction> getVideoIntroduction() {
         if (videoIntroduction == null)
             videoIntroduction = new java.util.ArrayList<VideoIntroduction>();
         return videoIntroduction;
@@ -123,7 +95,7 @@ public class RateKeyword implements java.io.Serializable {
      * @param newVideoIntroduction
      * @pdGenerated default setter
      */
-    public void setVideoIntroduction(java.util.List<VideoIntroduction> newVideoIntroduction) {
+    public void setVideoIntroduction(List<VideoIntroduction> newVideoIntroduction) {
         //removeAllVideoIntroduction();
         this.videoIntroduction = newVideoIntroduction;
     }
@@ -171,10 +143,19 @@ public class RateKeyword implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public RateKeyword() {
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "RateKeyword{" +
+                "rateKeyword='" + rateKeyword + '\'' +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

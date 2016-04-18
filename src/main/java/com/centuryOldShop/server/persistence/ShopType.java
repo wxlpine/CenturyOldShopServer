@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid 9abdc174-f1e9-4e08-9841-6e335c0c3070
  */
@@ -13,19 +15,33 @@ public class ShopType implements java.io.Serializable {
     /**
      * @pdOid c9a9711d-7338-40fa-be2f-b29ed6e7b5cb
      */
-    private java.lang.String shopTypeName;
+    private String shopTypeName;
 
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopShopType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<Shop> shop;
+    private List<Shop> shop;
+
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public ShopType() {
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopTypeName
      *
      * @return shopTypeName
      */
-    public java.lang.String getShopTypeName() {
+    public String getShopTypeName() {
         return shopTypeName;
     }
 
@@ -34,7 +50,7 @@ public class ShopType implements java.io.Serializable {
      *
      * @param newShopTypeName
      */
-    public void setShopTypeName(java.lang.String newShopTypeName) {
+    public void setShopTypeName(String newShopTypeName) {
         this.shopTypeName = newShopTypeName;
     }
 
@@ -58,53 +74,10 @@ public class ShopType implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof ShopType))
-            return false;
-
-        ShopType cast = (ShopType) other;
-
-        if (this.shopTypeName == null ? cast.getShopTypeName() != this.shopTypeName : !this.shopTypeName.equals(cast.getShopTypeName()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        if (this.shopTypeName != null)
-            hashCode = 29 * hashCode + shopTypeName.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopType: ");
-        ret.append("shopTypeName='" + shopTypeName + "'");
-        return ret.toString();
-    }
-
-
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<Shop> getShop() {
+    public List<Shop> getShop() {
         if (shop == null)
             shop = new java.util.ArrayList<Shop>();
         return shop;
@@ -123,7 +96,7 @@ public class ShopType implements java.io.Serializable {
      * @param newShop
      * @pdGenerated default setter
      */
-    public void setShop(java.util.List<Shop> newShop) {
+    public void setShop(List<Shop> newShop) {
         //removeAllShop();
         this.shop = newShop;
     }
@@ -171,11 +144,20 @@ public class ShopType implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public ShopType() {
+    //</editor-fold>
 
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "ShopType{" +
+                "shopTypeName='" + shopTypeName + '\'' +
+                '}';
     }
+
+
+    //</editor-fold>
+
+
 
 }

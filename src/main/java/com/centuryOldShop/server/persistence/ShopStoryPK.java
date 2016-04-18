@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for ShopStory. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -15,6 +17,8 @@ public class ShopStoryPK implements java.io.Serializable {
      * @pdOid c893b6c5-a38f-4fe8-a595-82e7018b3623
      */
     private long storyId;
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -31,6 +35,11 @@ public class ShopStoryPK implements java.io.Serializable {
     public ShopStoryPK(long storyId) {
         this.storyId = storyId;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of storyId
@@ -50,48 +59,30 @@ public class ShopStoryPK implements java.io.Serializable {
         this.storyId = newStoryId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        ShopStoryPK cast = (ShopStoryPK) other;
-
-        if (this.storyId != cast.getStoryId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShopStoryPK that = (ShopStoryPK) o;
+        return storyId == that.storyId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(storyId)).hashCode();
-        return _hashCode;
+        return Objects.hash(storyId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopStoryPK: ");
-        ret.append("storyId='" + storyId + "'");
-        return ret.toString();
+        return "ShopStoryPK{" +
+                "storyId=" + storyId +
+                '}';
     }
+
+    //</editor-fold>
 }

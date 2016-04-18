@@ -22,6 +22,8 @@ public class CommodityTypePK implements java.io.Serializable {
     public CommodityTypePK() {
     }
 
+    //<editor-fold name="accessor">
+
     /**
      * Constructor with parameters
      *
@@ -43,11 +45,15 @@ public class CommodityTypePK implements java.io.Serializable {
     /**
      * Set value of commodityType
      *
-     * @param newCommodityType
      */
     public void setCommodityType(java.lang.String newCommodityType) {
         this.commodityType = newCommodityType;
     }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
@@ -84,14 +90,12 @@ public class CommodityTypePK implements java.io.Serializable {
         return _hashCode;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.CommodityTypePK: ");
-        ret.append("commodityType='" + commodityType + "'");
-        return ret.toString();
+        return "CommodityTypePK{" +
+                "commodityType='" + commodityType + '\'' +
+                '}';
     }
+
+    //</editor-fold>
 }

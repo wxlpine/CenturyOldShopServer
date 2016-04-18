@@ -72,25 +72,6 @@ public class Favorite implements java.io.Serializable {
     //<editor-fold name="common methods">
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Favorite)) return false;
-
-        Favorite favorite = (Favorite) o;
-
-        if (favoritePK != null ? !favoritePK.equals(favorite.favoritePK) : favorite.favoritePK != null) return false;
-        return addTime != null ? addTime.equals(favorite.addTime) : favorite.addTime == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = favoritePK != null ? favoritePK.hashCode() : 0;
-        result = 31 * result + (addTime != null ? addTime.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Favorite{" +
                 "favoritePK=" + favoritePK +

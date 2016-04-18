@@ -16,81 +16,50 @@ public class DiscountInfoPK implements java.io.Serializable {
      */
     private long discountInfoId;
 
-    /**
-     * Empty constructor
-     */
     public DiscountInfoPK() {
     }
 
-    /**
-     * Constructor with parameters
-     *
-     * @param discountInfoId parameter to set value of field discountInfoId
-     */
+    //<editor-fold name="accessor">
+
     public DiscountInfoPK(long discountInfoId) {
         this.discountInfoId = discountInfoId;
     }
 
-    /**
-     * Get value of discountInfoId
-     *
-     * @return discountInfoId
-     */
     public long getDiscountInfoId() {
         return discountInfoId;
     }
 
-    /**
-     * Set value of discountInfoId
-     *
-     * @param newDiscountInfoId
-     */
     public void setDiscountInfoId(long newDiscountInfoId) {
         this.discountInfoId = newDiscountInfoId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
+    //<editor-fold name="common methods">
 
-        if (other == this) {
-            return true;
-        }
 
-        if (!(other.getClass() == getClass()))
-            return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        DiscountInfoPK cast = (DiscountInfoPK) other;
+        DiscountInfoPK that = (DiscountInfoPK) o;
 
-        if (this.discountInfoId != cast.getDiscountInfoId())
-            return false;
+        return discountInfoId == that.discountInfoId;
 
-        return true;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(discountInfoId)).hashCode();
-        return _hashCode;
+        return (int) (discountInfoId ^ (discountInfoId >>> 32));
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.DiscountInfoPK: ");
-        ret.append("discountInfoId='" + discountInfoId + "'");
-        return ret.toString();
+        return "DiscountInfoPK{" +
+                "discountInfoId=" + discountInfoId +
+                '}';
     }
+
+    //</editor-fold>
 }

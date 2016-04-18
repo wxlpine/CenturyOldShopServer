@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for News. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -31,6 +33,8 @@ public class NewsPK implements java.io.Serializable {
         this.newsId = newsId;
     }
 
+    //<editor-fold name="accessor">
+
     /**
      * Get value of newsId
      *
@@ -49,48 +53,30 @@ public class NewsPK implements java.io.Serializable {
         this.newsId = newNewsId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
+    //<editor-fold name="common methods">
 
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        NewsPK cast = (NewsPK) other;
-
-        if (this.newsId != cast.getNewsId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NewsPK newsPK = (NewsPK) o;
+        return newsId == newsPK.newsId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(newsId)).hashCode();
-        return _hashCode;
+        return Objects.hash(newsId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.NewsPK: ");
-        ret.append("newsId='" + newsId + "'");
-        return ret.toString();
+        return "NewsPK{" +
+                "newsId=" + newsId +
+                '}';
     }
+
+    //</editor-fold>
+
 }

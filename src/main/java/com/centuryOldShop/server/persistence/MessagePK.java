@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for Message. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -21,6 +23,8 @@ public class MessagePK implements java.io.Serializable {
      */
     public MessagePK() {
     }
+
+    //<editor-fold name="accessor">
 
     /**
      * Constructor with parameters
@@ -49,48 +53,30 @@ public class MessagePK implements java.io.Serializable {
         this.messageId = newMessageId;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
+    //</editor-fold>
 
-        if (other == null) {
-            return false;
-        }
+    //<editor-fold name="common methods">
 
-        if (other == this) {
-            return true;
-        }
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        MessagePK cast = (MessagePK) other;
-
-        if (this.messageId != cast.getMessageId())
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MessagePK messagePK = (MessagePK) o;
+        return messageId == messagePK.messageId;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        _hashCode = 29 * _hashCode + (new Long(messageId)).hashCode();
-        return _hashCode;
+        return Objects.hash(messageId);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.MessagePK: ");
-        ret.append("messageId='" + messageId + "'");
-        return ret.toString();
+        return "MessagePK{" +
+                "messageId=" + messageId +
+                '}';
     }
+
+    //</editor-fold>
 }

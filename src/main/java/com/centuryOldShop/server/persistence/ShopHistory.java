@@ -17,15 +17,15 @@ public class ShopHistory implements java.io.Serializable {
     /**
      * @pdOid dae5af7d-13c1-4be7-b304-48e9e87b5216
      */
-    private java.lang.String title;
+    private String title;
     /**
      * @pdOid e2e715e5-cb59-4bad-b0a6-65f17fb5a3e6
      */
-    private java.lang.String smallPhotoUrl;
+    private String smallPhotoUrl;
     /**
      * @pdOid aa4d6db2-7eab-4342-aa3e-27fb0e4bcbfe
      */
-    private java.lang.String shortDescription;
+    private String shortDescription;
     /**
      * @pdOid b57160a5-7392-4301-822f-119dea9727e3
      */
@@ -37,12 +37,25 @@ public class ShopHistory implements java.io.Serializable {
     /**
      * @pdOid 04e6ab91-6e15-49a2-a87b-99ff6aaed7f9
      */
-    private java.lang.String detailedIntroductionPageUrl;
+    private String detailedIntroductionPageUrl;
+
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public ShopHistory() {
+    }
+
+    //</editor-fold>
 
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopShopHistory mult=1..1 side=A
      */
     private Shop shop;
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of shopHistoryId
@@ -67,7 +80,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @return title
      */
-    public java.lang.String getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -76,7 +89,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @param newTitle
      */
-    public void setTitle(java.lang.String newTitle) {
+    public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 
@@ -85,7 +98,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @return smallPhotoUrl
      */
-    public java.lang.String getSmallPhotoUrl() {
+    public String getSmallPhotoUrl() {
         return smallPhotoUrl;
     }
 
@@ -94,7 +107,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @param newSmallPhotoUrl
      */
-    public void setSmallPhotoUrl(java.lang.String newSmallPhotoUrl) {
+    public void setSmallPhotoUrl(String newSmallPhotoUrl) {
         this.smallPhotoUrl = newSmallPhotoUrl;
     }
 
@@ -103,7 +116,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @return shortDescription
      */
-    public java.lang.String getShortDescription() {
+    public String getShortDescription() {
         return shortDescription;
     }
 
@@ -112,7 +125,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @param newShortDescription
      */
-    public void setShortDescription(java.lang.String newShortDescription) {
+    public void setShortDescription(String newShortDescription) {
         this.shortDescription = newShortDescription;
     }
 
@@ -157,7 +170,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @return detailedIntroductionPageUrl
      */
-    public java.lang.String getDetailedIntroductionPageUrl() {
+    public String getDetailedIntroductionPageUrl() {
         return detailedIntroductionPageUrl;
     }
 
@@ -166,7 +179,7 @@ public class ShopHistory implements java.io.Serializable {
      *
      * @param newDetailedIntroductionPageUrl
      */
-    public void setDetailedIntroductionPageUrl(java.lang.String newDetailedIntroductionPageUrl) {
+    public void setDetailedIntroductionPageUrl(String newDetailedIntroductionPageUrl) {
         this.detailedIntroductionPageUrl = newDetailedIntroductionPageUrl;
     }
 
@@ -189,83 +202,6 @@ public class ShopHistory implements java.io.Serializable {
             this.shopHistoryId = pk.getShopHistoryId();
         }
     }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof ShopHistory))
-            return false;
-
-        ShopHistory cast = (ShopHistory) other;
-
-        if (this.shopHistoryId != cast.getShopHistoryId())
-            return false;
-
-        if (this.title == null ? cast.getTitle() != this.title : !this.title.equals(cast.getTitle()))
-            return false;
-
-        if (this.smallPhotoUrl == null ? cast.getSmallPhotoUrl() != this.smallPhotoUrl : !this.smallPhotoUrl.equals(cast.getSmallPhotoUrl()))
-            return false;
-
-        if (this.shortDescription == null ? cast.getShortDescription() != this.shortDescription : !this.shortDescription.equals(cast.getShortDescription()))
-            return false;
-
-        if (this.publishTime == null ? cast.getPublishTime() != this.publishTime : !(com.sybase.orm.util.Util.compareDate(this.publishTime, cast.getPublishTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.visitCount != cast.getVisitCount())
-            return false;
-
-        if (this.detailedIntroductionPageUrl == null ? cast.getDetailedIntroductionPageUrl() != this.detailedIntroductionPageUrl : !this.detailedIntroductionPageUrl.equals(cast.getDetailedIntroductionPageUrl()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(shopHistoryId)).hashCode();
-        if (this.title != null)
-            hashCode = 29 * hashCode + title.hashCode();
-        if (this.smallPhotoUrl != null)
-            hashCode = 29 * hashCode + smallPhotoUrl.hashCode();
-        if (this.shortDescription != null)
-            hashCode = 29 * hashCode + shortDescription.hashCode();
-        if (this.publishTime != null)
-            hashCode = 29 * hashCode + publishTime.hashCode();
-        hashCode = 29 * hashCode + (new Integer(visitCount)).hashCode();
-        if (this.detailedIntroductionPageUrl != null)
-            hashCode = 29 * hashCode + detailedIntroductionPageUrl.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopHistory: ");
-        ret.append("shopHistoryId='" + shopHistoryId + "'");
-        ret.append("title='" + title + "'");
-        ret.append("smallPhotoUrl='" + smallPhotoUrl + "'");
-        ret.append("shortDescription='" + shortDescription + "'");
-        ret.append("publishTime='" + publishTime + "'");
-        ret.append("visitCount='" + visitCount + "'");
-        ret.append("detailedIntroductionPageUrl='" + detailedIntroductionPageUrl + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default parent getter
@@ -292,11 +228,26 @@ public class ShopHistory implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public ShopHistory() {
+    //</editor-fold>
 
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "ShopHistory{" +
+                "shopHistoryId=" + shopHistoryId +
+                ", title='" + title + '\'' +
+                ", smallPhotoUrl='" + smallPhotoUrl + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", publishTime=" + publishTime +
+                ", visitCount=" + visitCount +
+                ", detailedIntroductionPageUrl='" + detailedIntroductionPageUrl + '\'' +
+                ", shop=" + shop +
+                '}';
     }
+
+
+    //</editor-fold>
+
 
 }

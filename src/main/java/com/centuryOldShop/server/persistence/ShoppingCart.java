@@ -20,12 +20,16 @@ public class ShoppingCart implements java.io.Serializable {
     private AppUser shoppingCartUser;
     private Commodity commodity;
 
+
+    //<editor-fold name="constructor">
     /**
      * Empty constructor which is required by Hibernate
      */
     public ShoppingCart() {
 
     }
+
+    //</editor-fold>
 
     //<editor-fold name="accessor">
 
@@ -99,28 +103,6 @@ public class ShoppingCart implements java.io.Serializable {
 
 
     //<editor-fold desc="common methods">
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ShoppingCart)) return false;
-
-        ShoppingCart that = (ShoppingCart) o;
-
-        if (amount != that.amount) return false;
-        if (shoppingCartPK != null ? !shoppingCartPK.equals(that.shoppingCartPK) : that.shoppingCartPK != null)
-            return false;
-        return addedTime != null ? addedTime.equals(that.addedTime) : that.addedTime == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = shoppingCartPK != null ? shoppingCartPK.hashCode() : 0;
-        result = 31 * result + amount;
-        result = 31 * result + (addedTime != null ? addedTime.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {

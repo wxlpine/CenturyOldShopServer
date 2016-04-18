@@ -17,7 +17,7 @@ public class UserEvaluation implements java.io.Serializable {
     /**
      * @pdOid 29b75d16-5fa5-468b-9365-c401bd706559
      */
-    private java.lang.String comment;
+    private String comment;
     /**
      * @pdOid bab595fb-5434-47fa-b167-c83766b30363
      */
@@ -35,6 +35,21 @@ public class UserEvaluation implements java.io.Serializable {
      * @pdRoleInfo migr=no name=AppUser assc=userEvaluation mult=1..1 side=A
      */
     private AppUser appUser;
+
+
+    //<editor-fold name="constructor">
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public UserEvaluation() {
+
+    }
+
+    //</editor-fold>
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of grade
@@ -59,7 +74,7 @@ public class UserEvaluation implements java.io.Serializable {
      *
      * @return comment
      */
-    public java.lang.String getComment() {
+    public String getComment() {
         return comment;
     }
 
@@ -68,7 +83,7 @@ public class UserEvaluation implements java.io.Serializable {
      *
      * @param newComment
      */
-    public void setComment(java.lang.String newComment) {
+    public void setComment(String newComment) {
         this.comment = newComment;
     }
 
@@ -111,59 +126,6 @@ public class UserEvaluation implements java.io.Serializable {
             this.orderForm = pk.getOrderForm();
             this.appUser = pk.getAppUser();
         }
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof UserEvaluation))
-            return false;
-
-        UserEvaluation cast = (UserEvaluation) other;
-
-        if (Double.doubleToLongBits(this.grade) != Double.doubleToLongBits(cast.getGrade()))
-            return false;
-
-        if (this.comment == null ? cast.getComment() != this.comment : !this.comment.equals(cast.getComment()))
-            return false;
-
-        if (this.time == null ? cast.getTime() != this.time : !(com.sybase.orm.util.Util.compareDate(this.time, cast.getTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Double(grade)).hashCode();
-        if (this.comment != null)
-            hashCode = 29 * hashCode + comment.hashCode();
-        if (this.time != null)
-            hashCode = 29 * hashCode + time.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.UserEvaluation: ");
-        ret.append("grade='" + grade + "'");
-        ret.append("comment='" + comment + "'");
-        ret.append("time='" + time + "'");
-        return ret.toString();
     }
 
 
@@ -242,11 +204,25 @@ public class UserEvaluation implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public UserEvaluation() {
+    //</editor-fold>
 
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "UserEvaluation{" +
+                "grade=" + grade +
+                ", comment='" + comment + '\'' +
+                ", time=" + time +
+                ", commodity=" + commodity +
+                ", orderForm=" + orderForm +
+                ", appUser=" + appUser +
+                '}';
     }
+
+
+    //</editor-fold>
+
 
 }

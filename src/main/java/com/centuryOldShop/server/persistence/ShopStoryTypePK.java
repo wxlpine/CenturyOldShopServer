@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Objects;
+
 /**
  * Generated primary key class for ShopStoryType. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
@@ -14,7 +16,10 @@ public class ShopStoryTypePK implements java.io.Serializable {
     /**
      * @pdOid c43686ae-5c3c-483f-b206-ec8e8416327b
      */
-    private java.lang.String storyTypeName;
+    private String storyTypeName;
+
+
+    //<editor-fold name="constructor">
 
     /**
      * Empty constructor
@@ -28,16 +33,20 @@ public class ShopStoryTypePK implements java.io.Serializable {
      *
      * @param storyTypeName parameter to set value of field storyTypeName
      */
-    public ShopStoryTypePK(java.lang.String storyTypeName) {
+    public ShopStoryTypePK(String storyTypeName) {
         this.storyTypeName = storyTypeName;
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of storyTypeName
      *
      * @return storyTypeName
      */
-    public java.lang.String getStoryTypeName() {
+    public String getStoryTypeName() {
         return storyTypeName;
     }
 
@@ -46,53 +55,35 @@ public class ShopStoryTypePK implements java.io.Serializable {
      *
      * @param newStoryTypeName
      */
-    public void setStoryTypeName(java.lang.String newStoryTypeName) {
+    public void setStoryTypeName(String newStoryTypeName) {
         this.storyTypeName = newStoryTypeName;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
 
-        if (other == null) {
-            return false;
-        }
+    //</editor-fold>
 
-        if (other == this) {
-            return true;
-        }
+    //<editor-fold name="common methods">
 
-        if (!(other.getClass() == getClass()))
-            return false;
-
-        ShopStoryTypePK cast = (ShopStoryTypePK) other;
-
-        if (this.storyTypeName == null ? cast.getStoryTypeName() != this.storyTypeName : !this.storyTypeName.equals(cast.getStoryTypeName()))
-            return false;
-
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShopStoryTypePK that = (ShopStoryTypePK) o;
+        return Objects.equals(storyTypeName, that.storyTypeName);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
-        int _hashCode = 0;
-        if (this.storyTypeName != null)
-            _hashCode = 29 * _hashCode + storyTypeName.hashCode();
-        return _hashCode;
+        return Objects.hash(storyTypeName);
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.ShopStoryTypePK: ");
-        ret.append("storyTypeName='" + storyTypeName + "'");
-        return ret.toString();
+        return "ShopStoryTypePK{" +
+                "storyTypeName='" + storyTypeName + '\'' +
+                '}';
     }
+
+    //</editor-fold>
+
 }

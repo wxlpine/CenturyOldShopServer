@@ -23,6 +23,8 @@ public class ShoppingCartPK implements Serializable {
     @Column(name="commodityId")
     private long commodityId;
 
+    //<editor-fold name="constructor">
+
     /**
      * Empty constructor
      */
@@ -34,6 +36,10 @@ public class ShoppingCartPK implements Serializable {
         this.userId = userId;
         this.commodityId = commodityId;
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="accessor">
 
     public long getUserId() {
         return userId;
@@ -52,6 +58,10 @@ public class ShoppingCartPK implements Serializable {
         this.commodityId = commodityId;
         return this;
     }
+
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
 
     @Override
     public boolean equals(Object o) {
@@ -79,4 +89,7 @@ public class ShoppingCartPK implements Serializable {
                 ", commodityId=" + commodityId +
                 '}';
     }
+
+    //</editor-fold>
+
 }

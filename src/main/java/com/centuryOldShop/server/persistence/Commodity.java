@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid c995e142-478e-4f20-a0d6-3937cb393cd1
  */
@@ -17,15 +19,15 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdOid 7411227a-a645-4ef3-9b51-7c769752cab2
      */
-    private java.lang.String commodityName;
+    private String commodityName;
     /**
      * @pdOid 5939b7d4-4f6c-4906-a82a-0dac489a78f6
      */
-    private java.lang.String smallPhotoUrl;
+    private String smallPhotoUrl;
     /**
      * @pdOid 97974dbd-17c0-440c-b9d5-2ffaf7c3387a
      */
-    private java.lang.String shortDescription;
+    private String shortDescription;
     /**
      * @pdOid 77573462-05d7-4fba-8590-0bfdfeef469d
      */
@@ -45,7 +47,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdOid c04a32c3-37ad-49f3-aa93-f85ca49294cd
      */
-    private java.lang.String phoneTopBigPhotoUrl;
+    private String phoneTopBigPhotoUrl;
     /**
      * @pdOid 022d24d0-4725-47bc-8d19-f9fa7836cb37
      */
@@ -58,27 +60,36 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdRoleInfo migr=no name=AppUser assc=favorite coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<AppUser> favoriteUser;
+    private List<AppUser> favoriteUser;
     /**
      * @pdRoleInfo migr=no name=UserEvaluation assc=userEvaluation coll=java.util.List impl=java.util.ArrayList mult=0..* type=Composition
      */
-    private java.util.List<UserEvaluation> userEvaluation;
+    private List<UserEvaluation> userEvaluation;
     /**
      * @pdRoleInfo migr=no name=OrderForm assc=orderFormCommodity coll=java.util.List impl=java.util.ArrayList mult=1..* side=A
      */
-    private java.util.List<OrderForm> orderForm;
+    private List<OrderForm> orderForm;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=shoppingCart coll=java.util.List impl=java.util.ArrayList mult=0..* side=A
      */
-    private java.util.List<AppUser> shoppingCartUser;
+    private List<AppUser> shoppingCartUser;
     /**
      * @pdRoleInfo migr=no name=DiscountInfo assc=commodityDiscountInfo coll=java.util.List mult=1..* side=A
      */
-    private java.util.List<DiscountInfo> discountInfo;
+    private List<DiscountInfo> discountInfo;
     /**
      * @pdRoleInfo migr=no name=CommodityType assc=commodityCommodityType mult=1..1 side=A
      */
     private CommodityType commodityType;
+
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public Commodity() {
+    }
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of commodityId
@@ -103,7 +114,7 @@ public class Commodity implements java.io.Serializable {
      *
      * @return commodityName
      */
-    public java.lang.String getCommodityName() {
+    public String getCommodityName() {
         return commodityName;
     }
 
@@ -111,7 +122,7 @@ public class Commodity implements java.io.Serializable {
      * Set value of commodityName
      *
      */
-    public void setCommodityName(java.lang.String newCommodityName) {
+    public void setCommodityName(String newCommodityName) {
         this.commodityName = newCommodityName;
     }
 
@@ -120,7 +131,7 @@ public class Commodity implements java.io.Serializable {
      *
      * @return smallPhotoUrl
      */
-    public java.lang.String getSmallPhotoUrl() {
+    public String getSmallPhotoUrl() {
         return smallPhotoUrl;
     }
 
@@ -128,7 +139,7 @@ public class Commodity implements java.io.Serializable {
      * Set value of smallPhotoUrl
      *
      */
-    public void setSmallPhotoUrl(java.lang.String newSmallPhotoUrl) {
+    public void setSmallPhotoUrl(String newSmallPhotoUrl) {
         this.smallPhotoUrl = newSmallPhotoUrl;
     }
 
@@ -137,7 +148,7 @@ public class Commodity implements java.io.Serializable {
      *
      * @return shortDescription
      */
-    public java.lang.String getShortDescription() {
+    public String getShortDescription() {
         return shortDescription;
     }
 
@@ -145,7 +156,7 @@ public class Commodity implements java.io.Serializable {
      * Set value of shortDescription
      *
      */
-    public void setShortDescription(java.lang.String newShortDescription) {
+    public void setShortDescription(String newShortDescription) {
         this.shortDescription = newShortDescription;
     }
 
@@ -222,7 +233,7 @@ public class Commodity implements java.io.Serializable {
      *
      * @return phoneTopBigPhotoUrl
      */
-    public java.lang.String getPhoneTopBigPhotoUrl() {
+    public String getPhoneTopBigPhotoUrl() {
         return phoneTopBigPhotoUrl;
     }
 
@@ -230,7 +241,7 @@ public class Commodity implements java.io.Serializable {
      * Set value of phoneTopBigPhotoUrl
      *
      */
-    public void setPhoneTopBigPhotoUrl(java.lang.String newPhoneTopBigPhotoUrl) {
+    public void setPhoneTopBigPhotoUrl(String newPhoneTopBigPhotoUrl) {
         this.phoneTopBigPhotoUrl = newPhoneTopBigPhotoUrl;
     }
 
@@ -288,107 +299,11 @@ public class Commodity implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof Commodity))
-            return false;
-
-        Commodity cast = (Commodity) other;
-
-        if (this.commodityId != cast.getCommodityId())
-            return false;
-
-        if (this.commodityName == null ? cast.getCommodityName() != this.commodityName : !this.commodityName.equals(cast.getCommodityName()))
-            return false;
-
-        if (this.smallPhotoUrl == null ? cast.getSmallPhotoUrl() != this.smallPhotoUrl : !this.smallPhotoUrl.equals(cast.getSmallPhotoUrl()))
-            return false;
-
-        if (this.shortDescription == null ? cast.getShortDescription() != this.shortDescription : !this.shortDescription.equals(cast.getShortDescription()))
-            return false;
-
-        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(cast.getPrice()))
-            return false;
-
-        if (this.salesVolume != cast.getSalesVolume())
-            return false;
-
-        if (this.exemptionFromPostage != cast.getExemptionFromPostage())
-            return false;
-
-        if (this.addedTime == null ? cast.getAddedTime() != this.addedTime : !(com.sybase.orm.util.Util.compareDate(this.addedTime, cast.getAddedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.phoneTopBigPhotoUrl == null ? cast.getPhoneTopBigPhotoUrl() != this.phoneTopBigPhotoUrl : !this.phoneTopBigPhotoUrl.equals(cast.getPhoneTopBigPhotoUrl()))
-            return false;
-
-        if (this.offShelf != cast.getOffShelf())
-            return false;
-
-        if (this.remainingQuantity != cast.getRemainingQuantity())
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(commodityId)).hashCode();
-        if (this.commodityName != null)
-            hashCode = 29 * hashCode + commodityName.hashCode();
-        if (this.smallPhotoUrl != null)
-            hashCode = 29 * hashCode + smallPhotoUrl.hashCode();
-        if (this.shortDescription != null)
-            hashCode = 29 * hashCode + shortDescription.hashCode();
-        hashCode = 29 * hashCode + (new Double(price)).hashCode();
-        hashCode = 29 * hashCode + (new Integer(salesVolume)).hashCode();
-        hashCode = 29 * hashCode + (new Boolean(exemptionFromPostage)).hashCode();
-        if (this.addedTime != null)
-            hashCode = 29 * hashCode + addedTime.hashCode();
-        if (this.phoneTopBigPhotoUrl != null)
-            hashCode = 29 * hashCode + phoneTopBigPhotoUrl.hashCode();
-        hashCode = 29 * hashCode + (new Boolean(offShelf)).hashCode();
-        hashCode = 29 * hashCode + (new Integer(remainingQuantity)).hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.Commodity: ");
-        ret.append("commodityId='" + commodityId + "'");
-        ret.append("commodityName='" + commodityName + "'");
-        ret.append("smallPhotoUrl='" + smallPhotoUrl + "'");
-        ret.append("shortDescription='" + shortDescription + "'");
-        ret.append("price='" + price + "'");
-        ret.append("salesVolume='" + salesVolume + "'");
-        ret.append("exemptionFromPostage='" + exemptionFromPostage + "'");
-        ret.append("addedTime='" + addedTime + "'");
-        ret.append("phoneTopBigPhotoUrl='" + phoneTopBigPhotoUrl + "'");
-        ret.append("offShelf='" + offShelf + "'");
-        ret.append("remainingQuantity='" + remainingQuantity + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<AppUser> getFavoriteUser() {
+    public List<AppUser> getFavoriteUser() {
         if (favoriteUser == null)
             favoriteUser = new java.util.ArrayList<AppUser>();
         return favoriteUser;
@@ -407,7 +322,7 @@ public class Commodity implements java.io.Serializable {
 
      * @pdGenerated default setter
      */
-    public void setFavoriteUser(java.util.List<AppUser> newFavoriteUser) {
+    public void setFavoriteUser(List<AppUser> newFavoriteUser) {
         //removeAllFavoriteUser();
         this.favoriteUser = newFavoriteUser;
     }
@@ -458,7 +373,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<UserEvaluation> getUserEvaluation() {
+    public List<UserEvaluation> getUserEvaluation() {
         if (userEvaluation == null)
             userEvaluation = new java.util.ArrayList<UserEvaluation>();
         return userEvaluation;
@@ -477,7 +392,7 @@ public class Commodity implements java.io.Serializable {
 
      * @pdGenerated default setter
      */
-    public void setUserEvaluation(java.util.List<UserEvaluation> newUserEvaluation) {
+    public void setUserEvaluation(List<UserEvaluation> newUserEvaluation) {
         //removeAllUserEvaluation();
         this.userEvaluation = newUserEvaluation;
     }
@@ -528,7 +443,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<OrderForm> getOrderForm() {
+    public List<OrderForm> getOrderForm() {
         if (orderForm == null)
             orderForm = new java.util.ArrayList<OrderForm>();
         return orderForm;
@@ -547,7 +462,7 @@ public class Commodity implements java.io.Serializable {
 
      * @pdGenerated default setter
      */
-    public void setOrderForm(java.util.List<OrderForm> newOrderForm) {
+    public void setOrderForm(List<OrderForm> newOrderForm) {
         //removeAllOrderForm();
         this.orderForm = newOrderForm;
     }
@@ -598,7 +513,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<AppUser> getShoppingCartUser() {
+    public List<AppUser> getShoppingCartUser() {
         if (shoppingCartUser == null)
             shoppingCartUser = new java.util.ArrayList<AppUser>();
         return shoppingCartUser;
@@ -617,7 +532,7 @@ public class Commodity implements java.io.Serializable {
 
      * @pdGenerated default setter
      */
-    public void setShoppingCartUser(java.util.List<AppUser> newShoppingCartUser) {
+    public void setShoppingCartUser(List<AppUser> newShoppingCartUser) {
         //removeAllShoppingCartUser();
         this.shoppingCartUser = newShoppingCartUser;
     }
@@ -668,7 +583,7 @@ public class Commodity implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfo> getDiscountInfo() {
         if (discountInfo == null)
             discountInfo = new java.util.Vector<DiscountInfo>();
         return discountInfo;
@@ -687,7 +602,7 @@ public class Commodity implements java.io.Serializable {
 
      * @pdGenerated default setter
      */
-    public void setDiscountInfo(java.util.List<DiscountInfo> newDiscountInfo) {
+    public void setDiscountInfo(List<DiscountInfo> newDiscountInfo) {
         //removeAllDiscountInfo();
         this.discountInfo = newDiscountInfo;
     }
@@ -760,10 +675,29 @@ public class Commodity implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public Commodity() {
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "Commodity{" +
+                "commodityId=" + commodityId +
+                ", commodityName='" + commodityName + '\'' +
+                ", smallPhotoUrl='" + smallPhotoUrl + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
+                ", price=" + price +
+                ", salesVolume=" + salesVolume +
+                ", exemptionFromPostage=" + exemptionFromPostage +
+                ", addedTime=" + addedTime +
+                ", phoneTopBigPhotoUrl='" + phoneTopBigPhotoUrl + '\'' +
+                ", offShelf=" + offShelf +
+                ", remainingQuantity=" + remainingQuantity +
+                ", commodityType=" + commodityType +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

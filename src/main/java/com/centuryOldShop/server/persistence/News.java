@@ -17,11 +17,11 @@ public class News implements java.io.Serializable {
     /**
      * @pdOid 69cb408b-0e82-4956-9c6e-a423e97ffd89
      */
-    private java.lang.String title;
+    private String title;
     /**
      * @pdOid 6cae4611-da88-4966-9173-af5dd102ef3b
      */
-    private java.lang.String contentUrl;
+    private String contentUrl;
     /**
      * @pdOid 259e840d-1e5c-4d7e-85e0-b89c65ea363f
      */
@@ -33,12 +33,20 @@ public class News implements java.io.Serializable {
     /**
      * @pdOid dfd3d068-8df4-4603-a065-b6dce1e2dab0
      */
-    private java.lang.String spotScene;
+    private String spotScene;
 
     /**
      * @pdRoleInfo migr=no name=Shop assc=shopNews mult=1..1 side=A
      */
     private Shop shop;
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public News() {
+    }
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of newsId
@@ -63,7 +71,7 @@ public class News implements java.io.Serializable {
      *
      * @return title
      */
-    public java.lang.String getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -72,7 +80,7 @@ public class News implements java.io.Serializable {
      *
      * @param newTitle
      */
-    public void setTitle(java.lang.String newTitle) {
+    public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 
@@ -81,7 +89,7 @@ public class News implements java.io.Serializable {
      *
      * @return contentUrl
      */
-    public java.lang.String getContentUrl() {
+    public String getContentUrl() {
         return contentUrl;
     }
 
@@ -90,7 +98,7 @@ public class News implements java.io.Serializable {
      *
      * @param newContentUrl
      */
-    public void setContentUrl(java.lang.String newContentUrl) {
+    public void setContentUrl(String newContentUrl) {
         this.contentUrl = newContentUrl;
     }
 
@@ -135,7 +143,7 @@ public class News implements java.io.Serializable {
      *
      * @return spotScene
      */
-    public java.lang.String getSpotScene() {
+    public String getSpotScene() {
         return spotScene;
     }
 
@@ -144,7 +152,7 @@ public class News implements java.io.Serializable {
      *
      * @param newSpotScene
      */
-    public void setSpotScene(java.lang.String newSpotScene) {
+    public void setSpotScene(String newSpotScene) {
         this.spotScene = newSpotScene;
     }
 
@@ -166,76 +174,6 @@ public class News implements java.io.Serializable {
         if (pk != null) {
             this.newsId = pk.getNewsId();
         }
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof News))
-            return false;
-
-        News cast = (News) other;
-
-        if (this.newsId != cast.getNewsId())
-            return false;
-
-        if (this.title == null ? cast.getTitle() != this.title : !this.title.equals(cast.getTitle()))
-            return false;
-
-        if (this.contentUrl == null ? cast.getContentUrl() != this.contentUrl : !this.contentUrl.equals(cast.getContentUrl()))
-            return false;
-
-        if (this.publishTime == null ? cast.getPublishTime() != this.publishTime : !(com.sybase.orm.util.Util.compareDate(this.publishTime, cast.getPublishTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.readCount != cast.getReadCount())
-            return false;
-
-        if (this.spotScene == null ? cast.getSpotScene() != this.spotScene : !this.spotScene.equals(cast.getSpotScene()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(newsId)).hashCode();
-        if (this.title != null)
-            hashCode = 29 * hashCode + title.hashCode();
-        if (this.contentUrl != null)
-            hashCode = 29 * hashCode + contentUrl.hashCode();
-        if (this.publishTime != null)
-            hashCode = 29 * hashCode + publishTime.hashCode();
-        hashCode = 29 * hashCode + (new Integer(readCount)).hashCode();
-        if (this.spotScene != null)
-            hashCode = 29 * hashCode + spotScene.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.News: ");
-        ret.append("newsId='" + newsId + "'");
-        ret.append("title='" + title + "'");
-        ret.append("contentUrl='" + contentUrl + "'");
-        ret.append("publishTime='" + publishTime + "'");
-        ret.append("readCount='" + readCount + "'");
-        ret.append("spotScene='" + spotScene + "'");
-        return ret.toString();
     }
 
 
@@ -264,10 +202,24 @@ public class News implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public News() {
+    //</editor-fold>
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "newsId=" + newsId +
+                ", title='" + title + '\'' +
+                ", contentUrl='" + contentUrl + '\'' +
+                ", publishTime=" + publishTime +
+                ", readCount=" + readCount +
+                ", spotScene='" + spotScene + '\'' +
+                ", shop=" + shop +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }

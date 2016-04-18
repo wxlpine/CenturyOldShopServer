@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid 27679646-5166-4d25-8128-7671458eef1c
  */
@@ -33,16 +35,16 @@ public class OrderForm implements java.io.Serializable {
     /**
      * @pdOid aa829361-b761-4122-b789-34a1bbf3a161
      */
-    private java.lang.String expressNumber;
+    private String expressNumber;
 
     /**
      * @pdRoleInfo migr=no name=Commodity assc=orderFormCommodity coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<Commodity> commodity;
+    private List<Commodity> commodity;
     /**
      * @pdRoleInfo migr=no name=UserEvaluation assc=userEvaluation coll=java.util.List impl=java.util.ArrayList mult=0..* type=Composition
      */
-    private java.util.List<UserEvaluation> userEvaluation;
+    private List<UserEvaluation> userEvaluation;
     /**
      * @pdRoleInfo migr=no name=AppUser assc=userOrderForm mult=1..1 side=A
      */
@@ -63,6 +65,16 @@ public class OrderForm implements java.io.Serializable {
      * @pdRoleInfo migr=no name=DisputeStatusType assc=disputeStatusTypeOrderForm mult=1..1 side=A
      */
     private DisputeStatusType disputeStatusType;
+
+
+    /**
+     * Empty constructor which is required by Hibernate
+     */
+    public OrderForm() {
+    }
+
+
+    //<editor-fold name="accessor">
 
     /**
      * Get value of orderFormId
@@ -159,7 +171,7 @@ public class OrderForm implements java.io.Serializable {
      *
      * @return expressNumber
      */
-    public java.lang.String getExpressNumber() {
+    public String getExpressNumber() {
         return expressNumber;
     }
 
@@ -168,7 +180,7 @@ public class OrderForm implements java.io.Serializable {
      *
      * @param newExpressNumber
      */
-    public void setExpressNumber(java.lang.String newExpressNumber) {
+    public void setExpressNumber(String newExpressNumber) {
         this.expressNumber = newExpressNumber;
     }
 
@@ -192,82 +204,11 @@ public class OrderForm implements java.io.Serializable {
         }
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    public boolean equals(Object other) {
-
-        if (other == null)
-            return false;
-
-        if (other == this)
-            return true;
-
-        if (!(other instanceof OrderForm))
-            return false;
-
-        OrderForm cast = (OrderForm) other;
-
-        if (this.orderFormId != cast.getOrderFormId())
-            return false;
-
-        if (this.orderedTime == null ? cast.getOrderedTime() != this.orderedTime : !(com.sybase.orm.util.Util.compareDate(this.orderedTime, cast.getOrderedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.payedTime == null ? cast.getPayedTime() != this.payedTime : !(com.sybase.orm.util.Util.compareDate(this.payedTime, cast.getPayedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.sendTime == null ? cast.getSendTime() != this.sendTime : !(com.sybase.orm.util.Util.compareDate(this.sendTime, cast.getSendTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.receiptedTime == null ? cast.getReceiptedTime() != this.receiptedTime : !(com.sybase.orm.util.Util.compareDate(this.receiptedTime, cast.getReceiptedTime(), java.util.Calendar.SECOND) == 0))
-            return false;
-
-        if (this.expressNumber == null ? cast.getExpressNumber() != this.expressNumber : !this.expressNumber.equals(cast.getExpressNumber()))
-            return false;
-
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    public int hashCode() {
-        int hashCode = 0;
-        hashCode = 29 * hashCode + (new Long(orderFormId)).hashCode();
-        if (this.orderedTime != null)
-            hashCode = 29 * hashCode + orderedTime.hashCode();
-        if (this.payedTime != null)
-            hashCode = 29 * hashCode + payedTime.hashCode();
-        if (this.sendTime != null)
-            hashCode = 29 * hashCode + sendTime.hashCode();
-        if (this.receiptedTime != null)
-            hashCode = 29 * hashCode + receiptedTime.hashCode();
-        if (this.expressNumber != null)
-            hashCode = 29 * hashCode + expressNumber.hashCode();
-        return hashCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    public String toString() {
-        StringBuilder ret = new StringBuilder();
-        ret.append("com.centuryOldShop.server.persistence.OrderForm: ");
-        ret.append("orderFormId='" + orderFormId + "'");
-        ret.append("orderedTime='" + orderedTime + "'");
-        ret.append("payedTime='" + payedTime + "'");
-        ret.append("sendTime='" + sendTime + "'");
-        ret.append("receiptedTime='" + receiptedTime + "'");
-        ret.append("expressNumber='" + expressNumber + "'");
-        return ret.toString();
-    }
-
 
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<Commodity> getCommodity() {
+    public List<Commodity> getCommodity() {
         if (commodity == null)
             commodity = new java.util.ArrayList<Commodity>();
         return commodity;
@@ -286,7 +227,7 @@ public class OrderForm implements java.io.Serializable {
      * @param newCommodity
      * @pdGenerated default setter
      */
-    public void setCommodity(java.util.List<Commodity> newCommodity) {
+    public void setCommodity(List<Commodity> newCommodity) {
         //removeAllCommodity();
         this.commodity = newCommodity;
     }
@@ -337,7 +278,7 @@ public class OrderForm implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<UserEvaluation> getUserEvaluation() {
+    public List<UserEvaluation> getUserEvaluation() {
         if (userEvaluation == null)
             userEvaluation = new java.util.ArrayList<UserEvaluation>();
         return userEvaluation;
@@ -356,7 +297,7 @@ public class OrderForm implements java.io.Serializable {
      * @param newUserEvaluation
      * @pdGenerated default setter
      */
-    public void setUserEvaluation(java.util.List<UserEvaluation> newUserEvaluation) {
+    public void setUserEvaluation(List<UserEvaluation> newUserEvaluation) {
         //removeAllUserEvaluation();
         this.userEvaluation = newUserEvaluation;
     }
@@ -529,10 +470,31 @@ public class OrderForm implements java.io.Serializable {
         }
     }
 
-    /**
-     * Empty constructor which is required by Hibernate
-     */
-    public OrderForm() {
+    //</editor-fold>
+
+
+    //<editor-fold name="common methods">
+
+    @Override
+    public String toString() {
+        return "OrderForm{" +
+                "orderFormId=" + orderFormId +
+                ", orderedTime=" + orderedTime +
+                ", payedTime=" + payedTime +
+                ", sendTime=" + sendTime +
+                ", receiptedTime=" + receiptedTime +
+                ", expressNumber='" + expressNumber + '\'' +
+                ", disputeStatusType=" + disputeStatusType +
+                ", orderStatusType=" + orderStatusType +
+                ", discountInfo=" + discountInfo +
+                ", shop=" + shop +
+                ", appUser=" + appUser +
+                ", userEvaluation=" + userEvaluation +
+                ", commodity=" + commodity +
+                '}';
     }
+
+    //</editor-fold>
+
 
 }
