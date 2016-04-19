@@ -58,163 +58,77 @@ public class ShopHistory implements java.io.Serializable {
 
     //<editor-fold name="accessor">
 
-    /**
-     * Get value of shopHistoryId
-     *
-     * @return shopHistoryId
-     */
+
     public long getShopHistoryId() {
         return shopHistoryId;
     }
 
-    /**
-     * Set value of shopHistoryId
-     *
-     * @param newShopHistoryId
-     */
     public void setShopHistoryId(long newShopHistoryId) {
         this.shopHistoryId = newShopHistoryId;
     }
 
-    /**
-     * Get value of title
-     *
-     * @return title
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * Set value of title
-     *
-     * @param newTitle
-     */
     public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 
-    /**
-     * Get value of smallPhotoUrl
-     *
-     * @return smallPhotoUrl
-     */
     public String getSmallPhotoUrl() {
         return smallPhotoUrl;
     }
 
-    /**
-     * Set value of smallPhotoUrl
-     *
-     * @param newSmallPhotoUrl
-     */
     public void setSmallPhotoUrl(String newSmallPhotoUrl) {
         this.smallPhotoUrl = newSmallPhotoUrl;
     }
 
-    /**
-     * Get value of shortDescription
-     *
-     * @return shortDescription
-     */
     public String getShortDescription() {
         return shortDescription;
     }
 
-    /**
-     * Set value of shortDescription
-     *
-     * @param newShortDescription
-     */
     public void setShortDescription(String newShortDescription) {
         this.shortDescription = newShortDescription;
     }
 
-    /**
-     * Get value of publishTime
-     *
-     * @return publishTime
-     */
     public java.util.Date getPublishTime() {
         return publishTime;
     }
 
-    /**
-     * Set value of publishTime
-     *
-     * @param newPublishTime
-     */
     public void setPublishTime(java.util.Date newPublishTime) {
         this.publishTime = newPublishTime;
     }
 
-    /**
-     * Get value of visitCount
-     *
-     * @return visitCount
-     */
     public int getVisitCount() {
         return visitCount;
     }
 
-    /**
-     * Set value of visitCount
-     *
-     * @param newVisitCount
-     */
     public void setVisitCount(int newVisitCount) {
         this.visitCount = newVisitCount;
     }
 
-    /**
-     * Get value of detailedIntroductionPageUrl
-     *
-     * @return detailedIntroductionPageUrl
-     */
     public String getDetailedIntroductionPageUrl() {
         return detailedIntroductionPageUrl;
     }
 
-    /**
-     * Set value of detailedIntroductionPageUrl
-     *
-     * @param newDetailedIntroductionPageUrl
-     */
     public void setDetailedIntroductionPageUrl(String newDetailedIntroductionPageUrl) {
         this.detailedIntroductionPageUrl = newDetailedIntroductionPageUrl;
     }
 
-    /**
-     * Get value of shopHistoryPK.
-     *
-     * @return shopHistoryPK object
-     */
     public ShopHistoryPK getShopHistoryPK() {
         return new ShopHistoryPK(shopHistoryId);
     }
 
-    /**
-     * Set value of shopHistoryPK.
-     *
-     * @param pk
-     */
     public void setShopHistoryPK(ShopHistoryPK pk) {
         if (pk != null) {
             this.shopHistoryId = pk.getShopHistoryId();
         }
     }
 
-    /**
-     * @pdGenerated default parent getter
-     */
     public Shop getShop() {
         return shop;
     }
 
-    /**
-     * @param newShop
-     * @pdGenerated default parent setter
-     */
     public void setShop(Shop newShop) {
         if (this.shop == null || !this.shop.equals(newShop)) {
             if (this.shop != null) {

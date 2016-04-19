@@ -6,7 +6,6 @@ import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.ShopPK;
 import com.centuryOldShop.server.persistence.dao.ShopDao;
 import factory.DaoFactory;
-import org.mapstruct.factory.Mappers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -29,10 +28,9 @@ public class ShopResource {
 
         DaoFactory daoFactory = DaoFactory.getDaoFactory();
         ShopDao shopDao = daoFactory.getShopDao();
-        Shop load = shopDao.load(new ShopPK(id));
+        Shop shop = shopDao.load(new ShopPK(id));
 
-        ShopMapper mapper = Mappers.getMapper(ShopMapper.class);
-        ShopDto shopDto = mapper.ShopEntityToShopDto(load);
+        ShopDto shopDto = ShopMapper.INSTANCE.ShopEntityToShopDto(shop);
 
         return shopDto;
     }
