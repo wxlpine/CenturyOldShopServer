@@ -11,6 +11,8 @@ package com.centuryOldShop.server.persistence;
  * 这个类没有对应的单元测试
  */
 public class UserEvaluation implements java.io.Serializable {
+
+    private UserEvaluationPK userEvaluationPK;
     /**
      * @pdOid a2f095fc-2cf5-49de-8640-81e479488bec
      */
@@ -51,6 +53,16 @@ public class UserEvaluation implements java.io.Serializable {
 
 
     //<editor-fold name="accessor">
+
+
+    public UserEvaluationPK getUserEvaluationPK() {
+        return userEvaluationPK;
+    }
+
+    public UserEvaluation setUserEvaluationPK(UserEvaluationPK userEvaluationPK) {
+        this.userEvaluationPK = userEvaluationPK;
+        return this;
+    }
 
     /**
      * Get value of grade
@@ -106,29 +118,6 @@ public class UserEvaluation implements java.io.Serializable {
         this.time = newTime;
     }
 
-    /**
-     * Get value of userEvaluationPK.
-     *
-     * @return userEvaluationPK object
-     */
-    public UserEvaluationPK getUserEvaluationPK() {
-        return new UserEvaluationPK(commodity, orderForm, appUser);
-    }
-
-    /**
-     * Set value of userEvaluationPK.
-     *
-     * @param pk
-     */
-    public void setUserEvaluationPK(UserEvaluationPK pk) {
-        if (pk != null) {
-
-            this.commodity = pk.getCommodity();
-            this.orderForm = pk.getOrderForm();
-            this.appUser = pk.getAppUser();
-        }
-    }
-
 
     /**
      * @pdGenerated default parent getter
@@ -163,7 +152,6 @@ public class UserEvaluation implements java.io.Serializable {
     }
 
     /**
-     * @param newOrderForm
      * @pdGenerated default parent setter
      */
     public void setOrderForm(OrderForm newOrderForm) {
@@ -188,7 +176,6 @@ public class UserEvaluation implements java.io.Serializable {
     }
 
     /**
-     * @param newAppUser
      * @pdGenerated default parent setter
      */
     public void setAppUser(AppUser newAppUser) {

@@ -35,12 +35,11 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
      */
     public UserEvaluation load(UserEvaluationPK pk) throws DaoException {
         List cs = new ArrayList();
-        String[] paramNames = new String[]{"commodity", "orderForm", "appUser"};
-        Object[] values = new Object[]{pk.getCommodity(), pk.getOrderForm(), pk.getAppUser()};
-        for (int i = 0; i < paramNames.length; i++)
-            cs.add(Restrictions.eq(paramNames[i], values[i]));
+
+        cs.add(Restrictions.idEq(pk));
 
         List list = super.findByCriterions(UserEvaluation.class, cs);
+
         return (((list != null) && (list.size() > 0)) ? (UserEvaluation) list.get(0) : null);
     }
 

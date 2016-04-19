@@ -1,6 +1,6 @@
 package com.centuryOldShop.server.beanMapper;
 
-import com.centuryOldShop.server.domain.ShopDto;
+import com.centuryOldShop.server.dto.ShopDto;
 import com.centuryOldShop.server.persistence.Shop;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

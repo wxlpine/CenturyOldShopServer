@@ -6,25 +6,24 @@
 
 package com.centuryOldShop.server.persistence;
 
-import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 /**
  * Generated primary key class for UserEvaluation. It is used to simplify the query
  * by primary key operation, useful especially when primary key is composite.
  */
+@Embeddable
 public class UserEvaluationPK implements java.io.Serializable {
-    /**
-     * @pdRoleInfo migr=no name=Commodity assc=userEvaluation mult=1..1 side=A
-     */
-    private Commodity commodity;
-    /**
-     * @pdRoleInfo migr=no name=OrderForm assc=userEvaluation mult=1..1 side=A
-     */
-    private OrderForm orderForm;
-    /**
-     * @pdRoleInfo migr=no name=AppUser assc=userEvaluation mult=1..1 side=A
-     */
-    private AppUser appUser;
+
+    @Column(name = "commodityId")
+    private long commodityId;
+
+    @Column(name = "orderFormId")
+    private long orderFormId;
+
+    @Column(name = "userId")
+    private long userId;
 
     //<editor-fold name="constructor">
 
@@ -35,17 +34,10 @@ public class UserEvaluationPK implements java.io.Serializable {
 
     }
 
-    /**
-     * Constructor with parameters
-     * * @param commodity parameter to set value of field userEvaluation
-     *
-     * @param orderForm parameter to set value of field userEvaluation
-     * @param appUser   parameter to set value of field userEvaluation
-     */
-    public UserEvaluationPK(Commodity commodity, OrderForm orderForm, AppUser appUser) {
-        this.commodity = commodity;
-        this.orderForm = orderForm;
-        this.appUser = appUser;
+    public UserEvaluationPK(long commodityId, long orderFormId, long userId) {
+        this.commodityId = commodityId;
+        this.orderFormId = orderFormId;
+        this.userId = userId;
     }
 
     //</editor-fold>
@@ -53,88 +45,66 @@ public class UserEvaluationPK implements java.io.Serializable {
 
     //<editor-fold name="accessor">
 
-
-    /**
-     * Get value of property commodity.
-     *
-     * @return value of property commodity
-     */
-    public Commodity getCommodity() {
-        return this.commodity;
+    public long getCommodityId() {
+        return commodityId;
     }
 
-    /**
-     * Set value of property commodity.
-     *
-     * @param commodity
-     */
-    public void setCommodity(Commodity commodity) {
-        this.commodity = commodity;
+    public UserEvaluationPK setCommodityId(long commodityId) {
+        this.commodityId = commodityId;
+        return this;
     }
 
-    /**
-     * Get value of property orderForm.
-     *
-     * @return value of property orderForm
-     */
-    public OrderForm getOrderForm() {
-        return this.orderForm;
+    public long getOrderFormId() {
+        return orderFormId;
     }
 
-    /**
-     * Set value of property orderForm.
-     *
-     * @param orderForm
-     */
-    public void setOrderForm(OrderForm orderForm) {
-        this.orderForm = orderForm;
+    public UserEvaluationPK setOrderFormId(long orderFormId) {
+        this.orderFormId = orderFormId;
+        return this;
     }
 
-    /**
-     * Get value of property appUser.
-     *
-     * @return value of property appUser
-     */
-    public AppUser getAppUser() {
-        return this.appUser;
+    public long getUserId() {
+        return userId;
     }
 
-    /**
-     * Set value of property appUser.
-     *
-     * @param appUser
-     */
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public UserEvaluationPK setUserId(long userId) {
+        this.userId = userId;
+        return this;
     }
+
 
     //</editor-fold>
 
 
     //<editor-fold name="common methods">
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         UserEvaluationPK that = (UserEvaluationPK) o;
-        return Objects.equals(commodity, that.commodity) &&
-                Objects.equals(orderForm, that.orderForm) &&
-                Objects.equals(appUser, that.appUser);
+
+        if (getCommodityId() != that.getCommodityId()) return false;
+        if (getOrderFormId() != that.getOrderFormId()) return false;
+        return getUserId() == that.getUserId();
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(commodity, orderForm, appUser);
+        int result = (int) (getCommodityId() ^ (getCommodityId() >>> 32));
+        result = 31 * result + (int) (getOrderFormId() ^ (getOrderFormId() >>> 32));
+        result = 31 * result + (int) (getUserId() ^ (getUserId() >>> 32));
+        return result;
     }
 
     @Override
     public String toString() {
         return "UserEvaluationPK{" +
-                "commodity=" + commodity +
-                ", orderForm=" + orderForm +
-                ", appUser=" + appUser +
+                "commodityId=" + commodityId +
+                ", orderFormId=" + orderFormId +
+                ", userId=" + userId +
                 '}';
     }
 

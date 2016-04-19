@@ -1,4 +1,4 @@
-package com.centuryOldShop.server.domain;
+package com.centuryOldShop.server.dto;
 /***********************************************************************
  * Module:  ShopEntity.java
  * Author:  cmicat
@@ -10,6 +10,7 @@ import java.util.Date;
 
 public class ShopDto implements Serializable {
 
+    private long shopId;
     private String shopName;
     private String shortDescription;
     private Date openABusinessTime;
@@ -30,6 +31,15 @@ public class ShopDto implements Serializable {
     //</editor-fold>
 
     //<editor-fold desc="accessor">
+
+    public long getShopId() {
+        return shopId;
+    }
+
+    public ShopDto setShopId(long shopId) {
+        this.shopId = shopId;
+        return this;
+    }
 
     public String getShopName() {
         return shopName;
