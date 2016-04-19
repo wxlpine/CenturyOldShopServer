@@ -42,6 +42,9 @@
         <property name="remainingQuantity" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="remainingQuantity" sql-type="int" not-null="true"/>
         </property>
+        <property name="detailedIntroUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
+            <column name="detailedIntroUrl" sql-type="nvarchar(2000)" not-null="true"/>
+        </property>
         <many-to-one name="commodityType" class="com.centuryOldShop.server.persistence.CommodityType" outer-join="false"
                      update="true" insert="true">
             <column name="commodityType" sql-type="nvarchar(255)" not-null="true" length="255"/>

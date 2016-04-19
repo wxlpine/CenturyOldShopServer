@@ -12,50 +12,19 @@ import java.util.List;
  * @pdOid c995e142-478e-4f20-a0d6-3937cb393cd1
  */
 public class Commodity implements java.io.Serializable {
-    /**
-     * @pdOid 4270790d-bb28-42b8-9085-303cff9b5447
-     */
+
     private long commodityId;
-    /**
-     * @pdOid 7411227a-a645-4ef3-9b51-7c769752cab2
-     */
     private String commodityName;
-    /**
-     * @pdOid 5939b7d4-4f6c-4906-a82a-0dac489a78f6
-     */
     private String smallPhotoUrl;
-    /**
-     * @pdOid 97974dbd-17c0-440c-b9d5-2ffaf7c3387a
-     */
     private String shortDescription;
-    /**
-     * @pdOid 77573462-05d7-4fba-8590-0bfdfeef469d
-     */
     private double price;
-    /**
-     * @pdOid b988f77a-72db-4840-80cd-57f8a4dc8afb
-     */
     private int salesVolume;
-    /**
-     * @pdOid 1082b4a4-8ccd-45e1-aaf0-5f0fb133c2c1
-     */
     private boolean exemptionFromPostage;
-    /**
-     * @pdOid c41ab30f-f0eb-46f4-a124-54d2bbaa1af2
-     */
     private java.util.Date addedTime;
-    /**
-     * @pdOid c04a32c3-37ad-49f3-aa93-f85ca49294cd
-     */
     private String phoneTopBigPhotoUrl;
-    /**
-     * @pdOid 022d24d0-4725-47bc-8d19-f9fa7836cb37
-     */
     private boolean offShelf;
-    /**
-     * @pdOid 91fd5327-7ee1-42d5-97d0-74fd4fc2592f
-     */
     private int remainingQuantity;
+    private String detailedIntroUrl;
 
     /**
      * @pdRoleInfo migr=no name=AppUser assc=favorite coll=java.util.List impl=java.util.ArrayList mult=0..*
@@ -195,23 +164,6 @@ public class Commodity implements java.io.Serializable {
     }
 
     /**
-     * Get value of exemptionFromPostage
-     *
-     * @return exemptionFromPostage
-     */
-    public boolean getExemptionFromPostage() {
-        return exemptionFromPostage;
-    }
-
-    /**
-     * Set value of exemptionFromPostage
-     *
-     */
-    public void setExemptionFromPostage(boolean newExemptionFromPostage) {
-        this.exemptionFromPostage = newExemptionFromPostage;
-    }
-
-    /**
      * Get value of addedTime
      *
      * @return addedTime
@@ -245,22 +197,6 @@ public class Commodity implements java.io.Serializable {
         this.phoneTopBigPhotoUrl = newPhoneTopBigPhotoUrl;
     }
 
-    /**
-     * Get value of offShelf
-     *
-     * @return offShelf
-     */
-    public boolean getOffShelf() {
-        return offShelf;
-    }
-
-    /**
-     * Set value of offShelf
-     *
-     */
-    public void setOffShelf(boolean newOffShelf) {
-        this.offShelf = newOffShelf;
-    }
 
     /**
      * Get value of remainingQuantity
@@ -673,6 +609,33 @@ public class Commodity implements java.io.Serializable {
                 //this.commodityType.addCommodity(this);
             }
         }
+    }
+
+    public boolean isExemptionFromPostage() {
+        return exemptionFromPostage;
+    }
+
+    public Commodity setExemptionFromPostage(boolean exemptionFromPostage) {
+        this.exemptionFromPostage = exemptionFromPostage;
+        return this;
+    }
+
+    public boolean isOffShelf() {
+        return offShelf;
+    }
+
+    public Commodity setOffShelf(boolean offShelf) {
+        this.offShelf = offShelf;
+        return this;
+    }
+
+    public String getDetailedIntroUrl() {
+        return detailedIntroUrl;
+    }
+
+    public Commodity setDetailedIntroUrl(String detailedIntroUrl) {
+        this.detailedIntroUrl = detailedIntroUrl;
+        return this;
     }
 
     //</editor-fold>
