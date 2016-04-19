@@ -68,28 +68,28 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.ShopStory)
      */
-    public List queryByExample(ShopStory shopStoryObject) throws DaoException {
+    public List<ShopStory> queryByExample(ShopStory shopStoryObject) throws DaoException {
         return super.queryByExample(ShopStory.class, shopStoryObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#getShopStoryList()
      */
-    public List getShopStoryList() throws DaoException {
+    public List<ShopStory> getShopStoryList() throws DaoException {
         return super.loadAll(ShopStory.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#getShopStoryList(int, int)
      */
-    public List getShopStoryList(int firstResult, int maxResult) {
+    public List<ShopStory> getShopStoryList(int firstResult, int maxResult) {
         return super.loadAll(ShopStory.class, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByStoryName(java.lang.String)
      */
-    public List findByStoryName(java.lang.String storyName) throws DaoException {
+    public List<ShopStory> findByStoryName(java.lang.String storyName) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("storyName", storyName));
         return super.findByCriterions(ShopStory.class, cs);
@@ -98,7 +98,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByStoryName(java.lang.String, int, int)
      */
-    public List findByStoryName(java.lang.String storyName, int firstResult, int maxResult) throws DaoException {
+    public List<ShopStory> findByStoryName(java.lang.String storyName, int firstResult, int maxResult) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("storyName", storyName));
         return super.findByCriterions(ShopStory.class, cs, firstResult, maxResult);
@@ -107,7 +107,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByStoryContentUrl(java.lang.String)
      */
-    public List findByStoryContentUrl(java.lang.String storyContentUrl) throws DaoException {
+    public List<ShopStory> findByStoryContentUrl(java.lang.String storyContentUrl) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("storyContentUrl", storyContentUrl));
         return super.findByCriterions(ShopStory.class, cs);
@@ -116,7 +116,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByStoryContentUrl(java.lang.String, int, int)
      */
-    public List findByStoryContentUrl(java.lang.String storyContentUrl, int firstResult, int maxResult) throws DaoException {
+    public List<ShopStory> findByStoryContentUrl(java.lang.String storyContentUrl, int firstResult, int maxResult) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("storyContentUrl", storyContentUrl));
         return super.findByCriterions(ShopStory.class, cs, firstResult, maxResult);
@@ -125,7 +125,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByAddedTime(java.util.Date)
      */
-    public List findByAddedTime(java.util.Date addedTime) throws DaoException {
+    public List<ShopStory> findByAddedTime(java.util.Date addedTime) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("addedTime", addedTime));
         return super.findByCriterions(ShopStory.class, cs);
@@ -134,7 +134,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByAddedTime(java.util.Date, int, int)
      */
-    public List findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException {
+    public List<ShopStory> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("addedTime", addedTime));
         return super.findByCriterions(ShopStory.class, cs, firstResult, maxResult);
@@ -143,7 +143,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByShop(com.centuryOldShop.server.persistence.Shop)
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException {
+    public List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("shop", shop));
         return super.findByCriterions(ShopStory.class, cs);
@@ -152,7 +152,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByShop(com.centuryOldShop.server.persistence.Shop, int, int)
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException {
+    public List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("shop", shop));
         return super.findByCriterions(ShopStory.class, cs, firstResult, maxResult);
@@ -161,7 +161,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType)
      */
-    public List findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType) throws DaoException {
+    public List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("shopStoryType", shopStoryType));
         return super.findByCriterions(ShopStory.class, cs);
@@ -170,7 +170,7 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryDao#findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType, int, int)
      */
-    public List findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType, int firstResult, int maxResult) throws DaoException {
+    public List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType, int firstResult, int maxResult) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("shopStoryType", shopStoryType));
         return super.findByCriterions(ShopStory.class, cs, firstResult, maxResult);

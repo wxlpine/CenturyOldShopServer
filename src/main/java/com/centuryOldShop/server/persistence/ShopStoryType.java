@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.List;
+
 /**
  * @pdOid 97b441c9-09cb-4861-a563-7b107a5cd271
  */
@@ -13,12 +15,12 @@ public class ShopStoryType implements java.io.Serializable {
     /**
      * @pdOid c43686ae-5c3c-483f-b206-ec8e8416327b
      */
-    private java.lang.String storyTypeName;
+    private String storyTypeName;
 
     /**
      * @pdRoleInfo migr=no name=ShopStory assc=shopStoryShopStoryType coll=java.util.List impl=java.util.ArrayList mult=0..*
      */
-    private java.util.List<ShopStory> shopStory;
+    private List<ShopStory> shopStory;
 
 
     //<editor-fold name="constructor">
@@ -39,7 +41,7 @@ public class ShopStoryType implements java.io.Serializable {
      *
      * @return storyTypeName
      */
-    public java.lang.String getStoryTypeName() {
+    public String getStoryTypeName() {
         return storyTypeName;
     }
 
@@ -48,7 +50,7 @@ public class ShopStoryType implements java.io.Serializable {
      *
      * @param newStoryTypeName
      */
-    public void setStoryTypeName(java.lang.String newStoryTypeName) {
+    public void setStoryTypeName(String newStoryTypeName) {
         this.storyTypeName = newStoryTypeName;
     }
 
@@ -75,7 +77,7 @@ public class ShopStoryType implements java.io.Serializable {
     /**
      * @pdGenerated default getter
      */
-    public java.util.List<ShopStory> getShopStory() {
+    public List<ShopStory> getShopStory() {
         if (shopStory == null)
             shopStory = new java.util.ArrayList<ShopStory>();
         return shopStory;
@@ -94,7 +96,7 @@ public class ShopStoryType implements java.io.Serializable {
      * @param newShopStory
      * @pdGenerated default setter
      */
-    public void setShopStory(java.util.List<ShopStory> newShopStory) {
+    public void setShopStory(List<ShopStory> newShopStory) {
         //removeAllShopStory();
         this.shopStory = newShopStory;
     }

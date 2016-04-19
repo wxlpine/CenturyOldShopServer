@@ -1,11 +1,12 @@
 package com.centuryOldShop.server.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by cmicat on 2016/4/19.
  */
-public class ShopHistoryDto {
+public class ShopHistoryDto implements Serializable {
 
     private long shopHistoryId;
     private String title;
