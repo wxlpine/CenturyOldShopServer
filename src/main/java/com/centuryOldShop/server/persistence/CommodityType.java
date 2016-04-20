@@ -15,7 +15,7 @@ public class CommodityType implements java.io.Serializable {
     /**
      * @pdOid ca41d35c-564d-44b6-b785-fc0f3d6de76b
      */
-    private java.lang.String commodityType;
+    private String commodityType;
 
 
     /**
@@ -36,7 +36,7 @@ public class CommodityType implements java.io.Serializable {
      *
      * @return commodityType
      */
-    public java.lang.String getCommodityType() {
+    public String getCommodityType() {
         return commodityType;
     }
 
@@ -44,7 +44,7 @@ public class CommodityType implements java.io.Serializable {
      * Set value of commodityType
      *
      */
-    public void setCommodityType(java.lang.String newCommodityType) {
+    public void setCommodityType(String newCommodityType) {
         this.commodityType = newCommodityType;
     }
 

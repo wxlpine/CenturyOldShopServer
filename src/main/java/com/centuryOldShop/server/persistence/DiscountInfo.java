@@ -20,7 +20,7 @@ public class DiscountInfo implements java.io.Serializable {
     /**
      * @pdOid 16cdbb7a-9b56-4a3c-8b09-7d24285f57a7
      */
-    private java.lang.String title;
+    private String title;
     /**
      * @pdOid 83f32084-f5d2-485d-beab-5cb0107b64ed
      */
@@ -90,11 +90,11 @@ public class DiscountInfo implements java.io.Serializable {
         this.discountInfoId = newDiscountInfoId;
     }
 
-    public java.lang.String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(java.lang.String newTitle) {
+    public void setTitle(String newTitle) {
         this.title = newTitle;
     }
 

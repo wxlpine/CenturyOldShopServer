@@ -14,7 +14,7 @@ public class WebServiceApplication extends Application {
         singletons.add(new ShopResource());
         singletons.add(new ShopHistoryResource());
         singletons.add(new ShopStoryResource());
-
+        singletons.add(new CommodityResource());
     }
 
     @Override

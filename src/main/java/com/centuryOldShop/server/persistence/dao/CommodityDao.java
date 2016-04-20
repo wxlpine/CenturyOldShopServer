@@ -8,6 +8,8 @@ package com.centuryOldShop.server.persistence.dao;
 
 import com.centuryOldShop.server.persistence.Commodity;
 import com.centuryOldShop.server.persistence.CommodityPK;
+import com.centuryOldShop.server.persistence.CommodityType;
+import com.centuryOldShop.server.persistence.Shop;
 import com.sybase.orm.dao.Dao;
 import com.sybase.orm.dao.DaoException;
 
@@ -67,7 +69,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List getCommodityList() throws DaoException;
+    public List<Commodity> getCommodityList() throws DaoException;
 
     /**
      * Get all <Code>Commodity</Code> instances from persistence store by range
@@ -77,7 +79,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List getCommodityList(int firstResult, int maxResult);
+    public List<Commodity> getCommodityList(int firstResult, int maxResult);
 
     /**
      * Query <Code>Commodity</Code> instances by example instance
@@ -86,7 +88,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(Commodity commodityObject) throws DaoException;
+    public List<Commodity> queryByExample(Commodity commodityObject) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by commodityName
@@ -95,7 +97,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByCommodityName(java.lang.String commodityName) throws DaoException;
+    public List<Commodity> findByCommodityName(java.lang.String commodityName) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -107,7 +109,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByCommodityName(java.lang.String commodityName, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByCommodityName(java.lang.String commodityName, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by smallPhotoUrl
@@ -116,7 +118,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findBySmallPhotoUrl(java.lang.String smallPhotoUrl) throws DaoException;
+    public List<Commodity> findBySmallPhotoUrl(java.lang.String smallPhotoUrl) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -128,7 +130,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findBySmallPhotoUrl(java.lang.String smallPhotoUrl, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findBySmallPhotoUrl(java.lang.String smallPhotoUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by shortDescription
@@ -137,7 +139,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByShortDescription(java.lang.String shortDescription) throws DaoException;
+    public List<Commodity> findByShortDescription(java.lang.String shortDescription) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -149,7 +151,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByShortDescription(java.lang.String shortDescription, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByShortDescription(java.lang.String shortDescription, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by price
@@ -158,7 +160,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByPrice(double price) throws DaoException;
+    public List<Commodity> findByPrice(double price) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -170,7 +172,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByPrice(double price, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByPrice(double price, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by salesVolume
@@ -179,7 +181,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findBySalesVolume(int salesVolume) throws DaoException;
+    public List<Commodity> findBySalesVolume(int salesVolume) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -191,7 +193,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findBySalesVolume(int salesVolume, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findBySalesVolume(int salesVolume, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by exemptionFromPostage
@@ -200,7 +202,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByExemptionFromPostage(boolean exemptionFromPostage) throws DaoException;
+    public List<Commodity> findByExemptionFromPostage(boolean exemptionFromPostage) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -212,7 +214,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByExemptionFromPostage(boolean exemptionFromPostage, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByExemptionFromPostage(boolean exemptionFromPostage, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by addedTime
@@ -221,7 +223,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime) throws DaoException;
+    public List<Commodity> findByAddedTime(java.util.Date addedTime) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -233,7 +235,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by phoneTopBigPhotoUrl
@@ -242,7 +244,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByPhoneTopBigPhotoUrl(java.lang.String phoneTopBigPhotoUrl) throws DaoException;
+    public List<Commodity> findByPhoneTopBigPhotoUrl(java.lang.String phoneTopBigPhotoUrl) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -254,7 +256,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByPhoneTopBigPhotoUrl(java.lang.String phoneTopBigPhotoUrl, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByPhoneTopBigPhotoUrl(java.lang.String phoneTopBigPhotoUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by offShelf
@@ -263,7 +265,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByOffShelf(boolean offShelf) throws DaoException;
+    public List<Commodity> findByOffShelf(boolean offShelf) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -275,7 +277,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByOffShelf(boolean offShelf, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByOffShelf(boolean offShelf, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by remainingQuantity
@@ -284,7 +286,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByRemainingQuantity(int remainingQuantity) throws DaoException;
+    public List<Commodity> findByRemainingQuantity(int remainingQuantity) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances in range firstResult, maxResult
@@ -296,7 +298,8 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByRemainingQuantity(int remainingQuantity, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByRemainingQuantity(int remainingQuantity, int firstResult, int maxResult)
+            throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances from persistence store by CommodityType
@@ -305,7 +308,7 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByCommodityType(com.centuryOldShop.server.persistence.CommodityType commodityType) throws DaoException;
+    public List<Commodity> findByCommodityType(CommodityType commodityType) throws DaoException;
 
     /**
      * Find <Code>Commodity</Code> instances  instances in range firstResult, maxResult
@@ -317,5 +320,10 @@ public interface CommodityDao extends Dao {
      * @return <Code>Commodity</Code> instance list
      * @throws DaoException
      */
-    public List findByCommodityType(com.centuryOldShop.server.persistence.CommodityType commodityType, int firstResult, int maxResult) throws DaoException;
+    public List<Commodity> findByCommodityType(CommodityType commodityType, int firstResult, int maxResult)
+            throws DaoException;
+
+    public List<Commodity> findByShop(Shop shop) throws DaoException;
+
+    public List<Commodity> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException;
 }
