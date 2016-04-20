@@ -484,13 +484,11 @@ public class OrderForm implements java.io.Serializable {
                 ", sendTime=" + sendTime +
                 ", receiptedTime=" + receiptedTime +
                 ", expressNumber='" + expressNumber + '\'' +
-                ", disputeStatusType=" + disputeStatusType +
-                ", orderStatusType=" + orderStatusType +
-                ", discountInfo=" + discountInfo +
-                ", shop=" + shop +
                 ", appUser=" + appUser +
-                ", userEvaluation=" + userEvaluation +
-                ", commodity=" + commodity +
+                ", shop=" + shop +
+                ", discountInfo=" + discountInfo +
+                ", orderStatusType=" + orderStatusType +
+                ", disputeStatusType=" + disputeStatusType +
                 '}';
     }
 

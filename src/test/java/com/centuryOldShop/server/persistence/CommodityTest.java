@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.centuryOldShop.server.persistence.CommodityTestHelper.newInstance;
 import static com.centuryOldShop.server.persistence.CommodityTestHelper.unitTestEquals;
 
 /**
@@ -377,7 +378,7 @@ public class CommodityTest extends TestCase {
      * @throws Exception
      */
     private Commodity preInsert() throws Exception {
-        Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+        Commodity commodity = newInstance(null, null, "", 0, true);
         Commodity old = dao.load(commodity.getCommodityPK());
         if (old != null)
             CommodityTestHelper.delete(old);
@@ -513,7 +514,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setCommodityName(commodityName);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -588,7 +589,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setSmallPhotoUrl(smallPhotoUrl);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -663,7 +664,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setShortDescription(shortDescription);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -738,7 +739,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setPrice(price);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -813,7 +814,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setSalesVolume(salesVolume);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -888,7 +889,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setExemptionFromPostage(exemptionFromPostage);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -963,7 +964,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setAddedTime(addedTime);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -1038,7 +1039,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setPhoneTopBigPhotoUrl(phoneTopBigPhotoUrl);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -1113,7 +1114,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setOffShelf(offShelf);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -1188,7 +1189,7 @@ public class CommodityTest extends TestCase {
         // and save them
         int randomsize = 5 + Math.abs((random).nextInt(7));
         for (int i = 0; i < randomsize; i++) {
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = newInstance(null, null, "", 0, true);
             commodity.setRemainingQuantity(remainingQuantity);
             deleteBeforeSave(commodity);
             dao.commitTransaction();
@@ -1317,7 +1318,7 @@ public class CommodityTest extends TestCase {
      * @throws Exception
      */
     private Commodity prepare() {
-        Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+        Commodity commodity = newInstance(null, null, "", 0, true);
         return deleteBeforeSave(commodity);
     }
 

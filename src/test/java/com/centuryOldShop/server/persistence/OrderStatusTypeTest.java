@@ -260,10 +260,12 @@ public class OrderStatusTypeTest extends TestCase {
 
         List oldOrderStatusTypes = dao.getOrderStatusTypeList();
 
+
         if (oldOrderStatusTypes != null) {
             Iterator it = oldOrderStatusTypes.iterator();
-            while (it.hasNext())
+            while (it.hasNext()) {
                 OrderStatusTypeTestHelper.delete((OrderStatusType) it.next());
+            }
         }
 
         int size = 5 + Math.abs((random).nextInt(7));

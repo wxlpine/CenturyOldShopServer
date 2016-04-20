@@ -43,7 +43,8 @@ public class CommodityTestHelper {
      * @param associationInitialized if association should be initantiated
      * @return a new instance of persistent class
      */
-    public static Commodity newInstance(Commodity persistentObject, Object precedingObject, String associationId, int layer, boolean associationInitialized) {
+    public static Commodity newInstance(Commodity persistentObject, Object precedingObject, String associationId,
+                                        int layer, boolean associationInitialized) {
         if (persistentObject == null)
             persistentObject = new Commodity();
 
@@ -58,6 +59,13 @@ public class CommodityTestHelper {
         persistentObject.setPhoneTopBigPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setOffShelf(random.nextBoolean());
         persistentObject.setRemainingQuantity(random.nextInt());
+        persistentObject.setDetailedIntroUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
+
+        if (associationInitialized) {
+            Shop shop = ShopTestHelper.newInstance(null, null, "", 0, true);
+            ShopTestHelper.save(shop);
+            persistentObject.setShop(shop);
+        }
 
         if (precedingObject != null && associationId.equals("FA86E9CC-9786-4EA4-8E04-251C1EB2B194")) {
             persistentObject.addFavoriteUser((AppUser) precedingObject);
@@ -97,6 +105,7 @@ public class CommodityTestHelper {
         persistentObject.setPhoneTopBigPhotoUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
         persistentObject.setOffShelf(random.nextBoolean());
         persistentObject.setRemainingQuantity(random.nextInt());
+        persistentObject.setDetailedIntroUrl(String.valueOf(random.nextInt((int) Math.round(Math.pow(10, 8)))));
     }
 
     /**
@@ -209,14 +218,16 @@ public class CommodityTestHelper {
         return left.getCommodityId() == right.getCommodityId() &&
                 Double.compare(right.getPrice(), left.getPrice()) == 0 &&
                 left.getSalesVolume() == right.getSalesVolume() &&
-                left.getExemptionFromPostage() == right.getExemptionFromPostage() &&
-                left.getOffShelf() == right.getOffShelf() &&
+                left.isExemptionFromPostage() == right.isExemptionFromPostage() &&
+                left.isOffShelf() == right.isOffShelf() &&
                 left.getRemainingQuantity() == right.getRemainingQuantity() &&
+                Objects.equals(left.getDetailedIntroUrl(), right.getDetailedIntroUrl()) &&
                 Objects.equals(left.getCommodityName(), right.getCommodityName()) &&
                 Objects.equals(left.getSmallPhotoUrl(), right.getSmallPhotoUrl()) &&
                 Objects.equals(left.getShortDescription(), right.getShortDescription()) &&
                 Objects.equals(left.getAddedTime(), right.getAddedTime()) &&
                 Objects.equals(left.getPhoneTopBigPhotoUrl(), right.getPhoneTopBigPhotoUrl()) &&
+                ShopTestHelper.unitTestEquals(left.getShop(), right.getShop()) &&
                 CommodityTypeTestHelper.unitTestEquals(left.getCommodityType(), right.getCommodityType());
     }
 }

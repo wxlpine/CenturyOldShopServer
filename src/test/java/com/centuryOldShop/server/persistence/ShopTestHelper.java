@@ -11,10 +11,7 @@ import factory.DaoFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Test helper class for Shop. It provides some utility methods, such as methods to
@@ -155,15 +152,13 @@ public class ShopTestHelper {
      * @throws Exception
      */
     public static void delete(Shop shopObject) {
-        java.util.List newss = shopObject.getNews();
+
+        List<News> newss = shopObject.getNews();
         if (newss != null) {
-            Iterator it = newss.iterator();
-            while (it.hasNext()) {
-                News news = (News) it.next();
-                com.centuryOldShop.server.persistence.NewsTestHelper.delete(news);
-            }
+            newss.forEach(NewsTestHelper::delete);
         }
-        java.util.List shopStorys = shopObject.getShopStory();
+
+        List shopStorys = shopObject.getShopStory();
         if (shopStorys != null) {
             Iterator it = shopStorys.iterator();
             while (it.hasNext()) {
@@ -171,7 +166,8 @@ public class ShopTestHelper {
                 com.centuryOldShop.server.persistence.ShopStoryTestHelper.delete(shopStory);
             }
         }
-        java.util.List discountInfos = shopObject.getDiscountInfo();
+
+        List discountInfos = shopObject.getDiscountInfo();
         if (discountInfos != null) {
             Iterator it = discountInfos.iterator();
             while (it.hasNext()) {
@@ -179,7 +175,8 @@ public class ShopTestHelper {
                 com.centuryOldShop.server.persistence.DiscountInfoTestHelper.delete(discountInfo);
             }
         }
-        java.util.List orderForms = shopObject.getOrderForm();
+
+        List orderForms = shopObject.getOrderForm();
         if (orderForms != null) {
             Iterator it = orderForms.iterator();
             while (it.hasNext()) {
@@ -187,7 +184,8 @@ public class ShopTestHelper {
                 com.centuryOldShop.server.persistence.OrderFormTestHelper.delete(orderForm);
             }
         }
-        java.util.List shopHistorys = shopObject.getShopHistory();
+
+        List shopHistorys = shopObject.getShopHistory();
         if (shopHistorys != null) {
             Iterator it = shopHistorys.iterator();
             while (it.hasNext()) {
@@ -195,7 +193,8 @@ public class ShopTestHelper {
                 com.centuryOldShop.server.persistence.ShopHistoryTestHelper.delete(shopHistory);
             }
         }
-        java.util.List specialCrafts = shopObject.getSpecialCraft();
+
+        List specialCrafts = shopObject.getSpecialCraft();
         if (specialCrafts != null) {
             Iterator it = specialCrafts.iterator();
             while (it.hasNext()) {
@@ -203,7 +202,8 @@ public class ShopTestHelper {
                 com.centuryOldShop.server.persistence.SpecialCraftTestHelper.delete(specialCraft);
             }
         }
-        java.util.List videoIntroductions = shopObject.getVideoIntroduction();
+
+        List videoIntroductions = shopObject.getVideoIntroduction();
         if (videoIntroductions != null) {
             Iterator it = videoIntroductions.iterator();
             while (it.hasNext()) {
@@ -211,7 +211,8 @@ public class ShopTestHelper {
                 com.centuryOldShop.server.persistence.VideoIntroductionTestHelper.delete(videoIntroduction);
             }
         }
-        java.util.List shopManagers = shopObject.getShopManager();
+
+        List shopManagers = shopObject.getShopManager();
         if (shopManagers != null) {
             Iterator it = shopManagers.iterator();
             while (it.hasNext()) {
@@ -219,6 +220,12 @@ public class ShopTestHelper {
                 shopManager.setManagedShop(null);
             }
         }
+
+        Set<Commodity> commodity = shopObject.getCommodity();
+        if (commodity != null) {
+            commodity.forEach(CommodityTestHelper::delete);
+        }
+
         ShopDao dao = DaoFactory.getDaoFactory().getShopDao();
         dao.delete(shopObject);
     }

@@ -68,21 +68,21 @@ public class OrderStatusTypeDaoImpl extends HibernateDaoImpl implements OrderSta
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderStatusTypeDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.OrderStatusType)
      */
-    public List queryByExample(OrderStatusType orderStatusTypeObject) throws DaoException {
+    public List<OrderStatusType> queryByExample(OrderStatusType orderStatusTypeObject) throws DaoException {
         return super.queryByExample(OrderStatusType.class, orderStatusTypeObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderStatusTypeDao#getOrderStatusTypeList()
      */
-    public List getOrderStatusTypeList() throws DaoException {
+    public List<OrderStatusType> getOrderStatusTypeList() throws DaoException {
         return super.loadAll(OrderStatusType.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderStatusTypeDao#getOrderStatusTypeList(int, int)
      */
-    public List getOrderStatusTypeList(int firstResult, int maxResult) {
+    public List<OrderStatusType> getOrderStatusTypeList(int firstResult, int maxResult) {
         return super.loadAll(OrderStatusType.class, firstResult, maxResult);
     }
 

@@ -356,6 +356,7 @@ public class ShopAreaTest extends TestCase {
      * @throws Exception
      */
     private List preGetShopAreaList() throws Exception {
+
         List shopAreas = new ArrayList();
         dao.setAutoCommit(false);
 
@@ -363,8 +364,9 @@ public class ShopAreaTest extends TestCase {
 
         if (oldShopAreas != null) {
             Iterator it = oldShopAreas.iterator();
-            while (it.hasNext())
+            while (it.hasNext()) {
                 ShopAreaTestHelper.delete((ShopArea) it.next());
+            }
         }
 
         int size = 5 + Math.abs((random).nextInt(7));

@@ -47,11 +47,11 @@ public class FavoriteTestHelper {
             persistentObject = new Favorite();
 
         if (associationInitialized) {
-            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, false);
+            AppUser appUser = AppUserTestHelper.newInstance(null, null, "", 0, true);
             AppUserTestHelper.save(appUser);
             persistentObject.setFavoriteUser(appUser);
 
-            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, false);
+            Commodity commodity = CommodityTestHelper.newInstance(null, null, "", 0, true);
             CommodityTestHelper.save(commodity);
             persistentObject.setFavoriteCommodity(commodity);
 

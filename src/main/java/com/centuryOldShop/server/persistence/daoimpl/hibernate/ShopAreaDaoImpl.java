@@ -68,28 +68,28 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopAreaDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.ShopArea)
      */
-    public List queryByExample(ShopArea shopAreaObject) throws DaoException {
+    public List<ShopArea> queryByExample(ShopArea shopAreaObject) throws DaoException {
         return super.queryByExample(ShopArea.class, shopAreaObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopAreaDao#getShopAreaList()
      */
-    public List getShopAreaList() throws DaoException {
+    public List<ShopArea> getShopAreaList() throws DaoException {
         return super.loadAll(ShopArea.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopAreaDao#getShopAreaList(int, int)
      */
-    public List getShopAreaList(int firstResult, int maxResult) {
+    public List<ShopArea> getShopAreaList(int firstResult, int maxResult) {
         return super.loadAll(ShopArea.class, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopAreaDao#findByShopAreaName(java.lang.String)
      */
-    public List findByShopAreaName(java.lang.String shopAreaName) throws DaoException {
+    public List<ShopArea> findByShopAreaName(java.lang.String shopAreaName) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("shopAreaName", shopAreaName));
         return super.findByCriterions(ShopArea.class, cs);
@@ -98,7 +98,7 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopAreaDao#findByShopAreaName(java.lang.String, int, int)
      */
-    public List findByShopAreaName(java.lang.String shopAreaName, int firstResult, int maxResult) throws DaoException {
+    public List<ShopArea> findByShopAreaName(java.lang.String shopAreaName, int firstResult, int maxResult) throws DaoException {
         List cs = new ArrayList();
         cs.add(Restrictions.eq("shopAreaName", shopAreaName));
         return super.findByCriterions(ShopArea.class, cs, firstResult, maxResult);

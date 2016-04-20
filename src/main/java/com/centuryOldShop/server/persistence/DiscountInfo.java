@@ -36,25 +36,25 @@ public class DiscountInfo implements java.io.Serializable {
      *
      * @pdOid 93eb1f59-b1a1-46c9-8b66-1734f3cc853e
      */
-    private double priceReduceMinPrice;
+    private Double priceReduceMinPrice;
     /**
      * 减免额度
      *
      * @pdOid bd8c6d20-1679-4586-8de6-94d2798277f3
      */
-    private double priceReduceAmount;
+    private Double priceReduceAmount;
     /**
      * 打折最低金额
      *
      * @pdOid 1651517a-418c-4172-b42d-cb28b42d90c6
      */
-    private double discountMinPrice;
+    private Double discountMinPrice;
     /**
      * 折扣值，比如9折之类的
      *
      * @pdOid f12a756e-5304-44d0-8477-8adb4b5d3c00
      */
-    private double discountRatio;
+    private Double discountRatio;
 
     /**
      * @pdRoleInfo migr=no name=Commodity assc=commodityDiscountInfo coll=java.util.List impl=java.util.ArrayList mult=0..*
@@ -114,36 +114,40 @@ public class DiscountInfo implements java.io.Serializable {
         this.discountEndTime = newDiscountEndTime;
     }
 
-    public double getPriceReduceMinPrice() {
+    public Double getPriceReduceMinPrice() {
         return priceReduceMinPrice;
     }
 
-    public void setPriceReduceMinPrice(double newPriceReduceMinPrice) {
-        this.priceReduceMinPrice = newPriceReduceMinPrice;
+    public DiscountInfo setPriceReduceMinPrice(Double priceReduceMinPrice) {
+        this.priceReduceMinPrice = priceReduceMinPrice;
+        return this;
     }
 
-    public double getPriceReduceAmount() {
+    public Double getPriceReduceAmount() {
         return priceReduceAmount;
     }
 
-    public void setPriceReduceAmount(double newPriceReduceAmount) {
-        this.priceReduceAmount = newPriceReduceAmount;
+    public DiscountInfo setPriceReduceAmount(Double priceReduceAmount) {
+        this.priceReduceAmount = priceReduceAmount;
+        return this;
     }
 
-    public double getDiscountMinPrice() {
+    public Double getDiscountMinPrice() {
         return discountMinPrice;
     }
 
-    public void setDiscountMinPrice(double newDiscountMinPrice) {
-        this.discountMinPrice = newDiscountMinPrice;
+    public DiscountInfo setDiscountMinPrice(Double discountMinPrice) {
+        this.discountMinPrice = discountMinPrice;
+        return this;
     }
 
-    public double getDiscountRatio() {
+    public Double getDiscountRatio() {
         return discountRatio;
     }
 
-    public void setDiscountRatio(double newDiscountRatio) {
-        this.discountRatio = newDiscountRatio;
+    public DiscountInfo setDiscountRatio(Double discountRatio) {
+        this.discountRatio = discountRatio;
+        return this;
     }
 
     public DiscountInfoPK getDiscountInfoPK() {
