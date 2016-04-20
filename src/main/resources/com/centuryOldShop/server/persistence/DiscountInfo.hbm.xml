@@ -38,7 +38,7 @@
             <column name="shopId" sql-type="int" not-null="true" length="0"/>
         </many-to-one>
         <many-to-one name="discountType" class="com.centuryOldShop.server.persistence.DiscountType" outer-join="false"
-                     update="true" insert="true">
+                     fetch="join" update="true" insert="true">
             <column name="discountTypeId" sql-type="int" not-null="true" length="0"/>
         </many-to-one>
         <bag name="orderForm" outer-join="false" lazy="true" optimistic-lock="true">

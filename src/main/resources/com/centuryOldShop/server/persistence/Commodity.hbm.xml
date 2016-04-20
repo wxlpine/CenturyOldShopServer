@@ -45,7 +45,7 @@
         <property name="detailedIntroUrl" insert="true" update="true" lazy="false" optimistic-lock="true">
             <column name="detailedIntroUrl" sql-type="nvarchar(2000)" not-null="true"/>
         </property>
-        <many-to-one name="commodityType" class="CommodityType" outer-join="false"
+        <many-to-one name="commodityType" class="CommodityType" outer-join="false" fetch="join"
                      update="true" insert="true">
             <column name="commodityType" sql-type="nvarchar(255)" not-null="true" length="255"/>
         </many-to-one>
