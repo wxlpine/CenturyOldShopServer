@@ -67,7 +67,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List getAppUserList() throws DaoException;
+    List<AppUser> getAppUserList() throws DaoException;
 
     /**
      * Get all <Code>AppUser</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List getAppUserList(int firstResult, int maxResult);
+    List<AppUser> getAppUserList(int firstResult, int maxResult);
 
     /**
      * Query <Code>AppUser</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(AppUser appUserObject) throws DaoException;
+    List<AppUser> queryByExample(AppUser appUserObject) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by userName
@@ -95,7 +95,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByUserName(java.lang.String userName) throws DaoException;
+    List<AppUser> findByUserName(java.lang.String userName) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByUserName(java.lang.String userName, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByUserName(java.lang.String userName, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by email
@@ -116,7 +116,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByEmail(java.lang.String email) throws DaoException;
+    List<AppUser> findByEmail(java.lang.String email) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByEmail(java.lang.String email, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByEmail(java.lang.String email, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by phoneNumber
@@ -137,7 +137,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByPhoneNumber(java.lang.String phoneNumber) throws DaoException;
+    List<AppUser> findByPhoneNumber(java.lang.String phoneNumber) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByPhoneNumber(java.lang.String phoneNumber, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByPhoneNumber(java.lang.String phoneNumber, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by userType
@@ -158,7 +158,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByUserType(short userType) throws DaoException;
+    List<AppUser> findByUserType(short userType) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByUserType(short userType, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByUserType(short userType, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by headPortraitUrl
@@ -179,7 +179,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByHeadPortraitUrl(java.lang.String headPortraitUrl) throws DaoException;
+    List<AppUser> findByHeadPortraitUrl(java.lang.String headPortraitUrl) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances in range firstResult, maxResult
@@ -191,7 +191,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByHeadPortraitUrl(java.lang.String headPortraitUrl, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByHeadPortraitUrl(java.lang.String headPortraitUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by registerTime
@@ -200,7 +200,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByRegisterTime(java.util.Date registerTime) throws DaoException;
+    List<AppUser> findByRegisterTime(java.util.Date registerTime) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances in range firstResult, maxResult
@@ -212,7 +212,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByRegisterTime(java.util.Date registerTime, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByRegisterTime(java.util.Date registerTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances from persistence store by Shop
@@ -221,7 +221,7 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByManagedShop(com.centuryOldShop.server.persistence.Shop managedShop) throws DaoException;
+    List<AppUser> findByManagedShop(com.centuryOldShop.server.persistence.Shop managedShop) throws DaoException;
 
     /**
      * Find <Code>AppUser</Code> instances  instances in range firstResult, maxResult
@@ -233,5 +233,5 @@ public interface AppUserDao extends Dao {
      * @return <Code>AppUser</Code> instance list
      * @throws DaoException
      */
-    public List findByManagedShop(com.centuryOldShop.server.persistence.Shop managedShop, int firstResult, int maxResult) throws DaoException;
+    List<AppUser> findByManagedShop(com.centuryOldShop.server.persistence.Shop managedShop, int firstResult, int maxResult) throws DaoException;
 }

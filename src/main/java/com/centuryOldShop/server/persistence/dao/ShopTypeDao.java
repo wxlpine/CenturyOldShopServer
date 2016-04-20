@@ -67,7 +67,7 @@ public interface ShopTypeDao extends Dao {
      * @return <Code>ShopType</Code> instance list
      * @throws DaoException
      */
-    public List getShopTypeList() throws DaoException;
+    List<ShopType> getShopTypeList() throws DaoException;
 
     /**
      * Get all <Code>ShopType</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface ShopTypeDao extends Dao {
      * @return <Code>ShopType</Code> instance list
      * @throws DaoException
      */
-    public List getShopTypeList(int firstResult, int maxResult);
+    List<ShopType> getShopTypeList(int firstResult, int maxResult);
 
     /**
      * Query <Code>ShopType</Code> instances by example instance
@@ -86,6 +86,6 @@ public interface ShopTypeDao extends Dao {
      * @return <Code>ShopType</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(ShopType shopTypeObject) throws DaoException;
+    List<ShopType> queryByExample(ShopType shopTypeObject) throws DaoException;
 
 }

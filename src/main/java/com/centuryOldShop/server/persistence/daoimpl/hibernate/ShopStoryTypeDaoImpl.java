@@ -11,6 +11,7 @@ import com.centuryOldShop.server.persistence.ShopStoryTypePK;
 import com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +21,13 @@ import java.util.List;
 /**
  * Class that implements methods of ShopStoryTypeDao interface
  */
-@SuppressWarnings("ALL")
+
 public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryTypeDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#save(com.centuryOldShop.server.persistence.ShopStoryType)
      */
+    @Override
     public Serializable save(ShopStoryType shopStoryTypeObject) throws DaoException {
         return super.save(shopStoryTypeObject);
     }
@@ -33,8 +35,9 @@ public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#load(com.centuryOldShop.server.persistence.ShopStoryTypePK)
      */
+    @Override
     public ShopStoryType load(ShopStoryTypePK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
         String[] paramNames = new String[]{"storyTypeName"};
         Object[] values = new Object[]{pk.getStoryTypeName()};
         for (int i = 0; i < paramNames.length; i++)
@@ -47,6 +50,7 @@ public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#delete(com.centuryOldShop.server.persistence.ShopStoryType)
      */
+    @Override
     public void delete(ShopStoryType shopStoryTypeObject) throws DaoException {
         super.delete(shopStoryTypeObject);
     }
@@ -54,6 +58,7 @@ public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#update(com.centuryOldShop.server.persistence.ShopStoryType)
      */
+    @Override
     public void update(ShopStoryType shopStoryTypeObject) throws DaoException {
         super.update(shopStoryTypeObject);
     }
@@ -61,6 +66,7 @@ public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#saveOrUpdate(com.centuryOldShop.server.persistence.ShopStoryType)
      */
+    @Override
     public void saveOrUpdate(ShopStoryType shopStoryTypeObject) throws DaoException {
         super.saveOrUpdate(shopStoryTypeObject);
     }
@@ -68,21 +74,24 @@ public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.ShopStoryType)
      */
-    public List queryByExample(ShopStoryType shopStoryTypeObject) throws DaoException {
+    @Override
+    public List<ShopStoryType> queryByExample(ShopStoryType shopStoryTypeObject) throws DaoException {
         return super.queryByExample(ShopStoryType.class, shopStoryTypeObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#getShopStoryTypeList()
      */
-    public List getShopStoryTypeList() throws DaoException {
+    @Override
+    public List<ShopStoryType> getShopStoryTypeList() throws DaoException {
         return super.loadAll(ShopStoryType.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopStoryTypeDao#getShopStoryTypeList(int, int)
      */
-    public List getShopStoryTypeList(int firstResult, int maxResult) {
+    @Override
+    public List<ShopStoryType> getShopStoryTypeList(int firstResult, int maxResult) {
         return super.loadAll(ShopStoryType.class, firstResult, maxResult);
     }
 

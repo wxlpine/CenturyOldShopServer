@@ -67,7 +67,7 @@ public interface RateKeywordDao extends Dao {
      * @return <Code>RateKeyword</Code> instance list
      * @throws DaoException
      */
-    public List getRateKeywordList() throws DaoException;
+    List<RateKeyword> getRateKeywordList() throws DaoException;
 
     /**
      * Get all <Code>RateKeyword</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface RateKeywordDao extends Dao {
      * @return <Code>RateKeyword</Code> instance list
      * @throws DaoException
      */
-    public List getRateKeywordList(int firstResult, int maxResult);
+    List<RateKeyword> getRateKeywordList(int firstResult, int maxResult);
 
     /**
      * Query <Code>RateKeyword</Code> instances by example instance
@@ -86,6 +86,6 @@ public interface RateKeywordDao extends Dao {
      * @return <Code>RateKeyword</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(RateKeyword rateKeywordObject) throws DaoException;
+    List<RateKeyword> queryByExample(RateKeyword rateKeywordObject) throws DaoException;
 
 }

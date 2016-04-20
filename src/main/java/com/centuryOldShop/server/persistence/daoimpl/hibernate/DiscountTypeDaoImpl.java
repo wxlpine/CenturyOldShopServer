@@ -11,6 +11,7 @@ import com.centuryOldShop.server.persistence.DiscountTypePK;
 import com.centuryOldShop.server.persistence.dao.DiscountTypeDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +21,13 @@ import java.util.List;
 /**
  * Class that implements methods of DiscountTypeDao interface
  */
-@SuppressWarnings("ALL")
+
 public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTypeDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#save(com.centuryOldShop.server.persistence.DiscountType)
      */
+    @Override
     public Serializable save(DiscountType discountTypeObject) throws DaoException {
         return super.save(discountTypeObject);
     }
@@ -33,8 +35,9 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#load(com.centuryOldShop.server.persistence.DiscountTypePK)
      */
+    @Override
     public DiscountType load(DiscountTypePK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
         String[] paramNames = new String[]{"discountTypeId"};
         Object[] values = new Object[]{new Long(pk.getDiscountTypeId())};
         for (int i = 0; i < paramNames.length; i++)
@@ -47,6 +50,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#delete(com.centuryOldShop.server.persistence.DiscountType)
      */
+    @Override
     public void delete(DiscountType discountTypeObject) throws DaoException {
         super.delete(discountTypeObject);
     }
@@ -54,6 +58,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#update(com.centuryOldShop.server.persistence.DiscountType)
      */
+    @Override
     public void update(DiscountType discountTypeObject) throws DaoException {
         super.update(discountTypeObject);
     }
@@ -61,6 +66,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#saveOrUpdate(com.centuryOldShop.server.persistence.DiscountType)
      */
+    @Override
     public void saveOrUpdate(DiscountType discountTypeObject) throws DaoException {
         super.saveOrUpdate(discountTypeObject);
     }
@@ -68,29 +74,33 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.DiscountType)
      */
-    public List queryByExample(DiscountType discountTypeObject) throws DaoException {
+    @Override
+    public List<DiscountType> queryByExample(DiscountType discountTypeObject) throws DaoException {
         return super.queryByExample(DiscountType.class, discountTypeObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#getDiscountTypeList()
      */
-    public List getDiscountTypeList() throws DaoException {
+    @Override
+    public List<DiscountType> getDiscountTypeList() throws DaoException {
         return super.loadAll(DiscountType.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#getDiscountTypeList(int, int)
      */
-    public List getDiscountTypeList(int firstResult, int maxResult) {
+    @Override
+    public List<DiscountType> getDiscountTypeList(int firstResult, int maxResult) {
         return super.loadAll(DiscountType.class, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#findByDiscountTypeName(java.lang.String)
      */
-    public List findByDiscountTypeName(java.lang.String discountTypeName) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<DiscountType> findByDiscountTypeName(java.lang.String discountTypeName) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountTypeName", discountTypeName));
         return super.findByCriterions(DiscountType.class, cs);
     }
@@ -98,8 +108,9 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountTypeDao#findByDiscountTypeName(java.lang.String, int, int)
      */
-    public List findByDiscountTypeName(java.lang.String discountTypeName, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<DiscountType> findByDiscountTypeName(java.lang.String discountTypeName, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountTypeName", discountTypeName));
         return super.findByCriterions(DiscountType.class, cs, firstResult, maxResult);
     }

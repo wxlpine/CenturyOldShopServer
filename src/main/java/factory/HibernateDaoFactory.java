@@ -24,6 +24,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getNewsDao()
      */
+    @Override
     public NewsDao getNewsDao() {
         return new NewsDaoImpl();
     }
@@ -31,6 +32,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShopStoryDao()
      */
+    @Override
     public ShopStoryDao getShopStoryDao() {
         return new ShopStoryDaoImpl();
     }
@@ -38,6 +40,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShopDao()
      */
+    @Override
     public ShopDao getShopDao() {
         return new ShopDaoImpl();
     }
@@ -45,6 +48,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShopTypeDao()
      */
+    @Override
     public ShopTypeDao getShopTypeDao() {
         return new ShopTypeDaoImpl();
     }
@@ -52,6 +56,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShopAreaDao()
      */
+    @Override
     public ShopAreaDao getShopAreaDao() {
         return new ShopAreaDaoImpl();
     }
@@ -59,6 +64,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShoppingCartDao()
      */
+    @Override
     public ShoppingCartDao getShoppingCartDao() {
         return new ShoppingCartDaoImpl();
     }
@@ -66,6 +72,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getDiscountInfoDao()
      */
+    @Override
     public DiscountInfoDao getDiscountInfoDao() {
         return new DiscountInfoDaoImpl();
     }
@@ -73,6 +80,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getDiscountTypeDao()
      */
+    @Override
     public DiscountTypeDao getDiscountTypeDao() {
         return new DiscountTypeDaoImpl();
     }
@@ -80,6 +88,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getCommodityDao()
      */
+    @Override
     public CommodityDao getCommodityDao() {
         return new CommodityDaoImpl();
     }
@@ -87,6 +96,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getCommodityTypeDao()
      */
+    @Override
     public CommodityTypeDao getCommodityTypeDao() {
         return new CommodityTypeDaoImpl();
     }
@@ -94,6 +104,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getOrderFormDao()
      */
+    @Override
     public OrderFormDao getOrderFormDao() {
         return new OrderFormDaoImpl();
     }
@@ -101,6 +112,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getUserEvaluationDao()
      */
+    @Override
     public UserEvaluationDao getUserEvaluationDao() {
         return new UserEvaluationDaoImpl();
     }
@@ -108,6 +120,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShopHistoryDao()
      */
+    @Override
     public ShopHistoryDao getShopHistoryDao() {
         return new ShopHistoryDaoImpl();
     }
@@ -115,6 +128,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getOrderFormCommodityDao()
      */
+    @Override
     public OrderFormCommodityDao getOrderFormCommodityDao() {
         return new OrderFormCommodityDaoImpl();
     }
@@ -122,6 +136,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getFavoriteDao()
      */
+    @Override
     public FavoriteDao getFavoriteDao() {
         return new FavoriteDaoImpl();
     }
@@ -129,6 +144,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getMessageDao()
      */
+    @Override
     public MessageDao getMessageDao() {
         return new MessageDaoImpl();
     }
@@ -136,6 +152,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getSpecialCraftDao()
      */
+    @Override
     public SpecialCraftDao getSpecialCraftDao() {
         return new SpecialCraftDaoImpl();
     }
@@ -143,6 +160,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getVideoIntroductionDao()
      */
+    @Override
     public VideoIntroductionDao getVideoIntroductionDao() {
         return new VideoIntroductionDaoImpl();
     }
@@ -150,6 +168,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getRateKeywordDao()
      */
+    @Override
     public RateKeywordDao getRateKeywordDao() {
         return new RateKeywordDaoImpl();
     }
@@ -157,6 +176,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getShopStoryTypeDao()
      */
+    @Override
     public ShopStoryTypeDao getShopStoryTypeDao() {
         return new ShopStoryTypeDaoImpl();
     }
@@ -164,6 +184,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getOrderStatusTypeDao()
      */
+    @Override
     public OrderStatusTypeDao getOrderStatusTypeDao() {
         return new OrderStatusTypeDaoImpl();
     }
@@ -171,6 +192,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getDisputeStatusTypeDao()
      */
+    @Override
     public DisputeStatusTypeDao getDisputeStatusTypeDao() {
         return new DisputeStatusTypeDaoImpl();
     }
@@ -178,6 +200,7 @@ public class HibernateDaoFactory extends DaoFactory {
     /* (non-Javadoc)
      * @see factory.DaoFactory#getAppUserDao()
      */
+    @Override
     public AppUserDao getAppUserDao() {
         return new AppUserDaoImpl();
     }

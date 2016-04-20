@@ -67,7 +67,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> getShopStoryList() throws DaoException;
+    List<ShopStory> getShopStoryList() throws DaoException;
 
     /**
      * Get all <Code>ShopStory</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> getShopStoryList(int firstResult, int maxResult);
+    List<ShopStory> getShopStoryList(int firstResult, int maxResult);
 
     /**
      * Query <Code>ShopStory</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> queryByExample(ShopStory shopStoryObject) throws DaoException;
+    List<ShopStory> queryByExample(ShopStory shopStoryObject) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances from persistence store by storyName
@@ -95,7 +95,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByStoryName(java.lang.String storyName) throws DaoException;
+    List<ShopStory> findByStoryName(java.lang.String storyName) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByStoryName(java.lang.String storyName, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByStoryName(java.lang.String storyName, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances from persistence store by storyContentUrl
@@ -116,7 +116,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByStoryContentUrl(java.lang.String storyContentUrl) throws DaoException;
+    List<ShopStory> findByStoryContentUrl(java.lang.String storyContentUrl) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByStoryContentUrl(java.lang.String storyContentUrl, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByStoryContentUrl(java.lang.String storyContentUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances from persistence store by addedTime
@@ -137,7 +137,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByAddedTime(java.util.Date addedTime) throws DaoException;
+    List<ShopStory> findByAddedTime(java.util.Date addedTime) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances from persistence store by Shop
@@ -158,7 +158,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances  instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances from persistence store by ShopStoryType
@@ -179,7 +179,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType) throws DaoException;
+    List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances  instances in range firstResult, maxResult
@@ -191,5 +191,5 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    public List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType, int firstResult, int maxResult) throws DaoException;
 }

@@ -60,9 +60,7 @@ public class ShopTypePK implements java.io.Serializable {
 
     //<editor-fold name="common methods">
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
+    @Override
     public boolean equals(Object other) {
 
         if (other == null) {
@@ -84,10 +82,7 @@ public class ShopTypePK implements java.io.Serializable {
         return true;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
+    @Override
     public int hashCode() {
         int _hashCode = 0;
         if (this.shopTypeName != null)
@@ -95,10 +90,7 @@ public class ShopTypePK implements java.io.Serializable {
         return _hashCode;
     }
 
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+    @Override
     public String toString() {
         StringBuilder ret = new StringBuilder();
         ret.append("com.centuryOldShop.server.persistence.ShopTypePK: ");

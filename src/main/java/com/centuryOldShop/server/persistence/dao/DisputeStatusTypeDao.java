@@ -67,7 +67,7 @@ public interface DisputeStatusTypeDao extends Dao {
      * @return <Code>DisputeStatusType</Code> instance list
      * @throws DaoException
      */
-    public List getDisputeStatusTypeList() throws DaoException;
+    List<DisputeStatusType> getDisputeStatusTypeList() throws DaoException;
 
     /**
      * Get all <Code>DisputeStatusType</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface DisputeStatusTypeDao extends Dao {
      * @return <Code>DisputeStatusType</Code> instance list
      * @throws DaoException
      */
-    public List getDisputeStatusTypeList(int firstResult, int maxResult);
+    List<DisputeStatusType> getDisputeStatusTypeList(int firstResult, int maxResult);
 
     /**
      * Query <Code>DisputeStatusType</Code> instances by example instance
@@ -86,6 +86,6 @@ public interface DisputeStatusTypeDao extends Dao {
      * @return <Code>DisputeStatusType</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(DisputeStatusType disputeStatusTypeObject) throws DaoException;
+    List<DisputeStatusType> queryByExample(DisputeStatusType disputeStatusTypeObject) throws DaoException;
 
 }

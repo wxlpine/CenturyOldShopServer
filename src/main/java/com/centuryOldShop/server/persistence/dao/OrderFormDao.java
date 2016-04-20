@@ -67,7 +67,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List getOrderFormList() throws DaoException;
+    List<OrderForm> getOrderFormList() throws DaoException;
 
     /**
      * Get all <Code>OrderForm</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List getOrderFormList(int firstResult, int maxResult);
+    List<OrderForm> getOrderFormList(int firstResult, int maxResult);
 
     /**
      * Query <Code>OrderForm</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(OrderForm orderFormObject) throws DaoException;
+    List<OrderForm> queryByExample(OrderForm orderFormObject) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by orderedTime
@@ -95,7 +95,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByOrderedTime(java.util.Date orderedTime) throws DaoException;
+    List<OrderForm> findByOrderedTime(java.util.Date orderedTime) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByOrderedTime(java.util.Date orderedTime, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByOrderedTime(java.util.Date orderedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by payedTime
@@ -116,7 +116,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByPayedTime(java.util.Date payedTime) throws DaoException;
+    List<OrderForm> findByPayedTime(java.util.Date payedTime) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByPayedTime(java.util.Date payedTime, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByPayedTime(java.util.Date payedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by sendTime
@@ -137,7 +137,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findBySendTime(java.util.Date sendTime) throws DaoException;
+    List<OrderForm> findBySendTime(java.util.Date sendTime) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findBySendTime(java.util.Date sendTime, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findBySendTime(java.util.Date sendTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by receiptedTime
@@ -158,7 +158,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByReceiptedTime(java.util.Date receiptedTime) throws DaoException;
+    List<OrderForm> findByReceiptedTime(java.util.Date receiptedTime) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByReceiptedTime(java.util.Date receiptedTime, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByReceiptedTime(java.util.Date receiptedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by expressNumber
@@ -179,7 +179,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByExpressNumber(java.lang.String expressNumber) throws DaoException;
+    List<OrderForm> findByExpressNumber(java.lang.String expressNumber) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances in range firstResult, maxResult
@@ -191,7 +191,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByExpressNumber(java.lang.String expressNumber, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByExpressNumber(java.lang.String expressNumber, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by AppUser
@@ -200,7 +200,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser) throws DaoException;
+    List<OrderForm> findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances  instances in range firstResult, maxResult
@@ -212,7 +212,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by Shop
@@ -221,7 +221,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<OrderForm> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances  instances in range firstResult, maxResult
@@ -233,7 +233,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by DiscountInfo
@@ -242,7 +242,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountInfo(com.centuryOldShop.server.persistence.DiscountInfo discountInfo) throws DaoException;
+    List<OrderForm> findByDiscountInfo(com.centuryOldShop.server.persistence.DiscountInfo discountInfo) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances  instances in range firstResult, maxResult
@@ -254,7 +254,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountInfo(com.centuryOldShop.server.persistence.DiscountInfo discountInfo, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByDiscountInfo(com.centuryOldShop.server.persistence.DiscountInfo discountInfo, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by OrderStatusType
@@ -263,7 +263,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByOrderStatusType(com.centuryOldShop.server.persistence.OrderStatusType orderStatusType) throws DaoException;
+    List<OrderForm> findByOrderStatusType(com.centuryOldShop.server.persistence.OrderStatusType orderStatusType) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances  instances in range firstResult, maxResult
@@ -275,7 +275,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByOrderStatusType(com.centuryOldShop.server.persistence.OrderStatusType orderStatusType, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByOrderStatusType(com.centuryOldShop.server.persistence.OrderStatusType orderStatusType, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances from persistence store by DisputeStatusType
@@ -284,7 +284,7 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByDisputeStatusType(com.centuryOldShop.server.persistence.DisputeStatusType disputeStatusType) throws DaoException;
+    List<OrderForm> findByDisputeStatusType(com.centuryOldShop.server.persistence.DisputeStatusType disputeStatusType) throws DaoException;
 
     /**
      * Find <Code>OrderForm</Code> instances  instances in range firstResult, maxResult
@@ -296,5 +296,5 @@ public interface OrderFormDao extends Dao {
      * @return <Code>OrderForm</Code> instance list
      * @throws DaoException
      */
-    public List findByDisputeStatusType(com.centuryOldShop.server.persistence.DisputeStatusType disputeStatusType, int firstResult, int maxResult) throws DaoException;
+    List<OrderForm> findByDisputeStatusType(com.centuryOldShop.server.persistence.DisputeStatusType disputeStatusType, int firstResult, int maxResult) throws DaoException;
 }

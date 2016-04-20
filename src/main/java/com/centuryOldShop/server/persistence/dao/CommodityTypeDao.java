@@ -67,7 +67,7 @@ public interface CommodityTypeDao extends Dao {
      * @return <Code>CommodityType</Code> instance list
      * @throws DaoException
      */
-    public List getCommodityTypeList() throws DaoException;
+    List<CommodityType> getCommodityTypeList() throws DaoException;
 
     /**
      * Get all <Code>CommodityType</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface CommodityTypeDao extends Dao {
      * @return <Code>CommodityType</Code> instance list
      * @throws DaoException
      */
-    public List getCommodityTypeList(int firstResult, int maxResult);
+    List<CommodityType> getCommodityTypeList(int firstResult, int maxResult);
 
     /**
      * Query <Code>CommodityType</Code> instances by example instance
@@ -86,6 +86,6 @@ public interface CommodityTypeDao extends Dao {
      * @return <Code>CommodityType</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(CommodityType commodityTypeObject) throws DaoException;
+    List<CommodityType> queryByExample(CommodityType commodityTypeObject) throws DaoException;
 
 }

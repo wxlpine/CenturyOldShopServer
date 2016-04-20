@@ -11,6 +11,7 @@ import com.centuryOldShop.server.persistence.RateKeywordPK;
 import com.centuryOldShop.server.persistence.dao.RateKeywordDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +21,13 @@ import java.util.List;
 /**
  * Class that implements methods of RateKeywordDao interface
  */
-@SuppressWarnings("ALL")
+
 public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#save(com.centuryOldShop.server.persistence.RateKeyword)
      */
+    @Override
     public Serializable save(RateKeyword rateKeywordObject) throws DaoException {
         return super.save(rateKeywordObject);
     }
@@ -33,8 +35,9 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#load(com.centuryOldShop.server.persistence.RateKeywordPK)
      */
+    @Override
     public RateKeyword load(RateKeywordPK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
         String[] paramNames = new String[]{"rateKeyword"};
         Object[] values = new Object[]{pk.getRateKeyword()};
         for (int i = 0; i < paramNames.length; i++)
@@ -47,6 +50,7 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#delete(com.centuryOldShop.server.persistence.RateKeyword)
      */
+    @Override
     public void delete(RateKeyword rateKeywordObject) throws DaoException {
         super.delete(rateKeywordObject);
     }
@@ -54,6 +58,7 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#update(com.centuryOldShop.server.persistence.RateKeyword)
      */
+    @Override
     public void update(RateKeyword rateKeywordObject) throws DaoException {
         super.update(rateKeywordObject);
     }
@@ -61,6 +66,7 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#saveOrUpdate(com.centuryOldShop.server.persistence.RateKeyword)
      */
+    @Override
     public void saveOrUpdate(RateKeyword rateKeywordObject) throws DaoException {
         super.saveOrUpdate(rateKeywordObject);
     }
@@ -68,21 +74,24 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.RateKeyword)
      */
-    public List queryByExample(RateKeyword rateKeywordObject) throws DaoException {
+    @Override
+    public List<RateKeyword> queryByExample(RateKeyword rateKeywordObject) throws DaoException {
         return super.queryByExample(RateKeyword.class, rateKeywordObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#getRateKeywordList()
      */
-    public List getRateKeywordList() throws DaoException {
+    @Override
+    public List<RateKeyword> getRateKeywordList() throws DaoException {
         return super.loadAll(RateKeyword.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.RateKeywordDao#getRateKeywordList(int, int)
      */
-    public List getRateKeywordList(int firstResult, int maxResult) {
+    @Override
+    public List<RateKeyword> getRateKeywordList(int firstResult, int maxResult) {
         return super.loadAll(RateKeyword.class, firstResult, maxResult);
     }
 

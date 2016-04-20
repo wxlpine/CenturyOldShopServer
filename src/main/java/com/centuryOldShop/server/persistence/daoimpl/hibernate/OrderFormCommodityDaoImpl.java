@@ -11,6 +11,7 @@ import com.centuryOldShop.server.persistence.OrderFormCommodityPK;
 import com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +21,13 @@ import java.util.List;
 /**
  * Class that implements methods of OrderFormCommodityDao interface
  */
-@SuppressWarnings("ALL")
+
 public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements OrderFormCommodityDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#save(com.centuryOldShop.server.persistence.OrderFormCommodity)
      */
+    @Override
     public Serializable save(OrderFormCommodity orderFormCommodityObject) throws DaoException {
         return super.save(orderFormCommodityObject);
     }
@@ -33,8 +35,9 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#load(com.centuryOldShop.server.persistence.OrderFormCommodityPK)
      */
+    @Override
     public OrderFormCommodity load(OrderFormCommodityPK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
 
         cs.add(Restrictions.idEq(pk));
 
@@ -45,6 +48,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#delete(com.centuryOldShop.server.persistence.OrderFormCommodity)
      */
+    @Override
     public void delete(OrderFormCommodity orderFormCommodityObject) throws DaoException {
         super.delete(orderFormCommodityObject);
     }
@@ -52,6 +56,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#update(com.centuryOldShop.server.persistence.OrderFormCommodity)
      */
+    @Override
     public void update(OrderFormCommodity orderFormCommodityObject) throws DaoException {
         super.update(orderFormCommodityObject);
     }
@@ -59,6 +64,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#saveOrUpdate(com.centuryOldShop.server.persistence.OrderFormCommodity)
      */
+    @Override
     public void saveOrUpdate(OrderFormCommodity orderFormCommodityObject) throws DaoException {
         super.saveOrUpdate(orderFormCommodityObject);
     }
@@ -66,29 +72,33 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.OrderFormCommodity)
      */
-    public List queryByExample(OrderFormCommodity orderFormCommodityObject) throws DaoException {
+    @Override
+    public List<OrderFormCommodity> queryByExample(OrderFormCommodity orderFormCommodityObject) throws DaoException {
         return super.queryByExample(OrderFormCommodity.class, orderFormCommodityObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#getOrderFormCommodityList()
      */
-    public List getOrderFormCommodityList() throws DaoException {
+    @Override
+    public List<OrderFormCommodity> getOrderFormCommodityList() throws DaoException {
         return super.loadAll(OrderFormCommodity.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#getOrderFormCommodityList(int, int)
      */
-    public List getOrderFormCommodityList(int firstResult, int maxResult) {
+    @Override
+    public List<OrderFormCommodity> getOrderFormCommodityList(int firstResult, int maxResult) {
         return super.loadAll(OrderFormCommodity.class, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#findByBuyPrice(double)
      */
-    public List findByBuyPrice(double buyPrice) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<OrderFormCommodity> findByBuyPrice(double buyPrice) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyPrice", new Double(buyPrice)));
         return super.findByCriterions(OrderFormCommodity.class, cs);
     }
@@ -96,8 +106,9 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#findByBuyPrice(double, int, int)
      */
-    public List findByBuyPrice(double buyPrice, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<OrderFormCommodity> findByBuyPrice(double buyPrice, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyPrice", new Double(buyPrice)));
         return super.findByCriterions(OrderFormCommodity.class, cs, firstResult, maxResult);
     }
@@ -105,8 +116,9 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#findByBuyAmount(int)
      */
-    public List findByBuyAmount(int buyAmount) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<OrderFormCommodity> findByBuyAmount(int buyAmount) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyAmount", new Integer(buyAmount)));
         return super.findByCriterions(OrderFormCommodity.class, cs);
     }
@@ -114,8 +126,9 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.OrderFormCommodityDao#findByBuyAmount(int, int, int)
      */
-    public List findByBuyAmount(int buyAmount, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<OrderFormCommodity> findByBuyAmount(int buyAmount, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyAmount", new Integer(buyAmount)));
         return super.findByCriterions(OrderFormCommodity.class, cs, firstResult, maxResult);
     }

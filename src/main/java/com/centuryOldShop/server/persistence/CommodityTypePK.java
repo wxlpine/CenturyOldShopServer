@@ -58,6 +58,7 @@ public class CommodityTypePK implements java.io.Serializable {
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
+    @Override
     public boolean equals(Object other) {
 
         if (other == null) {
@@ -83,6 +84,7 @@ public class CommodityTypePK implements java.io.Serializable {
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
+    @Override
     public int hashCode() {
         int _hashCode = 0;
         if (this.commodityType != null)

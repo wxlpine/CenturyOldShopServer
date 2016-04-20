@@ -67,7 +67,7 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List getShoppingCartList() throws DaoException;
+    List<ShoppingCart> getShoppingCartList() throws DaoException;
 
     /**
      * Get all <Code>ShoppingCart</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List getShoppingCartList(int firstResult, int maxResult);
+    List<ShoppingCart> getShoppingCartList(int firstResult, int maxResult);
 
     /**
      * Query <Code>ShoppingCart</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(ShoppingCart shoppingCartObject) throws DaoException;
+    List<ShoppingCart> queryByExample(ShoppingCart shoppingCartObject) throws DaoException;
 
     /**
      * Find <Code>ShoppingCart</Code> instances from persistence store by amount
@@ -95,7 +95,7 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List findByAmount(int amount) throws DaoException;
+    List<ShoppingCart> findByAmount(int amount) throws DaoException;
 
     /**
      * Find <Code>ShoppingCart</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List findByAmount(int amount, int firstResult, int maxResult) throws DaoException;
+    List<ShoppingCart> findByAmount(int amount, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>ShoppingCart</Code> instances from persistence store by addedTime
@@ -116,7 +116,7 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime) throws DaoException;
+    List<ShoppingCart> findByAddedTime(java.util.Date addedTime) throws DaoException;
 
     /**
      * Find <Code>ShoppingCart</Code> instances in range firstResult, maxResult
@@ -128,5 +128,5 @@ public interface ShoppingCartDao extends Dao {
      * @return <Code>ShoppingCart</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
+    List<ShoppingCart> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
 }

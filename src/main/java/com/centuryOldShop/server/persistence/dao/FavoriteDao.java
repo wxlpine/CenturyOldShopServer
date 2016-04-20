@@ -67,7 +67,7 @@ public interface FavoriteDao extends Dao {
      * @return <Code>Favorite</Code> instance list
      * @throws DaoException
      */
-    public List getFavoriteList() throws DaoException;
+    List<Favorite> getFavoriteList() throws DaoException;
 
     /**
      * Get all <Code>Favorite</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface FavoriteDao extends Dao {
      * @return <Code>Favorite</Code> instance list
      * @throws DaoException
      */
-    public List getFavoriteList(int firstResult, int maxResult);
+    List<Favorite> getFavoriteList(int firstResult, int maxResult);
 
     /**
      * Query <Code>Favorite</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface FavoriteDao extends Dao {
      * @return <Code>Favorite</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(Favorite favoriteObject) throws DaoException;
+    List<Favorite> queryByExample(Favorite favoriteObject) throws DaoException;
 
     /**
      * Find <Code>Favorite</Code> instances from persistence store by addTime
@@ -95,7 +95,7 @@ public interface FavoriteDao extends Dao {
      * @return <Code>Favorite</Code> instance list
      * @throws DaoException
      */
-    public List findByAddTime(java.util.Date addTime) throws DaoException;
+    List<Favorite> findByAddTime(java.util.Date addTime) throws DaoException;
 
     /**
      * Find <Code>Favorite</Code> instances in range firstResult, maxResult
@@ -107,5 +107,5 @@ public interface FavoriteDao extends Dao {
      * @return <Code>Favorite</Code> instance list
      * @throws DaoException
      */
-    public List findByAddTime(java.util.Date addTime, int firstResult, int maxResult) throws DaoException;
+    List<Favorite> findByAddTime(java.util.Date addTime, int firstResult, int maxResult) throws DaoException;
 }

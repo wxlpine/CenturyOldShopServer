@@ -67,7 +67,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List getVideoIntroductionList() throws DaoException;
+    List<VideoIntroduction> getVideoIntroductionList() throws DaoException;
 
     /**
      * Get all <Code>VideoIntroduction</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List getVideoIntroductionList(int firstResult, int maxResult);
+    List<VideoIntroduction> getVideoIntroductionList(int firstResult, int maxResult);
 
     /**
      * Query <Code>VideoIntroduction</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(VideoIntroduction videoIntroductionObject) throws DaoException;
+    List<VideoIntroduction> queryByExample(VideoIntroduction videoIntroductionObject) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by videoUrl
@@ -95,7 +95,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByVideoUrl(java.lang.String videoUrl) throws DaoException;
+    List<VideoIntroduction> findByVideoUrl(java.lang.String videoUrl) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByVideoUrl(java.lang.String videoUrl, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByVideoUrl(java.lang.String videoUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by duration
@@ -116,7 +116,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByDuration(int duration) throws DaoException;
+    List<VideoIntroduction> findByDuration(int duration) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByDuration(int duration, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByDuration(int duration, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by screenshotUrl
@@ -137,7 +137,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByScreenshotUrl(java.lang.String screenshotUrl) throws DaoException;
+    List<VideoIntroduction> findByScreenshotUrl(java.lang.String screenshotUrl) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByScreenshotUrl(java.lang.String screenshotUrl, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByScreenshotUrl(java.lang.String screenshotUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by playedTimes
@@ -158,7 +158,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByPlayedTimes(int playedTimes) throws DaoException;
+    List<VideoIntroduction> findByPlayedTimes(int playedTimes) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByPlayedTimes(int playedTimes, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByPlayedTimes(int playedTimes, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by rate
@@ -179,7 +179,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByRate(double rate) throws DaoException;
+    List<VideoIntroduction> findByRate(double rate) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances in range firstResult, maxResult
@@ -191,7 +191,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByRate(double rate, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByRate(double rate, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by addedTime
@@ -200,7 +200,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime) throws DaoException;
+    List<VideoIntroduction> findByAddedTime(java.util.Date addedTime) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances in range firstResult, maxResult
@@ -212,7 +212,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by Shop
@@ -221,7 +221,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<VideoIntroduction> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances  instances in range firstResult, maxResult
@@ -233,5 +233,5 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
 }

@@ -67,7 +67,7 @@ public interface OrderStatusTypeDao extends Dao {
      * @return <Code>OrderStatusType</Code> instance list
      * @throws DaoException
      */
-    public List<OrderStatusType> getOrderStatusTypeList() throws DaoException;
+    List<OrderStatusType> getOrderStatusTypeList() throws DaoException;
 
     /**
      * Get all <Code>OrderStatusType</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface OrderStatusTypeDao extends Dao {
      * @return <Code>OrderStatusType</Code> instance list
      * @throws DaoException
      */
-    public List<OrderStatusType> getOrderStatusTypeList(int firstResult, int maxResult);
+    List<OrderStatusType> getOrderStatusTypeList(int firstResult, int maxResult);
 
     /**
      * Query <Code>OrderStatusType</Code> instances by example instance
@@ -86,6 +86,6 @@ public interface OrderStatusTypeDao extends Dao {
      * @return <Code>OrderStatusType</Code> instance list
      * @throws DaoException
      */
-    public List<OrderStatusType> queryByExample(OrderStatusType orderStatusTypeObject) throws DaoException;
+    List<OrderStatusType> queryByExample(OrderStatusType orderStatusTypeObject) throws DaoException;
 
 }

@@ -67,7 +67,7 @@ public interface ShopAreaDao extends Dao {
      * @return <Code>ShopArea</Code> instance list
      * @throws DaoException
      */
-    public List<ShopArea> getShopAreaList() throws DaoException;
+    List<ShopArea> getShopAreaList() throws DaoException;
 
     /**
      * Get all <Code>ShopArea</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface ShopAreaDao extends Dao {
      * @return <Code>ShopArea</Code> instance list
      * @throws DaoException
      */
-    public List<ShopArea> getShopAreaList(int firstResult, int maxResult);
+    List<ShopArea> getShopAreaList(int firstResult, int maxResult);
 
     /**
      * Query <Code>ShopArea</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface ShopAreaDao extends Dao {
      * @return <Code>ShopArea</Code> instance list
      * @throws DaoException
      */
-    public List<ShopArea> queryByExample(ShopArea shopAreaObject) throws DaoException;
+    List<ShopArea> queryByExample(ShopArea shopAreaObject) throws DaoException;
 
     /**
      * Find <Code>ShopArea</Code> instances from persistence store by shopAreaName
@@ -95,7 +95,7 @@ public interface ShopAreaDao extends Dao {
      * @return <Code>ShopArea</Code> instance list
      * @throws DaoException
      */
-    public List<ShopArea> findByShopAreaName(java.lang.String shopAreaName) throws DaoException;
+    List<ShopArea> findByShopAreaName(java.lang.String shopAreaName) throws DaoException;
 
     /**
      * Find <Code>ShopArea</Code> instances in range firstResult, maxResult
@@ -107,5 +107,5 @@ public interface ShopAreaDao extends Dao {
      * @return <Code>ShopArea</Code> instance list
      * @throws DaoException
      */
-    public List<ShopArea> findByShopAreaName(java.lang.String shopAreaName, int firstResult, int maxResult) throws DaoException;
+    List<ShopArea> findByShopAreaName(java.lang.String shopAreaName, int firstResult, int maxResult) throws DaoException;
 }

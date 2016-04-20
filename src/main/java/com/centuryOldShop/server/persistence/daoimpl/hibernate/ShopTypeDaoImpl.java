@@ -11,6 +11,7 @@ import com.centuryOldShop.server.persistence.ShopTypePK;
 import com.centuryOldShop.server.persistence.dao.ShopTypeDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +21,13 @@ import java.util.List;
 /**
  * Class that implements methods of ShopTypeDao interface
  */
-@SuppressWarnings("ALL")
+
 public class ShopTypeDaoImpl extends HibernateDaoImpl implements ShopTypeDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#save(com.centuryOldShop.server.persistence.ShopType)
      */
+    @Override
     public Serializable save(ShopType shopTypeObject) throws DaoException {
         return super.save(shopTypeObject);
     }
@@ -33,8 +35,9 @@ public class ShopTypeDaoImpl extends HibernateDaoImpl implements ShopTypeDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#load(com.centuryOldShop.server.persistence.ShopTypePK)
      */
+    @Override
     public ShopType load(ShopTypePK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
         String[] paramNames = new String[]{"shopTypeName"};
         Object[] values = new Object[]{pk.getShopTypeName()};
         for (int i = 0; i < paramNames.length; i++)
@@ -47,6 +50,7 @@ public class ShopTypeDaoImpl extends HibernateDaoImpl implements ShopTypeDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#delete(com.centuryOldShop.server.persistence.ShopType)
      */
+    @Override
     public void delete(ShopType shopTypeObject) throws DaoException {
         super.delete(shopTypeObject);
     }
@@ -54,6 +58,7 @@ public class ShopTypeDaoImpl extends HibernateDaoImpl implements ShopTypeDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#update(com.centuryOldShop.server.persistence.ShopType)
      */
+    @Override
     public void update(ShopType shopTypeObject) throws DaoException {
         super.update(shopTypeObject);
     }
@@ -61,6 +66,7 @@ public class ShopTypeDaoImpl extends HibernateDaoImpl implements ShopTypeDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#saveOrUpdate(com.centuryOldShop.server.persistence.ShopType)
      */
+    @Override
     public void saveOrUpdate(ShopType shopTypeObject) throws DaoException {
         super.saveOrUpdate(shopTypeObject);
     }
@@ -68,21 +74,24 @@ public class ShopTypeDaoImpl extends HibernateDaoImpl implements ShopTypeDao {
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.ShopType)
      */
-    public List queryByExample(ShopType shopTypeObject) throws DaoException {
+    @Override
+    public List<ShopType> queryByExample(ShopType shopTypeObject) throws DaoException {
         return super.queryByExample(ShopType.class, shopTypeObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#getShopTypeList()
      */
-    public List getShopTypeList() throws DaoException {
+    @Override
+    public List<ShopType> getShopTypeList() throws DaoException {
         return super.loadAll(ShopType.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.ShopTypeDao#getShopTypeList(int, int)
      */
-    public List getShopTypeList(int firstResult, int maxResult) {
+    @Override
+    public List<ShopType> getShopTypeList(int firstResult, int maxResult) {
         return super.loadAll(ShopType.class, firstResult, maxResult);
     }
 

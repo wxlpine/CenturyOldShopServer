@@ -73,6 +73,7 @@ public class DisputeStatusTypePK implements java.io.Serializable {
     /* (non-Javadoc)
          * @see java.lang.Object#toString()
          */
+    @Override
     public String toString() {
         StringBuilder ret = new StringBuilder();
         ret.append("com.centuryOldShop.server.persistence.DisputeStatusTypePK: ");

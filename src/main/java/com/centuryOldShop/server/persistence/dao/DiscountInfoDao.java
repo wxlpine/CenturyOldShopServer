@@ -67,7 +67,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List getDiscountInfoList() throws DaoException;
+    List<DiscountInfo> getDiscountInfoList() throws DaoException;
 
     /**
      * Get all <Code>DiscountInfo</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List getDiscountInfoList(int firstResult, int maxResult);
+    List<DiscountInfo> getDiscountInfoList(int firstResult, int maxResult);
 
     /**
      * Query <Code>DiscountInfo</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(DiscountInfo discountInfoObject) throws DaoException;
+    List<DiscountInfo> queryByExample(DiscountInfo discountInfoObject) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by title
@@ -95,7 +95,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByTitle(java.lang.String title) throws DaoException;
+    List<DiscountInfo> findByTitle(java.lang.String title) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by discountStartTime
@@ -116,7 +116,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountStartTime(java.util.Date discountStartTime) throws DaoException;
+    List<DiscountInfo> findByDiscountStartTime(java.util.Date discountStartTime) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountStartTime(java.util.Date discountStartTime, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByDiscountStartTime(java.util.Date discountStartTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by discountEndTime
@@ -137,7 +137,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountEndTime(java.util.Date discountEndTime) throws DaoException;
+    List<DiscountInfo> findByDiscountEndTime(java.util.Date discountEndTime) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountEndTime(java.util.Date discountEndTime, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByDiscountEndTime(java.util.Date discountEndTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by priceReduceMinPrice
@@ -158,7 +158,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByPriceReduceMinPrice(double priceReduceMinPrice) throws DaoException;
+    List<DiscountInfo> findByPriceReduceMinPrice(double priceReduceMinPrice) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByPriceReduceMinPrice(double priceReduceMinPrice, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByPriceReduceMinPrice(double priceReduceMinPrice, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by priceReduceAmount
@@ -179,7 +179,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByPriceReduceAmount(double priceReduceAmount) throws DaoException;
+    List<DiscountInfo> findByPriceReduceAmount(double priceReduceAmount) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -191,7 +191,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByPriceReduceAmount(double priceReduceAmount, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByPriceReduceAmount(double priceReduceAmount, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by discountMinPrice
@@ -200,7 +200,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountMinPrice(double discountMinPrice) throws DaoException;
+    List<DiscountInfo> findByDiscountMinPrice(double discountMinPrice) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -212,7 +212,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountMinPrice(double discountMinPrice, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByDiscountMinPrice(double discountMinPrice, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by discountRatio
@@ -221,7 +221,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountRatio(double discountRatio) throws DaoException;
+    List<DiscountInfo> findByDiscountRatio(double discountRatio) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances in range firstResult, maxResult
@@ -233,7 +233,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountRatio(double discountRatio, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByDiscountRatio(double discountRatio, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by Shop
@@ -242,7 +242,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<DiscountInfo> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances  instances in range firstResult, maxResult
@@ -254,7 +254,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances from persistence store by DiscountType
@@ -263,7 +263,7 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountType(com.centuryOldShop.server.persistence.DiscountType discountType) throws DaoException;
+    List<DiscountInfo> findByDiscountType(com.centuryOldShop.server.persistence.DiscountType discountType) throws DaoException;
 
     /**
      * Find <Code>DiscountInfo</Code> instances  instances in range firstResult, maxResult
@@ -275,5 +275,5 @@ public interface DiscountInfoDao extends Dao {
      * @return <Code>DiscountInfo</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountType(com.centuryOldShop.server.persistence.DiscountType discountType, int firstResult, int maxResult) throws DaoException;
+    List<DiscountInfo> findByDiscountType(com.centuryOldShop.server.persistence.DiscountType discountType, int firstResult, int maxResult) throws DaoException;
 }

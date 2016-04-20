@@ -67,7 +67,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List getSpecialCraftList() throws DaoException;
+    List<SpecialCraft> getSpecialCraftList() throws DaoException;
 
     /**
      * Get all <Code>SpecialCraft</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List getSpecialCraftList(int firstResult, int maxResult);
+    List<SpecialCraft> getSpecialCraftList(int firstResult, int maxResult);
 
     /**
      * Query <Code>SpecialCraft</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(SpecialCraft specialCraftObject) throws DaoException;
+    List<SpecialCraft> queryByExample(SpecialCraft specialCraftObject) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances from persistence store by title
@@ -95,7 +95,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByTitle(java.lang.String title) throws DaoException;
+    List<SpecialCraft> findByTitle(java.lang.String title) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances from persistence store by smallPhotoUrl
@@ -116,7 +116,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findBySmallPhotoUrl(java.lang.String smallPhotoUrl) throws DaoException;
+    List<SpecialCraft> findBySmallPhotoUrl(java.lang.String smallPhotoUrl) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findBySmallPhotoUrl(java.lang.String smallPhotoUrl, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findBySmallPhotoUrl(java.lang.String smallPhotoUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances from persistence store by introductionUrl
@@ -137,7 +137,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByIntroductionUrl(java.lang.String introductionUrl) throws DaoException;
+    List<SpecialCraft> findByIntroductionUrl(java.lang.String introductionUrl) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByIntroductionUrl(java.lang.String introductionUrl, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findByIntroductionUrl(java.lang.String introductionUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances from persistence store by addedTime
@@ -158,7 +158,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime) throws DaoException;
+    List<SpecialCraft> findByAddedTime(java.util.Date addedTime) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances from persistence store by shortIntro
@@ -179,7 +179,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByShortIntro(java.lang.String shortIntro) throws DaoException;
+    List<SpecialCraft> findByShortIntro(java.lang.String shortIntro) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances in range firstResult, maxResult
@@ -191,7 +191,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByShortIntro(java.lang.String shortIntro, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findByShortIntro(java.lang.String shortIntro, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances from persistence store by Shop
@@ -200,7 +200,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<SpecialCraft> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances  instances in range firstResult, maxResult
@@ -212,5 +212,5 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    public List findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
 }

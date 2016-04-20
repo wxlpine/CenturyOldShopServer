@@ -11,6 +11,7 @@ import com.centuryOldShop.server.persistence.CommodityTypePK;
 import com.centuryOldShop.server.persistence.dao.CommodityTypeDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +21,13 @@ import java.util.List;
 /**
  * Class that implements methods of CommodityTypeDao interface
  */
-@SuppressWarnings("ALL")
+
 public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityTypeDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#save(com.centuryOldShop.server.persistence.CommodityType)
      */
+    @Override
     public Serializable save(CommodityType commodityTypeObject) throws DaoException {
         return super.save(commodityTypeObject);
     }
@@ -33,8 +35,9 @@ public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#load(com.centuryOldShop.server.persistence.CommodityTypePK)
      */
+    @Override
     public CommodityType load(CommodityTypePK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
         String[] paramNames = new String[]{"commodityType"};
         Object[] values = new Object[]{pk.getCommodityType()};
         for (int i = 0; i < paramNames.length; i++)
@@ -47,6 +50,7 @@ public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#delete(com.centuryOldShop.server.persistence.CommodityType)
      */
+    @Override
     public void delete(CommodityType commodityTypeObject) throws DaoException {
         super.delete(commodityTypeObject);
     }
@@ -54,6 +58,7 @@ public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#update(com.centuryOldShop.server.persistence.CommodityType)
      */
+    @Override
     public void update(CommodityType commodityTypeObject) throws DaoException {
         super.update(commodityTypeObject);
     }
@@ -61,6 +66,7 @@ public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#saveOrUpdate(com.centuryOldShop.server.persistence.CommodityType)
      */
+    @Override
     public void saveOrUpdate(CommodityType commodityTypeObject) throws DaoException {
         super.saveOrUpdate(commodityTypeObject);
     }
@@ -68,21 +74,24 @@ public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityT
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.CommodityType)
      */
-    public List queryByExample(CommodityType commodityTypeObject) throws DaoException {
+    @Override
+    public List<CommodityType> queryByExample(CommodityType commodityTypeObject) throws DaoException {
         return super.queryByExample(CommodityType.class, commodityTypeObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#getCommodityTypeList()
      */
-    public List getCommodityTypeList() throws DaoException {
+    @Override
+    public List<CommodityType> getCommodityTypeList() throws DaoException {
         return super.loadAll(CommodityType.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.CommodityTypeDao#getCommodityTypeList(int, int)
      */
-    public List getCommodityTypeList(int firstResult, int maxResult) {
+    @Override
+    public List<CommodityType> getCommodityTypeList(int firstResult, int maxResult) {
         return super.loadAll(CommodityType.class, firstResult, maxResult);
     }
 

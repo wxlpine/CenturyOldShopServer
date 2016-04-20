@@ -6,11 +6,11 @@
 
 package com.centuryOldShop.server.persistence.daoimpl.hibernate;
 
-import com.centuryOldShop.server.persistence.UserEvaluation;
-import com.centuryOldShop.server.persistence.UserEvaluationPK;
+import com.centuryOldShop.server.persistence.*;
 import com.centuryOldShop.server.persistence.dao.UserEvaluationDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -20,12 +20,13 @@ import java.util.List;
 /**
  * Class that implements methods of UserEvaluationDao interface
  */
-@SuppressWarnings("ALL")
+
 public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvaluationDao {
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#save(com.centuryOldShop.server.persistence.UserEvaluation)
      */
+    @Override
     public Serializable save(UserEvaluation userEvaluationObject) throws DaoException {
         return super.save(userEvaluationObject);
     }
@@ -33,8 +34,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#load(com.centuryOldShop.server.persistence.UserEvaluationPK)
      */
+    @Override
     public UserEvaluation load(UserEvaluationPK pk) throws DaoException {
-        List cs = new ArrayList();
+        List<Criterion> cs = new ArrayList<>();
 
         cs.add(Restrictions.idEq(pk));
 
@@ -46,6 +48,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#delete(com.centuryOldShop.server.persistence.UserEvaluation)
      */
+    @Override
     public void delete(UserEvaluation userEvaluationObject) throws DaoException {
         super.delete(userEvaluationObject);
     }
@@ -53,6 +56,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#update(com.centuryOldShop.server.persistence.UserEvaluation)
      */
+    @Override
     public void update(UserEvaluation userEvaluationObject) throws DaoException {
         super.update(userEvaluationObject);
     }
@@ -60,6 +64,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#saveOrUpdate(com.centuryOldShop.server.persistence.UserEvaluation)
      */
+    @Override
     public void saveOrUpdate(UserEvaluation userEvaluationObject) throws DaoException {
         super.saveOrUpdate(userEvaluationObject);
     }
@@ -67,29 +72,33 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#queryByExample(java.lang.Class, com.centuryOldShop.server.persistence.UserEvaluation)
      */
-    public List queryByExample(UserEvaluation userEvaluationObject) throws DaoException {
+    @Override
+    public List<UserEvaluation> queryByExample(UserEvaluation userEvaluationObject) throws DaoException {
         return super.queryByExample(UserEvaluation.class, userEvaluationObject);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#getUserEvaluationList()
      */
-    public List getUserEvaluationList() throws DaoException {
+    @Override
+    public List<UserEvaluation> getUserEvaluationList() throws DaoException {
         return super.loadAll(UserEvaluation.class);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#getUserEvaluationList(int, int)
      */
-    public List getUserEvaluationList(int firstResult, int maxResult) {
+    @Override
+    public List<UserEvaluation> getUserEvaluationList(int firstResult, int maxResult) {
         return super.loadAll(UserEvaluation.class, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByGrade(double)
      */
-    public List findByGrade(double grade) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByGrade(double grade) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("grade", new Double(grade)));
         return super.findByCriterions(UserEvaluation.class, cs);
     }
@@ -97,8 +106,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByGrade(double, int, int)
      */
-    public List findByGrade(double grade, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByGrade(double grade, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("grade", new Double(grade)));
         return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
     }
@@ -106,8 +116,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByComment(java.lang.String)
      */
-    public List findByComment(java.lang.String comment) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByComment(java.lang.String comment) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("comment", comment));
         return super.findByCriterions(UserEvaluation.class, cs);
     }
@@ -115,8 +126,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByComment(java.lang.String, int, int)
      */
-    public List findByComment(java.lang.String comment, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByComment(java.lang.String comment, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("comment", comment));
         return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
     }
@@ -124,8 +136,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByTime(java.util.Date)
      */
-    public List findByTime(java.util.Date time) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByTime(java.util.Date time) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("time", time));
         return super.findByCriterions(UserEvaluation.class, cs);
     }
@@ -133,8 +146,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByTime(java.util.Date, int, int)
      */
-    public List findByTime(java.util.Date time, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByTime(java.util.Date time, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("time", time));
         return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
     }
@@ -142,8 +156,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByCommodity(com.centuryOldShop.server.persistence.Commodity)
      */
-    public List findByCommodity(com.centuryOldShop.server.persistence.Commodity commodity) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByCommodity(Commodity commodity) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodity", commodity));
         return super.findByCriterions(UserEvaluation.class, cs);
     }
@@ -151,8 +166,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByCommodity(com.centuryOldShop.server.persistence.Commodity, int, int)
      */
-    public List findByCommodity(com.centuryOldShop.server.persistence.Commodity commodity, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByCommodity(Commodity commodity, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodity", commodity));
         return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
     }
@@ -160,8 +176,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByOrderForm(com.centuryOldShop.server.persistence.OrderForm)
      */
-    public List findByOrderForm(com.centuryOldShop.server.persistence.OrderForm orderForm) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByOrderForm(OrderForm orderForm) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderForm", orderForm));
         return super.findByCriterions(UserEvaluation.class, cs);
     }
@@ -169,8 +186,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByOrderForm(com.centuryOldShop.server.persistence.OrderForm, int, int)
      */
-    public List findByOrderForm(com.centuryOldShop.server.persistence.OrderForm orderForm, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByOrderForm(OrderForm orderForm, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderForm", orderForm));
         return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
     }
@@ -178,8 +196,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByAppUser(com.centuryOldShop.server.persistence.AppUser)
      */
-    public List findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByAppUser(AppUser appUser) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("appUser", appUser));
         return super.findByCriterions(UserEvaluation.class, cs);
     }
@@ -187,8 +206,9 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.UserEvaluationDao#findByAppUser(com.centuryOldShop.server.persistence.AppUser, int, int)
      */
-    public List findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser, int firstResult, int maxResult) throws DaoException {
-        List cs = new ArrayList();
+    @Override
+    public List<UserEvaluation> findByAppUser(AppUser appUser, int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("appUser", appUser));
         return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
     }

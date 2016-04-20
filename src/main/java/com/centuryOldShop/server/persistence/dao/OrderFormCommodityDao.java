@@ -67,7 +67,7 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List getOrderFormCommodityList() throws DaoException;
+    List<OrderFormCommodity> getOrderFormCommodityList() throws DaoException;
 
     /**
      * Get all <Code>OrderFormCommodity</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List getOrderFormCommodityList(int firstResult, int maxResult);
+    List<OrderFormCommodity> getOrderFormCommodityList(int firstResult, int maxResult);
 
     /**
      * Query <Code>OrderFormCommodity</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(OrderFormCommodity orderFormCommodityObject) throws DaoException;
+    List<OrderFormCommodity> queryByExample(OrderFormCommodity orderFormCommodityObject) throws DaoException;
 
     /**
      * Find <Code>OrderFormCommodity</Code> instances from persistence store by buyPrice
@@ -95,7 +95,7 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List findByBuyPrice(double buyPrice) throws DaoException;
+    List<OrderFormCommodity> findByBuyPrice(double buyPrice) throws DaoException;
 
     /**
      * Find <Code>OrderFormCommodity</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List findByBuyPrice(double buyPrice, int firstResult, int maxResult) throws DaoException;
+    List<OrderFormCommodity> findByBuyPrice(double buyPrice, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>OrderFormCommodity</Code> instances from persistence store by buyAmount
@@ -116,7 +116,7 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List findByBuyAmount(int buyAmount) throws DaoException;
+    List<OrderFormCommodity> findByBuyAmount(int buyAmount) throws DaoException;
 
     /**
      * Find <Code>OrderFormCommodity</Code> instances in range firstResult, maxResult
@@ -128,5 +128,5 @@ public interface OrderFormCommodityDao extends Dao {
      * @return <Code>OrderFormCommodity</Code> instance list
      * @throws DaoException
      */
-    public List findByBuyAmount(int buyAmount, int firstResult, int maxResult) throws DaoException;
+    List<OrderFormCommodity> findByBuyAmount(int buyAmount, int firstResult, int maxResult) throws DaoException;
 }

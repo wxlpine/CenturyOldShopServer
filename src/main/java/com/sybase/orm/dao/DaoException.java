@@ -66,6 +66,7 @@ public class DaoException extends RuntimeException {
      *
      * @return nested <code>Throwable</code>
      */
+    @Override
     public Throwable getCause() {
         return cause;
     }
@@ -75,6 +76,7 @@ public class DaoException extends RuntimeException {
      * created with a null message, returns the following:
      * ( cause==null ? null : cause.toString().
      */
+    @Override
     public String getMessage() {
         if (super.getMessage() != null) {
             return super.getMessage();
@@ -90,6 +92,7 @@ public class DaoException extends RuntimeException {
      *
      * @see java.lang.Throwable#printStackTrace()
      */
+    @Override
     public void printStackTrace() {
         printStackTrace(System.err);
     }
@@ -99,6 +102,7 @@ public class DaoException extends RuntimeException {
      *
      * @see java.lang.Throwable#printStackTrace(java.io.PrintStream)
      */
+    @Override
     public void printStackTrace(PrintStream out) {
         synchronized (out) {
             PrintWriter pw = new PrintWriter(out, false);
@@ -113,6 +117,7 @@ public class DaoException extends RuntimeException {
      *
      * @see java.lang.Throwable#printStackTrace(java.io.PrintWriter)
      */
+    @Override
     public void printStackTrace(PrintWriter s) {
         super.printStackTrace(s);
         if (cause != null) {

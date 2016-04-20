@@ -67,7 +67,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List getMessageList() throws DaoException;
+    List<Message> getMessageList() throws DaoException;
 
     /**
      * Get all <Code>Message</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List getMessageList(int firstResult, int maxResult);
+    List<Message> getMessageList(int firstResult, int maxResult);
 
     /**
      * Query <Code>Message</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(Message messageObject) throws DaoException;
+    List<Message> queryByExample(Message messageObject) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances from persistence store by sendTime
@@ -95,7 +95,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findBySendTime(java.util.Date sendTime) throws DaoException;
+    List<Message> findBySendTime(java.util.Date sendTime) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findBySendTime(java.util.Date sendTime, int firstResult, int maxResult) throws DaoException;
+    List<Message> findBySendTime(java.util.Date sendTime, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances from persistence store by content
@@ -116,7 +116,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findByContent(java.lang.String content) throws DaoException;
+    List<Message> findByContent(java.lang.String content) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findByContent(java.lang.String content, int firstResult, int maxResult) throws DaoException;
+    List<Message> findByContent(java.lang.String content, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances from persistence store by AppUser
@@ -137,7 +137,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findBySendUser(com.centuryOldShop.server.persistence.AppUser sendUser) throws DaoException;
+    List<Message> findBySendUser(com.centuryOldShop.server.persistence.AppUser sendUser) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances  instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findBySendUser(com.centuryOldShop.server.persistence.AppUser sendUser, int firstResult, int maxResult) throws DaoException;
+    List<Message> findBySendUser(com.centuryOldShop.server.persistence.AppUser sendUser, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances from persistence store by AppUser
@@ -158,7 +158,7 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findByReceiveUser(com.centuryOldShop.server.persistence.AppUser receiveUser) throws DaoException;
+    List<Message> findByReceiveUser(com.centuryOldShop.server.persistence.AppUser receiveUser) throws DaoException;
 
     /**
      * Find <Code>Message</Code> instances  instances in range firstResult, maxResult
@@ -170,5 +170,5 @@ public interface MessageDao extends Dao {
      * @return <Code>Message</Code> instance list
      * @throws DaoException
      */
-    public List findByReceiveUser(com.centuryOldShop.server.persistence.AppUser receiveUser, int firstResult, int maxResult) throws DaoException;
+    List<Message> findByReceiveUser(com.centuryOldShop.server.persistence.AppUser receiveUser, int firstResult, int maxResult) throws DaoException;
 }

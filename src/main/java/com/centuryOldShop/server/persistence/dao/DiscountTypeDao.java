@@ -67,7 +67,7 @@ public interface DiscountTypeDao extends Dao {
      * @return <Code>DiscountType</Code> instance list
      * @throws DaoException
      */
-    public List getDiscountTypeList() throws DaoException;
+    List<DiscountType> getDiscountTypeList() throws DaoException;
 
     /**
      * Get all <Code>DiscountType</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface DiscountTypeDao extends Dao {
      * @return <Code>DiscountType</Code> instance list
      * @throws DaoException
      */
-    public List getDiscountTypeList(int firstResult, int maxResult);
+    List<DiscountType> getDiscountTypeList(int firstResult, int maxResult);
 
     /**
      * Query <Code>DiscountType</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface DiscountTypeDao extends Dao {
      * @return <Code>DiscountType</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(DiscountType discountTypeObject) throws DaoException;
+    List<DiscountType> queryByExample(DiscountType discountTypeObject) throws DaoException;
 
     /**
      * Find <Code>DiscountType</Code> instances from persistence store by discountTypeName
@@ -95,7 +95,7 @@ public interface DiscountTypeDao extends Dao {
      * @return <Code>DiscountType</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountTypeName(java.lang.String discountTypeName) throws DaoException;
+    List<DiscountType> findByDiscountTypeName(java.lang.String discountTypeName) throws DaoException;
 
     /**
      * Find <Code>DiscountType</Code> instances in range firstResult, maxResult
@@ -107,5 +107,5 @@ public interface DiscountTypeDao extends Dao {
      * @return <Code>DiscountType</Code> instance list
      * @throws DaoException
      */
-    public List findByDiscountTypeName(java.lang.String discountTypeName, int firstResult, int maxResult) throws DaoException;
+    List<DiscountType> findByDiscountTypeName(java.lang.String discountTypeName, int firstResult, int maxResult) throws DaoException;
 }

@@ -67,7 +67,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List getUserEvaluationList() throws DaoException;
+    List<UserEvaluation> getUserEvaluationList() throws DaoException;
 
     /**
      * Get all <Code>UserEvaluation</Code> instances from persistence store by range
@@ -77,7 +77,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List getUserEvaluationList(int firstResult, int maxResult);
+    List<UserEvaluation> getUserEvaluationList(int firstResult, int maxResult);
 
     /**
      * Query <Code>UserEvaluation</Code> instances by example instance
@@ -86,7 +86,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List queryByExample(UserEvaluation userEvaluationObject) throws DaoException;
+    List<UserEvaluation> queryByExample(UserEvaluation userEvaluationObject) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances from persistence store by grade
@@ -95,7 +95,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByGrade(double grade) throws DaoException;
+    List<UserEvaluation> findByGrade(double grade) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances in range firstResult, maxResult
@@ -107,7 +107,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByGrade(double grade, int firstResult, int maxResult) throws DaoException;
+    List<UserEvaluation> findByGrade(double grade, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances from persistence store by comment
@@ -116,7 +116,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByComment(java.lang.String comment) throws DaoException;
+    List<UserEvaluation> findByComment(java.lang.String comment) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances in range firstResult, maxResult
@@ -128,7 +128,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByComment(java.lang.String comment, int firstResult, int maxResult) throws DaoException;
+    List<UserEvaluation> findByComment(java.lang.String comment, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances from persistence store by time
@@ -137,7 +137,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByTime(java.util.Date time) throws DaoException;
+    List<UserEvaluation> findByTime(java.util.Date time) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances in range firstResult, maxResult
@@ -149,7 +149,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByTime(java.util.Date time, int firstResult, int maxResult) throws DaoException;
+    List<UserEvaluation> findByTime(java.util.Date time, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances from persistence store by Commodity
@@ -158,7 +158,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByCommodity(com.centuryOldShop.server.persistence.Commodity commodity) throws DaoException;
+    List<UserEvaluation> findByCommodity(com.centuryOldShop.server.persistence.Commodity commodity) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances  instances in range firstResult, maxResult
@@ -170,7 +170,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByCommodity(com.centuryOldShop.server.persistence.Commodity commodity, int firstResult, int maxResult) throws DaoException;
+    List<UserEvaluation> findByCommodity(com.centuryOldShop.server.persistence.Commodity commodity, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances from persistence store by OrderForm
@@ -179,7 +179,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByOrderForm(com.centuryOldShop.server.persistence.OrderForm orderForm) throws DaoException;
+    List<UserEvaluation> findByOrderForm(com.centuryOldShop.server.persistence.OrderForm orderForm) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances  instances in range firstResult, maxResult
@@ -191,7 +191,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByOrderForm(com.centuryOldShop.server.persistence.OrderForm orderForm, int firstResult, int maxResult) throws DaoException;
+    List<UserEvaluation> findByOrderForm(com.centuryOldShop.server.persistence.OrderForm orderForm, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances from persistence store by AppUser
@@ -200,7 +200,7 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser) throws DaoException;
+    List<UserEvaluation> findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser) throws DaoException;
 
     /**
      * Find <Code>UserEvaluation</Code> instances  instances in range firstResult, maxResult
@@ -212,5 +212,5 @@ public interface UserEvaluationDao extends Dao {
      * @return <Code>UserEvaluation</Code> instance list
      * @throws DaoException
      */
-    public List findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser, int firstResult, int maxResult) throws DaoException;
+    List<UserEvaluation> findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser, int firstResult, int maxResult) throws DaoException;
 }
