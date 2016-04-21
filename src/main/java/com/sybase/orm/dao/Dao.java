@@ -12,13 +12,6 @@ package com.sybase.orm.dao;
 public interface Dao {
 
     /**
-     * Get connection used
-     *
-     * @return connection
-     */
-//   public Connection getConnection();
-
-    /**
      * Close connection used
      */
     public void closeConnection() throws DaoException;
@@ -47,8 +40,6 @@ public interface Dao {
 
     /**
      * Set auto commit flag
-     *
-     * @param autoCommit
      */
     public void setAutoCommit(boolean autoCommit);
 

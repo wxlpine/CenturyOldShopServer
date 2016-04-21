@@ -43,7 +43,7 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(RateKeyword.class, cs);
+        List list = super.findByCriterions(RateKeyword.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (RateKeyword) list.get(0) : null);
     }
 

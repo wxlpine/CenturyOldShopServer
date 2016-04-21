@@ -8,14 +8,18 @@ package com.centuryOldShop.server.persistence.daoimpl.hibernate;
 
 import com.centuryOldShop.server.persistence.DiscountInfo;
 import com.centuryOldShop.server.persistence.DiscountInfoPK;
+import com.centuryOldShop.server.persistence.DiscountType;
+import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.dao.DiscountInfoDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,7 +47,7 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(DiscountInfo.class, cs);
+        List list = super.findByCriterions(DiscountInfo.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (DiscountInfo) list.get(0) : null);
     }
 
@@ -102,7 +106,7 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByTitle(java.lang.String title) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("title", title));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,7 +116,7 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("title", title));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -122,17 +126,18 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByDiscountStartTime(java.util.Date discountStartTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountStartTime", discountStartTime));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByDiscountStartTime(java.util.Date, int, int)
      */
     @Override
-    public List<DiscountInfo> findByDiscountStartTime(java.util.Date discountStartTime, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByDiscountStartTime(java.util.Date discountStartTime,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountStartTime", discountStartTime));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -142,17 +147,18 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByDiscountEndTime(java.util.Date discountEndTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountEndTime", discountEndTime));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByDiscountEndTime(java.util.Date, int, int)
      */
     @Override
-    public List<DiscountInfo> findByDiscountEndTime(java.util.Date discountEndTime, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByDiscountEndTime(java.util.Date discountEndTime,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountEndTime", discountEndTime));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -162,17 +168,18 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByPriceReduceMinPrice(double priceReduceMinPrice) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("priceReduceMinPrice", new Double(priceReduceMinPrice)));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByPriceReduceMinPrice(double, int, int)
      */
     @Override
-    public List<DiscountInfo> findByPriceReduceMinPrice(double priceReduceMinPrice, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByPriceReduceMinPrice(double priceReduceMinPrice,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("priceReduceMinPrice", new Double(priceReduceMinPrice)));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -182,17 +189,18 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByPriceReduceAmount(double priceReduceAmount) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("priceReduceAmount", new Double(priceReduceAmount)));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByPriceReduceAmount(double, int, int)
      */
     @Override
-    public List<DiscountInfo> findByPriceReduceAmount(double priceReduceAmount, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByPriceReduceAmount(double priceReduceAmount,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("priceReduceAmount", new Double(priceReduceAmount)));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -202,17 +210,18 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByDiscountMinPrice(double discountMinPrice) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountMinPrice", new Double(discountMinPrice)));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByDiscountMinPrice(double, int, int)
      */
     @Override
-    public List<DiscountInfo> findByDiscountMinPrice(double discountMinPrice, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByDiscountMinPrice(double discountMinPrice,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountMinPrice", new Double(discountMinPrice)));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -222,56 +231,82 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
     public List<DiscountInfo> findByDiscountRatio(double discountRatio) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountRatio", new Double(discountRatio)));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
      * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByDiscountRatio(double, int, int)
      */
     @Override
-    public List<DiscountInfo> findByDiscountRatio(double discountRatio, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByDiscountRatio(double discountRatio,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountRatio", new Double(discountRatio)));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
-     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByShop(com.centuryOldShop.server.persistence.Shop)
+     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao
+     * #findByShop(com.centuryOldShop.server.persistence.Shop)
      */
     @Override
-    public List<DiscountInfo> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException {
+    public List<DiscountInfo> findByShop(Shop shop) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
-     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByShop(com.centuryOldShop.server.persistence.Shop, int, int)
+     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao
+     * #findByShop(com.centuryOldShop.server.persistence.Shop, int, int)
      */
     @Override
-    public List<DiscountInfo> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByShop(Shop shop,
+            int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
-     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByDiscountType(com.centuryOldShop.server.persistence.DiscountType)
+     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao
+     * #findByDiscountType(com.centuryOldShop.server.persistence.DiscountType)
      */
     @Override
-    public List<DiscountInfo> findByDiscountType(com.centuryOldShop.server.persistence.DiscountType discountType) throws DaoException {
+    public List<DiscountInfo> findByDiscountType(DiscountType discountType) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountType", discountType));
-        return super.findByCriterions(DiscountInfo.class, cs);
+        return super.findByCriterions(DiscountInfo.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
-     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao#findByDiscountType(com.centuryOldShop.server.persistence.DiscountType, int, int)
+     * @see com.centuryOldShop.server.persistence.dao.DiscountInfoDao
+     * #findByDiscountType(com.centuryOldShop.server.persistence.DiscountType, int, int)
      */
     @Override
-    public List<DiscountInfo> findByDiscountType(com.centuryOldShop.server.persistence.DiscountType discountType, int firstResult, int maxResult) throws DaoException {
+    public List<DiscountInfo> findByDiscountType(DiscountType discountType, int firstResult, int maxResult)
+            throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountType", discountType));
-        return super.findByCriterions(DiscountInfo.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountInfo.class, cs, null, firstResult, maxResult);
+    }
+
+    @Override
+    public List<DiscountInfo> getLiveDiscountInfoListPublishTimeDesc(Shop shop,
+            Integer firstResult, Integer maxResult) throws DaoException {
+        Date now = new Date();
+
+        List<Criterion> cs = new ArrayList<>();
+        if (shop != null) {
+            cs.add(Restrictions.eq("shop", shop));
+        }
+
+        cs.add(Restrictions.le("discountStartTime", now));
+        cs.add(Restrictions.gt("discountEndTime", now));
+
+        List<Order> order = new ArrayList<>();
+        order.add(Order.desc("discountStartTime"));
+
+        return super.findByCriterions(DiscountInfo.class, cs, order, firstResult, maxResult);
     }
 }

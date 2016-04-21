@@ -43,7 +43,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(OrderForm.class, cs);
+        List list = super.findByCriterions(OrderForm.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (OrderForm) list.get(0) : null);
     }
 
@@ -102,7 +102,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByOrderedTime(java.util.Date orderedTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderedTime", orderedTime));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,7 +112,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByOrderedTime(java.util.Date orderedTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderedTime", orderedTime));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -122,7 +122,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByPayedTime(java.util.Date payedTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("payedTime", payedTime));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -132,7 +132,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByPayedTime(java.util.Date payedTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("payedTime", payedTime));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -142,7 +142,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findBySendTime(java.util.Date sendTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("sendTime", sendTime));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -152,7 +152,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findBySendTime(java.util.Date sendTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("sendTime", sendTime));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -162,7 +162,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByReceiptedTime(java.util.Date receiptedTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("receiptedTime", receiptedTime));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -172,7 +172,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByReceiptedTime(java.util.Date receiptedTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("receiptedTime", receiptedTime));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -182,7 +182,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByExpressNumber(java.lang.String expressNumber) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("expressNumber", expressNumber));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -192,7 +192,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByExpressNumber(java.lang.String expressNumber, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("expressNumber", expressNumber));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -202,7 +202,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("appUser", appUser));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -212,7 +212,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByAppUser(com.centuryOldShop.server.persistence.AppUser appUser, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("appUser", appUser));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -222,7 +222,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -232,7 +232,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -242,7 +242,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByDiscountInfo(com.centuryOldShop.server.persistence.DiscountInfo discountInfo) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountInfo", discountInfo));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -252,7 +252,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByDiscountInfo(com.centuryOldShop.server.persistence.DiscountInfo discountInfo, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountInfo", discountInfo));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -262,7 +262,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByOrderStatusType(com.centuryOldShop.server.persistence.OrderStatusType orderStatusType) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderStatusType", orderStatusType));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -272,7 +272,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByOrderStatusType(com.centuryOldShop.server.persistence.OrderStatusType orderStatusType, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderStatusType", orderStatusType));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -282,7 +282,7 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByDisputeStatusType(com.centuryOldShop.server.persistence.DisputeStatusType disputeStatusType) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("disputeStatusType", disputeStatusType));
-        return super.findByCriterions(OrderForm.class, cs);
+        return super.findByCriterions(OrderForm.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -292,6 +292,6 @@ public class OrderFormDaoImpl extends HibernateDaoImpl implements OrderFormDao {
     public List<OrderForm> findByDisputeStatusType(com.centuryOldShop.server.persistence.DisputeStatusType disputeStatusType, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("disputeStatusType", disputeStatusType));
-        return super.findByCriterions(OrderForm.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderForm.class, cs, null, firstResult, maxResult);
     }
 }

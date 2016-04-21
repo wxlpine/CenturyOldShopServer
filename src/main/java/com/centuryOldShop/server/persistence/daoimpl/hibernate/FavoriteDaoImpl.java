@@ -41,7 +41,7 @@ public class FavoriteDaoImpl extends HibernateDaoImpl implements FavoriteDao {
 
         cs.add(Restrictions.idEq(pk));
 
-        List list = super.findByCriterions(Favorite.class, cs);
+        List list = super.findByCriterions(Favorite.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (Favorite) list.get(0) : null);
     }
 
@@ -100,7 +100,7 @@ public class FavoriteDaoImpl extends HibernateDaoImpl implements FavoriteDao {
     public List<Favorite> findByAddTime(java.util.Date addTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addTime", addTime));
-        return super.findByCriterions(Favorite.class, cs);
+        return super.findByCriterions(Favorite.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -110,6 +110,6 @@ public class FavoriteDaoImpl extends HibernateDaoImpl implements FavoriteDao {
     public List<Favorite> findByAddTime(java.util.Date addTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addTime", addTime));
-        return super.findByCriterions(Favorite.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Favorite.class, cs, null, firstResult, maxResult);
     }
 }

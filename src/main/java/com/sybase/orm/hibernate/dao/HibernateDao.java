@@ -44,7 +44,9 @@ public interface HibernateDao extends Dao {
 
     public <T> List<T> findByProperty(Class<T> clazz, Criterion restriction) throws DaoException;
 
-    public <T> List<T> findByCriterions(Class<T> clazz, List restrictions) throws DaoException;
+    public <T> List<T> findByCriterions(Class<T> clazz, List<Criterion> restrictions,
+            List<Order> orders, Integer firstResult, Integer maxResult)
+            throws DaoException;
 
     public <T> List<T> findBySQLQuery(String sqlQuery, String aliasName, Class<T> clazz) throws DaoException;
 

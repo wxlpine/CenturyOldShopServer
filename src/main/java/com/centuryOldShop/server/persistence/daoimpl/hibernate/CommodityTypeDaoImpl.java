@@ -43,7 +43,7 @@ public class CommodityTypeDaoImpl extends HibernateDaoImpl implements CommodityT
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(CommodityType.class, cs);
+        List list = super.findByCriterions(CommodityType.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (CommodityType) list.get(0) : null);
     }
 

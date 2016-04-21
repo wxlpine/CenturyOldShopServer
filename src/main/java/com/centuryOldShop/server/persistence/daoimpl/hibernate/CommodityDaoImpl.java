@@ -45,7 +45,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(Commodity.class, cs);
+        List list = super.findByCriterions(Commodity.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (Commodity) list.get(0) : null);
     }
 
@@ -104,7 +104,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByCommodityName(java.lang.String commodityName) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodityName", commodityName));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -114,7 +114,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByCommodityName(java.lang.String commodityName, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodityName", commodityName));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -124,7 +124,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findBySmallPhotoUrl(java.lang.String smallPhotoUrl) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("smallPhotoUrl", smallPhotoUrl));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -134,7 +134,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findBySmallPhotoUrl(java.lang.String smallPhotoUrl, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("smallPhotoUrl", smallPhotoUrl));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -144,7 +144,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByShortDescription(java.lang.String shortDescription) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shortDescription", shortDescription));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -154,7 +154,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByShortDescription(java.lang.String shortDescription, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shortDescription", shortDescription));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -164,7 +164,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByPrice(double price) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("price", new Double(price)));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -174,7 +174,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByPrice(double price, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("price", new Double(price)));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -184,7 +184,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findBySalesVolume(int salesVolume) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("salesVolume", new Integer(salesVolume)));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -194,7 +194,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findBySalesVolume(int salesVolume, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("salesVolume", new Integer(salesVolume)));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -204,7 +204,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByExemptionFromPostage(boolean exemptionFromPostage) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("exemptionFromPostage", new Boolean(exemptionFromPostage)));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -214,7 +214,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByExemptionFromPostage(boolean exemptionFromPostage, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("exemptionFromPostage", new Boolean(exemptionFromPostage)));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -224,7 +224,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByAddedTime(java.util.Date addedTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addedTime", addedTime));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -234,7 +234,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addedTime", addedTime));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -244,7 +244,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByPhoneTopBigPhotoUrl(java.lang.String phoneTopBigPhotoUrl) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("phoneTopBigPhotoUrl", phoneTopBigPhotoUrl));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -254,7 +254,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByPhoneTopBigPhotoUrl(java.lang.String phoneTopBigPhotoUrl, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("phoneTopBigPhotoUrl", phoneTopBigPhotoUrl));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -264,7 +264,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByOffShelf(boolean offShelf) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("offShelf", new Boolean(offShelf)));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -274,7 +274,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByOffShelf(boolean offShelf, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("offShelf", new Boolean(offShelf)));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -284,7 +284,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByRemainingQuantity(int remainingQuantity) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("remainingQuantity", new Integer(remainingQuantity)));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -294,7 +294,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByRemainingQuantity(int remainingQuantity, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("remainingQuantity", new Integer(remainingQuantity)));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -304,7 +304,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
     public List<Commodity> findByCommodityType(CommodityType commodityType) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodityType", commodityType));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -315,20 +315,20 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
             throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodityType", commodityType));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 
     @Override
     public List<Commodity> findByShop(Shop shop) throws DaoException {
         List<Criterion> cs = new ArrayList();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(Commodity.class, cs);
+        return super.findByCriterions(Commodity.class, cs, null, null, null);
     }
 
     @Override
     public List<Commodity> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(Commodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Commodity.class, cs, null, firstResult, maxResult);
     }
 }

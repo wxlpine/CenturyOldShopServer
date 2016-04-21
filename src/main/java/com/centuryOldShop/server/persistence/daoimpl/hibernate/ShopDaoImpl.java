@@ -43,7 +43,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(Shop.class, cs);
+        List list = super.findByCriterions(Shop.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (Shop) list.get(0) : null);
     }
 
@@ -102,7 +102,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShopName(java.lang.String shopName) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopName", shopName));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,7 +112,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShopName(java.lang.String shopName, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopName", shopName));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -122,7 +122,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShortDescription(java.lang.String shortDescription) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shortDescription", shortDescription));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -132,7 +132,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShortDescription(java.lang.String shortDescription, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shortDescription", shortDescription));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -142,7 +142,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByOpenABusinessTime(java.util.Date openABusinessTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("openABusinessTime", openABusinessTime));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -152,7 +152,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByOpenABusinessTime(java.util.Date openABusinessTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("openABusinessTime", openABusinessTime));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -162,7 +162,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByVisitCount(int visitCount) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("visitCount", new Integer(visitCount)));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -172,7 +172,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByVisitCount(int visitCount, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("visitCount", new Integer(visitCount)));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -182,7 +182,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByDetailedAddress(java.lang.String detailedAddress) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("detailedAddress", detailedAddress));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -192,7 +192,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByDetailedAddress(java.lang.String detailedAddress, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("detailedAddress", detailedAddress));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -202,7 +202,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByTrademark(java.lang.String trademark) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("trademark", trademark));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -212,7 +212,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByTrademark(java.lang.String trademark, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("trademark", trademark));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -222,7 +222,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByEnterTime(java.util.Date enterTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("enterTime", enterTime));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -232,7 +232,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByEnterTime(java.util.Date enterTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("enterTime", enterTime));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -242,7 +242,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByPhoneNumber(java.lang.String phoneNumber) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("phoneNumber", phoneNumber));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -252,7 +252,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByPhoneNumber(java.lang.String phoneNumber, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("phoneNumber", phoneNumber));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -262,7 +262,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByFax(java.lang.String fax) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("fax", fax));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -272,7 +272,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByFax(java.lang.String fax, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("fax", fax));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -282,7 +282,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByLongDescription(java.lang.String longDescription) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("longDescription", longDescription));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -292,7 +292,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByLongDescription(java.lang.String longDescription, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("longDescription", longDescription));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -302,7 +302,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShopType(com.centuryOldShop.server.persistence.ShopType shopType) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopType", shopType));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -312,7 +312,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShopType(com.centuryOldShop.server.persistence.ShopType shopType, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopType", shopType));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -322,7 +322,7 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShopArea(com.centuryOldShop.server.persistence.ShopArea shopArea) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopArea", shopArea));
-        return super.findByCriterions(Shop.class, cs);
+        return super.findByCriterions(Shop.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -332,6 +332,6 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
     public List<Shop> findByShopArea(com.centuryOldShop.server.persistence.ShopArea shopArea, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopArea", shopArea));
-        return super.findByCriterions(Shop.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 }

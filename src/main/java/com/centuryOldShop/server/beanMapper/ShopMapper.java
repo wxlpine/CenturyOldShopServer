@@ -16,5 +16,5 @@ public interface ShopMapper {
 
     @Mapping(source = "shopType.shopTypeName", target = "shopType")
     @Mapping(source = "shopArea.shopAreaName", target = "shopArea")
-    ShopDto ShopEntityToShopDto(Shop shop);
+    ShopDto Shop_ShopDto(Shop shop);
 }

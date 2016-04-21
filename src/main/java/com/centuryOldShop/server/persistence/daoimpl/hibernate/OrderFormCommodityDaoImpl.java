@@ -41,7 +41,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
 
         cs.add(Restrictions.idEq(pk));
 
-        List list = super.findByCriterions(OrderFormCommodity.class, cs);
+        List list = super.findByCriterions(OrderFormCommodity.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (OrderFormCommodity) list.get(0) : null);
     }
 
@@ -100,7 +100,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     public List<OrderFormCommodity> findByBuyPrice(double buyPrice) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyPrice", new Double(buyPrice)));
-        return super.findByCriterions(OrderFormCommodity.class, cs);
+        return super.findByCriterions(OrderFormCommodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -110,7 +110,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     public List<OrderFormCommodity> findByBuyPrice(double buyPrice, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyPrice", new Double(buyPrice)));
-        return super.findByCriterions(OrderFormCommodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderFormCommodity.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -120,7 +120,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     public List<OrderFormCommodity> findByBuyAmount(int buyAmount) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyAmount", new Integer(buyAmount)));
-        return super.findByCriterions(OrderFormCommodity.class, cs);
+        return super.findByCriterions(OrderFormCommodity.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -130,6 +130,6 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
     public List<OrderFormCommodity> findByBuyAmount(int buyAmount, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("buyAmount", new Integer(buyAmount)));
-        return super.findByCriterions(OrderFormCommodity.class, cs, firstResult, maxResult);
+        return super.findByCriterions(OrderFormCommodity.class, cs, null, firstResult, maxResult);
     }
 }

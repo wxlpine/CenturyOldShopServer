@@ -321,43 +321,31 @@ public class HibernateDaoImpl implements HibernateDao {
         return objs;
     }
 
-    @Override
-    public <T> List<T> findByCriterions(Class<T> clazz, List restrictions)
+    public <T> List<T> findByCriterions(Class<T> clazz, List<Criterion> restrictions,
+            List<Order> orders, Integer firstResult, Integer maxResult)
             throws DaoException {
-        List objs = new ArrayList();
+        List<T> objs = new ArrayList<>();
 
         try {
             Session session = this.openSession();
             beginTransaction();
             Criteria criteria = session.createCriteria(clazz);
-            Iterator it = restrictions.iterator();
-            while (it.hasNext())
-                criteria.add((Criterion) it.next());
-            objs = criteria.list();
-            if (autoCommit)
-                commitTransaction();
-        } catch (HibernateException ex) {
-            rollbackTransaction();
-            log.error("Fail to find objects by criterions", ex);
-            throw new DaoException("Fail to find objects by criterions", ex);
-        } finally {
-            if (autoCloseSession)
-                closeSession();
-        }
-        return objs;
-    }
 
-    public <T> List<T> findByCriterions(Class<T> clazz, List restrictions, int firstResult, int maxResult)
-            throws DaoException {
-        List objs = new ArrayList();
+            if (firstResult != null) {
+                criteria.setFirstResult(firstResult);
+            }
+            if (maxResult != null) {
+                criteria.setMaxResults(maxResult);
+            }
 
-        try {
-            Session session = this.openSession();
-            beginTransaction();
-            Criteria criteria = session.createCriteria(clazz).setFirstResult(firstResult).setMaxResults(maxResult);
-            Iterator it = restrictions.iterator();
+            Iterator<Criterion> it = restrictions.iterator();
             while (it.hasNext())
-                criteria.add((Criterion) it.next());
+                criteria.add(it.next());
+
+            if (orders != null) {
+                orders.forEach(criteria::addOrder);
+            }
+            
             objs = criteria.list();
             if (autoCommit)
                 commitTransaction();

@@ -13,46 +13,28 @@ import java.util.List;
  * @pdOid a85c5231-1f5c-43cd-8c62-325fdcd365b3
  */
 public class DiscountInfo implements java.io.Serializable {
-    /**
-     * @pdOid e755ddf8-0c39-42c8-b177-eaeecae45b58
-     */
+
     private long discountInfoId;
-    /**
-     * @pdOid 16cdbb7a-9b56-4a3c-8b09-7d24285f57a7
-     */
     private String title;
-    /**
-     * @pdOid 83f32084-f5d2-485d-beab-5cb0107b64ed
-     */
     private java.util.Date discountStartTime;
     /**
      * null代表没有截止日期
-     *
-     * @pdOid 01f813ca-7c09-44cb-8827-6fb89e92876c
      */
     private java.util.Date discountEndTime;
     /**
      * 价格减免开始金额
-     *
-     * @pdOid 93eb1f59-b1a1-46c9-8b66-1734f3cc853e
      */
     private Double priceReduceMinPrice;
     /**
      * 减免额度
-     *
-     * @pdOid bd8c6d20-1679-4586-8de6-94d2798277f3
      */
     private Double priceReduceAmount;
     /**
      * 打折最低金额
-     *
-     * @pdOid 1651517a-418c-4172-b42d-cb28b42d90c6
      */
     private Double discountMinPrice;
     /**
      * 折扣值，比如9折之类的
-     *
-     * @pdOid f12a756e-5304-44d0-8477-8adb4b5d3c00
      */
     private Double discountRatio;
 

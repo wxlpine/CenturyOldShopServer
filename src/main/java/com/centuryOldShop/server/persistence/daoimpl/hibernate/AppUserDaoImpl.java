@@ -42,7 +42,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(AppUser.class, cs);
+        List list = super.findByCriterions(AppUser.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (AppUser) list.get(0) : null);
     }
 
@@ -101,7 +101,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByUserName(java.lang.String userName) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("userName", userName));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -111,7 +111,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByUserName(java.lang.String userName, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("userName", userName));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -121,7 +121,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByEmail(java.lang.String email) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("email", email));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -131,7 +131,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByEmail(java.lang.String email, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("email", email));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -141,7 +141,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByPhoneNumber(java.lang.String phoneNumber) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("phoneNumber", phoneNumber));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -151,7 +151,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByPhoneNumber(java.lang.String phoneNumber, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("phoneNumber", phoneNumber));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -161,7 +161,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByUserType(short userType) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("userType", new Short(userType)));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -171,7 +171,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByUserType(short userType, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("userType", new Short(userType)));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -181,7 +181,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByHeadPortraitUrl(java.lang.String headPortraitUrl) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("headPortraitUrl", headPortraitUrl));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -191,7 +191,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByHeadPortraitUrl(java.lang.String headPortraitUrl, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("headPortraitUrl", headPortraitUrl));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -201,7 +201,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByRegisterTime(java.util.Date registerTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("registerTime", registerTime));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -211,7 +211,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByRegisterTime(java.util.Date registerTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("registerTime", registerTime));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -221,7 +221,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByManagedShop(com.centuryOldShop.server.persistence.Shop managedShop) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("managedShop", managedShop));
-        return super.findByCriterions(AppUser.class, cs);
+        return super.findByCriterions(AppUser.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -231,6 +231,6 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
     public List<AppUser> findByManagedShop(com.centuryOldShop.server.persistence.Shop managedShop, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("managedShop", managedShop));
-        return super.findByCriterions(AppUser.class, cs, firstResult, maxResult);
+        return super.findByCriterions(AppUser.class, cs, null, firstResult, maxResult);
     }
 }

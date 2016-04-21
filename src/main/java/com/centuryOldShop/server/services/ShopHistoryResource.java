@@ -35,6 +35,7 @@ public class ShopHistoryResource {
         Shop shop = shopDao.load(new ShopPK(shopId));
 
         ShopHistoryDao shopHistoryDao = daoFactory.getShopHistoryDao();
+        //TODO order by publishedTime desc
         List<ShopHistory> shopHistoryList = shopHistoryDao.findByShop(shop, start, size);
 
         List<ShopHistoryDto> shopHistoryDtos = ShopHistoryMapper.INSTANCE

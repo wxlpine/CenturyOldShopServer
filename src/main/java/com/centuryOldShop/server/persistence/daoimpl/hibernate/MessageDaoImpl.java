@@ -43,7 +43,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(Message.class, cs);
+        List list = super.findByCriterions(Message.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (Message) list.get(0) : null);
     }
 
@@ -102,7 +102,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findBySendTime(java.util.Date sendTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("sendTime", sendTime));
-        return super.findByCriterions(Message.class, cs);
+        return super.findByCriterions(Message.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,7 +112,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findBySendTime(java.util.Date sendTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("sendTime", sendTime));
-        return super.findByCriterions(Message.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Message.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -122,7 +122,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findByContent(java.lang.String content) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("content", content));
-        return super.findByCriterions(Message.class, cs);
+        return super.findByCriterions(Message.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -132,7 +132,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findByContent(java.lang.String content, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("content", content));
-        return super.findByCriterions(Message.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Message.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -142,7 +142,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findBySendUser(com.centuryOldShop.server.persistence.AppUser sendUser) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("sendUser", sendUser));
-        return super.findByCriterions(Message.class, cs);
+        return super.findByCriterions(Message.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -152,7 +152,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findBySendUser(com.centuryOldShop.server.persistence.AppUser sendUser, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("sendUser", sendUser));
-        return super.findByCriterions(Message.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Message.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -162,7 +162,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findByReceiveUser(com.centuryOldShop.server.persistence.AppUser receiveUser) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("receiveUser", receiveUser));
-        return super.findByCriterions(Message.class, cs);
+        return super.findByCriterions(Message.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -172,6 +172,6 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
     public List<Message> findByReceiveUser(com.centuryOldShop.server.persistence.AppUser receiveUser, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("receiveUser", receiveUser));
-        return super.findByCriterions(Message.class, cs, firstResult, maxResult);
+        return super.findByCriterions(Message.class, cs, null, firstResult, maxResult);
     }
 }

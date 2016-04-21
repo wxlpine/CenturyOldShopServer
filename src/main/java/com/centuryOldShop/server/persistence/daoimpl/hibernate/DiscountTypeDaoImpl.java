@@ -43,7 +43,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(DiscountType.class, cs);
+        List list = super.findByCriterions(DiscountType.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (DiscountType) list.get(0) : null);
     }
 
@@ -102,7 +102,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     public List<DiscountType> findByDiscountTypeName(java.lang.String discountTypeName) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountTypeName", discountTypeName));
-        return super.findByCriterions(DiscountType.class, cs);
+        return super.findByCriterions(DiscountType.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,6 +112,6 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
     public List<DiscountType> findByDiscountTypeName(java.lang.String discountTypeName, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("discountTypeName", discountTypeName));
-        return super.findByCriterions(DiscountType.class, cs, firstResult, maxResult);
+        return super.findByCriterions(DiscountType.class, cs, null, firstResult, maxResult);
     }
 }

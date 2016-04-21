@@ -43,7 +43,7 @@ public class OrderStatusTypeDaoImpl extends HibernateDaoImpl implements OrderSta
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(OrderStatusType.class, cs);
+        List list = super.findByCriterions(OrderStatusType.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (OrderStatusType) list.get(0) : null);
     }
 

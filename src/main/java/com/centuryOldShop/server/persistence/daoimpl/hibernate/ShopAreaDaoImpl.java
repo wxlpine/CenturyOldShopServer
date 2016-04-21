@@ -43,7 +43,7 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(ShopArea.class, cs);
+        List list = super.findByCriterions(ShopArea.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (ShopArea) list.get(0) : null);
     }
 
@@ -102,7 +102,7 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
     public List<ShopArea> findByShopAreaName(java.lang.String shopAreaName) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopAreaName", shopAreaName));
-        return super.findByCriterions(ShopArea.class, cs);
+        return super.findByCriterions(ShopArea.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,6 +112,6 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
     public List<ShopArea> findByShopAreaName(java.lang.String shopAreaName, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shopAreaName", shopAreaName));
-        return super.findByCriterions(ShopArea.class, cs, firstResult, maxResult);
+        return super.findByCriterions(ShopArea.class, cs, null, firstResult, maxResult);
     }
 }

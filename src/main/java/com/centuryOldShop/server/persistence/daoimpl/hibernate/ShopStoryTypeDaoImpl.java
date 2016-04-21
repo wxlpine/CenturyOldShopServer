@@ -43,7 +43,7 @@ public class ShopStoryTypeDaoImpl extends HibernateDaoImpl implements ShopStoryT
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(ShopStoryType.class, cs);
+        List list = super.findByCriterions(ShopStoryType.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (ShopStoryType) list.get(0) : null);
     }
 

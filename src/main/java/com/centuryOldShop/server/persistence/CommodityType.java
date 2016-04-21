@@ -12,9 +12,7 @@ import java.util.List;
  * @pdOid dfc97029-3bed-48f3-8743-313208c78eaa
  */
 public class CommodityType implements java.io.Serializable {
-    /**
-     * @pdOid ca41d35c-564d-44b6-b785-fc0f3d6de76b
-     */
+
     private String commodityType;
 
 

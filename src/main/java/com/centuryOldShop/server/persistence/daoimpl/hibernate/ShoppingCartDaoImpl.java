@@ -41,7 +41,7 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
 
         cs.add(Restrictions.idEq(pk));
 
-        List list = super.findByCriterions(ShoppingCart.class, cs);
+        List list = super.findByCriterions(ShoppingCart.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (ShoppingCart) list.get(0) : null);
     }
 
@@ -100,7 +100,7 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
     public List<ShoppingCart> findByAmount(int amount) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("amount", new Integer(amount)));
-        return super.findByCriterions(ShoppingCart.class, cs);
+        return super.findByCriterions(ShoppingCart.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -110,7 +110,7 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
     public List<ShoppingCart> findByAmount(int amount, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("amount", new Integer(amount)));
-        return super.findByCriterions(ShoppingCart.class, cs, firstResult, maxResult);
+        return super.findByCriterions(ShoppingCart.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -120,7 +120,7 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
     public List<ShoppingCart> findByAddedTime(java.util.Date addedTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addedTime", addedTime));
-        return super.findByCriterions(ShoppingCart.class, cs);
+        return super.findByCriterions(ShoppingCart.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -130,6 +130,6 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
     public List<ShoppingCart> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addedTime", addedTime));
-        return super.findByCriterions(ShoppingCart.class, cs, firstResult, maxResult);
+        return super.findByCriterions(ShoppingCart.class, cs, null, firstResult, maxResult);
     }
 }

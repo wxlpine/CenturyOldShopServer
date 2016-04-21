@@ -43,7 +43,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
         for (int i = 0; i < paramNames.length; i++)
             cs.add(Restrictions.eq(paramNames[i], values[i]));
 
-        List list = super.findByCriterions(SpecialCraft.class, cs);
+        List list = super.findByCriterions(SpecialCraft.class, cs, null, null, null);
         return (((list != null) && (list.size() > 0)) ? (SpecialCraft) list.get(0) : null);
     }
 
@@ -102,7 +102,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByTitle(java.lang.String title) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("title", title));
-        return super.findByCriterions(SpecialCraft.class, cs);
+        return super.findByCriterions(SpecialCraft.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -112,7 +112,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("title", title));
-        return super.findByCriterions(SpecialCraft.class, cs, firstResult, maxResult);
+        return super.findByCriterions(SpecialCraft.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -122,7 +122,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findBySmallPhotoUrl(java.lang.String smallPhotoUrl) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("smallPhotoUrl", smallPhotoUrl));
-        return super.findByCriterions(SpecialCraft.class, cs);
+        return super.findByCriterions(SpecialCraft.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -132,7 +132,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findBySmallPhotoUrl(java.lang.String smallPhotoUrl, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("smallPhotoUrl", smallPhotoUrl));
-        return super.findByCriterions(SpecialCraft.class, cs, firstResult, maxResult);
+        return super.findByCriterions(SpecialCraft.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -142,7 +142,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByIntroductionUrl(java.lang.String introductionUrl) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("introductionUrl", introductionUrl));
-        return super.findByCriterions(SpecialCraft.class, cs);
+        return super.findByCriterions(SpecialCraft.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -152,7 +152,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByIntroductionUrl(java.lang.String introductionUrl, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("introductionUrl", introductionUrl));
-        return super.findByCriterions(SpecialCraft.class, cs, firstResult, maxResult);
+        return super.findByCriterions(SpecialCraft.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -162,7 +162,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByAddedTime(java.util.Date addedTime) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addedTime", addedTime));
-        return super.findByCriterions(SpecialCraft.class, cs);
+        return super.findByCriterions(SpecialCraft.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -172,7 +172,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("addedTime", addedTime));
-        return super.findByCriterions(SpecialCraft.class, cs, firstResult, maxResult);
+        return super.findByCriterions(SpecialCraft.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -182,7 +182,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByShortIntro(java.lang.String shortIntro) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shortIntro", shortIntro));
-        return super.findByCriterions(SpecialCraft.class, cs);
+        return super.findByCriterions(SpecialCraft.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -192,7 +192,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByShortIntro(java.lang.String shortIntro, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shortIntro", shortIntro));
-        return super.findByCriterions(SpecialCraft.class, cs, firstResult, maxResult);
+        return super.findByCriterions(SpecialCraft.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -202,7 +202,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(SpecialCraft.class, cs);
+        return super.findByCriterions(SpecialCraft.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -212,6 +212,6 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
     public List<SpecialCraft> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
-        return super.findByCriterions(SpecialCraft.class, cs, firstResult, maxResult);
+        return super.findByCriterions(SpecialCraft.class, cs, null, firstResult, maxResult);
     }
 }

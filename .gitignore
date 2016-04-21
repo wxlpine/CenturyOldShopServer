@@ -18,6 +18,3 @@ buildNumber.properties
 /.idea/dataSources.xml
 /.idea/dataSources.ids
 /.idea/dataSources.local.xml
-
-# doc temp files
-/doc/*.tmp

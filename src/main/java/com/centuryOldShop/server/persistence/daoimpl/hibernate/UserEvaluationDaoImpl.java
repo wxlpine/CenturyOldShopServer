@@ -40,7 +40,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
 
         cs.add(Restrictions.idEq(pk));
 
-        List list = super.findByCriterions(UserEvaluation.class, cs);
+        List list = super.findByCriterions(UserEvaluation.class, cs, null, null, null);
 
         return (((list != null) && (list.size() > 0)) ? (UserEvaluation) list.get(0) : null);
     }
@@ -100,7 +100,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByGrade(double grade) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("grade", new Double(grade)));
-        return super.findByCriterions(UserEvaluation.class, cs);
+        return super.findByCriterions(UserEvaluation.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -110,7 +110,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByGrade(double grade, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("grade", new Double(grade)));
-        return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
+        return super.findByCriterions(UserEvaluation.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -120,7 +120,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByComment(java.lang.String comment) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("comment", comment));
-        return super.findByCriterions(UserEvaluation.class, cs);
+        return super.findByCriterions(UserEvaluation.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -130,7 +130,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByComment(java.lang.String comment, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("comment", comment));
-        return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
+        return super.findByCriterions(UserEvaluation.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -140,7 +140,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByTime(java.util.Date time) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("time", time));
-        return super.findByCriterions(UserEvaluation.class, cs);
+        return super.findByCriterions(UserEvaluation.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -150,7 +150,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByTime(java.util.Date time, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("time", time));
-        return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
+        return super.findByCriterions(UserEvaluation.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -160,7 +160,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByCommodity(Commodity commodity) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodity", commodity));
-        return super.findByCriterions(UserEvaluation.class, cs);
+        return super.findByCriterions(UserEvaluation.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -170,7 +170,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByCommodity(Commodity commodity, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("commodity", commodity));
-        return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
+        return super.findByCriterions(UserEvaluation.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -180,7 +180,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByOrderForm(OrderForm orderForm) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderForm", orderForm));
-        return super.findByCriterions(UserEvaluation.class, cs);
+        return super.findByCriterions(UserEvaluation.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -190,7 +190,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByOrderForm(OrderForm orderForm, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("orderForm", orderForm));
-        return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
+        return super.findByCriterions(UserEvaluation.class, cs, null, firstResult, maxResult);
     }
 
     /* (non-Javadoc)
@@ -200,7 +200,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByAppUser(AppUser appUser) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("appUser", appUser));
-        return super.findByCriterions(UserEvaluation.class, cs);
+        return super.findByCriterions(UserEvaluation.class, cs, null, null, null);
     }
 
     /* (non-Javadoc)
@@ -210,6 +210,6 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
     public List<UserEvaluation> findByAppUser(AppUser appUser, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("appUser", appUser));
-        return super.findByCriterions(UserEvaluation.class, cs, firstResult, maxResult);
+        return super.findByCriterions(UserEvaluation.class, cs, null, firstResult, maxResult);
     }
 }

@@ -30,7 +30,7 @@ public class ShopResource {
         ShopDao shopDao = daoFactory.getShopDao();
         Shop shop = shopDao.load(new ShopPK(id));
 
-        ShopDto shopDto = ShopMapper.INSTANCE.ShopEntityToShopDto(shop);
+        ShopDto shopDto = ShopMapper.INSTANCE.Shop_ShopDto(shop);
 
         return shopDto;
     }
