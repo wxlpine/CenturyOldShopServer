@@ -34,7 +34,7 @@ public class ShopStoryResource {
         Shop shop = shopDao.load(new ShopPK(shopId));
 
         ShopStoryDao shopStoryDao = daoFactory.getShopStoryDao();
-        List<ShopStory> shopStoryList = shopStoryDao.findByShop(shop, start, size);
+        List<ShopStory> shopStoryList = shopStoryDao.findByShopOrderByAddedTimeDesc(shop, start, size);
 
         List<ShopStoryDto> shopStoryDtoList = ShopStoryMapper.INSTANCE
                 .ShopStoryList_ShopStoryDtoList(shopStoryList);

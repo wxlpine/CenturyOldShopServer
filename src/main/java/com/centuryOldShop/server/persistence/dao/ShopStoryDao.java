@@ -6,8 +6,10 @@
 
 package com.centuryOldShop.server.persistence.dao;
 
+import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.ShopStory;
 import com.centuryOldShop.server.persistence.ShopStoryPK;
+import com.centuryOldShop.server.persistence.ShopStoryType;
 import com.sybase.orm.dao.Dao;
 import com.sybase.orm.dao.DaoException;
 
@@ -158,7 +160,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<ShopStory> findByShop(Shop shop) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances  instances in range firstResult, maxResult
@@ -170,7 +172,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    List<ShopStory> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances from persistence store by ShopStoryType
@@ -179,7 +181,7 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType) throws DaoException;
+    List<ShopStory> findByShopStoryType(ShopStoryType shopStoryType) throws DaoException;
 
     /**
      * Find <Code>ShopStory</Code> instances  instances in range firstResult, maxResult
@@ -191,5 +193,12 @@ public interface ShopStoryDao extends Dao {
      * @return <Code>ShopStory</Code> instance list
      * @throws DaoException
      */
-    List<ShopStory> findByShopStoryType(com.centuryOldShop.server.persistence.ShopStoryType shopStoryType, int firstResult, int maxResult) throws DaoException;
+    List<ShopStory> findByShopStoryType(ShopStoryType shopStoryType,
+            int firstResult, int maxResult) throws DaoException;
+
+    List<ShopStory> findByShopOrderByAddedTimeDesc(Shop shop)
+            throws DaoException;
+
+    List<ShopStory> findByShopOrderByAddedTimeDesc(Shop shop, int firstResult, int maxResult)
+            throws DaoException;
 }
