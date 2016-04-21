@@ -82,7 +82,7 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
      */
     @Override
     public List<ShoppingCart> getShoppingCartList() throws DaoException {
-        return super.loadAll(ShoppingCart.class);
+        return super.loadAll(ShoppingCart.class, null);
     }
 
     /* (non-Javadoc)
@@ -90,7 +90,7 @@ public class ShoppingCartDaoImpl extends HibernateDaoImpl implements ShoppingCar
      */
     @Override
     public List<ShoppingCart> getShoppingCartList(int firstResult, int maxResult) {
-        return super.loadAll(ShoppingCart.class, firstResult, maxResult);
+        return super.loadAll(ShoppingCart.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

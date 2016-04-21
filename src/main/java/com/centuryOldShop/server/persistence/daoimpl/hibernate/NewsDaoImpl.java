@@ -84,7 +84,7 @@ public class NewsDaoImpl extends HibernateDaoImpl implements NewsDao {
      */
     @Override
     public List<News> getNewsList() throws DaoException {
-        return super.loadAll(News.class);
+        return super.loadAll(News.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class NewsDaoImpl extends HibernateDaoImpl implements NewsDao {
      */
     @Override
     public List<News> getNewsList(int firstResult, int maxResult) {
-        return super.loadAll(News.class, firstResult, maxResult);
+        return super.loadAll(News.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

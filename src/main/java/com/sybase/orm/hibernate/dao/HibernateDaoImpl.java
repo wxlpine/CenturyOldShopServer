@@ -13,6 +13,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Order;
 import org.hibernate.jdbc.Work;
 
 import java.io.Serializable;
@@ -46,77 +47,42 @@ public class HibernateDaoImpl implements HibernateDao {
     /**
      * Constructor with specified session factory
      *
-     * @param sessionFactory
+     * @param sessionFactory sessionFactory
      */
     public HibernateDaoImpl(SessionFactory sessionFactory) {
         setSessionFactory(sessionFactory);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#getSessionFactory
-     */
     @Override
     public SessionFactory getSessionFactory() {
         return HibernateSessionManager.getSessionFactory();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao.setSessionFactory(org.Hibernate.SessionFactory)
-     */
     @Override
     public void setSessionFactory(SessionFactory sessions) {
 
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#setSession(org.hibernate.Session)
-     */
     @Override
     public Session setSession(Session session) {
         return HibernateSessionManager.setSession(session);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#getSession(boolean)
-     */
     @Override
     public Session getSession(boolean openSession) {
         return HibernateSessionManager.getSession(openSession);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#getSession()
-     */
     @Override
     public Session getSession() {
         return getSession(false);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#closeSession()
-     */
     @Override
     public void closeSession() throws DaoException {
         HibernateSessionManager.closeSession();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#flushSession()
-     */
     @Override
     public void flushSession() throws DaoException {
         if (getSession() != null)
@@ -128,11 +94,6 @@ public class HibernateDaoImpl implements HibernateDao {
             }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#clearSession()
-     */
     @Override
     public void clearSession() throws DaoException {
         if (getSession() != null)
@@ -144,21 +105,11 @@ public class HibernateDaoImpl implements HibernateDao {
             }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#beginTransaction()
-     */
     @Override
     public void beginTransaction() throws DaoException {
         HibernateSessionManager.beginTransaction();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.dao.hibernate.HibernateDao#commitTransaction()
-     */
     @Override
     public void commitTransaction() throws DaoException {
         HibernateSessionManager.commitTransaction();
@@ -307,13 +258,8 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#queryByExample(java.lang.Class, java.lang.Object)
-     */
     @Override
-    public List queryByExample(Class clazz, Object persistentObject) throws DaoException {
+    public <T> List<T> queryByExample(Class<T> clazz, Object persistentObject) throws DaoException {
         List objs = new ArrayList();
 
         try {
@@ -333,13 +279,8 @@ public class HibernateDaoImpl implements HibernateDao {
         return objs;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findAll(java.lang.Class)
-     */
     @Override
-    public List findAll(Class clazz) throws DaoException {
+    public <T> List<T> findAll(Class<T> clazz) throws DaoException {
         List objs = new ArrayList();
 
         try {
@@ -359,13 +300,8 @@ public class HibernateDaoImpl implements HibernateDao {
         return objs;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#update(java.lang.Class, org.hibernate.criterion.Criterion)
-     */
     @Override
-    public List findByProperty(Class clazz, Criterion restriction) throws DaoException {
+    public <T> List<T> findByProperty(Class<T> clazz, Criterion restriction) throws DaoException {
         List objs = new ArrayList();
 
         try {
@@ -385,13 +321,8 @@ public class HibernateDaoImpl implements HibernateDao {
         return objs;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByCriterions(java.lang.Class, java.util.List)
-     */
     @Override
-    public List findByCriterions(Class clazz, List restrictions)
+    public <T> List<T> findByCriterions(Class<T> clazz, List restrictions)
             throws DaoException {
         List objs = new ArrayList();
 
@@ -416,12 +347,8 @@ public class HibernateDaoImpl implements HibernateDao {
         return objs;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByCriterions(java.lang.Class, java.util.List,int,int)
-     */
-    public List findByCriterions(Class clazz, List restrictions, int firstResult, int maxResult) throws DaoException {
+    public <T> List<T> findByCriterions(Class<T> clazz, List restrictions, int firstResult, int maxResult)
+            throws DaoException {
         List objs = new ArrayList();
 
         try {
@@ -445,13 +372,8 @@ public class HibernateDaoImpl implements HibernateDao {
         return objs;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findBySQLQuery(java.lang.String, java.lang.String, java.lang.Class)
-     */
     @Override
-    public List findBySQLQuery(String sqlQuery, String aliasName, Class clazz) throws DaoException {
+    public <T> List<T> findBySQLQuery(String sqlQuery, String aliasName, Class<T> clazz) throws DaoException {
         List result = new ArrayList();
         try {
             Session session = this.openSession();
@@ -511,7 +433,8 @@ public class HibernateDaoImpl implements HibernateDao {
      * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedParam(java.lang.String, java.lang.String, java.lang.Object, int, int)
      */
     @Override
-    public List findByNamedParam(String queryString, String paramName, Object value, int firstResult, int maxResult) throws DaoException {
+    public List findByNamedParam(String queryString, String paramName, Object value, int firstResult, int maxResult)
+            throws DaoException {
         return findByNamedParam(queryString, new String[]{paramName}, new Object[]{value}, firstResult, maxResult);
     }
 
@@ -521,7 +444,8 @@ public class HibernateDaoImpl implements HibernateDao {
      * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedParam(java.lang.String, java.lang.String[], java.lang.Object[])
      */
     @Override
-    public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values) throws DaoException {
+    public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values)
+            throws DaoException {
         try {
             if (paramNames.length != values.length) {
                 throw new IllegalArgumentException("Length of paramNames array must match length of values array");
@@ -549,11 +473,6 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedParam(java.lang.String,java.lang.String[], java.lang.Object[], int, int)
-     */
     @Override
     public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values,
                                  final int firstResult, final int maxResult) throws DaoException {
@@ -581,11 +500,6 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByValueBean(java.lang.String, java.lang.Object)
-     */
     @Override
     public List findByValueBean(final String queryString, final Object valueBean) throws DaoException {
         Session session = this.openSession();
@@ -603,31 +517,16 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedQuery(java.lang.String)
-     */
     @Override
     public List findByNamedQuery(String queryName) throws DaoException {
         return findByNamedQuery(queryName, (Object[]) null);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedQuery(java.lang.String, java.lang.Object)
-     */
     @Override
     public List findByNamedQuery(String queryName, Object value) throws DaoException {
         return findByNamedQuery(queryName, new Object[]{value});
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedQuery(java.lang.String, java.lang.Object[])
-     */
     @Override
     public List findByNamedQuery(final String queryName, final Object[] values) throws DaoException {
         Session session = this.openSession();
@@ -649,23 +548,14 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedQueryAndNamedParam(java.lang.String, java.lang.String, java.lang.Object)
-     */
     @Override
     public List findByNamedQueryAndNamedParam(String queryName, String paramName, Object value) throws DaoException {
         return findByNamedQueryAndNamedParam(queryName, new String[]{paramName}, new Object[]{value});
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedQueryAndNamedParam(java.lang.String, java.lang.String[], java.lang.Object[])
-     */
     @Override
-    public List findByNamedQueryAndNamedParam(final String queryName, final String[] paramNames, final Object[] values) throws DaoException {
+    public List findByNamedQueryAndNamedParam(final String queryName, final String[] paramNames,
+                                              final Object[] values) throws DaoException {
         if (paramNames != null && values != null && paramNames.length != values.length) {
             throw new IllegalArgumentException("Length of paramNames array must match length of values array");
         }
@@ -688,11 +578,6 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#findByNamedQueryAndValueBean(java.lang.String, java.lang.Object)
-     */
     @Override
     public List findByNamedQueryAndValueBean(final String queryName, final Object valueBean) throws DaoException {
         Session session = this.openSession();
@@ -732,7 +617,8 @@ public class HibernateDaoImpl implements HibernateDao {
      * @param value
      * @throws HibernateException
      */
-    protected void applyNamedParameterToQuery(Query queryObject, String paramName, Object value) throws HibernateException {
+    protected void applyNamedParameterToQuery(Query queryObject, String paramName, Object value)
+            throws HibernateException {
         if (value instanceof Collection) {
             queryObject.setParameterList(paramName, (Collection) value);
         } else if (value instanceof Object[]) {
@@ -742,29 +628,16 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#isCacheQueries()
-     */
     @Override
     public boolean isCacheQueries() {
         return cacheQueries;
     }
 
-    /* (non-Javadoc)
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#getQueryCacheRegion()
-     */
     @Override
     public String getQueryCacheRegion() {
         return queryCacheRegion;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#save(java.lang.Object)
-     */
     @Override
     public Serializable save(Object persistentObject) throws DaoException {
         try {
@@ -783,11 +656,6 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#saveOrUpdate(java.lang.Object)
-     */
     @Override
     public void saveOrUpdate(Object persistentObject) throws DaoException {
         try {
@@ -805,42 +673,21 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#find(java.lang.String, int, int)
-     */
     @Override
     public List find(String queryString, int firstResult, int maxResult) throws DaoException {
         return find(queryString, (Object[]) null, firstResult, maxResult);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#find(java.lang.String)
-     */
     @Override
     public List find(String queryString) throws DaoException {
         return find(queryString, (Object[]) null);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#find(java.lang.String, java.lang.Object)
-     */
     @Override
     public List find(String queryString, Object value) throws DaoException {
         return find(queryString, new Object[]{value});
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#find(java.lang.String, java.lang.Object[])
-     */
     @Override
     public List find(final String queryString, final Object[] values) throws DaoException {
         Session session = this.openSession();
@@ -862,13 +709,9 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#find(java.lang.String, java.lang.Object[], int, int)
-     */
     @Override
-    public List find(final String queryString, final Object[] values, final int firstResult, final int maxResult) throws DaoException {
+    public List find(final String queryString, final Object[] values, final int firstResult,
+                     final int maxResult) throws DaoException {
         Session session = this.openSession();
         try {
             Query queryObject = session.createQuery(queryString).setFirstResult(firstResult).setMaxResults(maxResult);
@@ -888,17 +731,18 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#loadAll(java.lang.Class)
-     */
     @Override
-    public List loadAll(final Class entityClass) throws DaoException {
+    public <T> List<T> loadAll(final Class<T> entityClass, List<Order> order) throws DaoException {
+
         Session session = this.openSession();
         try {
             beginTransaction();
             Criteria criteria = session.createCriteria(entityClass);
+
+            if (order != null) {
+                order.forEach(criteria::addOrder);
+            }
+
             if (autoCommit)
                 commitTransaction();
             return criteria.list();
@@ -911,17 +755,21 @@ public class HibernateDaoImpl implements HibernateDao {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.sybase.orm.hibernate.dao.HibernateDao#loadAll(java.lang.Class, int, int)
-     */
     @Override
-    public List loadAll(final Class entityClass, final int firstResult, final int maxResult) throws DaoException {
+    public <T> List<T> loadAll(final Class<T> entityClass, final int firstResult,
+                               final int maxResult, List<Order> orders)
+            throws DaoException {
         Session session = this.openSession();
         try {
             beginTransaction();
-            Criteria criteria = session.createCriteria(entityClass).setFirstResult(firstResult).setMaxResults(maxResult);
+            Criteria criteria = session.createCriteria(entityClass)
+                    .setFirstResult(firstResult)
+                    .setMaxResults(maxResult);
+
+            if (orders != null) {
+                orders.forEach(criteria::addOrder);
+            }
+
             if (autoCommit)
                 commitTransaction();
             return criteria.list();

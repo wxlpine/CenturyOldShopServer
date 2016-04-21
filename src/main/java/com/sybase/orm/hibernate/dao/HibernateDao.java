@@ -11,6 +11,7 @@ import com.sybase.orm.dao.DaoException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.jdbc.Work;
 
 import java.io.Serializable;
@@ -37,25 +38,28 @@ public interface HibernateDao extends Dao {
 
     public void delete(Object persistentObject) throws DaoException;
 
-    public List queryByExample(Class clazz, Object persistentObject) throws DaoException;
+    public <T> List<T> queryByExample(Class<T> clazz, Object persistentObject) throws DaoException;
 
-    public List findAll(Class clazz) throws DaoException;
+    public <T> List<T> findAll(Class<T> clazz) throws DaoException;
 
-    public List findByProperty(Class clazz, Criterion restriction) throws DaoException;
+    public <T> List<T> findByProperty(Class<T> clazz, Criterion restriction) throws DaoException;
 
-    public List findByCriterions(Class clazz, List restrictions) throws DaoException;
+    public <T> List<T> findByCriterions(Class<T> clazz, List restrictions) throws DaoException;
 
-    public List findBySQLQuery(String sqlQuery, String aliasName, Class clazz) throws DaoException;
+    public <T> List<T> findBySQLQuery(String sqlQuery, String aliasName, Class<T> clazz) throws DaoException;
 
     public List findByHQLQuery(String hqlQuery) throws DaoException;
 
     public List findByNamedParam(String queryString, String paramName, Object value) throws DaoException;
 
-    public List findByNamedParam(String queryString, String paramName, Object value, int firstResult, int maxResult) throws DaoException;
+    public List findByNamedParam(String queryString, String paramName, Object value, int firstResult, int maxResult)
+            throws DaoException;
 
-    public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values) throws DaoException;
+    public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values)
+            throws DaoException;
 
-    public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values, final int firstResult, final int maxResult) throws DaoException;
+    public List findByNamedParam(final String queryString, final String[] paramNames, final Object[] values,
+                                 final int firstResult, final int maxResult) throws DaoException;
 
     public List findByValueBean(final String queryString, final Object valueBean) throws DaoException;
 
@@ -65,11 +69,14 @@ public interface HibernateDao extends Dao {
 
     public List findByNamedQuery(final String queryName, final Object[] values) throws DaoException;
 
-    public abstract List findByNamedQueryAndNamedParam(String queryName, String paramName, Object value) throws DaoException;
+    public abstract List findByNamedQueryAndNamedParam(String queryName, String paramName, Object value)
+            throws DaoException;
 
-    public List findByNamedQueryAndNamedParam(final String queryName, final String[] paramNames, final Object[] values) throws DaoException;
+    public List findByNamedQueryAndNamedParam(final String queryName, final String[] paramNames,
+                                              final Object[] values) throws DaoException;
 
-    public List findByNamedQueryAndValueBean(final String queryName, final Object valueBean) throws DaoException;
+    public List findByNamedQueryAndValueBean(final String queryName, final Object valueBean)
+            throws DaoException;
 
     public boolean isCacheQueries();
 
@@ -87,9 +94,12 @@ public interface HibernateDao extends Dao {
 
     public List find(final String queryString, final Object[] values) throws DaoException;
 
-    public List find(final String queryString, final Object[] values, final int firstResult, final int maxResult) throws DaoException;
+    public List find(final String queryString, final Object[] values, final int firstResult, final int maxResult)
+            throws DaoException;
 
-    public List loadAll(final Class entityClass) throws DaoException;
+    public <T> List<T> loadAll(final Class<T> entityClass, List<Order> order) throws DaoException;
 
-    public List loadAll(final Class entityClass, final int firstResult, final int maxResult) throws DaoException;
+    public <T> List<T> loadAll(final Class<T> entityClass, final int firstResult, final int maxResult,
+                               List<Order> orders)
+            throws DaoException;
 }

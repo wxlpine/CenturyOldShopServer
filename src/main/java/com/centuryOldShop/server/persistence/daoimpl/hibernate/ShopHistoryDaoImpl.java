@@ -84,7 +84,7 @@ public class ShopHistoryDaoImpl extends HibernateDaoImpl implements ShopHistoryD
      */
     @Override
     public List<ShopHistory> getShopHistoryList() throws DaoException {
-        return super.loadAll(ShopHistory.class);
+        return super.loadAll(ShopHistory.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class ShopHistoryDaoImpl extends HibernateDaoImpl implements ShopHistoryD
      */
     @Override
     public List<ShopHistory> getShopHistoryList(int firstResult, int maxResult) {
-        return super.loadAll(ShopHistory.class, firstResult, maxResult);
+        return super.loadAll(ShopHistory.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

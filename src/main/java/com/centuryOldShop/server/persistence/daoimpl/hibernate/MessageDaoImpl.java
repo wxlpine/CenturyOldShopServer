@@ -84,7 +84,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
      */
     @Override
     public List<Message> getMessageList() throws DaoException {
-        return super.loadAll(Message.class);
+        return super.loadAll(Message.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class MessageDaoImpl extends HibernateDaoImpl implements MessageDao {
      */
     @Override
     public List<Message> getMessageList(int firstResult, int maxResult) {
-        return super.loadAll(Message.class, firstResult, maxResult);
+        return super.loadAll(Message.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

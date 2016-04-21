@@ -82,7 +82,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
      */
     @Override
     public List<OrderFormCommodity> getOrderFormCommodityList() throws DaoException {
-        return super.loadAll(OrderFormCommodity.class);
+        return super.loadAll(OrderFormCommodity.class, null);
     }
 
     /* (non-Javadoc)
@@ -90,7 +90,7 @@ public class OrderFormCommodityDaoImpl extends HibernateDaoImpl implements Order
      */
     @Override
     public List<OrderFormCommodity> getOrderFormCommodityList(int firstResult, int maxResult) {
-        return super.loadAll(OrderFormCommodity.class, firstResult, maxResult);
+        return super.loadAll(OrderFormCommodity.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

@@ -82,7 +82,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
      */
     @Override
     public List<UserEvaluation> getUserEvaluationList() throws DaoException {
-        return super.loadAll(UserEvaluation.class);
+        return super.loadAll(UserEvaluation.class, null);
     }
 
     /* (non-Javadoc)
@@ -90,7 +90,7 @@ public class UserEvaluationDaoImpl extends HibernateDaoImpl implements UserEvalu
      */
     @Override
     public List<UserEvaluation> getUserEvaluationList(int firstResult, int maxResult) {
-        return super.loadAll(UserEvaluation.class, firstResult, maxResult);
+        return super.loadAll(UserEvaluation.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

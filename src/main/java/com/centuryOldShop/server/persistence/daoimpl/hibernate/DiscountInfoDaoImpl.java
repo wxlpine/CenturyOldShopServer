@@ -84,7 +84,7 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
      */
     @Override
     public List<DiscountInfo> getDiscountInfoList() throws DaoException {
-        return super.loadAll(DiscountInfo.class);
+        return super.loadAll(DiscountInfo.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class DiscountInfoDaoImpl extends HibernateDaoImpl implements DiscountInf
      */
     @Override
     public List<DiscountInfo> getDiscountInfoList(int firstResult, int maxResult) {
-        return super.loadAll(DiscountInfo.class, firstResult, maxResult);
+        return super.loadAll(DiscountInfo.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

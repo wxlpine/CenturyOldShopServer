@@ -86,7 +86,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
      */
     @Override
     public List<Commodity> getCommodityList() throws DaoException {
-        return super.loadAll(Commodity.class);
+        return super.loadAll(Commodity.class, null);
     }
 
     /* (non-Javadoc)
@@ -94,7 +94,7 @@ public class CommodityDaoImpl extends HibernateDaoImpl implements CommodityDao {
      */
     @Override
     public List<Commodity> getCommodityList(int firstResult, int maxResult) {
-        return super.loadAll(Commodity.class, firstResult, maxResult);
+        return super.loadAll(Commodity.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

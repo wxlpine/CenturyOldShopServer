@@ -84,7 +84,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
      */
     @Override
     public List<DiscountType> getDiscountTypeList() throws DaoException {
-        return super.loadAll(DiscountType.class);
+        return super.loadAll(DiscountType.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class DiscountTypeDaoImpl extends HibernateDaoImpl implements DiscountTyp
      */
     @Override
     public List<DiscountType> getDiscountTypeList(int firstResult, int maxResult) {
-        return super.loadAll(DiscountType.class, firstResult, maxResult);
+        return super.loadAll(DiscountType.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

@@ -82,7 +82,7 @@ public class FavoriteDaoImpl extends HibernateDaoImpl implements FavoriteDao {
      */
     @Override
     public List<Favorite> getFavoriteList() throws DaoException {
-        return super.loadAll(Favorite.class);
+        return super.loadAll(Favorite.class, null);
     }
 
     /* (non-Javadoc)
@@ -90,7 +90,7 @@ public class FavoriteDaoImpl extends HibernateDaoImpl implements FavoriteDao {
      */
     @Override
     public List<Favorite> getFavoriteList(int firstResult, int maxResult) {
-        return super.loadAll(Favorite.class, firstResult, maxResult);
+        return super.loadAll(Favorite.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

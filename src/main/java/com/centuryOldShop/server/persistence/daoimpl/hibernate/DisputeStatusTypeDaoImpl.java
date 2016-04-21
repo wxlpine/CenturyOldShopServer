@@ -84,7 +84,7 @@ public class DisputeStatusTypeDaoImpl extends HibernateDaoImpl implements Disput
      */
     @Override
     public List<DisputeStatusType> getDisputeStatusTypeList() throws DaoException {
-        return super.loadAll(DisputeStatusType.class);
+        return super.loadAll(DisputeStatusType.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class DisputeStatusTypeDaoImpl extends HibernateDaoImpl implements Disput
      */
     @Override
     public List<DisputeStatusType> getDisputeStatusTypeList(int firstResult, int maxResult) {
-        return super.loadAll(DisputeStatusType.class, firstResult, maxResult);
+        return super.loadAll(DisputeStatusType.class, firstResult, maxResult, null);
     }
 
 }

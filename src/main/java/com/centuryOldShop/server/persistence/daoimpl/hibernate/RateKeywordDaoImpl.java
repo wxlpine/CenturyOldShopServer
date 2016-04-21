@@ -84,7 +84,7 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
      */
     @Override
     public List<RateKeyword> getRateKeywordList() throws DaoException {
-        return super.loadAll(RateKeyword.class);
+        return super.loadAll(RateKeyword.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class RateKeywordDaoImpl extends HibernateDaoImpl implements RateKeywordD
      */
     @Override
     public List<RateKeyword> getRateKeywordList(int firstResult, int maxResult) {
-        return super.loadAll(RateKeyword.class, firstResult, maxResult);
+        return super.loadAll(RateKeyword.class, firstResult, maxResult, null);
     }
 
 }

@@ -84,7 +84,7 @@ public class VideoIntroductionDaoImpl extends HibernateDaoImpl implements VideoI
      */
     @Override
     public List<VideoIntroduction> getVideoIntroductionList() throws DaoException {
-        return super.loadAll(VideoIntroduction.class);
+        return super.loadAll(VideoIntroduction.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class VideoIntroductionDaoImpl extends HibernateDaoImpl implements VideoI
      */
     @Override
     public List<VideoIntroduction> getVideoIntroductionList(int firstResult, int maxResult) {
-        return super.loadAll(VideoIntroduction.class, firstResult, maxResult);
+        return super.loadAll(VideoIntroduction.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

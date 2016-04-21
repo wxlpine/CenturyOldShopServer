@@ -84,7 +84,7 @@ public class OrderStatusTypeDaoImpl extends HibernateDaoImpl implements OrderSta
      */
     @Override
     public List<OrderStatusType> getOrderStatusTypeList() throws DaoException {
-        return super.loadAll(OrderStatusType.class);
+        return super.loadAll(OrderStatusType.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class OrderStatusTypeDaoImpl extends HibernateDaoImpl implements OrderSta
      */
     @Override
     public List<OrderStatusType> getOrderStatusTypeList(int firstResult, int maxResult) {
-        return super.loadAll(OrderStatusType.class, firstResult, maxResult);
+        return super.loadAll(OrderStatusType.class, firstResult, maxResult, null);
     }
 
 }

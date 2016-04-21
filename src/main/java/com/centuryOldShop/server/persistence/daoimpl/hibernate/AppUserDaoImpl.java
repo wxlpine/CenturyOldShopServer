@@ -83,7 +83,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
      */
     @Override
     public List<AppUser> getAppUserList() throws DaoException {
-        return super.loadAll(AppUser.class);
+        return super.loadAll(AppUser.class, null);
     }
 
     /* (non-Javadoc)
@@ -91,7 +91,7 @@ public class AppUserDaoImpl extends HibernateDaoImpl implements AppUserDao {
      */
     @Override
     public List<AppUser> getAppUserList(int firstResult, int maxResult) {
-        return super.loadAll(AppUser.class, firstResult, maxResult);
+        return super.loadAll(AppUser.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

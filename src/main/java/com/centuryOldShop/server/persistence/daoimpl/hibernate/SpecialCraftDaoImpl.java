@@ -84,7 +84,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
      */
     @Override
     public List<SpecialCraft> getSpecialCraftList() throws DaoException {
-        return super.loadAll(SpecialCraft.class);
+        return super.loadAll(SpecialCraft.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class SpecialCraftDaoImpl extends HibernateDaoImpl implements SpecialCraf
      */
     @Override
     public List<SpecialCraft> getSpecialCraftList(int firstResult, int maxResult) {
-        return super.loadAll(SpecialCraft.class, firstResult, maxResult);
+        return super.loadAll(SpecialCraft.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)

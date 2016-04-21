@@ -84,7 +84,7 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
      */
     @Override
     public List<ShopArea> getShopAreaList() throws DaoException {
-        return super.loadAll(ShopArea.class);
+        return super.loadAll(ShopArea.class, null);
     }
 
     /* (non-Javadoc)
@@ -92,7 +92,7 @@ public class ShopAreaDaoImpl extends HibernateDaoImpl implements ShopAreaDao {
      */
     @Override
     public List<ShopArea> getShopAreaList(int firstResult, int maxResult) {
-        return super.loadAll(ShopArea.class, firstResult, maxResult);
+        return super.loadAll(ShopArea.class, firstResult, maxResult, null);
     }
 
     /* (non-Javadoc)
