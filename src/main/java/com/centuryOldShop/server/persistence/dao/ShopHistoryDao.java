@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence.dao;
 
+import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.ShopHistory;
 import com.centuryOldShop.server.persistence.ShopHistoryPK;
 import com.sybase.orm.dao.Dao;
@@ -221,7 +222,7 @@ public interface ShopHistoryDao extends Dao {
      * @return <Code>ShopHistory</Code> instance list
      * @throws DaoException
      */
-    List<ShopHistory> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<ShopHistory> findByShop(Shop shop) throws DaoException;
 
     /**
      * Find <Code>ShopHistory</Code> instances  instances in range firstResult, maxResult
@@ -233,5 +234,8 @@ public interface ShopHistoryDao extends Dao {
      * @return <Code>ShopHistory</Code> instance list
      * @throws DaoException
      */
-    List<ShopHistory> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<ShopHistory> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException;
+
+    List<ShopHistory> findByShopOrderByPublishTimeDesc(Shop shop,
+            int firstResult, int maxResult) throws DaoException;
 }

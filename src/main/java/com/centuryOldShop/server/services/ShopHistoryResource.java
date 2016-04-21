@@ -23,8 +23,6 @@ public class ShopHistoryResource {
     public List<ShopHistoryDto> getShopHistory(@QueryParam("shopId") Long shopId,
                                                @QueryParam("start") @DefaultValue("0") int start,
                                                @QueryParam("size") @DefaultValue("20") int size) {
-//        System.out.printf("shopId: %d, start: %d, size: %d%n", shopId, start, size);
-
         if (shopId == null) {
             throw new BadRequestException("shopId can't be null");
         }
@@ -35,8 +33,7 @@ public class ShopHistoryResource {
         Shop shop = shopDao.load(new ShopPK(shopId));
 
         ShopHistoryDao shopHistoryDao = daoFactory.getShopHistoryDao();
-        //TODO order by publishedTime desc
-        List<ShopHistory> shopHistoryList = shopHistoryDao.findByShop(shop, start, size);
+        List<ShopHistory> shopHistoryList = shopHistoryDao.findByShopOrderByPublishTimeDesc(shop, start, size);
 
         List<ShopHistoryDto> shopHistoryDtos = ShopHistoryMapper.INSTANCE
                 .ShopHistoryList_ShopHistoryDtoList(shopHistoryList);

@@ -6,12 +6,14 @@
 
 package com.centuryOldShop.server.persistence.daoimpl.hibernate;
 
+import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.ShopHistory;
 import com.centuryOldShop.server.persistence.ShopHistoryPK;
 import com.centuryOldShop.server.persistence.dao.ShopHistoryDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
@@ -219,7 +221,7 @@ public class ShopHistoryDaoImpl extends HibernateDaoImpl implements ShopHistoryD
      * @see com.centuryOldShop.server.persistence.dao.ShopHistoryDao#findByShop(com.centuryOldShop.server.persistence.Shop)
      */
     @Override
-    public List<ShopHistory> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException {
+    public List<ShopHistory> findByShop(Shop shop) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
         return super.findByCriterions(ShopHistory.class, cs, null, null, null);
@@ -229,9 +231,21 @@ public class ShopHistoryDaoImpl extends HibernateDaoImpl implements ShopHistoryD
      * @see com.centuryOldShop.server.persistence.dao.ShopHistoryDao#findByShop(com.centuryOldShop.server.persistence.Shop, int, int)
      */
     @Override
-    public List<ShopHistory> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException {
+    public List<ShopHistory> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
         cs.add(Restrictions.eq("shop", shop));
         return super.findByCriterions(ShopHistory.class, cs, null, firstResult, maxResult);
+    }
+
+    @Override
+    public List<ShopHistory> findByShopOrderByPublishTimeDesc(Shop shop,
+            int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
+        cs.add(Restrictions.eq("shop", shop));
+
+        List<Order> orders = new ArrayList<>();
+        orders.add(Order.desc("publishTime"));
+
+        return super.findByCriterions(ShopHistory.class, cs, orders, firstResult, maxResult);
     }
 }
