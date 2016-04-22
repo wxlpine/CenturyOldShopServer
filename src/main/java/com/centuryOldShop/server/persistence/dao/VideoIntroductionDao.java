@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence.dao;
 
+import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.VideoIntroduction;
 import com.centuryOldShop.server.persistence.VideoIntroductionPK;
 import com.sybase.orm.dao.Dao;
@@ -212,7 +213,8 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    List<VideoIntroduction> findByAddedTime(java.util.Date addedTime, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByAddedTime(java.util.Date addedTime,
+            int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances from persistence store by Shop
@@ -221,7 +223,7 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    List<VideoIntroduction> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<VideoIntroduction> findByShop(Shop shop) throws DaoException;
 
     /**
      * Find <Code>VideoIntroduction</Code> instances  instances in range firstResult, maxResult
@@ -233,5 +235,6 @@ public interface VideoIntroductionDao extends Dao {
      * @return <Code>VideoIntroduction</Code> instance list
      * @throws DaoException
      */
-    List<VideoIntroduction> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<VideoIntroduction> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException;
+
 }
