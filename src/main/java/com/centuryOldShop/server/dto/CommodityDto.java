@@ -1,7 +1,5 @@
 package com.centuryOldShop.server.dto;
 
-import com.centuryOldShop.server.persistence.DiscountInfo;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +28,7 @@ public class CommodityDto implements Serializable {
 
     private List<UserEvaluationDto> userEvaluation;
 
-    private List<DiscountInfo> discountInfo;
+    private List<DiscountInfoDto> discountInfo;
 
     //<editor-fold name="accessor">
 
@@ -169,11 +167,11 @@ public class CommodityDto implements Serializable {
         return this;
     }
 
-    public List<DiscountInfo> getDiscountInfo() {
+    public List<DiscountInfoDto> getDiscountInfo() {
         return discountInfo;
     }
 
-    public CommodityDto setDiscountInfo(List<DiscountInfo> discountInfo) {
+    public CommodityDto setDiscountInfo(List<DiscountInfoDto> discountInfo) {
         this.discountInfo = discountInfo;
         return this;
     }
