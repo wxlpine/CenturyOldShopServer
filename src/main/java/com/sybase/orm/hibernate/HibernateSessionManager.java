@@ -71,6 +71,7 @@ public class HibernateSessionManager {
                 throw new DaoException("Fail to open session", ex);
             }
         }
+        s.clear();
         return s;
     }
 
