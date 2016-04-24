@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence.dao;
 
+import com.centuryOldShop.server.persistence.Shop;
 import com.centuryOldShop.server.persistence.SpecialCraft;
 import com.centuryOldShop.server.persistence.SpecialCraftPK;
 import com.sybase.orm.dao.Dao;
@@ -200,7 +201,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    List<SpecialCraft> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<SpecialCraft> findByShop(Shop shop) throws DaoException;
 
     /**
      * Find <Code>SpecialCraft</Code> instances  instances in range firstResult, maxResult
@@ -212,5 +213,7 @@ public interface SpecialCraftDao extends Dao {
      * @return <Code>SpecialCraft</Code> instance list
      * @throws DaoException
      */
-    List<SpecialCraft> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<SpecialCraft> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException;
+
+    List<SpecialCraft> findByShopOrderByAddedTimeDesc(Shop shop, int firstResult, int maxResult) throws DaoException;
 }
