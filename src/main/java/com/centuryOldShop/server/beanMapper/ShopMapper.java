@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
  * Created by cmicat on 2016/4/18.
  */
@@ -17,4 +19,6 @@ public interface ShopMapper {
     @Mapping(source = "shopType.shopTypeName", target = "shopType")
     @Mapping(source = "shopArea.shopAreaName", target = "shopArea")
     ShopDto Shop_ShopDto(Shop shop);
+
+    List<ShopDto> Shops_ShopDtoList(Iterable<Shop> shop);
 }

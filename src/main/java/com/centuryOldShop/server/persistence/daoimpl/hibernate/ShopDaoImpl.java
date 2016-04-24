@@ -14,10 +14,12 @@ import com.centuryOldShop.server.persistence.dao.ShopDao;
 import com.sybase.orm.dao.DaoException;
 import com.sybase.orm.hibernate.dao.HibernateDaoImpl;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -350,5 +352,23 @@ public class ShopDaoImpl extends HibernateDaoImpl implements ShopDao {
         return super.findByCriterions(Shop.class, cs, null, firstResult, maxResult);
     }
 
+    @Override
+    public List<Shop> find(ShopType shopType, Date openABusinessTime, ShopArea shopArea,
+            int firstResult, int maxResult) throws DaoException {
+        List<Criterion> cs = new ArrayList<>();
+        if (shopType != null) {
+            cs.add(Restrictions.eq("shopType", shopType));
+        }
+        if (openABusinessTime != null) {
+            cs.add(Restrictions.le("openABusinessTime", openABusinessTime));
+        }
+        if (shopArea != null) {
+            cs.add(Restrictions.eq("shopArea", shopArea));
+        }
 
+        List<Order> orders = new ArrayList<>();
+        orders.add(Order.desc("visitCount"));
+
+        return super.findByCriterions(Shop.class, cs, orders, firstResult, maxResult);
+    }
 }

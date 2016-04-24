@@ -7,11 +7,14 @@
 package com.centuryOldShop.server.persistence.dao;
 
 import com.centuryOldShop.server.persistence.Shop;
+import com.centuryOldShop.server.persistence.ShopArea;
 import com.centuryOldShop.server.persistence.ShopPK;
+import com.centuryOldShop.server.persistence.ShopType;
 import com.sybase.orm.dao.Dao;
 import com.sybase.orm.dao.DaoException;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -326,17 +329,31 @@ public interface ShopDao extends Dao {
      * @return <Code>Shop</Code> instance list
      * @throws DaoException
      */
-    List<Shop> findByShopArea(com.centuryOldShop.server.persistence.ShopArea shopArea) throws DaoException;
+    List<Shop> findByShopArea(ShopArea shopArea) throws DaoException;
 
     /**
      * Find <Code>Shop</Code> instances  instances in range firstResult, maxResult
      * from persistence store by ShopArea
      *
-     * @param shopArea
+     * @param shopArea 店铺区域
      * @param firstResult first result to return
      * @param maxResult   max result to return
      * @return <Code>Shop</Code> instance list
      * @throws DaoException
      */
-    List<Shop> findByShopArea(com.centuryOldShop.server.persistence.ShopArea shopArea, int firstResult, int maxResult) throws DaoException;
+    List<Shop> findByShopArea(ShopArea shopArea, int firstResult, int maxResult) throws DaoException;
+
+    /**
+     * 寻找指定的shopType，开业时间早于指定的值，指定的shopArea的店铺
+     *
+     * @param shopType          店铺类型
+     * @param openABusinessTime 早于的开业时间
+     * @param shopArea          店铺区域
+     * @param firstResult       first result to return，count start from 0
+     * @param maxResult         max result to return
+     * @return Shop列表
+     * @throws DaoException
+     */
+    List<Shop> find(ShopType shopType, Date openABusinessTime, ShopArea shopArea,
+            int firstResult, int maxResult) throws DaoException;
 }
