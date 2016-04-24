@@ -18,6 +18,7 @@ public class WebServiceApplication extends Application {
         singletons.add(new DiscountInfoResource());
         singletons.add(new VideoIntroductionResource());
         singletons.add(new AppUserResource());
+        singletons.add(new FavoriteResource());
     }
 
     @Override

@@ -6,6 +6,7 @@
 
 package com.centuryOldShop.server.persistence.dao;
 
+import com.centuryOldShop.server.persistence.AppUser;
 import com.centuryOldShop.server.persistence.Favorite;
 import com.centuryOldShop.server.persistence.FavoritePK;
 import com.sybase.orm.dao.Dao;
@@ -108,4 +109,6 @@ public interface FavoriteDao extends Dao {
      * @throws DaoException
      */
     List<Favorite> findByAddTime(java.util.Date addTime, int firstResult, int maxResult) throws DaoException;
+
+    List<Favorite> findByUserOrderByAddTimeDesc(AppUser user) throws DaoException;
 }

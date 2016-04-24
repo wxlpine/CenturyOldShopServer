@@ -6,6 +6,8 @@
 
 package com.centuryOldShop.server.persistence;
 
+import java.util.Date;
+
 /**
  * @pdOid fd7231df-0466-4d8b-b0c7-c500e6dc55a9
  */
@@ -21,6 +23,7 @@ public class Favorite implements java.io.Serializable {
     private Commodity favoriteCommodity;
     private AppUser favoriteUser;
 
+    //<editor-fold name="constructor and factory creator">
 
     /**
      * Empty constructor which is required by Hibernate
@@ -28,6 +31,15 @@ public class Favorite implements java.io.Serializable {
     public Favorite() {
     }
 
+    public static Favorite createFavoriteWithUserIdAndCommodityId(long userId, long commodityId) {
+        Favorite favorite = new Favorite();
+        favorite.setFavoritePK(new FavoritePK(userId, commodityId));
+        favorite.addTime = new Date();
+
+        return favorite;
+    }
+
+    //</editor-fold>
 
     //<editor-fold name="accessor">
 
