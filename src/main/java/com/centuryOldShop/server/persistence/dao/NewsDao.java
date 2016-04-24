@@ -8,6 +8,7 @@ package com.centuryOldShop.server.persistence.dao;
 
 import com.centuryOldShop.server.persistence.News;
 import com.centuryOldShop.server.persistence.NewsPK;
+import com.centuryOldShop.server.persistence.Shop;
 import com.sybase.orm.dao.Dao;
 import com.sybase.orm.dao.DaoException;
 
@@ -79,6 +80,8 @@ public interface NewsDao extends Dao {
      */
     List<News> getNewsList(int firstResult, int maxResult);
 
+    List<News> getNewsListOrderByPublishTimeDesc(int firstResult, int maxResult);
+
     /**
      * Query <Code>News</Code> instances by example instance
      *
@@ -95,7 +98,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findByTitle(java.lang.String title) throws DaoException;
+    List<News> findByTitle(String title) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances in range firstResult, maxResult
@@ -107,7 +110,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findByTitle(java.lang.String title, int firstResult, int maxResult) throws DaoException;
+    List<News> findByTitle(String title, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances from persistence store by contentUrl
@@ -116,7 +119,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findByContentUrl(java.lang.String contentUrl) throws DaoException;
+    List<News> findByContentUrl(String contentUrl) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances in range firstResult, maxResult
@@ -128,7 +131,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findByContentUrl(java.lang.String contentUrl, int firstResult, int maxResult) throws DaoException;
+    List<News> findByContentUrl(String contentUrl, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances from persistence store by publishTime
@@ -179,7 +182,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findBySpotScene(java.lang.String spotScene) throws DaoException;
+    List<News> findBySpotScene(String spotScene) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances in range firstResult, maxResult
@@ -191,7 +194,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findBySpotScene(java.lang.String spotScene, int firstResult, int maxResult) throws DaoException;
+    List<News> findBySpotScene(String spotScene, int firstResult, int maxResult) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances from persistence store by Shop
@@ -200,7 +203,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findByShop(com.centuryOldShop.server.persistence.Shop shop) throws DaoException;
+    List<News> findByShop(Shop shop) throws DaoException;
 
     /**
      * Find <Code>News</Code> instances  instances in range firstResult, maxResult
@@ -212,5 +215,7 @@ public interface NewsDao extends Dao {
      * @return <Code>News</Code> instance list
      * @throws DaoException
      */
-    List<News> findByShop(com.centuryOldShop.server.persistence.Shop shop, int firstResult, int maxResult) throws DaoException;
+    List<News> findByShop(Shop shop, int firstResult, int maxResult) throws DaoException;
+
+    List<News> findByShopOrderByPublishTimeDesc(Shop shop, int firstResult, int maxResult) throws DaoException;
 }
