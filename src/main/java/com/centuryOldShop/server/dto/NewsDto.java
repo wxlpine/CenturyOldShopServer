@@ -13,6 +13,7 @@ public class NewsDto {
     private String title;
     private String contentUrl;
     private java.util.Date publishTime;
+    private int readCount;
     private String spotScene;
 
     private ShopDto shop;
@@ -55,6 +56,15 @@ public class NewsDto {
         return this;
     }
 
+    public int getReadCount() {
+        return readCount;
+    }
+
+    public NewsDto setReadCount(int readCount) {
+        this.readCount = readCount;
+        return this;
+    }
+
     public String getSpotScene() {
         return spotScene;
     }
@@ -83,6 +93,7 @@ public class NewsDto {
         if (o == null || getClass() != o.getClass()) return false;
         NewsDto newsDto = (NewsDto) o;
         return newsId == newsDto.newsId &&
+                readCount == newsDto.readCount &&
                 Objects.equals(title, newsDto.title) &&
                 Objects.equals(contentUrl, newsDto.contentUrl) &&
                 Objects.equals(publishTime, newsDto.publishTime) &&
@@ -102,6 +113,7 @@ public class NewsDto {
                 ", title='" + title + '\'' +
                 ", contentUrl='" + contentUrl + '\'' +
                 ", publishTime=" + publishTime +
+                ", readCount=" + readCount +
                 ", spotScene='" + spotScene + '\'' +
                 ", shop=" + shop +
                 '}';
