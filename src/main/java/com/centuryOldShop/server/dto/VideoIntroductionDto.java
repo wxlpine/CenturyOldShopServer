@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Created by cmicat on 2016/4/21.
  */
-public class VideoIntroductionDto implements Serializable {
+public final class VideoIntroductionDto implements Serializable {
 
     private long videoIntroductionId;
     private String videoUrl;

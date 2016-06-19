@@ -8,7 +8,7 @@ package com.centuryOldShop.server.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ShopDto implements Serializable {
+public final class ShopDto implements Serializable {
 
     private long shopId;
     private String shopName;

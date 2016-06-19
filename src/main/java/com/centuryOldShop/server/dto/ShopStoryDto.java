@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Created by cmicat on 2016/4/19.
  */
-public class ShopStoryDto implements Serializable {
+public final class ShopStoryDto implements Serializable {
 
     private long storyId;
     private String storyName;

@@ -1,5 +1,6 @@
 package com.centuryOldShop.server.dto;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
@@ -7,7 +8,7 @@ import java.util.Objects;
 /**
  * Created by cmicat on 2016/4/22.
  */
-public class AppUserDto {
+public final class AppUserDto implements Serializable {
 
     private long userId;
     private String userName;

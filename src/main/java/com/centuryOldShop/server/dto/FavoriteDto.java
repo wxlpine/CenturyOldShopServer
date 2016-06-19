@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Created by cmicat on 2016/4/23.
  */
-public class FavoriteDto {
+public final class FavoriteDto implements Serializable {
 
     private long userId;
 
@@ -61,7 +61,7 @@ public class FavoriteDto {
 
     //</editor-fold>
 
-    public static class Content {
+    public static final class Content implements Serializable {
         private java.util.Date addTime;
 
         private CommodityDto commodity;
@@ -116,7 +116,7 @@ public class FavoriteDto {
 
     }
 
-    public static class CommodityDto implements Serializable {
+    public static final class CommodityDto implements Serializable {
         private long commodityId;
 
         private String commodityName;

@@ -1,13 +1,14 @@
 package com.centuryOldShop.server.dto;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 /**
  * Created by cmicat on 2016/4/24.
  */
-public class NewsDto {
+public final class NewsDto implements Serializable {
 
     private long newsId;
     private String title;

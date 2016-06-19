@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by cmicat on 2016/4/19.
  */
-public class ShopHistoryDto implements Serializable {
+public final class ShopHistoryDto implements Serializable {
 
     private long shopHistoryId;
     private String title;

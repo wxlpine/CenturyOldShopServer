@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Created by cmicat on 2016/4/20.
  */
-public class DiscountInfoDto implements Serializable {
+public final class DiscountInfoDto implements Serializable {
 
     private long discountInfoId;
 
@@ -197,7 +197,7 @@ public class DiscountInfoDto implements Serializable {
 
     //</editor-fold>
 
-    public static class CommodityDto implements Serializable {
+    public static final class CommodityDto implements Serializable {
 
         private long commodityId;
         private String commodityName;
