@@ -24,14 +24,14 @@ public class ShopStoryResource {
                                            @QueryParam("start") @DefaultValue("0") int start,
                                            @QueryParam("size") @DefaultValue("20") int size) {
 
-        if (shopId == null) {
-            throw new BadRequestException("shopId can't be null");
-        }
-
         DaoFactory daoFactory = DaoFactory.getDaoFactory();
 
-        ShopDao shopDao = daoFactory.getShopDao();
-        Shop shop = shopDao.load(new ShopPK(shopId));
+        Shop shop = null;
+        if (shopId != null) {
+            ShopDao shopDao = daoFactory.getShopDao();
+
+            shop = shopDao.load(new ShopPK(shopId));
+        }
 
         ShopStoryDao shopStoryDao = daoFactory.getShopStoryDao();
         List<ShopStory> shopStoryList = shopStoryDao.findByShopOrderByAddedTimeDesc(shop, start, size);

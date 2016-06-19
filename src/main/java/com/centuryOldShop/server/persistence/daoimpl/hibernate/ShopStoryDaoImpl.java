@@ -192,7 +192,9 @@ public class ShopStoryDaoImpl extends HibernateDaoImpl implements ShopStoryDao {
     private List<ShopStory> internal_findByShopOrderByAddedTimeDesc(Shop shop,
             Integer firstResult, Integer maxResult) throws DaoException {
         List<Criterion> cs = new ArrayList<>();
-        cs.add(Restrictions.eq("shop", shop));
+        if (shop != null) {
+            cs.add(Restrictions.eq("shop", shop));
+        }
 
         List<Order> orders = new ArrayList<>();
         orders.add(Order.desc("addedTime"));
